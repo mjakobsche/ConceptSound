@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
       <div v-for="resource in resources">
-        <TextResource/>
+        <TextResource @del-resource="() => removeResource(resource.id)"/>
       </div>
       <AddButton @new-resource="(type) => addResource(type)"/>
     </ion-content>
@@ -36,7 +36,6 @@ import {
 } from '@ionic/vue';
 import AddButton from '@/components/AddButton.vue';
 import TextResource from '@/components/TextResource.vue';
-
 import { Ref } from 'vue';
 
 interface Resource {
@@ -54,5 +53,10 @@ function addResource(type: string) {
       resources.value.push({ id: id++, type: "text", content: {}});
       break;
   }
+}
+
+function removeResource(id: number){
+  console.log(id)
+  resources.value = resources.value.filter((t) => t.id !== id)
 }
 </script>
