@@ -1,14 +1,11 @@
 <template>
-  <div v-for="resource in resources">
-    <TextResource/>
-  </div>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button size="small">
       <ion-icon :icon="addCircleOutline"></ion-icon>
     </ion-fab-button>
 
     <ion-fab-list side="start">
-      <ion-fab-button @click="addResource('text')">
+      <ion-fab-button @click="emit('newResource', 'text')">
         <ion-icon :icon="languageOutline"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>
@@ -30,19 +27,7 @@
 <script setup lang="ts">
 import { IonButton, IonIcon,IonFab, IonFabButton, IonFabList} from '@ionic/vue';
 import { addCircleOutline, languageOutline, micOutline, musicalNoteOutline, documentOutline, imageOutline} from 'ionicons/icons';
-import { ref, reactive } from 'vue'
-import TextResource from '@/components/TextResource.vue';
-
-let id = 0
-let resources = ref([{}]);
-
-function addResource(type: string) {
-  switch (type){
-    case "text": resources.value.push({ id: id++}); break;
-  }
-  
-} 
-
+const emit = defineEmits(['newResource'])
 </script>
 
 <style scoped>
