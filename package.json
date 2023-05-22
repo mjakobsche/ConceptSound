@@ -20,6 +20,7 @@
     "@ionic/vue": "^7.0.0",
     "@ionic/vue-router": "^7.0.0",
     "@types/sortablejs": "^1.15.1",
+    "abcjs": "^6.2.2",
     "ionicons": "^7.0.0",
     "sortablejs": "^1.15.0",
     "sortablejs-vue3": "^1.2.9",

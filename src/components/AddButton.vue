@@ -8,11 +8,11 @@
       <ion-fab-button @click="emit('newResource', 'text')">
         <ion-icon :icon="languageOutline"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon :icon="micOutline"></ion-icon>
+      <ion-fab-button @click="emit('newResource', 'note')">
+        <ion-icon :icon="musicalNoteOutline"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>
-        <ion-icon :icon="musicalNoteOutline"></ion-icon>
+        <ion-icon :icon="micOutline"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>
         <ion-icon :icon="documentOutline"></ion-icon>
@@ -34,6 +34,6 @@ const emit = defineEmits(['newResource'])
   ion-fab-button {
     --border-radius: 15px;
     --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-    --color: black;
+    --color: white;
   }
 </style>
