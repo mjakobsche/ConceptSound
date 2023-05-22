@@ -4,7 +4,7 @@
       <ion-icon :icon="addCircleOutline"></ion-icon>
     </ion-fab-button>
 
-    <ion-fab-list side="start">
+    <ion-fab-list side="top">
       <ion-fab-button @click="emit('newResource', 'text')">
         <ion-icon :icon="languageOutline"></ion-icon>
       </ion-fab-button>

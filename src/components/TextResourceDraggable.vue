@@ -7,13 +7,8 @@
         :options="{handle: '.handle'}"
       >
         <template #item="{ element }">
-          <span>
-            <p class="handle">comment</p>
-          </span>
-          <div class="draggable" :key="element.id">
-            {{ element.text }}
-            
-          </div>
+          <span v-if="element.type == 'comment'"><p class="handle">{{ element.text }}</p></span>
+          <div v-else :key="element.id">{{ element.text }}</div>
         </template>
       </Sortable>
     </div>
@@ -22,27 +17,53 @@
 
 
 <script setup lang="ts">
-import {IonButton, IonInput, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle, IonItem, IonTextarea} from '@ionic/vue';
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { Sortable } from "sortablejs-vue3"
-import {trashBinOutline, eyeOutline, createOutline} from 'ionicons/icons';
 
 const props = defineProps({
     text: String,
 })
 
 const splitText = computed(() => {
-        let text = props.text ? props.text : "hah";
-        return text.split(/\r\n|\r|\n/).map((text, index) => ({ id: index, text }));;
+        let text = props.text ? props.text : "";       
+
+        return processText(text);
 })
 
+function processText(input: string): { id: number; text: string; type: 'text' | 'comment' }[] {
+  const lines = input.split(/\r\n|\r|\n/);
+  const result: { id: number; text: string; type: 'text' | 'comment' }[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    if (line.includes('//')) {
+      const segments = line.split('//');
+      const text = segments[0].trim();
+      const comment = segments[1]?.trim();
+      if (comment && comment.length > 0) {
+        result.push({ id: i + 1, text: comment, type: 'comment' });
+      }
+      if (text.length > 0) {
+        result.push({ id: i + 1, text, type: 'text' });
+      }
+
+      
+    } else {
+      result.push({ id: i + 1, text: line.trim(), type: 'text' });
+    }
+  }
+
+  return result;
+}
 
 </script>
 
 <style scoped>
 
 .handle {
-  font-size: smaller;
+  font-size: x-small;
   text-align: end;
+  color: #ffc409;
 }
 </style>

@@ -48,7 +48,7 @@ interface Resource {
 
 let resources: Ref<Resource[]> = ref([]);
 let id: number = 1;
-let text: string = "Hej, hej, hej sokoły\nOmijajcie góry, lasy, pola, doły\nDzwoń, dzwoń, dzwoń dzwoneczku\nMój stepowy skowroneczku\nHej, hej, hej sokoły\nOmijajcie góry, lasy, pola, doły\nDzwoń, dzwoń, dzwoń dzwoneczku\nMój stepowy, dzwoń, dzwoń, dzwoń"
+let text: string = "Hej, hej, hej sokoły//żywo, skocznie\nOmijajcie góry, lasy, pola, doły\nDzwoń, dzwoń, dzwoń dzwoneczku\nMój stepowy skowroneczku\nHej, hej, hej sokoły\nOmijajcie góry, lasy, pola, doły\nDzwoń, dzwoń, dzwoń dzwoneczku\nMój stepowy, \ndzwoń, dzwoń, dzwoń //znacznie wolniej "
 function addResource(type: string) {
   switch (type) {
     case "text":
