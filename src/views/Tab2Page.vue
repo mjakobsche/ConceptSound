@@ -12,7 +12,7 @@
         </ion-toolbar>
       </ion-header>
       <div v-for="resource in resources">
-        <TextResource @del-resource="() => removeResource(resource.id)"/>
+        <TextResource @del-resource="() => removeResource(resource.id)" :content="resource.content"/>
       </div>
       <AddButton @new-resource="(type) => addResource(type)"/>
     </ion-content>
@@ -38,19 +38,21 @@ import AddButton from '@/components/AddButton.vue';
 import TextResource from '@/components/TextResource.vue';
 import { Ref } from 'vue';
 
+
+
 interface Resource {
   id: number;
-  type?: string;
-  content?: object;
+  type: string;
+  content: string;
 }
 
 let resources: Ref<Resource[]> = ref([]);
 let id: number = 1;
-
+let text: string = "Hej, hej, hej sokoły\nOmijajcie góry, lasy, pola, doły\nDzwoń, dzwoń, dzwoń dzwoneczku\nMój stepowy skowroneczku\nHej, hej, hej sokoły\nOmijajcie góry, lasy, pola, doły\nDzwoń, dzwoń, dzwoń dzwoneczku\nMój stepowy, dzwoń, dzwoń, dzwoń"
 function addResource(type: string) {
   switch (type) {
     case "text":
-      resources.value.push({ id: id++, type: "text", content: {}});
+      resources.value.push({ id: id++,  type: "text", content: text});
       break;
   }
 }
