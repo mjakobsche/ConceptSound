@@ -1,0 +1,7 @@
+{
+  "name": "ConceptSound",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
