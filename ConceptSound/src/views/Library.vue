@@ -13,7 +13,7 @@
 				</ion-toolbar>
 			</ion-header>
 			<ion-list>
-				<book v-for="book in Books" :book-data="book"></book>
+				<LibraryBook v-for="book in Books" :book-data="book"></LibraryBook>
 			</ion-list>
 		</ion-content>
 	</ion-page>
@@ -29,9 +29,8 @@ import {
 	IonToolbar,
 	IonList,
 } from "@ionic/vue";
-import Book from "@/components/book.vue";
-
 import ListBooks from "@/data/ListBooks";
+import LibraryBook from "@/components/LibraryBook.vue";
 let Books = ref(ListBooks);
 </script>
 
