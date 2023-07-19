@@ -1,5 +1,5 @@
 {
-  "name": "ConceptSound",
+  "name": "app",
   "integrations": {
     "capacitor": {}
   },
