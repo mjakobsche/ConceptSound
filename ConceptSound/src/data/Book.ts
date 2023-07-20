@@ -1,7 +1,7 @@
 import { Page } from "./Page";
 export type Book = {
 	id: number;
-	name: string;
+	title: string;
 	date: Date;
 	content: Page[];
 };

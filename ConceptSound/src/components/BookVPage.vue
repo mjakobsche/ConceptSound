@@ -4,16 +4,48 @@
 			<ion-card-header>
 				<div class="input-container handle">
 					<ion-card-title>
-						<slot></slot>
+						<ion-input :placeholder="props.page.type">{{
+							props.page.name
+						}}</ion-input>
 					</ion-card-title>
+					<ion-button
+						fill="clear"
+						size="small"
+						shape="round"
+						@click="emit('hidePage')"
+						ref="hidden"
+					>
+						<ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
+					</ion-button>
 				</div>
 			</ion-card-header>
+			<ion-card-content v-if="props.page.hidden == false">
+				<slot></slot>
+			</ion-card-content>
 		</ion-card>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { IonCard, IonCardHeader, IonCardTitle } from "@ionic/vue";
+import {
+	IonCard,
+	IonCardHeader,
+	IonCardTitle,
+	IonCardContent,
+	IonInput,
+	IonButton,
+	IonIcon,
+} from "@ionic/vue";
+import { eyeOutline } from "ionicons/icons";
+import type { PropType } from "vue";
+import { Page } from "@/data/Page";
+const props = defineProps({
+	page: {
+		type: Object as PropType<Page>,
+		required: true,
+	},
+});
+const emit = defineEmits(["hidePage"]);
 </script>
 
 <style scoped>

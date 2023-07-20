@@ -3,7 +3,7 @@
 		<IonCardContent>
 			<ion-card-subtitle>{{ renderDate(props.book.date) }}</ion-card-subtitle>
 			<div class="bookMainPart">
-				<ion-card-title>{{ props.book.name }}</ion-card-title>
+				<ion-card-title>{{ props.book.title }}</ion-card-title>
 				<div>
 					<ion-button
 						fill="clear"

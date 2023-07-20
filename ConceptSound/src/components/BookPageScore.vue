@@ -1,6 +1,4 @@
-<template>
-	<ion-input placeholder="Nuty"></ion-input>
-</template>
+<template></template>
 
 <script setup lang="ts">
 import { IonInput } from "@ionic/vue";

@@ -1,6 +1,4 @@
-<template>
-	<ion-input placeholder="Tekst"></ion-input>
-</template>
+<template>test</template>
 
 <script setup lang="ts">
 import { IonInput } from "@ionic/vue";
