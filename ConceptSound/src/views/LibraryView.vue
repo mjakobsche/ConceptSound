@@ -6,13 +6,13 @@
 					<ion-title size="large">Biblioteka</ion-title>
 				</ion-toolbar>
 			</ion-header>
-			<LibraryAddBook @add-book="(name) => modLibrary('add', name)">
+			<LibraryAddBook @add-book="(title) => libraryStore.addBook(title)">
 			</LibraryAddBook>
 			<div v-for="book in library">
 				<LibraryBook
-					:book="book"
-					@rem="modLibrary('rem', book.id.toString())"
-					@set="store.setBookId(book.id)"
+					:id="book.id"
+					@rem="libraryStore.remBook(book.id)"
+					@set="bookStore.loadBook(book.id)"
 				>
 				</LibraryBook>
 			</div>
@@ -30,10 +30,11 @@ import {
 } from "@ionic/vue";
 import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
-import { getLibrary, modLibrary } from "@/data/ServiceLibrary";
 import { useCurrentBook } from "@/stores/currentBook";
-
-const store = useCurrentBook();
-const library = getLibrary();
+import { useCurrentLibrary } from "@/stores/currentLibrary";
+import { storeToRefs } from "pinia";
+const bookStore = useCurrentBook();
+const libraryStore = useCurrentLibrary();
+const { library } = storeToRefs(libraryStore);
 </script>
-@/stores/currentBook
+@/data/TranslationService @/stores/Book

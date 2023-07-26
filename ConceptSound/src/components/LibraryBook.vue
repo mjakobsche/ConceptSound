@@ -1,9 +1,9 @@
 <template>
 	<ion-card>
 		<IonCardContent>
-			<ion-card-subtitle>{{ renderDate(props.book.date) }}</ion-card-subtitle>
+			<ion-card-subtitle>{{ renderDate(book.date) }}</ion-card-subtitle>
 			<div class="bookMainPart">
-				<ion-card-title>{{ props.book.title }}</ion-card-title>
+				<ion-card-title>{{ book.title }}</ion-card-title>
 				<div>
 					<ion-button
 						fill="clear"
@@ -37,15 +37,18 @@ import {
 	IonCardSubtitle,
 	IonCardContent,
 } from "@ionic/vue";
-import type { PropType } from "vue";
-import { Book } from "@/data/Book";
+import { useCurrentLibrary } from "@/stores/currentLibrary";
+import { storeToRefs } from "pinia";
 const emit = defineEmits(["rem", "set"]);
 const props = defineProps({
-	book: {
-		type: Object as PropType<Book>,
+	id: {
 		required: true,
+		type: Number,
 	},
 });
+const libraryStore = useCurrentLibrary();
+const { getBook } = storeToRefs(libraryStore);
+const book = getBook.value(props.id);
 
 function renderDate(date: Date): string {
 	const day = date.getDate();

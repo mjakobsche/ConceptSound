@@ -4,22 +4,25 @@
 			<ion-card-header>
 				<div class="input-container handle">
 					<ion-card-title>
-						<ion-input :placeholder="props.page.type">{{
-							props.page.name
-						}}</ion-input>
+						<!-- <ion-input
+							v-bind:placeholder="thisPage.type"
+							v-model="thisPage.name"
+							>{{ thisPage.name }}</ion-input
+						> -->
+						{{ page.name }}
 					</ion-card-title>
 					<ion-button
 						fill="clear"
 						size="small"
 						shape="round"
-						@click="emit('hidePage')"
+						@click="page.hidden = !page.hidden"
 						ref="hidden"
 					>
 						<ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
 					</ion-button>
 				</div>
 			</ion-card-header>
-			<ion-card-content v-if="props.page.hidden == false">
+			<ion-card-content v-if="page.hidden == false">
 				<slot></slot>
 			</ion-card-content>
 		</ion-card>
@@ -37,15 +40,20 @@ import {
 	IonIcon,
 } from "@ionic/vue";
 import { eyeOutline } from "ionicons/icons";
-import type { PropType } from "vue";
-import { Page } from "@/data/Page";
+import { useCurrentBook } from "@/stores/currentBook";
+import { storeToRefs } from "pinia";
 const props = defineProps({
-	page: {
-		type: Object as PropType<Page>,
+	id: {
+		type: Number,
 		required: true,
 	},
 });
-const emit = defineEmits(["hidePage"]);
+
+const emit = defineEmits(["setHidden"]);
+
+const bookStore = useCurrentBook();
+const { getPage } = storeToRefs(bookStore);
+const page = getPage.value(props.id);
 </script>
 
 <style scoped>
@@ -55,3 +63,4 @@ const emit = defineEmits(["hidePage"]);
 	align-items: center;
 }
 </style>
+@/stores/Book

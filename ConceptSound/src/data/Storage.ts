@@ -1,7 +1,6 @@
-import { Ref, ref } from "vue";
 import { Book } from "./Book";
 
-let library: Ref<Book[]> = ref([
+let storage: Book[] = [
 	{
 		id: 0,
 		title: "Poradnik",
@@ -10,6 +9,6 @@ let library: Ref<Book[]> = ref([
 	},
 	{ id: 1, title: "Odes to Belobog", date: new Date(), content: [] },
 	{ id: 2, title: "Scherzo", date: new Date(), content: [] },
-]);
+];
 
-export default library;
+export default storage;

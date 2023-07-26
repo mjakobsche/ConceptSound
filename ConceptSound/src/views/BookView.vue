@@ -6,14 +6,14 @@
 			</ion-toolbar>
 		</ion-header>
 		<ion-content :fullscreen="true">
-			<BookAddPage @add-page="(pageType) => addPage(pageType)" />
+			<BookAddPage @add-page="(type) => bookStore.addPage(type)" />
 			<Sortable
 				:list="book.content"
 				item-key="id"
 				:options="{ handle: '.handle' }"
 			>
 				<template #item="{ element }">
-					<BookVPage :page="element" @hide-page="hidePage(element.id)">
+					<BookVPage :id="element.id">
 						<component :is="'BookPage' + element.type"></component>
 					</BookVPage>
 				</template>
@@ -34,34 +34,9 @@ import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
 import { storeToRefs } from "pinia";
 import { useCurrentBook } from "@/stores/currentBook";
-import { getBook, modBook } from "@/data/ServiceLibrary";
 import { Sortable } from "sortablejs-vue3";
-import { Page } from "@/data/Page";
 
-const store = useCurrentBook();
-const { bookId } = storeToRefs(store);
-
-const book = getBook(bookId.value);
-
-function addPage(type: string) {
-	let page: Page = {
-		id: book.content.length,
-		type: type,
-		name: "",
-		data: type == "score" ? "X:1\nK:D\n" : "",
-		hidden: false,
-	};
-	modBook(bookId.value, "add", page);
-}
-
-function hidePage(id: number) {
-	let page: Page = book.content[id];
-	page.hidden = !page.hidden;
-	modBook(bookId.value, "swap", page);
-}
-
-function remPage(id: number) {
-	let page: Page = book.content[id];
-	modBook(bookId.value, "rem", page);
-}
+const bookStore = useCurrentBook();
+const { book } = storeToRefs(bookStore);
 </script>
+@/stores/Book

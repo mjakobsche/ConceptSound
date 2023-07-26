@@ -46,9 +46,9 @@ const alertButtons = [
 	{
 		text: "Dodaj",
 		handler: (data: { value: string }) => {
-			let name = data.value;
-			if (name.length != 0) {
-				emit("addBook", name);
+			let title = data.value;
+			if (title.length != 0) {
+				emit("addBook", title);
 			}
 		},
 	},
