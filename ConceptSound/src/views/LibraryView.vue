@@ -10,7 +10,7 @@
 			</LibraryAddBook>
 			<div v-for="book in library">
 				<LibraryBook
-					:id="book.id"
+					:book="book"
 					@rem="libraryStore.remBook(book.id)"
 					@set="bookStore.loadBook(book.id)"
 				>

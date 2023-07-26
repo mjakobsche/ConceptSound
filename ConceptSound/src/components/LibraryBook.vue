@@ -37,18 +37,16 @@ import {
 	IonCardSubtitle,
 	IonCardContent,
 } from "@ionic/vue";
-import { useCurrentLibrary } from "@/stores/currentLibrary";
-import { storeToRefs } from "pinia";
+import { PropType } from "vue";
+import { Book } from "@/data/Book";
+
 const emit = defineEmits(["rem", "set"]);
 const props = defineProps({
-	id: {
+	book: {
 		required: true,
-		type: Number,
+		type: Object as PropType<Book>,
 	},
 });
-const libraryStore = useCurrentLibrary();
-const { getBook } = storeToRefs(libraryStore);
-const book = getBook.value(props.id);
 
 function renderDate(date: Date): string {
 	const day = date.getDate();

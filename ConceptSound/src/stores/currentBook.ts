@@ -14,12 +14,15 @@ export const useCurrentBook = defineStore("currentBook", () => {
 
 	const unwatch = watch(book.value.content, () => {});
 	function loadBook(id: number) {
-		unwatch();
-		book.value = storage[id];
+		let newBook = storage.find((t) => t.id == id);
+		if (newBook) {
+			unwatch();
+			book.value = newBook;
 
-		watch(book.value.content, () => {
-			console.log("modified");
-		});
+			watch(book.value.content, () => {
+				console.log("modified");
+			});
+		}
 	}
 
 	const getPage = computed(() => {
