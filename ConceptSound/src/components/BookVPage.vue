@@ -42,9 +42,11 @@ import {
 import { eyeOutline } from "ionicons/icons";
 import { useCurrentBook } from "@/stores/currentBook";
 import { storeToRefs } from "pinia";
+import { PropType } from "vue";
+import { Page } from "@/data/Page";
 const props = defineProps({
-	id: {
-		type: Number,
+	page: {
+		type: Object as PropType<Page>,
 		required: true,
 	},
 });
@@ -53,7 +55,7 @@ const emit = defineEmits(["setHidden"]);
 
 const bookStore = useCurrentBook();
 const { getPage } = storeToRefs(bookStore);
-const page = getPage.value(props.id);
+const page = getPage.value(props.page.id);
 </script>
 
 <style scoped>

@@ -5,7 +5,15 @@ let storage: Book[] = [
 		id: 0,
 		title: "Poradnik",
 		date: new Date(),
-		content: [{ id: 0, type: "Text", name: "Text", data: "", hidden: false }],
+		content: [
+			{
+				id: 0,
+				type: "Text",
+				name: "Text",
+				data: "hej, hej, hej sokoły \n omijajcie góry lasy doły",
+				hidden: false,
+			},
+		],
 	},
 	{ id: 1, title: "Odes to Belobog", date: new Date(), content: [] },
 	{ id: 2, title: "Scherzo", date: new Date(), content: [] },

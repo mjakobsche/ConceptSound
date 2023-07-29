@@ -1,6 +1,5 @@
 import storage from "@/data/Storage";
 import { Book } from "./Book";
-import { BookCover } from "./BookCover";
 
 function createBook(title: string) {
 	let newBookIndex = storage.length;
@@ -11,6 +10,11 @@ function createBook(title: string) {
 		content: [],
 	});
 	return { status: "success", newBookIndex: newBookIndex };
+}
+
+function updateBook(book: Book) {
+	storage[book.id] = book;
+	return { status: "success", thisBookIndex: book.id };
 }
 
 function deleteBook(id: number) {
@@ -24,4 +28,4 @@ function deleteBook(id: number) {
 	return { status: "success", lastBookIndex: lastBookIndex };
 }
 
-export { createBook, deleteBook };
+export { createBook, updateBook, deleteBook };

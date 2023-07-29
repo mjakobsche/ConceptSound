@@ -1,36 +1,25 @@
 import { defineStore } from "pinia";
-import { ref, watch, computed } from "vue";
+import { Ref, ref, watch, computed } from "vue";
 import { Book } from "@/data/Book";
 import storage from "@/data/Storage";
-
+import { emptyBook } from "@/errors/emptyBook";
+import { openBook } from "@/data/LibraryProvider";
+import { updateBook } from "@/data/LibraryCommander";
 export const useCurrentBook = defineStore("currentBook", () => {
-	let emptyBook: Book = {
-		id: -1,
-		title: "ERROR",
-		date: new Date(),
-		content: [],
-	};
-	const book = ref(emptyBook);
-
-	const unwatch = watch(book.value.content, () => {});
-	function loadBook(id: number) {
-		let newBook = storage.find((t) => t.id == id);
-		if (newBook) {
-			unwatch();
-			book.value = newBook;
-
-			watch(book.value.content, () => {
-				console.log("modified");
-			});
-		}
-	}
+	const book: Ref<Book> = ref(emptyBook);
 
 	const getPage = computed(() => {
 		return (id: number) => book.value.content[id];
 	});
-	function remPage(id: number) {
-		book.value.content = book.value.content.filter((t) => t.id !== id);
+
+	function setBook(id: number) {
+		book.value = openBook(id);
 	}
+
+	function modBook() {
+		updateBook(book.value);
+	}
+
 	function addPage(type: string) {
 		let bookIndex = book.value.content.length;
 		let initData;
@@ -51,5 +40,9 @@ export const useCurrentBook = defineStore("currentBook", () => {
 		});
 	}
 
-	return { loadBook, book, getPage, addPage, remPage };
+	function remPage(id: number) {
+		book.value.content = book.value.content.filter((t) => t.id !== id);
+	}
+
+	return { book, setBook, addPage, remPage, getPage };
 });

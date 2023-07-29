@@ -13,8 +13,11 @@
 				:options="{ handle: '.handle' }"
 			>
 				<template #item="{ element }">
-					<BookVPage :id="element.id">
-						<component :is="'BookPage' + element.type"></component>
+					<BookVPage :page="element">
+						<component
+							:is="'BookPage' + element.type"
+							:data="element.data"
+						></component>
 					</BookVPage>
 				</template>
 			</Sortable>
