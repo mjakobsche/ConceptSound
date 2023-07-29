@@ -9,7 +9,7 @@
 						fill="clear"
 						size="small"
 						shape="round"
-						@click="emit('rem')"
+						@click="emit('rem', book.id)"
 					>
 						<ion-icon slot="icon-only" :icon="closeCircleOutline"></ion-icon>
 					</ion-button>
@@ -38,13 +38,13 @@ import {
 	IonCardContent,
 } from "@ionic/vue";
 import { PropType } from "vue";
-import { Book } from "@/data/Book";
+import { BookCover } from "@/data/BookCover";
 
 const emit = defineEmits(["rem", "set"]);
 const props = defineProps({
 	book: {
 		required: true,
-		type: Object as PropType<Book>,
+		type: Object as PropType<BookCover>,
 	},
 });
 
