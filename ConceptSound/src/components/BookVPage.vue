@@ -15,7 +15,7 @@
 						fill="clear"
 						size="small"
 						shape="round"
-						@click="page.hidden = !page.hidden"
+						@click="emit('setHidden')"
 						ref="hidden"
 					>
 						<ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>

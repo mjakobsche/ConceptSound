@@ -14,7 +14,7 @@ function createBook(title: string) {
 
 function updateBook(book: Book) {
 	storage[book.id] = book;
-	return { status: "success", thisBookIndex: book.id };
+	return { status: "success", modifiedBook: book };
 }
 
 function deleteBook(id: number) {

@@ -13,7 +13,10 @@
 				:options="{ handle: '.handle' }"
 			>
 				<template #item="{ element }">
-					<BookVPage :page="element">
+					<BookVPage
+						:page="element"
+						@set-hidden="bookStore.hidePage(element.id)"
+					>
 						<component
 							:is="'BookPage' + element.type"
 							:data="element.data"
