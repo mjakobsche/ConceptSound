@@ -13,6 +13,13 @@ let storage: Book[] = [
 				data: "hej, hej, hej sokoły \n omijajcie góry lasy doły",
 				hidden: false,
 			},
+			{
+				id: 1,
+				type: "Text",
+				name: "Text",
+				data: "dzwoń, dzwoń, dzwoń dzwoneczku \n mój stepowy, dzwoń, dzwoń, dzwoń",
+				hidden: false,
+			},
 		],
 	},
 	{ id: 1, title: "Odes to Belobog", date: new Date(), content: [] },

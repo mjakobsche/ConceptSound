@@ -4,11 +4,6 @@
 			<ion-card-header>
 				<div class="input-container handle">
 					<ion-card-title>
-						<!-- <ion-input
-							v-bind:placeholder="thisPage.type"
-							v-model="thisPage.name"
-							>{{ thisPage.name }}</ion-input
-						> -->
 						{{ page.name }}
 					</ion-card-title>
 					<ion-button
@@ -23,7 +18,9 @@
 				</div>
 			</ion-card-header>
 			<ion-card-content v-if="page.hidden == false">
-				<slot></slot>
+				<ion-item button @click="emit('modBook')" :disabled="editable">
+					<slot></slot>
+				</ion-item>
 			</ion-card-content>
 		</ion-card>
 	</div>
@@ -35,9 +32,10 @@ import {
 	IonCardHeader,
 	IonCardTitle,
 	IonCardContent,
-	IonInput,
+	IonItem,
 	IonButton,
 	IonIcon,
+	modalController,
 } from "@ionic/vue";
 import { eyeOutline } from "ionicons/icons";
 import { useCurrentBook } from "@/stores/currentBook";
@@ -49,9 +47,13 @@ const props = defineProps({
 		type: Object as PropType<Page>,
 		required: true,
 	},
+	editable: {
+		type: Boolean,
+		required: true,
+	},
 });
 
-const emit = defineEmits(["setHidden"]);
+const emit = defineEmits(["setHidden", "modBook"]);
 
 const bookStore = useCurrentBook();
 const { getPage } = storeToRefs(bookStore);

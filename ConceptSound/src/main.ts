@@ -26,14 +26,15 @@ import "./theme/variables.css";
 
 import BookPageScore from "./components/BookPageScore.vue";
 import BookPageText from "./components/BookPageText.vue";
-
+import BookWorkshopText from "./components/BookWorkshopText.vue";
 const pinia = createPinia();
 const app = createApp(App)
 	.use(IonicVue)
 	.use(router)
 	.use(pinia)
 	.component("BookPageText", BookPageText)
-	.component("BookPageScore", BookPageScore);
+	.component("BookPageScore", BookPageScore)
+	.component("BookWorkshopText", BookWorkshopText);
 
 router.isReady().then(() => {
 	app.mount("#app");
