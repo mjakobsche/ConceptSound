@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { Ref, ref, watch, computed } from "vue";
 import { Book } from "@/data/Book";
+import { Page } from "@/data/Page";
 import storage from "@/data/Storage";
 import { emptyBook } from "@/errors/emptyBook";
 import { openBook } from "@/data/LibraryProvider";
@@ -26,7 +27,6 @@ export const useCurrentBook = defineStore("currentBook", () => {
 					result = updateBook(buffer);
 				} while (result.modifiedBook != buffer);
 				idle = true;
-				console.log("idle again");
 			}
 		});
 	}
@@ -47,12 +47,23 @@ export const useCurrentBook = defineStore("currentBook", () => {
 	}
 
 	function hidePage(id: number) {
-		book.value.content[id].hidden = !book.value.content[id].hidden;
+		let page = book.value.content.find((t) => t.id == id);
+		if (page != undefined) {
+			page.hidden = !page.hidden;
+		}
 	}
 
 	function remPage(id: number) {
-		book.value.content = book.value.content.filter((t) => t.id !== id);
+		let page = book.value.content.find((t) => t.id == id);
+		if (page != undefined) {
+			book.value.content.splice(book.value.content.indexOf(page), 1)[0];
+		}
 	}
 
-	return { book, setBook, addPage, remPage, getPage, hidePage };
+	function swapPage(from: number, to: number) {
+		let page = book.value.content.splice(from, 1)[0];
+		book.value.content.splice(to, 0, page);
+	}
+
+	return { book, setBook, addPage, remPage, getPage, hidePage, swapPage };
 });

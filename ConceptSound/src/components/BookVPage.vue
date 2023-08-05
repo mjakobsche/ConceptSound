@@ -6,19 +6,13 @@
 					<ion-card-title>
 						{{ page.name }}
 					</ion-card-title>
-					<ion-button
-						fill="clear"
-						size="small"
-						shape="round"
-						@click="emit('setHidden')"
-						ref="hidden"
-					>
+					<ion-button fill="clear" size="small" shape="round" ref="hidden">
 						<ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
 					</ion-button>
 				</div>
 			</ion-card-header>
 			<ion-card-content v-if="page.hidden == false">
-				<ion-item button @click="emit('modBook')" :disabled="editable">
+				<ion-item button @click="emit('modPage')" :disabled="editable">
 					<slot></slot>
 				</ion-item>
 			</ion-card-content>
@@ -36,7 +30,9 @@ import {
 	IonButton,
 	IonIcon,
 	modalController,
+	createGesture,
 } from "@ionic/vue";
+import { ref, onMounted } from "vue";
 import { eyeOutline } from "ionicons/icons";
 import { useCurrentBook } from "@/stores/currentBook";
 import { storeToRefs } from "pinia";
@@ -53,11 +49,39 @@ const props = defineProps({
 	},
 });
 
-const emit = defineEmits(["setHidden", "modBook"]);
+const emit = defineEmits(["setHidden", "modPage", "remPage"]);
 
 const bookStore = useCurrentBook();
 const { getPage } = storeToRefs(bookStore);
 const page = getPage.value(props.page.id);
+
+const DOUBLE_CLICK_THRESHOLD = 500;
+const hidden = ref();
+
+let lastOnStart = 0;
+
+onMounted(() => {
+	const gesture = createGesture({
+		el: hidden.value.$el,
+		threshold: 0,
+		onStart,
+		gestureName: "double-click",
+	});
+
+	gesture.enable();
+});
+
+const onStart = () => {
+	const now = Date.now();
+
+	if (Math.abs(now - lastOnStart) <= DOUBLE_CLICK_THRESHOLD) {
+		emit("remPage");
+		lastOnStart = 0;
+	} else {
+		emit("setHidden");
+		lastOnStart = now;
+	}
+};
 </script>
 
 <style scoped>

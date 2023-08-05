@@ -11,13 +11,15 @@
 				:list="book.content"
 				item-key="id"
 				:options="{ handle: '.handle' }"
+				@end="(event: SortableJs.SortableEvent) => 	bookStore.swapPage(event.oldIndex = 0, event.newIndex = 0)"
 			>
 				<template #item="{ element }">
 					<BookVPage
 						:page="element"
 						:editable="workshopIsOpen"
 						@set-hidden="bookStore.hidePage(element.id)"
-						@mod-book="openWorkshop(element)"
+						@mod-page="openWorkshop(element)"
+						@rem-page="bookStore.remPage(element.id)"
 					>
 						<component
 							:is="'BookPage' + element.type"
@@ -61,6 +63,7 @@ import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
 import { storeToRefs } from "pinia";
 import { useCurrentBook } from "@/stores/currentBook";
+import SortableJs from "sortablejs";
 import { Sortable } from "sortablejs-vue3";
 import BookVWorkshop from "@/components/BookVWorkshop.vue";
 import { ref, Ref } from "vue";
