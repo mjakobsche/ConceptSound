@@ -25,6 +25,7 @@ export const useCurrentBook = defineStore("currentBook", () => {
 				let result;
 				do {
 					result = updateBook(buffer);
+					console.log(book.value.content);
 				} while (result.modifiedBook != buffer);
 				idle = true;
 			}
@@ -60,7 +61,7 @@ export const useCurrentBook = defineStore("currentBook", () => {
 		}
 	}
 
-	function swapPage(from: number, to: number) {
+	function swapPage(from: number = 0, to: number = 0) {
 		let page = book.value.content.splice(from, 1)[0];
 		book.value.content.splice(to, 0, page);
 	}

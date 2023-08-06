@@ -10,8 +10,11 @@
 			<Sortable
 				:list="book.content"
 				item-key="id"
-				:options="{ handle: '.handle' }"
-				@end="(event: SortableJs.SortableEvent) => 	bookStore.swapPage(event.oldIndex = 0, event.newIndex = 0)"
+				:options="{
+					handle: '.handle',
+					draggable: '.element',
+				}"
+				@end="(event: SortableJs.SortableEvent) => {bookStore.swapPage(event.oldIndex, event.newIndex)} "
 			>
 				<template #item="{ element }">
 					<BookVPage

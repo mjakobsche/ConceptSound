@@ -1,5 +1,5 @@
 <template>
-	<div id="container">
+	<div id="container" class="element">
 		<ion-card>
 			<ion-card-header>
 				<div class="input-container handle">
@@ -73,7 +73,6 @@ onMounted(() => {
 
 const onStart = () => {
 	const now = Date.now();
-
 	if (Math.abs(now - lastOnStart) <= DOUBLE_CLICK_THRESHOLD) {
 		emit("remPage");
 		lastOnStart = 0;
