@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import { Ref, ref, watch, computed } from "vue";
-import { Book } from "@/data/Book";
-import { Page } from "@/data/Page";
-import storage from "@/data/Storage";
+import { Book } from "@/model/Book";
+import { Page } from "@/model/Page";
+import storage from "@/data/InitialLibrary";
 import { emptyBook } from "@/errors/emptyBook";
 import { openBook } from "@/data/LibraryProvider";
 import { updateBook } from "@/data/LibraryCommander";

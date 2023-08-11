@@ -90,4 +90,4 @@ const onStart = () => {
 	align-items: center;
 }
 </style>
-@/stores/Book
+@/stores/Book @/model/Page @/model/Page

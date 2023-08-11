@@ -1,5 +1,5 @@
-import storage from "@/data/Storage";
-import { Book } from "./Book";
+import storage from "@/data/InitialLibrary";
+import { Book } from "../model/Book";
 
 function createBook(title: string) {
 	let newBookIndex = storage.length;

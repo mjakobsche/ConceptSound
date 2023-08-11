@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { Ref, ref, watch } from "vue";
-import storage from "@/data/Storage";
+import storage from "@/data/InitialLibrary";
 import { getBook, getLibrary } from "@/data/LibraryProvider";
 import { createBook, deleteBook } from "@/data/LibraryCommander";
 export const useCurrentLibrary = defineStore("currentLibrary", () => {
