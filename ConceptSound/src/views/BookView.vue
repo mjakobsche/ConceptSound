@@ -82,4 +82,4 @@ function openWorkshop(page: Page) {
 	workshopIsOpen.value = true;
 }
 </script>
-@/stores/Book
+@/stores/Book @/model/Page @/model/Page

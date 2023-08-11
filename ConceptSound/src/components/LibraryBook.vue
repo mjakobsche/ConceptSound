@@ -63,4 +63,4 @@ function renderDate(date: Date): string {
 	align-items: center;
 }
 </style>
-@/data/BookCover
+@/data/BookCover @/model/BookCover

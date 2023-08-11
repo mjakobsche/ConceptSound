@@ -1,6 +1,6 @@
-import storage from "@/data/Storage";
-import { BookCover } from "./BookCover";
-import { Book } from "./Book";
+import storage from "@/data/InitialLibrary";
+import { BookCover } from "../model/Cover";
+import { Book } from "../model/Book";
 
 function acquireOnlyCovers(books: Book[]) {
 	return books.map((book) => ({
