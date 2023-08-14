@@ -34,10 +34,8 @@ import {
 } from "@ionic/vue";
 import { ref, onMounted } from "vue";
 import { eyeOutline } from "ionicons/icons";
-import { useCurrentBook } from "@/stores/currentBook";
-import { storeToRefs } from "pinia";
 import { PropType } from "vue";
-import { Page } from "@/data/Page";
+import { Page } from "@/model/Page";
 const props = defineProps({
 	page: {
 		type: Object as PropType<Page>,
@@ -50,10 +48,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["setHidden", "modPage", "remPage"]);
-
-const bookStore = useCurrentBook();
-const { getPage } = storeToRefs(bookStore);
-const page = getPage.value(props.page.id);
 
 const DOUBLE_CLICK_THRESHOLD = 500;
 const hidden = ref();
