@@ -30,7 +30,7 @@ let initialLibrary: Book[] = [
 		pages: pages,
 	},
 	{
-		cover: covers[0],
+		cover: covers[1],
 		pages: [],
 	},
 ];

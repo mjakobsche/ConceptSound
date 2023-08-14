@@ -1,15 +1,15 @@
 <template>
 	<ion-card>
 		<IonCardContent>
-			<ion-card-subtitle>{{ renderDate(bookCover.date) }}</ion-card-subtitle>
+			<ion-card-subtitle>{{ renderDate(book.date) }}</ion-card-subtitle>
 			<div class="bookMainPart">
-				<ion-card-title>{{ bookCover.title }}</ion-card-title>
+				<ion-card-title>{{ book.title }}</ion-card-title>
 				<div>
 					<ion-button
 						fill="clear"
 						size="small"
 						shape="round"
-						@click="emit('rem', bookCover.id)"
+						@click="emit('rem', book.id)"
 					>
 						<ion-icon slot="icon-only" :icon="closeCircleOutline"></ion-icon>
 					</ion-button>
@@ -38,13 +38,13 @@ import {
 	IonCardContent,
 } from "@ionic/vue";
 import { PropType } from "vue";
-import { BookCover } from "@/data/BookCover";
+import { Cover } from "@/model/Cover";
 
 const emit = defineEmits(["rem", "set"]);
 const props = defineProps({
-	bookCover: {
+	book: {
 		required: true,
-		type: Object as PropType<BookCover>,
+		type: Object as PropType<Cover>,
 	},
 });
 
