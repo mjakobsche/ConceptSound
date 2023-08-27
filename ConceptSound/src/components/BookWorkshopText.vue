@@ -1,13 +1,9 @@
 <template>
-	<IonTextarea :value="props.pageData"></IonTextarea>
+	<IonTextarea :value="pageData" @input="$emit('update:pageData', $event.target.value)"></IonTextarea>
 </template>
 
 <script setup lang="ts">
 import { IonTextarea } from "@ionic/vue";
-const props = defineProps({
-	pageData: {
-		type: String,
-		required: true,
-	},
-});
+defineEmits(['update:pageData'])
+defineProps(['pageData']);
 </script>

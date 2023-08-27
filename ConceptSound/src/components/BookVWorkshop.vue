@@ -2,10 +2,11 @@
 	<ion-header>
 		<ion-toolbar>
 			<ion-title>
-				<ion-input :value="props.pageName"> </ion-input>
+				<ion-input :value="props.page.name"> </ion-input>
 			</ion-title>
 			<ion-buttons slot="end">
-				<ion-button @click="emit('savePage')">zapisz</ion-button>
+				<ion-button @click="emit('savePage', props.page
+				)">zapisz</ion-button>
 			</ion-buttons>
 		</ion-toolbar>
 	</ion-header>
@@ -24,9 +25,11 @@ import {
 	IonButton,
 	IonContent,
 } from "@ionic/vue";
+import {PropType} from "vue";
+import {Page} from "@/model/Page";
 const props = defineProps({
-	pageName: {
-		type: String,
+	page: {
+		type: Object as PropType<Page>,
 		required: true,
 	},
 });

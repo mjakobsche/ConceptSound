@@ -1,15 +1,16 @@
-import { BookDao } from "@/dao/BookDao";
 import { InMemoryBookDao } from "@/dao/InMemoryBookDao";
-import { Book } from "@/model/Book";
+import {Book} from "@/model/Book";
 import { Cover } from "@/model/Cover";
-import { Ref, ref } from "vue";
+import {computed, ComputedRef,} from "vue";
 
 const bookDao: InMemoryBookDao = new InMemoryBookDao();
 
-const library: Ref<Cover[]> = ref(bookDao.findAllCovers());
+const library: ComputedRef<Cover[]> = computed(() =>    {
+	return bookDao.findAllCovers()
+});
 
 function addBook(title: string) {
-	let book: Book = {
+	const book: Book = {
 		cover: { id: bookDao.findMaxId(), title: title, date: new Date() },
 		pages: [],
 	};
@@ -17,7 +18,7 @@ function addBook(title: string) {
 }
 
 function remBook(id: number) {
-	let book: Book = bookDao.findById(id);
+	const book: Book = bookDao.findById(id);
 	bookDao.delete(book);
 }
 

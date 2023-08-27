@@ -40,12 +40,12 @@
 				:backdropBreakpoint="0.5"
 			>
 				<BookVWorkshop
-					:page-name="workshopPage.name"
-					@save-page="workshopIsOpen = false"
+					:page="workshopPage"
+					@save-page="closeWorkshop(page)"
 				>
 					<component
 						:is="'BookWorkshop' + workshopPage.type"
-						:page-data="workshopPage.data"
+						v-model:pageData="workshopPage.data"
 					></component>
 				</BookVWorkshop>
 			</ion-modal>
@@ -65,11 +65,11 @@ import {
 import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
 import {
-	book,
-	addPage,
-	remPage,
-	hidePage,
-	swapPage,
+  book,
+  addPage,
+  remPage,
+  hidePage,
+  swapPage, modPage,
 } from "@/service/BookService";
 import SortableJs from "sortablejs";
 import { Sortable } from "sortablejs-vue3";
@@ -86,6 +86,12 @@ const workshopPage: Ref<Page> = page;
 function openWorkshop(page: Page) {
 	workshopPage.value = page;
 	workshopIsOpen.value = true;
+}
+
+function closeWorkshop(page: Page) {
+  workshopIsOpen.value = false;
+  modPage(page)
+  console.log(page)
 }
 </script>
 @/stores/Book @/model/Page @/model/Page

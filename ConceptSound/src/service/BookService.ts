@@ -1,7 +1,7 @@
-import { BookDao } from "@/dao/BookDao";
 import { InMemoryBookDao } from "@/dao/InMemoryBookDao";
 import { Book } from "@/model/Book";
-import { Ref, inject, ref, watch } from "vue";
+import { Ref, ref, watch } from "vue";
+import {Page} from "@/model/Page";
 
 const bookDao: InMemoryBookDao = new InMemoryBookDao();
 
@@ -17,7 +17,7 @@ function setBook(id: number) {
 }
 
 function addPage(type: string) {
-	let bookIndex = book.value.pages.length;
+	const bookIndex = book.value.pages.length;
 	let initData = "";
 	if (type == "score") {
 		initData = "X:1\nK:D\n";
@@ -33,22 +33,27 @@ function addPage(type: string) {
 }
 
 function hidePage(id: number) {
-	let page = book.value.pages.find((t) => t.id == id);
+	const page = book.value.pages.find((t) => t.id == id);
 	if (page != undefined) {
 		page.hidden = !page.hidden;
 	}
 }
 
 function remPage(id: number) {
-	let page = book.value.pages.find((t) => t.id == id);
+	const page = book.value.pages.find((t) => t.id == id);
 	if (page != undefined) {
 		book.value.pages.splice(book.value.pages.indexOf(page), 1)[0];
 	}
 }
 
-function swapPage(from: number = 0, to: number = 0) {
-	let page = book.value.pages.splice(from, 1)[0];
+function swapPage(from = 0, to = 0) {
+	const page = book.value.pages.splice(from, 1)[0];
 	book.value.pages.splice(to, 0, page);
 }
 
-export { book, setBook, addPage, remPage, hidePage, swapPage };
+function modPage(page: Page){
+	const pageIndex = book.value.pages.findIndex((t) => t.id == page.id);
+	book.value.pages[pageIndex] = page;
+}
+
+export { book, setBook, addPage, remPage, hidePage, swapPage, modPage };
