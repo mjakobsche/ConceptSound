@@ -11,7 +11,7 @@
         <LibraryBook
             :book="book"
             @rem="remBook(book.id)"
-            @set="setBook(book.id)"
+            @set="openBook(book.id)"
         >
         </LibraryBook>
       </div>
@@ -23,6 +23,5 @@
 import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar,} from "@ionic/vue";
 import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
-import {setBook} from "@/service/BookService";
-import {addBook, library, remBook} from "@/service/LibraryService";
+import {addBook, library, openBook, remBook} from "@/service/LibraryService";
 </script>

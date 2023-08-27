@@ -41,7 +41,7 @@
       >
         <BookVWorkshop
             :page="workshopPage"
-            @save-page="closeWorkshop(page)"
+            @save-page="page => closeWorkshop(page)"
         >
           <component
               :is="'BookWorkshop' + workshopPage.type"
@@ -63,13 +63,9 @@ import {Sortable} from "sortablejs-vue3";
 import BookVWorkshop from "@/components/BookVWorkshop.vue";
 import {ref, Ref} from "vue";
 import {Page} from "@/model/Page";
-import {useWorkshop} from "@/stores/workshop";
-import {storeToRefs} from "pinia";
 
-const workshop = useWorkshop();
-const {page} = storeToRefs(workshop);
 const workshopIsOpen = ref(false);
-const workshopPage: Ref<Page> = page;
+const workshopPage: Ref<Page> = ref(book.value.pages[0]);
 
 function openWorkshop(page: Page) {
   workshopPage.value = page;
@@ -79,6 +75,5 @@ function openWorkshop(page: Page) {
 function closeWorkshop(page: Page) {
   workshopIsOpen.value = false;
   modPage(page)
-  console.log(page)
 }
 </script>

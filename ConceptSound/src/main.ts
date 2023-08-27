@@ -26,7 +26,6 @@ import "./theme/variables.css";
 
 import BookPageText from "./components/BookPageText.vue";
 import BookWorkshopText from "./components/BookWorkshopText.vue";
-import {InMemoryBookDao} from "./dao/InMemoryBookDao";
 
 // global variable
 
@@ -35,7 +34,6 @@ const app = createApp(App)
     .use(IonicVue)
     .use(router)
     .use(pinia)
-    .provide("storage", () => new InMemoryBookDao())
     .component("BookPageText", BookPageText)
     .component("BookWorkshopText", BookWorkshopText);
 
