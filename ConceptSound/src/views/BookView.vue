@@ -40,7 +40,7 @@
           :backdropBreakpoint="0.5"
       >
         <BookVWorkshop
-            :page="workshopPage"
+            v-model:page="workshopPage"
             @save-page="page => closeWorkshop(page)"
         >
           <component
