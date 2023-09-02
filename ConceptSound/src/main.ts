@@ -26,6 +26,8 @@ import "./theme/variables.css";
 
 import BookPageText from "./components/BookPageText.vue";
 import BookWorkshopText from "./components/BookWorkshopText.vue";
+import BookWorkshopAudio from "./components/BookWorkshopAudio.vue";
+import BookPageAudio from "./components/BookPageAudio.vue";
 
 // global variable
 
@@ -35,7 +37,9 @@ const app = createApp(App)
     .use(router)
     .use(pinia)
     .component("BookPageText", BookPageText)
-    .component("BookWorkshopText", BookWorkshopText);
+    .component("BookWorkshopText", BookWorkshopText)
+    .component("BookPageAudio", BookPageAudio)
+    .component("BookWorkshopAudio", BookWorkshopAudio);
 
 router.isReady().then(() => {
     app.mount("#app");
