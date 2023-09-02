@@ -13,7 +13,7 @@
     "start": "ionic serve"
   },
   "dependencies": {
-    "@capacitor/android": "^5.2.1",
+    "@capacitor/android": "5.2.1",
     "@capacitor/app": "5.0.6",
     "@capacitor/core": "5.2.1",
     "@capacitor/filesystem": "^5.1.0",
@@ -26,7 +26,9 @@
     "@ionic/vue-router": "^7.0.0",
     "@types/sortablejs": "^1.15.1",
     "abcjs": "^6.2.2",
+    "dexie": "^3.2.4",
     "ionicons": "^7.0.0",
+    "native-run": "^1.7.2",
     "pinia": "^2.1.4",
     "sortablejs": "^1.15.0",
     "sortablejs-vue3": "^1.2.9",
