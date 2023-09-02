@@ -39,7 +39,7 @@ function hidePage(id: number) {
 function remPage(id: number) {
     const page = book.value.pages.find((t) => t.id == id);
     if (page != undefined) {
-        book.value.pages.splice(book.value.pages.indexOf(page), 1)[0];
+        book.value.pages.splice(book.value.pages.indexOf(page), 1);
     }
 }
 

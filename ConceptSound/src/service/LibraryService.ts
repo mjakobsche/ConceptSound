@@ -6,7 +6,6 @@ import {setBook} from "./BookService"
 
 const data = inMemoryData;
 
-
 const library: ComputedRef<Cover[]> = computed(() => {
     const covers: Cover[] = [];
     data.value.forEach((book) => {
