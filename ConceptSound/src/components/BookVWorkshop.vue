@@ -2,12 +2,10 @@
   <ion-header>
     <ion-toolbar>
       <ion-title>
-        <!--        todo -->
-        <ion-input :value="props.page.name"></ion-input>
+        <ion-input :value="pageName" @input="$emit('update:pageName', $event.target.value)"></ion-input>
       </ion-title>
       <ion-buttons slot="end">
-        <ion-button @click="emit('savePage', props.page
-				)">zapisz
+        <ion-button @click="$emit('savePage')">zapisz
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
@@ -19,15 +17,8 @@
 
 <script setup lang="ts">
 import {IonButton, IonButtons, IonContent, IonHeader, IonInput, IonTitle, IonToolbar,} from "@ionic/vue";
-import {PropType} from "vue";
-import {Page} from "@/model/Page";
 
-const props = defineProps({
-  page: {
-    type: Object as PropType<Page>,
-    required: true,
-  },
-});
+defineProps(['pageName']);
 
-const emit = defineEmits(["savePage"]);
+defineEmits(["savePage", "update:pageName"]);
 </script>

@@ -40,8 +40,8 @@
           :backdropBreakpoint="0.5"
       >
         <BookVWorkshop
-            v-model:page="workshopPage"
-            @save-page="page => closeWorkshop(page)"
+            v-model:pageName="workshopPage.name"
+            @save-page="closeWorkshop()"
         >
           <component
               :is="'BookWorkshop' + workshopPage.type"
@@ -72,8 +72,8 @@ function openWorkshop(page: Page) {
   workshopIsOpen.value = true;
 }
 
-function closeWorkshop(page: Page) {
+function closeWorkshop() {
   workshopIsOpen.value = false;
-  modPage(page)
+  modPage(workshopPage.value)
 }
 </script>

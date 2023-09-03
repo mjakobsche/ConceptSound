@@ -40,7 +40,7 @@ const recording: Ref<RecordingData> = ref({
   }
 });
 if (recordingStatus.value == state.beforeRetry) {
-  recording.value = ref(JSON.parse(props.pageData));
+  recording.value = JSON.parse(props.pageData);
 }
 
 
