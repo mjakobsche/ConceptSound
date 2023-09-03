@@ -30,6 +30,8 @@ import BookWorkshopAudio from "./components/BookWorkshopAudio.vue";
 import BookPageAudio from "./components/BookPageAudio.vue";
 import BookPagePhoto from "./components/BookPagePhoto.vue";
 import BookWorkshopPhoto from "./components/BookWorkshopPhoto.vue";
+import BookPageScore from "./components/BookPageScore.vue";
+import BookWorkshopScore from "./components/BookWorkshopScore.vue";
 // global variable
 
 const pinia = createPinia();
@@ -42,7 +44,9 @@ const app = createApp(App)
     .component("BookPageAudio", BookPageAudio)
     .component("BookWorkshopAudio", BookWorkshopAudio)
     .component("BookPagePhoto", BookPagePhoto)
-    .component("BookWorkshopPhoto", BookWorkshopPhoto);
+    .component("BookWorkshopPhoto", BookWorkshopPhoto)
+    .component("BookPageScore", BookPageScore)
+    .component("BookWorkshopScore", BookWorkshopScore);
 
 router.isReady().then(() => {
     app.mount("#app");

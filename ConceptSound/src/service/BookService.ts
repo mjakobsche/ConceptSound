@@ -16,8 +16,8 @@ function setBook(newBook: Book) {
 function addPage(type: string) {
     const bookIndex = book.value.pages.length;
     let initData = "";
-    if (type == "score") {
-        initData = "X:1\nK:D\n";
+    if (type == "Score") {
+        initData = "X:1\nK:C\n|";
     }
 
     book.value.pages.push({
