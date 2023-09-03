@@ -33,7 +33,7 @@
       </Sortable>
       <ion-modal
           ref="modal"
-          :initial-breakpoint="0.95"
+          :initial-breakpoint="0.5"
           :breakpoints="[0.5, 0.95]"
           :backdropDismiss="false"
           :is-open="workshopIsOpen"

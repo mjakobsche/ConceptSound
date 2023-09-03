@@ -1,6 +1,9 @@
-<template>{{ data }}</template>
+<template>
+  here
+</template>
 
 <script setup lang="ts">
+
 defineProps({
   data: {
     required: true,
