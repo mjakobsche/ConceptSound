@@ -6,16 +6,15 @@
   <ion-button v-if="recordingStatus == state.beforeStop" size="large" shape="round" fill="outline" @click="finish()">
     <ion-icon slot="icon-only" :icon="stop"></ion-icon>
   </ion-button>
-  <ion-button v-if="recordingStatus == state.beforeRetry" size="large" shape="round" fill="outline" @click="play()">
-    <ion-icon slot="icon-only" :icon="playOutline"></ion-icon>
-  </ion-button>
+  <div id="player"></div>
 </template>
 
 <script setup lang="ts">
 import {IonButton, IonIcon} from "@ionic/vue";
-import {micOutline, playOutline, refresh, stop} from "ionicons/icons";
+import {micOutline, refresh, stop} from "ionicons/icons";
 import {RecordingData, VoiceRecorder} from "capacitor-voice-recorder";
-import {ref, Ref} from "vue";
+import {onMounted, ref, Ref} from "vue";
+import WaveSurfer from "wavesurfer.js";
 
 const emit = defineEmits(['update:pageData'])
 const props = defineProps({
@@ -31,6 +30,7 @@ enum state {
   beforeRetry
 }
 
+let wavesurfer: WaveSurfer;
 const recordingStatus: Ref<state> = ref(props.pageData.length > 0 ? state.beforeRetry : state.beforeStart);
 const recording: Ref<RecordingData> = ref({
   value: {
@@ -39,9 +39,14 @@ const recording: Ref<RecordingData> = ref({
     mimeType: ""
   }
 });
-if (recordingStatus.value == state.beforeRetry) {
-  recording.value = JSON.parse(props.pageData);
-}
+
+
+onMounted(() => {
+  if (recordingStatus.value == state.beforeRetry) {
+    recording.value = JSON.parse(props.pageData);
+    setPlayer();
+  }
+})
 
 
 function begin() {
@@ -55,15 +60,31 @@ function finish() {
   VoiceRecorder.stopRecording()
       .then((result: RecordingData) => {
         recording.value = result;
+        setPlayer();
         emit('update:pageData', JSON.stringify(recording.value));
       })
       .catch(error => console.log(error))
 }
 
-function play() {
-  const audio = recording.value;
-  const audioRef = new Audio(`data:${audio.value.mimeType};base64,${audio.value.recordDataBase64}`);
-  audioRef.oncanplaythrough = () => audioRef.play();
-  audioRef.load();
+function setPlayer() {
+  if (wavesurfer) {
+    wavesurfer.destroy();
+  }
+  wavesurfer = WaveSurfer.create({
+    container: '#player',
+    waveColor: '#428cff',
+    progressColor: '#50c8ff',
+    cursorWidth: 4,
+    barWidth: 3,
+    barGap: 5,
+    barRadius: 20,
+    barHeight: 0.5,
+    media: new Audio(`data:${recording.value.value.mimeType};base64,${recording.value.value.recordDataBase64}`)
+  })
+  wavesurfer.on('interaction', () => {
+    wavesurfer.play()
+  })
 }
+
+
 </script>

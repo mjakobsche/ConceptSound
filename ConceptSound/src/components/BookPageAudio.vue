@@ -1,5 +1,5 @@
 <template>
-  here
+  otwórz ekran nagrywania
 </template>
 
 <script setup lang="ts">
