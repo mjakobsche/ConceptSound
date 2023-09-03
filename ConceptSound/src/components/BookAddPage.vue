@@ -14,13 +14,16 @@
       <ion-fab-button @click="emit('addPage', 'Audio')">
         <ion-icon :icon="micOutline"></ion-icon>
       </ion-fab-button>
+      <ion-fab-button @click="emit('addPage', 'Photo')">
+        <ion-icon :icon="imageOutline"></ion-icon>
+      </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 </template>
 
 <script setup lang="ts">
 import {IonFab, IonFabButton, IonFabList, IonIcon} from "@ionic/vue";
-import {addCircleOutline, languageOutline, micOutline, musicalNoteOutline} from "ionicons/icons";
+import {addCircleOutline, imageOutline, languageOutline, micOutline, musicalNoteOutline} from "ionicons/icons";
 
 const emit = defineEmits(["addPage"]);
 </script>
