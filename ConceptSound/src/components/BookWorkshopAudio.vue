@@ -50,9 +50,12 @@ onMounted(() => {
 
 
 function begin() {
-  recordingStatus.value = state.beforeStop;
-  VoiceRecorder.startRecording()
-      .catch(error => console.log(error))
+  VoiceRecorder.requestAudioRecordingPermission().then(result => {
+    if (result.value) {
+      recordingStatus.value = state.beforeStop;
+      VoiceRecorder.startRecording()
+    }
+  })
 }
 
 function finish() {
