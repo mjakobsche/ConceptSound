@@ -32,7 +32,17 @@ import BookPagePhoto from "./components/BookPagePhoto.vue";
 import BookWorkshopPhoto from "./components/BookWorkshopPhoto.vue";
 import BookPageScore from "./components/BookPageScore.vue";
 import BookWorkshopScore from "./components/BookWorkshopScore.vue";
-// global variable
+import {applyPolyfills, defineCustomElements as jeepSqlite} from "jeep-sqlite/loader";
+import {useState} from "@/composables/state";
+import {Capacitor} from "@capacitor/core";
+import {CapacitorSQLite, SQLiteConnection, SQLiteDBConnection} from "@capacitor-community/sqlite";
+
+applyPolyfills().then(() => {
+    jeepSqlite(window);
+});
+
+const platform = Capacitor.getPlatform();
+const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
 
 const pinia = createPinia();
 const app = createApp(App)
@@ -47,6 +57,51 @@ const app = createApp(App)
     .component("BookWorkshopPhoto", BookWorkshopPhoto)
     .component("BookPageScore", BookPageScore)
     .component("BookWorkshopScore", BookWorkshopScore);
+
+//  Existing Connections Store
+const [existConn, setExistConn] = useState(false);
+app.config.globalProperties.$existingConn = {existConn: existConn, setExistConn: setExistConn};
+
+if (platform === "web") {
+    // Create the 'jeep-sqlite' Stencil component
+    const jeepSqlite = document.createElement('jeep-sqlite');
+    document.body.appendChild(jeepSqlite);
+    await customElements.whenDefined('jeep-sqlite');
+    // Initialize the Web store
+    await sqlite.initWebStore();
+}
+
+const ret = await sqlite.checkConnectionsConsistency();
+const isConn = (await sqlite.isConnection("library_db")).result;
+let db: SQLiteDBConnection
+if (ret.result && isConn) {
+    db = await sqlite.retrieveConnection("library_db");
+} else {
+    db = await sqlite.createConnection("library_db", false, "no-encryption", 1);
+}
+await db.open();
+const query = `
+CREATE TABLE IF NOT EXISTS covers (
+    id INTEGER PRIMARY KEY,
+    title NVARCHAR(50),
+    date DATETIME
+);
+CREATE TABLE IF NOT EXISTS pages (
+    id INTEGER PRIMARY KEY,
+    bookId INTEGER,
+    number INTEGER UNIQUE,
+    hidden BOOLEAN,
+    type VARCHAR(15),
+    name NVARCHAR(50),
+    data TEXT,
+    FOREIGN KEY(bookId) REFERENCES covers(id)
+);
+    `
+const res = await db.execute(query);
+if (res.changes && res.changes.changes && res.changes.changes < 0) {
+    throw new Error(`Error: execute failed`);
+}
+await sqlite.closeConnection("library_db");
 
 router.isReady().then(() => {
     app.mount("#app");

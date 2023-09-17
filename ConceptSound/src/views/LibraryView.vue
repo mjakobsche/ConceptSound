@@ -24,4 +24,10 @@ import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar,} from "@ionic/vue"
 import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
 import {addBook, library, openBook, remBook} from "@/service/LibraryService";
+import {getCurrentInstance} from "vue";
+import {SQLiteHook} from "vue-sqlite-hook";
+
+const sqlite: SQLiteHook = getCurrentInstance().appContext.config.globalProperties.$sqlite;
+const res: any = await sqlite.echo("Hello from echo");
+console.log(res);
 </script>
