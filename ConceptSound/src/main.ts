@@ -97,10 +97,15 @@ CREATE TABLE IF NOT EXISTS pages (
     FOREIGN KEY(bookId) REFERENCES covers(id)
 );
     `
-const res = await db.execute(query);
+let res = await db.execute(query);
 if (res.changes && res.changes.changes && res.changes.changes < 0) {
     throw new Error(`Error: execute failed`);
 }
+
+res = await db.execute("INSERT INTO covers (title) VALUES ('testujemy')");
+
+res = await db.query('SELECT * FROM covers');
+console.log(res);
 await sqlite.closeConnection("library_db");
 
 router.isReady().then(() => {
