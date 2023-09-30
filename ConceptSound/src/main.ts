@@ -71,42 +71,42 @@ if (platform === "web") {
     await sqlite.initWebStore();
 }
 
-const ret = await sqlite.checkConnectionsConsistency();
-const isConn = (await sqlite.isConnection("library_db", false)).result;
-let db: SQLiteDBConnection
-if (ret.result && isConn) {
-    db = await sqlite.retrieveConnection("library_db", false);
-} else {
-    db = await sqlite.createConnection("library_db", false, "no-encryption", 1, false);
-}
-await db.open();
-const query = `
-CREATE TABLE IF NOT EXISTS covers (
-    id INTEGER PRIMARY KEY,
-    title NVARCHAR(50),
-    date DATETIME
-);
-CREATE TABLE IF NOT EXISTS pages (
-    id INTEGER PRIMARY KEY,
-    bookId INTEGER,
-    number INTEGER UNIQUE,
-    hidden BOOLEAN,
-    type VARCHAR(15),
-    name NVARCHAR(50),
-    data TEXT,
-    FOREIGN KEY(bookId) REFERENCES covers(id)
-);
-    `
-let res = await db.execute(query);
-if (res.changes && res.changes.changes && res.changes.changes < 0) {
-    throw new Error(`Error: execute failed`);
-}
-
-res = await db.execute("INSERT INTO covers (title) VALUES ('testujemy')");
-
-const secondres = await db.query('SELECT * FROM covers');
-console.log(secondres);
-await sqlite.closeConnection("library_db", false);
+// const ret = await sqlite.checkConnectionsConsistency();
+// const isConn = (await sqlite.isConnection("library_db", false)).result;
+// let db: SQLiteDBConnection
+// if (ret.result && isConn) {
+//     db = await sqlite.retrieveConnection("library_db", false);
+// } else {
+//     db = await sqlite.createConnection("library_db", false, "no-encryption", 1, false);
+// }
+// await db.open();
+// const query = `
+// CREATE TABLE IF NOT EXISTS covers (
+//     id INTEGER PRIMARY KEY,
+//     title NVARCHAR(50),
+//     date DATETIME
+// );
+// CREATE TABLE IF NOT EXISTS pages (
+//     id INTEGER PRIMARY KEY,
+//     bookId INTEGER,
+//     number INTEGER UNIQUE,
+//     hidden BOOLEAN,
+//     type VARCHAR(15),
+//     name NVARCHAR(50),
+//     data TEXT,
+//     FOREIGN KEY(bookId) REFERENCES covers(id)
+// );
+//     `
+// let res = await db.execute(query);
+// if (res.changes && res.changes.changes && res.changes.changes < 0) {
+//     throw new Error(`Error: execute failed`);
+// }
+//
+// res = await db.execute("INSERT INTO covers (title) VALUES ('testujemy')");
+//
+// const secondres = await db.query('SELECT * FROM covers');
+// console.log(secondres);
+// await sqlite.closeConnection("library_db", false);
 
 router.isReady().then(() => {
     app.mount("#app");
