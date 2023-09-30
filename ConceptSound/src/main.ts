@@ -1,9 +1,9 @@
-import {createApp} from "vue";
-import {createPinia} from "pinia";
+import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 
-import {IonicVue} from "@ionic/vue";
+import { IonicVue } from "@ionic/vue";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/vue/css/core.css";
@@ -32,44 +32,50 @@ import BookPagePhoto from "./components/BookPagePhoto.vue";
 import BookWorkshopPhoto from "./components/BookWorkshopPhoto.vue";
 import BookPageScore from "./components/BookPageScore.vue";
 import BookWorkshopScore from "./components/BookWorkshopScore.vue";
-import {applyPolyfills, defineCustomElements as jeepSqlite} from "jeep-sqlite/loader";
-import {useState} from "@/composables/state";
-import {Capacitor} from "@capacitor/core";
-import {CapacitorSQLite, SQLiteConnection, SQLiteDBConnection} from "@capacitor-community/sqlite";
+import {
+  applyPolyfills,
+  defineCustomElements as jeepSqlite,
+} from "jeep-sqlite/loader";
+import { useState } from "@/composables/state";
+import { Capacitor } from "@capacitor/core";
+import { CapacitorSQLite, SQLiteConnection } from "@capacitor-community/sqlite";
 
 applyPolyfills().then(() => {
-    jeepSqlite(window);
+  jeepSqlite(window);
 });
 
 const platform = Capacitor.getPlatform();
-const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
+const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite);
 
 const pinia = createPinia();
 const app = createApp(App)
-    .use(IonicVue)
-    .use(router)
-    .use(pinia)
-    .component("BookPageText", BookPageText)
-    .component("BookWorkshopText", BookWorkshopText)
-    .component("BookPageAudio", BookPageAudio)
-    .component("BookWorkshopAudio", BookWorkshopAudio)
-    .component("BookPagePhoto", BookPagePhoto)
-    .component("BookWorkshopPhoto", BookWorkshopPhoto)
-    .component("BookPageScore", BookPageScore)
-    .component("BookWorkshopScore", BookWorkshopScore);
+  .use(IonicVue)
+  .use(router)
+  .use(pinia)
+  .component("BookPageText", BookPageText)
+  .component("BookWorkshopText", BookWorkshopText)
+  .component("BookPageAudio", BookPageAudio)
+  .component("BookWorkshopAudio", BookWorkshopAudio)
+  .component("BookPagePhoto", BookPagePhoto)
+  .component("BookWorkshopPhoto", BookWorkshopPhoto)
+  .component("BookPageScore", BookPageScore)
+  .component("BookWorkshopScore", BookWorkshopScore);
 
 //  Existing Connections Store
 const [existConn, setExistConn] = useState(false);
-app.config.globalProperties.$existingConn = {existConn: existConn, setExistConn: setExistConn};
+app.config.globalProperties.$existingConn = {
+  existConn: existConn,
+  setExistConn: setExistConn,
+};
 
-if (platform === "web") {
-    // Create the 'jeep-sqlite' Stencil component
-    const jeepSqlite = document.createElement('jeep-sqlite');
-    document.body.appendChild(jeepSqlite);
-    await customElements.whenDefined('jeep-sqlite');
-    // Initialize the Web store
-    await sqlite.initWebStore();
-}
+// if (platform === "web") {
+//     // Create the 'jeep-sqlite' Stencil component
+//     const jeepSqlite = document.createElement('jeep-sqlite');
+//     document.body.appendChild(jeepSqlite);
+//     await customElements.whenDefined('jeep-sqlite');
+//     // Initialize the Web store
+//     await sqlite.initWebStore();
+// }
 
 // const ret = await sqlite.checkConnectionsConsistency();
 // const isConn = (await sqlite.isConnection("library_db", false)).result;
@@ -109,5 +115,5 @@ if (platform === "web") {
 // await sqlite.closeConnection("library_db", false);
 
 router.isReady().then(() => {
-    app.mount("#app");
+  app.mount("#app");
 });
