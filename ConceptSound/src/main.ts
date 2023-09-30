@@ -72,12 +72,12 @@ if (platform === "web") {
 }
 
 const ret = await sqlite.checkConnectionsConsistency();
-const isConn = (await sqlite.isConnection("library_db")).result;
+const isConn = (await sqlite.isConnection("library_db", false)).result;
 let db: SQLiteDBConnection
 if (ret.result && isConn) {
-    db = await sqlite.retrieveConnection("library_db");
+    db = await sqlite.retrieveConnection("library_db", false);
 } else {
-    db = await sqlite.createConnection("library_db", false, "no-encryption", 1);
+    db = await sqlite.createConnection("library_db", false, "no-encryption", 1, false);
 }
 await db.open();
 const query = `
@@ -104,9 +104,9 @@ if (res.changes && res.changes.changes && res.changes.changes < 0) {
 
 res = await db.execute("INSERT INTO covers (title) VALUES ('testujemy')");
 
-res = await db.query('SELECT * FROM covers');
-console.log(res);
-await sqlite.closeConnection("library_db");
+const secondres = await db.query('SELECT * FROM covers');
+console.log(secondres);
+await sqlite.closeConnection("library_db", false);
 
 router.isReady().then(() => {
     app.mount("#app");
