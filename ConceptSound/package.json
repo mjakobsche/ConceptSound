@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@capacitor-community/native-audio": "^5.0.1",
-    "@capacitor-community/sqlite": "^5.2.3",
+    "@capacitor-community/sqlite": "^5.0.0-beta.2",
     "@capacitor/android": "5.2.1",
     "@capacitor/app": "5.0.6",
     "@capacitor/core": "^5.4.0",
@@ -38,7 +38,6 @@
     "sortablejs-vue3": "^1.2.9",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
-    "vue-sqlite-hook": "^3.0.3",
     "wavesurfer.js": "^7.2.0"
   },
   "devDependencies": {
@@ -55,6 +54,7 @@
     "typescript": "^5.1.6",
     "vite": "^4.3.9",
     "vitest": "^0.32.2",
+    "vue-sqlite-hook": "^4.0.0",
     "vue-tsc": "^1.0.24"
   },
   "description": "An Ionic project"
