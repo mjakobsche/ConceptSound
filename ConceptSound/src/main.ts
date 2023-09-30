@@ -113,15 +113,13 @@ window.addEventListener("DOMContentLoaded", async () => {
       FOREIGN KEY(bookId) REFERENCES covers(id)
   );
       `;
-  let res = await db.execute(query);
+  const res = await db.execute(query);
   if (res.changes && res.changes.changes && res.changes.changes < 0) {
     throw new Error(`Error: execute failed`);
   }
 
-  res = await db.execute("INSERT INTO covers (title) VALUES ('testujemy')");
-
-  const secondres = await db.query("SELECT * FROM covers");
-  console.log(secondres);
+  const secondRes = await db.query("SELECT * FROM covers");
+  console.log(secondRes);
   await sqlite.closeConnection("library_db", false);
 
   router.isReady().then(() => {
