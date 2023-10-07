@@ -52,6 +52,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite);
 
   const pinia = createPinia();
+  if(!App) {return;}
   const app = createApp(App)
     .use(IonicVue)
     .use(router)
