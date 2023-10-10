@@ -8,11 +8,7 @@
       </ion-header>
       <LibraryAddBook @add-book="(title) => addBook(title)"></LibraryAddBook>
       <div v-for="book in library" :key="book.id">
-        <LibraryBook
-            :book="book"
-            @rem="remBook(book.id)"
-            @set="openBook(book.id)"
-        >
+        <LibraryBook :book="book" @rem="remBook(book.id)" @set="openBook(book.id)">
         </LibraryBook>
       </div>
     </ion-content>
@@ -20,14 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar,} from "@ionic/vue";
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, } from "@ionic/vue";
 import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
-import {addBook, library, openBook, remBook} from "@/service/LibraryService";
-import {getCurrentInstance} from "vue";
-import {SQLiteHook} from "vue-sqlite-hook";
-
-const sqlite: SQLiteHook = getCurrentInstance().appContext.config.globalProperties.$sqlite;
-const res: any = await sqlite.echo("Hello from echo");
-console.log(res);
+import { addBook, library, openBook, remBook } from "@/service/LibraryService";
 </script>

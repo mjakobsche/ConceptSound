@@ -1,5 +1,5 @@
-import {Book} from "@/model/Book";
-import {Cover} from "@/model/Cover";
+import {Cover} from "../model/Cover";
+import {Book} from "../model/Book";
 import {computed, ComputedRef,} from "vue";
 import inMemoryData from "@/data/InMemoryData";
 import {setBook} from "./BookService"

@@ -2,7 +2,6 @@ import {Book} from "@/model/Book";
 import {ref, Ref, watch} from "vue";
 import {Page} from "@/model/Page";
 import inMemoryData from "@/data/InMemoryData";
-
 const data = inMemoryData;
 const book: Ref<Book> = ref(data.value[0]);
 

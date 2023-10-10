@@ -66,7 +66,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     .component("BookPageScore", BookPageScore)
     .component("BookWorkshopScore", BookWorkshopScore);
 
-  //  Existing Connections Store
   const [existConn, setExistConn] = useState(false);
   app.config.globalProperties.$existingConn = {
     existConn: existConn,
@@ -74,11 +73,9 @@ window.addEventListener("DOMContentLoaded", async () => {
   };
 
   if (platform === "web") {
-    // Create the 'jeep-sqlite' Stencil component
     const jeepSqlite = document.createElement("jeep-sqlite");
     document.body.appendChild(jeepSqlite);
     await customElements.whenDefined("jeep-sqlite");
-    // Initialize the Web store
     await sqlite.initWebStore();
   }
 
@@ -97,7 +94,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     );
   }
   await db.open();
-  const query = `
+  const cmd = `
   CREATE TABLE IF NOT EXISTS covers (
       id INTEGER PRIMARY KEY,
       title NVARCHAR(50),
@@ -114,13 +111,12 @@ window.addEventListener("DOMContentLoaded", async () => {
       FOREIGN KEY(bookId) REFERENCES covers(id)
   );
       `;
-  const res = await db.execute(query);
+  const res = await db.execute(cmd);
+  //await db.query("SELECT * FROM covers");
   if (res.changes && res.changes.changes && res.changes.changes < 0) {
     throw new Error(`Error: execute failed`);
   }
 
-  const secondRes = await db.query("SELECT * FROM covers");
-  console.log(secondRes);
   await sqlite.closeConnection("library_db", false);
 
   router.isReady().then(() => {
