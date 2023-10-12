@@ -1,14 +1,13 @@
 <template>
   <ion-grid style="height: 100%">
     <ion-row justify-content-center align-items-center style="height: 100%; flex-direction: column">
-        <ion-button v-if="recordingStatus != state.beforeStop" size="large" shape="round" fill="outline" @click="begin()">
-          <ion-icon v-if="recordingStatus == state.beforeStart" slot="icon-only" :icon="micOutline"></ion-icon>
-          <ion-icon v-if="recordingStatus == state.beforeRetry" slot="icon-only" :icon="refresh"></ion-icon>
-        </ion-button>
-        <ion-button v-if="recordingStatus == state.beforeStop" size="large" shape="round" fill="outline"
-          @click="finish()">
-          <ion-icon slot="icon-only" :icon="stop"></ion-icon>
-        </ion-button>
+      <ion-button v-if="recordingStatus != state.beforeStop" size="large" shape="round" fill="clear" @click="begin()">
+        <ion-icon v-if="recordingStatus == state.beforeStart" slot="icon-only" :icon="micOutline"></ion-icon>
+        <ion-icon v-if="recordingStatus == state.beforeRetry" slot="icon-only" :icon="refresh"></ion-icon>
+      </ion-button>
+      <ion-button v-if="recordingStatus == state.beforeStop" size="large" shape="round" fill="clear" @click="finish()">
+        <ion-icon slot="icon-only" :icon="stop"></ion-icon>
+      </ion-button>
     </ion-row>
   </ion-grid>
 </template>

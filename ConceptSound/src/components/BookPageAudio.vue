@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import {IonItem} from "@ionic/vue"
 import { onMounted, Ref, ref, watch } from "vue";
 import { RecordingData } from "capacitor-voice-recorder";
 import WaveSurfer from "wavesurfer.js";
@@ -22,13 +21,21 @@ const recording: Ref<RecordingData> = ref({
     mimeType: ""
   }
 });
-
+watch(() => props.data, async () => {
+  updateRecording();
+})
 onMounted(() => {
+  updateRecording();
+})
+
+function updateRecording() {
+
   if (props.data.length > 0) {
     recording.value = JSON.parse(props.data);
     setPlayer();
   }
-})
+}
+
 function setPlayer() {
   console.log(recording.value.value.mimeType);
 
