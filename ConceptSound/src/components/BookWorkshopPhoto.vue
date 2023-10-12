@@ -1,12 +1,18 @@
 <template>
-  <ion-button shape="round" fill="outline" @click="pickImages">Wybierz zdjęcie z urządzenia</ion-button>
-  <img v-if="pageData.length > 0" :src="source" alt="selected photo">
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%; flex-direction: column">
+      <ion-button size="large" shape="round" fill="clear" @click="pickImages">
+        <ion-icon slot="icon-only" :icon="folderOutline"></ion-icon>
+      </ion-button>
+    </ion-row>
+  </ion-grid>
 </template>
 
 <script setup lang="ts">
-import {IonButton} from "@ionic/vue";
-import {FilePicker} from "@capawesome/capacitor-file-picker";
-import {ref} from "vue";
+import { IonButton, IonGrid, IonRow, IonIcon } from "@ionic/vue";
+import { FilePicker } from "@capawesome/capacitor-file-picker";
+import { folderOutline } from "ionicons/icons";
+import { ref } from "vue";
 
 const emit = defineEmits(['update:pageData'])
 const props = defineProps({
