@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonGrid, IonRow, IonCol } from "@ionic/vue";
+import { IonButton, IonGrid, IonRow, IonIcon } from "@ionic/vue";
 import { micOutline, refresh, stop } from "ionicons/icons";
 import { RecordingData, VoiceRecorder } from "capacitor-voice-recorder";
 import { ref, Ref } from "vue";
