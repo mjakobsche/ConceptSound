@@ -9,9 +9,9 @@
           @click="finish()">
           <ion-icon slot="icon-only" :icon="stop"></ion-icon>
         </ion-button>
+   <div id="player"></div>
     </ion-row>
   </ion-grid>
-  <!--  <div id="player"></div>-->
 </template>
 
 <script setup lang="ts">

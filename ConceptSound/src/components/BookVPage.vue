@@ -6,13 +6,18 @@
           <ion-card-title>
             {{ page.name }}
           </ion-card-title>
-          <ion-button fill="clear" size="small" shape="round" ref="hidden">
-            <ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
-          </ion-button>
+          <div>
+            <ion-button fill="clear" size="small" shape="round" @click="emit('modPage')" :disabled="editable">
+              <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" size="small" shape="round" ref="hidden">
+              <ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
+            </ion-button>
+          </div>
         </div>
       </ion-card-header>
       <ion-card-content v-if="!page.hidden">
-        <ion-item button @click="emit('modPage')" :disabled="editable">
+        <ion-item>
           <slot></slot>
         </ion-item>
       </ion-card-content>
@@ -31,9 +36,9 @@ import {
   IonIcon,
   IonItem,
 } from "@ionic/vue";
-import {onMounted, PropType, ref} from "vue";
-import {eyeOutline} from "ionicons/icons";
-import {Page} from "@/model/Page";
+import { onMounted, PropType, ref } from "vue";
+import { eyeOutline, addOutline } from "ionicons/icons";
+import { Page } from "@/model/Page";
 
 defineProps({
   page: {
