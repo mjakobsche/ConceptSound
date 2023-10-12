@@ -7,6 +7,7 @@ import {IonItem} from "@ionic/vue"
 import { onMounted, Ref, ref, watch } from "vue";
 import { RecordingData } from "capacitor-voice-recorder";
 import WaveSurfer from "wavesurfer.js";
+
 const props = defineProps({
   data: {
     required: true,
@@ -29,9 +30,8 @@ onMounted(() => {
     setPlayer();
   }
 })
-function setPlayer() {
-  console.log(recording.value.value.mimeType);
 
+function setPlayer() {
   if (wavesurfer) {
     wavesurfer.destroy();
   }
