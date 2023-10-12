@@ -23,7 +23,6 @@ import "@ionic/vue/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-
 import BookPageText from "./components/BookPageText.vue";
 import BookWorkshopText from "./components/BookWorkshopText.vue";
 import BookWorkshopAudio from "./components/BookWorkshopAudio.vue";
@@ -50,7 +49,6 @@ applyPolyfills().then(() => {
 window.addEventListener("DOMContentLoaded", async () => {
   const platform = Capacitor.getPlatform();
   const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite);
-
   const pinia = createPinia();
   if(!App) {return;}
   const app = createApp(App)
@@ -110,6 +108,8 @@ window.addEventListener("DOMContentLoaded", async () => {
       data TEXT,
       FOREIGN KEY(bookId) REFERENCES covers(id)
   );
+  INSERT INTO covers(title)
+  VALUES("works")
       `;
   const res = await db.execute(cmd);
   //await db.query("SELECT * FROM covers");

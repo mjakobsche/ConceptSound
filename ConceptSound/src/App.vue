@@ -11,7 +11,7 @@ import { IonApp, IonRouterOutlet } from "@ionic/vue";
 import { getCurrentInstance } from 'vue';
 import { useSQLite } from 'vue-sqlite-hook';
 const app = getCurrentInstance();
-if (app != null) {
+if (app != null) { 
   app.appContext.config.globalProperties.$sqlite = useSQLite();
 }
 </script>

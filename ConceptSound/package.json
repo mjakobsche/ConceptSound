@@ -27,6 +27,7 @@
     "@ionic/pwa-elements": "^3.2.1",
     "@ionic/vue": "^7.0.0",
     "@ionic/vue-router": "^7.0.0",
+    "@lbgm/pro-calendar-vue": "^1.1.6",
     "@types/sortablejs": "^1.15.1",
     "abcjs": "^6.2.2",
     "capacitor-voice-recorder": "^5.0.0",
