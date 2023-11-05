@@ -4,7 +4,7 @@ import { executeQuery, executeCommand } from "../data/DbConnection"
 async function save(cover: Cover) {
   const query = 'INSERT INTO covers (title, date) VALUES (?, ?)';
   const params = [cover.title, cover.date];
-  await executeQuery(getQuery(query, params));
+  await executeCommand(getQuery(query, params));
 }
 
 async function findAll() {
@@ -23,13 +23,13 @@ async function findOne(id: number) {
 async function update(cover: Cover) {
   const query = 'UPDATE covers SET title = ?, date = ? WHERE id = ?';
   const params = [cover.title, cover.date, cover.id];
-  await executeQuery(getQuery(query, params));
+  await executeCommand(getQuery(query, params));
 }
 
 async function remove(id: number) {
   const query = 'DELETE FROM covers WHERE id = ?';
   const params = [id];
-  await executeQuery(getQuery(query, params));
+  await executeCommand(getQuery(query, params));
 }
 
 function getQuery(baseQuery: string, queryParams: any[]) {

@@ -4,7 +4,7 @@ import { executeQuery, executeCommand } from "../data/DbConnection"
 async function save(page: Page) {
   const query = 'INSERT INTO pages (type, name, data, hidden) VALUES (?, ?, ?, ?)';
   const params = [page.type, page.name, page.data, page.hidden];
-  await executeQuery(getQuery(query, params));
+  await executeCommand(getQuery(query, params));
 }
 
 async function findAll() {
@@ -13,6 +13,12 @@ async function findAll() {
   return response;
 }
 
+async function findByCover(bookId: number) {
+  const query = 'SELECT * FROM pages WHERE bookId = ?';
+  const params = [bookId];
+  const response: Page | null = await executeQuery(getQuery(query, params)) as unknown as Page | null;
+  return response;
+}
 async function findOne(id: number) {
   const query = 'SELECT * FROM pages WHERE id = ?';
   const params = [id];
@@ -23,13 +29,13 @@ async function findOne(id: number) {
 async function update(page: Page) {
   const query = 'UPDATE pages SET type = ?, name = ?, data = ?, hidden = ? WHERE id = ?';
   const params = [page.type, page.name, page.data, page.hidden, page.id];
-  await executeQuery(getQuery(query, params));
+  await executeCommand(getQuery(query, params));
 }
 
 async function remove(id: number) {
   const query = 'DELETE FROM pages WHERE id = ?';
   const params = [id];
-  await executeQuery(getQuery(query, params));
+  await executeCommand(getQuery(query, params));
 }
 
 function getQuery(baseQuery: string, queryParams: any[]) {
