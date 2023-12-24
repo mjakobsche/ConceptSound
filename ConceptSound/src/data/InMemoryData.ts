@@ -25,11 +25,13 @@ const pages: Page[] = [
     },
 ];
 
-const inMemoryData: Ref<Book[]> = ref([
+const simpleData: Ref<Book[]> = ref([
     {
         cover: covers[0],
         pages: pages,
     },
+]);
+const inMemoryData: Ref<Book[]> = ref([
     {
         cover: covers[1],
         pages: [],
@@ -37,3 +39,4 @@ const inMemoryData: Ref<Book[]> = ref([
 ]);
 
 export default inMemoryData;
+export {simpleData}

@@ -1,10 +1,13 @@
 import {Cover} from "../model/Cover";
 import {Book} from "../model/Book";
-import {computed, ComputedRef,} from "vue";
-import inMemoryData from "@/data/InMemoryData";
+import {computed, ComputedRef, ref,} from "vue";
+import inMemoryData, {simpleData} from "@/data/InMemoryData";
 import {setBook} from "./BookService"
+import {initialize} from "@/utils/Initializer";
+import {readDirectory, readFile} from "@/utils/FileSystemWrapper";
 
-const data = inMemoryData;
+let data = simpleData;
+initialize().then(async ()=> addBook((JSON.parse((await readFile("library/index.json")).data)[0].cover.title )));
 
 const library: ComputedRef<Cover[]> = computed(() => {
     const covers: Cover[] = [];

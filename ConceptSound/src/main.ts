@@ -31,30 +31,11 @@ import BookPagePhoto from "./components/BookPagePhoto.vue";
 import BookWorkshopPhoto from "./components/BookWorkshopPhoto.vue";
 import BookPageScore from "./components/BookPageScore.vue";
 import BookWorkshopScore from "./components/BookWorkshopScore.vue";
-import {
-  applyPolyfills,
-  defineCustomElements as jeepSqlite,
-} from "jeep-sqlite/loader";
-import { useState } from "@/composables/state";
-import { Capacitor } from "@capacitor/core";
-import {
-  CapacitorSQLite,
-  SQLiteConnection,
-  SQLiteDBConnection,
-} from "@capacitor-community/sqlite";
 
-applyPolyfills().then(() => {
-  jeepSqlite(window);
-});
-window.addEventListener("DOMContentLoaded", async () => {
-  const platform = Capacitor.getPlatform();
-  const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite);
-  const pinia = createPinia();
-  if(!App) {return;}
-  const app = createApp(App)
+const app = createApp(App)
     .use(IonicVue)
     .use(router)
-    .use(pinia)
+    .use(createPinia())
     .component("BookPageText", BookPageText)
     .component("BookWorkshopText", BookWorkshopText)
     .component("BookPageAudio", BookPageAudio)
@@ -64,62 +45,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     .component("BookPageScore", BookPageScore)
     .component("BookWorkshopScore", BookWorkshopScore);
 
-  const [existConn, setExistConn] = useState(false);
-  app.config.globalProperties.$existingConn = {
-    existConn: existConn,
-    setExistConn: setExistConn,
-  };
-
-  if (platform === "web") {
-    const jeepSqlite = document.createElement("jeep-sqlite");
-    document.body.appendChild(jeepSqlite);
-    await customElements.whenDefined("jeep-sqlite");
-    await sqlite.initWebStore();
-  }
-
-  const ret = await sqlite.checkConnectionsConsistency();
-  const isConn = (await sqlite.isConnection("library_db", false)).result;
-  let db: SQLiteDBConnection;
-  if (ret.result && isConn) {
-    db = await sqlite.retrieveConnection("library_db", false);
-  } else {
-    db = await sqlite.createConnection(
-      "library_db",
-      false,
-      "no-encryption",
-      1,
-      false,
-    );
-  }
-  await db.open();
-  const cmd = `
-  CREATE TABLE IF NOT EXISTS covers (
-      id INTEGER PRIMARY KEY,
-      title NVARCHAR(50),
-      date DATETIME
-  );
-  CREATE TABLE IF NOT EXISTS pages (
-      id INTEGER PRIMARY KEY,
-      bookId INTEGER,
-      number INTEGER UNIQUE,
-      hidden BOOLEAN,
-      type VARCHAR(15),
-      name NVARCHAR(50),
-      data TEXT,
-      FOREIGN KEY(bookId) REFERENCES covers(id)
-  );
-  INSERT INTO covers(title)
-  VALUES("works")
-      `;
-  const res = await db.execute(cmd);
-  //await db.query("SELECT * FROM covers");
-  if (res.changes && res.changes.changes && res.changes.changes < 0) {
-    throw new Error(`Error: execute failed`);
-  }
-
-  await sqlite.closeConnection("library_db", false);
-
-  router.isReady().then(() => {
-    app.mount("#app");
-  });
+router.isReady().then(() => {
+  app.mount("#app");
 });
