@@ -30,7 +30,7 @@ const pickImages = async () => {
       readData: true
     });
     if (result) {
-      source.value = "data:image/jpeg;base64," + result.files[0].data;
+      source.value = "initialization:image/jpeg;base64," + result.files[0].data;
       emit('update:pageData', source.value)
     }
   } catch (e) {

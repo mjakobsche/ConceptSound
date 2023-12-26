@@ -1,5 +1,4 @@
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
-import inMemoryData from "@/data/InMemoryData";
 
 const encoding = Encoding.UTF8;
 const baseDirectory = Directory.Documents;

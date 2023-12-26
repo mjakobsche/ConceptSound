@@ -1,5 +1,5 @@
 import {readDirectory, writeDirectory, writeFile} from "@/utils/FileSystemWrapper";
-import inMemoryData from "@/data/InMemoryData";
+import {initialLibrary} from "@/initialization/InitialLibrary";
 
 const fileDirectory = "library";
 const fileExtension = ".json";
@@ -21,7 +21,7 @@ async function initializeDirectory() {
 }
 
 async function initializeLibrary() {
-    await writeFile(getFilePath("index"), JSON.stringify(inMemoryData.value))
+    await writeFile(getFilePath("index"), JSON.stringify(initialLibrary))
 }
 
 function getFilePath(fileName: string){

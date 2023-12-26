@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
-import router from "./router";
+import router from "./views/Router";
 
 import { IonicVue } from "@ionic/vue";
 
@@ -22,7 +22,7 @@ import "@ionic/vue/css/flex-utils.css";
 import "@ionic/vue/css/display.css";
 
 /* Theme variables */
-import "./theme/variables.css";
+import "./theme.css";
 import BookPageText from "./components/BookPageText.vue";
 import BookWorkshopText from "./components/BookWorkshopText.vue";
 import BookWorkshopAudio from "./components/BookWorkshopAudio.vue";
@@ -31,6 +31,7 @@ import BookPagePhoto from "./components/BookPagePhoto.vue";
 import BookWorkshopPhoto from "./components/BookWorkshopPhoto.vue";
 import BookPageScore from "./components/BookPageScore.vue";
 import BookWorkshopScore from "./components/BookWorkshopScore.vue";
+import {initialize} from "@/initialization/Initializer";
 
 const app = createApp(App)
     .use(IonicVue)
@@ -45,6 +46,4 @@ const app = createApp(App)
     .component("BookPageScore", BookPageScore)
     .component("BookWorkshopScore", BookWorkshopScore);
 
-router.isReady().then(() => {
-  app.mount("#app");
-});
+router.isReady().then(() => initialize().then(() => app.mount("#app")).catch((error) => console.log("initialization error: " + error)));

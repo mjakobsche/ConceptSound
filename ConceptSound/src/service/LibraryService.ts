@@ -1,35 +1,23 @@
-import {Cover} from "../model/Cover";
 import {Book} from "../model/Book";
-import {computed, ComputedRef, ref,} from "vue";
-import inMemoryData, {simpleData} from "@/data/InMemoryData";
+import {computed, ComputedRef,} from "vue";
 import {setBook} from "./BookService"
-import {initialize} from "@/utils/Initializer";
-import {readDirectory, readFile} from "@/utils/FileSystemWrapper";
+import {findAllBooks} from "@/service/Writer";
 
-let data = simpleData;
-initialize().then(async ()=> addBook((JSON.parse((await readFile("library/index.json")).data)[0].cover.title )));
+let data = await findAllBooks();
 
-const library: ComputedRef<Cover[]> = computed(() => {
-    const covers: Cover[] = [];
-    data.value.forEach((book) => {
-        covers.push(book.cover);
-    });
-    return covers;
+const library: ComputedRef<Book[]> = computed(() => {
+    return data;
 });
 
 function addBook(title: string) {
-    const book: Book = {
-        cover: {id: selectMaxId() + 1, title: title, date: new Date()},
-        pages: [],
-    };
-    data.value.push(book);
+    data.push(new Book(selectMaxId(), title));
 }
 
 function remBook(id: number) {
-    data.value = data.value.filter((b) => b != selectBookById(id));
+    data = data.filter((b) => b != selectBookById(id));
     const maxId = selectMaxId();
     if (maxId > 1) {
-        data.value[maxId].cover.id = id;
+        data[maxId].id = id;
     }
 }
 
@@ -38,7 +26,7 @@ function openBook(id: number) {
 }
 
 function selectBookById(id: number): Book {
-    const books: Book[] = data.value.filter((b) => b.cover.id == id);
+    const books: Book[] = data.filter((b) => b.id == id);
     if (books.length != 1) throw "explicit book not found";
     return books[0];
 }

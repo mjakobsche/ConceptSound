@@ -1,31 +1,22 @@
-import {Book} from "@/model/Book";
-import {ref, Ref, watch} from "vue";
+import {ref, Ref, UnwrapRef, watch} from "vue";
 import {Page} from "@/model/Page";
-import inMemoryData from "@/data/InMemoryData";
-const data = inMemoryData;
-const book: Ref<Book> = ref(data.value[0]);
+import {initialLibrary} from "@/initialization/InitialLibrary";
+import {Book} from "@/model/Book";
+
+const data = initialLibrary;
+const book: Ref<UnwrapRef<Book>> = ref(data[0]);
 
 function setBook(newBook: Book) {
     book.value = newBook;
     watch(book.value.pages, () => {
-        update(book.value);
+        //update();
     });
 }
 
 function addPage(type: string) {
     const bookIndex = book.value.pages.length;
-    let initData = "";
-    if (type == "Score") {
-        initData = "X:1\nK:C\n|";
-    }
 
-    book.value.pages.push({
-        id: bookIndex,
-        type: type,
-        name: type,
-        data: initData,
-        hidden: false,
-    });
+    book.value.pages.push(new Page(bookIndex, type));
 }
 
 function hidePage(id: number) {
@@ -52,12 +43,12 @@ function modPage(page: Page) {
     book.value.pages[pageIndex] = page;
 }
 
-function update(book: Book): void {
-    const bookIndex = data.value.findIndex(
-        (b) => b.cover.id == book.cover.id
-    );
-    if (bookIndex == -1) throw "explicit book not found";
-    data.value[bookIndex] = book;
-}
+// function update(book: WholeBook): void {
+//     const bookIndex = data.value.findIndex(
+//         (b) => b.cover.id == book.cover.id
+//     );
+//     if (bookIndex == -1) throw "explicit book not found";
+//     data.value[bookIndex] = book;
+// }
 
 export {book, setBook, addPage, remPage, hidePage, swapPage, modPage};
