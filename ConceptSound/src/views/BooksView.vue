@@ -32,7 +32,7 @@
 import { IonContent, IonHeader, IonModal, IonPage, IonTitle, IonToolbar, } from "@ionic/vue";
 import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
-import { addPage, book, hidePage, modPage, remPage, swapPage, } from "@/service/BookService";
+import { addPage, book, hidePage, modPage, remPage, swapPage, } from "@/service/PageService";
 import SortableJs from "sortablejs";
 import { Sortable } from "sortablejs-vue3";
 import BookVWorkshop from "@/components/BookVWorkshop.vue";

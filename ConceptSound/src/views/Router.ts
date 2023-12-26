@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from "@ionic/vue-router";
 import {RouteRecordRaw} from "vue-router";
-import LibraryView from "../views/LibraryView.vue";
-import BookView from "../views/BookView.vue";
+import LibraryView from "./PagesView.vue";
+import BookView from "./BooksView.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {

@@ -19,5 +19,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, } from "@ionic/vue";
 import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
-import { addBook, library, openBook, remBook } from "@/service/LibraryService";
+import { addBook, library, openBook, remBook } from "@/service/BookService";
 </script>
