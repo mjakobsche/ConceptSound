@@ -1,38 +1,41 @@
-import {Book} from "../model/Book";
-import {computed, ComputedRef,} from "vue";
-import {setBook} from "./PageService"
-import {findAllBooks} from "@/service/Writer";
+import {ref, Ref, watch} from "vue";
+import {BookPage} from "@/model/BookPage";
+import {BookCover} from "@/model/BookCover";
+import {getPersistedBookPages, persistBookPagesChanges} from "@/service/Writer";
 
-let data = await findAllBooks();
+const bookCover: Ref<BookCover> = ref(new BookCover(""));
+const bookPages: Ref<BookPage[]> = ref([]);
 
-const library: ComputedRef<Book[]> = computed(() => {
-    return data;
-});
-
-function addBook(title: string) {
-    data.push(new Book(selectMaxId(), title));
+async function openBook(book: BookCover){
+    bookCover.value = book;
+    bookPages.value = await getPersistedBookPages(book.id)
+    console.log(bookPages);
+    watch(bookPages.value, async () => {
+        console.log("run update")
+        await persistBookPagesChanges(book.id, bookPages.value);
+    });
 }
 
-function remBook(id: number) {
-    data = data.filter((b) => b != selectBookById(id));
-    const maxId = selectMaxId();
-    if (maxId > 1) {
-        data[maxId].id = id;
-    }
+function addPage(type: string): void {
+    bookPages.value.push(new BookPage(bookPages.value.length, type));
 }
 
-function openBook(id: number) {
-    setBook(selectBookById(id));
+function hidePage(id: string): void {
+    //const page: BookPage = bookPages.value.find((b) => b.id === id);
 }
 
-function selectBookById(id: number): Book {
-    const books: Book[] = data.filter((b) => b.id == id);
-    if (books.length != 1) throw "explicit book not found";
-    return books[0];
+function remPage(id: string) {
+    bookPages.value.splice(bookPages.value.findIndex((bookPage: BookPage)=> bookPage.id === id), 1)
 }
 
-function selectMaxId(): number {
-    return library.value.length - 1;
+function swapPage(from = 0, to = 0) {
+    const page: BookPage = bookPages.value.splice(from, 1)[0];
+    bookPages.value.splice(to, 0, page);
 }
 
-export {library, addBook, remBook, openBook};
+function modPage(page: BookPage) {
+    //const pageIndex = bookPages.value.findIndex((t) => t.id == page.id);
+    //bookPages[pageIndex] = page;
+}
+
+export {openBook, addPage, bookPages, bookCover, remPage, hidePage, swapPage, modPage};

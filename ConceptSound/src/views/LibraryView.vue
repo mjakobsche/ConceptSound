@@ -7,8 +7,8 @@
         </ion-toolbar>
       </ion-header>
       <LibraryAddBook @add-book="(title) => addBook(title)"></LibraryAddBook>
-      <div v-for="book in library" :key="book.id">
-        <LibraryBook :book="book" @rem="remBook(book.id)" @set="openBook(book.id)">
+      <div v-for="bookCover in library" :key="bookCover.id">
+        <LibraryBook :book="bookCover" @rem="remBook(bookCover.id)" @set="openBook(bookCover)">
         </LibraryBook>
       </div>
     </ion-content>
@@ -19,5 +19,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, } from "@ionic/vue";
 import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
-import { addBook, library, openBook, remBook } from "@/service/BookService";
+import { addBook, library, remBook } from "@/service/LibraryService";
+import {openBook} from "@/service/BookService";
 </script>

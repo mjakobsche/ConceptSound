@@ -38,11 +38,11 @@ import {
 } from "@ionic/vue";
 import { onMounted, PropType, ref } from "vue";
 import { eyeOutline, addOutline } from "ionicons/icons";
-import { Page } from "@/model/Page";
+import { BookPage } from "@/model/BookPage";
 
 defineProps({
   page: {
-    type: Object as PropType<Page>,
+    type: Object as PropType<BookPage>,
     required: true,
   },
   editable: {
@@ -88,4 +88,4 @@ const onStart = () => {
   align-items: center;
 }
 </style>
-@/stores/Book @/model/Page @/model/Page
+@/stores/Book @/model/BookPage @/model/BookPage

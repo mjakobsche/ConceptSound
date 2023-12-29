@@ -2,12 +2,12 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>{{ book.title }}</ion-title>
+        <ion-title>{{ bookCover.title }}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
       <BookAddPage @add-page="(type) => addPage(type)" />
-      <Sortable :list="book.pages" item-key="id" :options="{
+      <Sortable :list="bookPages" item-key="id" :options="{
         handle: '.handle',
         draggable: '.element',
       }" @end="(event: SortableJs.SortableEvent) => { swapPage(event.oldIndex, event.newIndex) }">
@@ -32,17 +32,17 @@
 import { IonContent, IonHeader, IonModal, IonPage, IonTitle, IonToolbar, } from "@ionic/vue";
 import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
-import { addPage, book, hidePage, modPage, remPage, swapPage, } from "@/service/PageService";
+import { addPage, bookPages, bookCover, hidePage, modPage, remPage, swapPage, } from "@/service/BookService";
 import SortableJs from "sortablejs";
 import { Sortable } from "sortablejs-vue3";
 import BookVWorkshop from "@/components/BookVWorkshop.vue";
 import { ref, Ref } from "vue";
-import { Page } from "@/model/Page";
+import { BookPage } from "@/model/BookPage";
 
 const workshopIsOpen = ref(false);
-const workshopPage: Ref<Page> = ref(book.value.pages[0]);
+const workshopPage: Ref<BookPage> = ref(bookPages[0]);
 
-function openWorkshop(page: Page) {
+function openWorkshop(page: BookPage) {
   workshopPage.value = page;
   workshopIsOpen.value = true;
 }

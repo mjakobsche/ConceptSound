@@ -1,8 +1,7 @@
 import {readDirectory, writeDirectory, writeFile} from "@/utils/FileSystemWrapper";
 import {initialLibrary} from "@/initialization/InitialLibrary";
-
-const fileDirectory = "library";
-const fileExtension = ".json";
+import {fileDirectory, getFilePath} from "@/utils/LibraryFilesHelper";
+import {assurePagesFilesIntegrity} from "@/service/Writer";
 
 export async function initialize() {
     if(await setupRequired()){
@@ -22,8 +21,4 @@ async function initializeDirectory() {
 
 async function initializeLibrary() {
     await writeFile(getFilePath("index"), JSON.stringify(initialLibrary))
-}
-
-function getFilePath(fileName: string){
-    return fileDirectory + "/" + fileName + fileExtension;
 }
