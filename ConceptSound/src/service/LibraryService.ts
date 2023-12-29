@@ -1,18 +1,10 @@
 import {BookCover} from "@/model/BookCover";
 import {ref, Ref, watch} from "vue";
-import {
-    assurePagesFilesIntegrity,
-    getPersistedBooks,
-    persistBooksChanges,
-    setModificationDates
-} from "@/service/Writer";
-import {initialize} from "@/initialization/Initializer";
-import {openBook} from "@/service/BookService";
+import {getPersistedBooks, persistBooksChanges,} from "@/service/Writer";
 
 let library: Ref<BookCover[]> = ref([]);
 
 async function setupLibrary() {
-    await initialize();
     library.value = await getPersistedBooks();
     watch(library.value, async () => {
         await persistBooksChanges(library.value)

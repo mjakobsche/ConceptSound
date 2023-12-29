@@ -1,4 +1,4 @@
-import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import {Directory, Encoding, Filesystem} from '@capacitor/filesystem';
 
 const encoding = Encoding.UTF8;
 const baseDirectory = Directory.Documents;
@@ -18,7 +18,7 @@ async function writeDirectory(directoryPath: string) {
     })
 }
 
-async function readFile (filePath: string){
+async function readFile(filePath: string) {
     return await Filesystem.readFile({
         path: filePath,
         directory: baseDirectory,
@@ -26,12 +26,13 @@ async function readFile (filePath: string){
     });
 }
 
-async function writeFile (filePath: string, fileContents: string) {
+async function writeFile(filePath: string, fileContents: string) {
     await Filesystem.writeFile({
         path: filePath,
         data: fileContents,
         directory: baseDirectory,
         encoding: encoding,
+        recursive: true,
     });
 }
 

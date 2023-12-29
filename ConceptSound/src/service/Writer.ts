@@ -1,4 +1,4 @@
-import {deleteFile, readDirectory, readFile, writeFile} from "@/utils/FileSystemWrapper";
+import {deleteFile, readDirectory, readFile, writeDirectory, writeFile} from "@/utils/FileSystemWrapper";
 import {fileDirectory, getFilePath} from "@/utils/LibraryFilesHelper";
 import {BookCover} from "@/model/BookCover";
 import {FileInfo} from "@capacitor/filesystem";
@@ -18,9 +18,14 @@ async function getPersistedBookPages(bookId: string): Promise<BookPage[]> {
 }
 
 async function getPersistedBooks(): Promise<BookCover[]> {
-    const bookCovers: BookCover[] = await readFileContents("index");
-    await setModificationDates(bookCovers);
-    return bookCovers
+    let bookCovers: BookCover[] = [];
+    try {
+        bookCovers = await readFileContents("index");
+        await setModificationDates(bookCovers);
+    } catch {
+        await writeDirectory(fileDirectory);
+    }
+    return bookCovers;
 }
 
 async function assurePagesFilesIntegrity(bookCovers: BookCover[]): Promise<void> {
@@ -48,4 +53,4 @@ async function readFileContents(fileName: string): Promise<any> {
     return JSON.parse((await readFile(getFilePath(fileName))).data);
 }
 
-export {getPersistedBooks, persistBooksChanges, persistBookPagesChanges, getPersistedBookPages, assurePagesFilesIntegrity, setModificationDates}
+export {getPersistedBooks, persistBooksChanges, persistBookPagesChanges, getPersistedBookPages, setModificationDates}
