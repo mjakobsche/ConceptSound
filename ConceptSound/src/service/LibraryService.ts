@@ -1,8 +1,11 @@
 import {BookCover} from "@/model/BookCover";
-import {ref, Ref, watch} from "vue";
+import {computed, ComputedRef, ref, Ref, watch} from "vue";
 import {getPersistedBooks, persistBooksChanges,} from "@/service/Writer";
 
-let library: Ref<BookCover[]> = ref([]);
+const library: Ref<BookCover[]> = ref([]);
+const tags: ComputedRef<string[]> = computed(() => {
+    return [...new Set(library.value.flatMap((bookCover: BookCover) => bookCover.tags))] ;
+})
 
 async function setupLibrary() {
     library.value = await getPersistedBooks();
@@ -21,4 +24,4 @@ function remBook(id: string) {
     library.value.splice(library.value.findIndex((bookCover) => bookCover.id === id), 1)
 }
 
-export {setupLibrary, library, addBook, remBook};
+export {setupLibrary, library, tags, addBook, remBook};

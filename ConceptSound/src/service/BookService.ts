@@ -17,7 +17,14 @@ async function openBook(book: BookCover){
 }
 
 function addPage(type: string): void {
-    putPage(new BookPage(bookPages.value.length, type), 0);
+    putPage(new BookPage(type), 0);
+}
+
+function addTag(tag: string): void{
+    bookCover.value.tags.push(tag);
+}
+function remTag(tag: string): void{
+    bookCover.value.tags.splice(bookCover.value.tags.indexOf(tag), 1);
 }
 
 function hidePage(id: string): void {
@@ -51,4 +58,4 @@ function putPage(page: BookPage, pageNumber: number): void{
     bookPages.value.splice(pageNumber, 0, page);
 }
 
-export {openBook, addPage, bookPages, bookCover, remPage, hidePage, swapPage, modPage};
+export {openBook,addTag, remTag, addPage, bookPages, bookCover, remPage, hidePage, swapPage, modPage};

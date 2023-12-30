@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <SideMenu :name="'Modyfikuj'">
-      <BookMenuContents v-model:page-data="bookCover.title"></BookMenuContents>
+      <BookMenuContents v-model:book-cover="bookCover" :tags="tags" @rem-tag="(tagName) => remTag(tagName)" @add-tag="(tagName) => addTag(tagName)"></BookMenuContents>
     </SideMenu>
     <ion-header>
       <ion-toolbar>
@@ -47,7 +47,18 @@ import {
 } from "@ionic/vue";
 import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
-import {addPage, bookCover, bookPages, hidePage, modPage, remPage, swapPage,} from "@/service/BookService";
+import {
+  addPage,
+  addTag,
+  bookCover,
+  bookPages,
+  hidePage,
+  modPage,
+  remPage,
+  remTag,
+  swapPage,
+} from "@/service/BookService";
+import {tags} from "@/service/LibraryService";
 import SortableJs from "sortablejs";
 import {Sortable} from "sortablejs-vue3";
 import BookVWorkshop from "@/components/BookVWorkshop.vue";

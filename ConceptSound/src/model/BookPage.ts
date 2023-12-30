@@ -1,14 +1,12 @@
 export class BookPage {
 	id: string;
-	position: number;
 	type: string;
 	name: string;
 	data: string;
 	hidden: boolean;
 
-	public constructor(position: number, type: string) {
+	public constructor(type: string) {
 		this.id = new Date().toTimeString();
-		this.position = position;
 		this.type = type;
 		this.name = type;
 		this.data = this.getInitialData(type);
