@@ -21,7 +21,7 @@ function addPage(type: string): void {
 }
 
 function addTag(tag: string): void{
-    bookCover.value.tags.push(tag);
+    bookCover.value.tags.unshift(tag);
 }
 function remTag(tag: string): void{
     bookCover.value.tags.splice(bookCover.value.tags.indexOf(tag), 1);

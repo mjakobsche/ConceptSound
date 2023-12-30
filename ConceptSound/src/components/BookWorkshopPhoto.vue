@@ -26,11 +26,11 @@ const source = ref(props.pageData);
 const pickImages = async () => {
   try {
     const result = await FilePicker.pickImages({
-      multiple: true,
+      multiple: false,
       readData: true
     });
     if (result) {
-      source.value = "initialization:image/jpeg;base64," + result.files[0].data;
+      source.value = "data:" + result.files[0].mimeType + ";base64," + result.files[0].data;
       emit('update:pageData', source.value)
     }
   } catch (e) {

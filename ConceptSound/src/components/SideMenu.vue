@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
-import {IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonRouterOutlet} from "@ionic/vue";
+import {IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonRouterOutlet, IonButton, IonButtons, IonMenuToggle, IonIcon} from "@ionic/vue";
+import {checkmarkOutline} from "ionicons/icons";
 defineProps(["name"]);
 </script>
 
@@ -9,12 +10,26 @@ defineProps(["name"]);
     <ion-header>
       <ion-toolbar>
         <ion-title>{{name}}</ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-toggle :auto-hide="false">
+            <ion-button>
+              <ion-icon :icon="checkmarkOutline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content class="ion-padding">
       <slot>
       </slot>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="menuContent"></ion-router-outlet>
 </template>
+
+<style scoped>
+
+  ion-menu {
+    --min-width: 100%;
+  }
+</style>

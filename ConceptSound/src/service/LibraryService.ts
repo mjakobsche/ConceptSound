@@ -17,7 +17,7 @@ async function setupLibrary() {
 }
 
 function addBook(title: string) {
-    library.value.push(new BookCover(title));
+    library.value.unshift(new BookCover(title));
 }
 
 function remBook(id: string) {
