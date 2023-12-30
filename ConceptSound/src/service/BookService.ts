@@ -17,25 +17,38 @@ async function openBook(book: BookCover){
 }
 
 function addPage(type: string): void {
-    bookPages.value.push(new BookPage(bookPages.value.length, type));
+    putPage(new BookPage(bookPages.value.length, type), 0);
 }
 
 function hidePage(id: string): void {
-    //const page: BookPage = bookPages.value.find((b) => b.id === id);
-}
-
-function remPage(id: string) {
-    bookPages.value.splice(bookPages.value.findIndex((bookPage: BookPage)=> bookPage.id === id), 1)
-}
-
-function swapPage(from = 0, to = 0) {
-    const page: BookPage = bookPages.value.splice(from, 1)[0];
-    bookPages.value.splice(to, 0, page);
+    const pageNumber: number = findPageNumber(id);
+    const page: BookPage = ripPage(pageNumber);
+    page.hidden = !page.hidden;
+    putPage(page, pageNumber);
 }
 
 function modPage(page: BookPage) {
-    //const pageIndex = bookPages.value.findIndex((t) => t.id == page.id);
-    //bookPages[pageIndex] = page;
+    console.log("unnecessary call for modPage");
+}
+
+function remPage(id: string): void {
+    ripPage(findPageNumber(id));
+}
+
+function swapPage(from = 0, to = 0): void {
+    putPage(ripPage(from), to);
+}
+
+function findPageNumber(id: string): number {
+    return bookPages.value.findIndex((bookPage: BookPage) => bookPage.id == id);
+}
+
+function ripPage(pageNumber: number): BookPage {
+    return bookPages.value.splice(pageNumber, 1)[0];
+}
+
+function putPage(page: BookPage, pageNumber: number): void{
+    bookPages.value.splice(pageNumber, 0, page);
 }
 
 export {openBook, addPage, bookPages, bookCover, remPage, hidePage, swapPage, modPage};
