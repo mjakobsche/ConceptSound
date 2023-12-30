@@ -17,25 +17,14 @@
         </div>
       </ion-card-header>
       <ion-card-content v-if="!page.hidden">
-        <ion-item>
-          <slot></slot>
-        </ion-item>
+        <slot></slot>
       </ion-card-content>
     </ion-card>
   </div>
 </template>
 
 <script setup lang="ts">
-import {
-  createGesture,
-  IonButton,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonIcon,
-  IonItem,
-} from "@ionic/vue";
+import {createGesture, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon,} from "@ionic/vue";
 import {onMounted, PropType, ref} from "vue";
 import {addOutline, eyeOutline} from "ionicons/icons";
 import {BookPage} from "@/model/BookPage";
