@@ -21,7 +21,6 @@ function toggleTag(tag: string){
      props.bookTags.push(tag);
    }
 }
-
 </script>
 
 <style scoped>
