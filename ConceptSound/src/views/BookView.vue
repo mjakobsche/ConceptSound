@@ -1,13 +1,18 @@
 <template>
   <ion-page>
     <SideMenu :name="'Modyfikuj'">
-      <BookMenuContents v-model:book-cover="bookCover" :tags="tags" @rem-tag="(tagName) => remTag(tagName)" @add-tag="(tagName) => addTag(tagName)"></BookMenuContents>
+      <BookMenuContents v-model:book-cover="bookCover" :tags="tags" @rem-tag="(tagName) => remTag(tagName)"
+                        @add-tag="(tagName) => addTag(tagName)"></BookMenuContents>
     </SideMenu>
     <ion-header>
       <ion-toolbar>
         <ion-title>{{ bookCover.title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-toggle :auto-hide="false">
+            <ion-button>
+              <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -36,14 +41,16 @@
 
 <script setup lang="ts">
 import {
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
-  IonMenuButton,
+  IonIcon,
+  IonMenuToggle,
   IonModal,
   IonPage,
   IonTitle,
-  IonToolbar,
+  IonToolbar
 } from "@ionic/vue";
 import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
@@ -66,6 +73,7 @@ import {ref, Ref} from "vue";
 import {BookPage} from "@/model/BookPage";
 import SideMenu from "@/components/SideMenu.vue";
 import BookMenuContents from "@/components/BookMenuContents.vue";
+import {menuOutline} from "ionicons/icons";
 
 const workshopIsOpen = ref(false);
 const workshopPage: Ref<BookPage> = ref(bookPages[0]);
