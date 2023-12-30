@@ -6,7 +6,7 @@ import {getPersistedBookPages, persistBookPagesChanges} from "@/service/Writer";
 const bookCover: Ref<BookCover> = ref(new BookCover(""));
 const bookPages: Ref<BookPage[]> = ref([]);
 
-async function openBook(book: BookCover){
+async function openBook(book: BookCover) {
     bookCover.value = book;
     bookPages.value = await getPersistedBookPages(book.id)
     watch(bookPages.value, async () => {
@@ -20,10 +20,11 @@ function addPage(type: string): void {
     putPage(new BookPage(type), 0);
 }
 
-function addTag(tag: string): void{
+function addTag(tag: string): void {
     bookCover.value.tags.unshift(tag);
 }
-function remTag(tag: string): void{
+
+function remTag(tag: string): void {
     bookCover.value.tags.splice(bookCover.value.tags.indexOf(tag), 1);
 }
 
@@ -54,8 +55,8 @@ function ripPage(pageNumber: number): BookPage {
     return bookPages.value.splice(pageNumber, 1)[0];
 }
 
-function putPage(page: BookPage, pageNumber: number): void{
+function putPage(page: BookPage, pageNumber: number): void {
     bookPages.value.splice(pageNumber, 0, page);
 }
 
-export {openBook,addTag, remTag, addPage, bookPages, bookCover, remPage, hidePage, swapPage, modPage};
+export {openBook, addTag, remTag, addPage, bookPages, bookCover, remPage, hidePage, swapPage, modPage};

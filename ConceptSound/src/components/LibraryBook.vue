@@ -24,14 +24,14 @@
           </ion-button>
         </div>
       </div>
-      <ion-card-subtitle v-if="book.tags.length > 0">{{ "#" + book.tags.join(" #")}}</ion-card-subtitle>
+      <ion-card-subtitle v-if="book.tags.length > 0">{{ "#" + book.tags.join(" #") }}</ion-card-subtitle>
     </IonCardContent>
   </ion-card>
 </template>
 
 <script setup lang="ts">
 import {chevronForwardOutline, closeCircleOutline} from "ionicons/icons";
-import {IonButton, IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonIcon, IonChip} from "@ionic/vue";
+import {IonButton, IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonIcon} from "@ionic/vue";
 import {PropType} from "vue";
 import {BookCover} from "@/model/BookCover";
 

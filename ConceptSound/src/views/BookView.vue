@@ -23,9 +23,9 @@
         draggable: '.element',
       }" @end="(event: SortableJs.SortableEvent) => { swapPage(event.oldIndex, event.newIndex) }">
         <template #item="{ element }">
-          <BookVPage :page="element" :editable="workshopIsOpen" @set-hidden="hidePage(element.id)"
-                     @mod-page="openWorkshop(element)" @rem-page="remPage(element.id)">
-            <component :is="'BookPage' + element.type" :data="element.data"></component>
+          <BookVPage :page="element" :editable="workshopIsOpen" @set-hidden="hidePage(element?.id)"
+                     @mod-page="openWorkshop(element)" @rem-page="remPage(element?.id)">
+            <component :is="'BookPage' + element?.type" :data="element?.data"></component>
           </BookVPage>
         </template>
       </Sortable>

@@ -21,11 +21,13 @@ watch(props, () => {
 })
 
 function render() {
-  ABCJS.renderAbc("notation", props.data, {
-    scale: 0.5,
-    responsive: "resize",
-    staffwidth: 300,
-    wrap: {minSpacing: 1.8, maxSpacing: 2.7, preferredMeasuresPerLine: 2},
-  });
+  if (props.data) {
+    ABCJS.renderAbc("notation", props.data, {
+      scale: 0.5,
+      responsive: "resize",
+      staffwidth: 300,
+      wrap: {minSpacing: 1.8, maxSpacing: 2.7, preferredMeasuresPerLine: 2},
+    });
+  }
 }
 </script>

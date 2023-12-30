@@ -13,10 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonGrid, IonRow, IonIcon } from "@ionic/vue";
-import { micOutline, refresh, stop } from "ionicons/icons";
-import { RecordingData, VoiceRecorder } from "capacitor-voice-recorder";
-import { ref, Ref } from "vue";
+import {IonButton, IonGrid, IonIcon, IonRow} from "@ionic/vue";
+import {micOutline, refresh, stop} from "ionicons/icons";
+import {RecordingData, VoiceRecorder} from "capacitor-voice-recorder";
+import {ref, Ref} from "vue";
 
 const emit = defineEmits(['update:pageData'])
 const props = defineProps({
@@ -32,7 +32,7 @@ enum state {
   beforeRetry
 }
 
-const recordingStatus: Ref<state> = ref(props.pageData.length > 0 ? state.beforeRetry : state.beforeStart);
+const recordingStatus: Ref<state> = ref(props.pageData && props.pageData.length > 0 ? state.beforeRetry : state.beforeStart);
 const recording: Ref<RecordingData> = ref({
   value: {
     recordDataBase64: "",
@@ -53,10 +53,10 @@ function begin() {
 function finish() {
   recordingStatus.value = state.beforeRetry;
   VoiceRecorder.stopRecording()
-    .then((result: RecordingData) => {
-      recording.value = result;
-      emit('update:pageData', JSON.stringify(recording.value));
-    })
-    .catch(error => console.log(error))
+      .then((result: RecordingData) => {
+        recording.value = result;
+        emit('update:pageData', JSON.stringify(recording.value));
+      })
+      .catch(error => console.log(error))
 }
 </script>

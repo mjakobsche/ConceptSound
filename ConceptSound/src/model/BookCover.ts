@@ -4,7 +4,7 @@ export class BookCover {
     tags: string[];
     modificationDate: Date;
 
-    public constructor(title: string){
+    public constructor(title: string) {
         const date: Date = new Date();
         this.id = date.toTimeString()
         this.title = title;

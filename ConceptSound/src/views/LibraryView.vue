@@ -1,7 +1,8 @@
 <template>
   <ion-page>
     <SideMenu :name="'Filtruj'">
-      <LibraryMenuContents v-model:book-title="filterCriteria.titlePart" v-model:book-tags="filterCriteria.tags" :global-tags="tags"></LibraryMenuContents>
+      <LibraryMenuContents v-model:book-title="filterCriteria.titlePart" v-model:book-tags="filterCriteria.tags"
+                           :global-tags="tags"></LibraryMenuContents>
     </SideMenu>
     <ion-header>
       <ion-toolbar>
@@ -31,8 +32,18 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonIcon, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuToggle, IonButton } from "@ionic/vue";
-import { filterOutline } from "ionicons/icons";
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonMenuToggle,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from "@ionic/vue";
+import {filterOutline} from "ionicons/icons";
 import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
 import {addBook, library, remBook, tags} from "@/service/LibraryService";
@@ -41,6 +52,7 @@ import SideMenu from "@/components/SideMenu.vue";
 import {computed, Ref, ref} from "vue";
 import {BookCoverFilter} from "@/utils/BookCoverFilter";
 import LibraryMenuContents from "@/components/LibraryMenuContents.vue";
+
 const filterCriteria: Ref<BookCoverFilter> = ref(new BookCoverFilter());
 const filteredLibrary = computed(() => {
   return library.value.filter((bookCover) => filterCriteria.value.matchesFilter(bookCover));
@@ -48,6 +60,6 @@ const filteredLibrary = computed(() => {
 </script>
 
 <style scoped>
-ion-menu-button::part(icon){
+ion-menu-button::part(icon) {
 }
 </style>

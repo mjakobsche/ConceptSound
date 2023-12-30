@@ -9,10 +9,10 @@
 </template>
 
 <script setup lang="ts">
-import { IonButton, IonGrid, IonRow, IonIcon } from "@ionic/vue";
-import { FilePicker } from "@capawesome/capacitor-file-picker";
-import { folderOutline } from "ionicons/icons";
-import { ref } from "vue";
+import {IonButton, IonGrid, IonIcon, IonRow} from "@ionic/vue";
+import {FilePicker} from "@capawesome/capacitor-file-picker";
+import {folderOutline} from "ionicons/icons";
+import {ref} from "vue";
 
 const emit = defineEmits(['update:pageData'])
 const props = defineProps({

@@ -3,13 +3,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, Ref, ref, watch } from "vue";
-import { RecordingData } from "capacitor-voice-recorder";
+import {onMounted, Ref, ref, watch} from "vue";
+import {RecordingData} from "capacitor-voice-recorder";
 import WaveSurfer from "wavesurfer.js";
+
 const props = defineProps({
   data: {
-    required: true,
     type: String,
+    required: true,
   },
 });
 
@@ -29,8 +30,7 @@ onMounted(() => {
 })
 
 function updateRecording() {
-
-  if (props.data.length > 0) {
+  if (props.data && props.data.length > 0) {
     recording.value = JSON.parse(props.data);
     setPlayer();
   }

@@ -22,8 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import { IonFab, IonFabButton, IonFabList, IonIcon } from "@ionic/vue";
-import { addCircleOutline, imageOutline, languageOutline, micOutline, musicalNoteOutline } from "ionicons/icons";
+import {IonFab, IonFabButton, IonFabList, IonIcon} from "@ionic/vue";
+import {addCircleOutline, imageOutline, languageOutline, micOutline, musicalNoteOutline} from "ionicons/icons";
+
 const emit = defineEmits(["addPage"]);
 </script>
 
@@ -31,7 +32,7 @@ const emit = defineEmits(["addPage"]);
 ion-fab-button {
   --border-radius: 15px;
   --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
-    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   --color: white;
 }
 </style>

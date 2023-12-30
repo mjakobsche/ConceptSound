@@ -4,7 +4,7 @@ import {getPersistedBooks, persistBooksChanges,} from "@/service/Writer";
 
 const library: Ref<BookCover[]> = ref([]);
 const tags: ComputedRef<string[]> = computed(() => {
-    return [...new Set(library.value.flatMap((bookCover: BookCover) => bookCover.tags))] ;
+    return [...new Set(library.value.flatMap((bookCover: BookCover) => bookCover.tags))];
 })
 
 async function setupLibrary() {

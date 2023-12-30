@@ -36,9 +36,9 @@ import {
   IonIcon,
   IonItem,
 } from "@ionic/vue";
-import { onMounted, PropType, ref } from "vue";
-import { eyeOutline, addOutline } from "ionicons/icons";
-import { BookPage } from "@/model/BookPage";
+import {onMounted, PropType, ref} from "vue";
+import {addOutline, eyeOutline} from "ionicons/icons";
+import {BookPage} from "@/model/BookPage";
 
 defineProps({
   page: {
