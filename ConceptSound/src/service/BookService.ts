@@ -9,10 +9,10 @@ const bookPages: Ref<BookPage[]> = ref([]);
 async function openBook(book: BookCover){
     bookCover.value = book;
     bookPages.value = await getPersistedBookPages(book.id)
-    console.log(bookPages);
     watch(bookPages.value, async () => {
-        console.log("run update")
+        console.log("persisting page changes...")
         await persistBookPagesChanges(book.id, bookPages.value);
+        console.log("...persisted!")
     });
 }
 

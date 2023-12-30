@@ -1,25 +1,31 @@
 <template>
   <ion-page>
+    <SideMenu :name="'Modyfikuj'">
+      <BookMenuContents v-model:page-data="bookCover.title"></BookMenuContents>
+    </SideMenu>
     <ion-header>
       <ion-toolbar>
         <ion-title>{{ bookCover.title }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <BookAddPage @add-page="(type) => addPage(type)" />
+      <BookAddPage @add-page="(type) => addPage(type)"/>
       <Sortable :list="bookPages" item-key="id" :options="{
         handle: '.handle',
         draggable: '.element',
       }" @end="(event: SortableJs.SortableEvent) => { swapPage(event.oldIndex, event.newIndex) }">
         <template #item="{ element }">
           <BookVPage :page="element" :editable="workshopIsOpen" @set-hidden="hidePage(element.id)"
-            @mod-page="openWorkshop(element)" @rem-page="remPage(element.id)">
+                     @mod-page="openWorkshop(element)" @rem-page="remPage(element.id)">
             <component :is="'BookPage' + element.type" :data="element.data"></component>
           </BookVPage>
         </template>
       </Sortable>
       <ion-modal ref="modal" :initial-breakpoint="0.5" :breakpoints="[0.25, 0.5, 0.95]" :backdropDismiss="false"
-        :is-open="workshopIsOpen" :backdropBreakpoint="0.5">
+                 :is-open="workshopIsOpen" :backdropBreakpoint="0.5">
         <BookVWorkshop v-model:pageName="workshopPage.name" @save-page="closeWorkshop()">
           <component :is="'BookWorkshop' + workshopPage.type" v-model:pageData="workshopPage.data"></component>
         </BookVWorkshop>
@@ -29,15 +35,26 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonModal, IonPage, IonTitle, IonToolbar, } from "@ionic/vue";
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonModal,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/vue";
 import BookAddPage from "@/components/BookAddPage.vue";
 import BookVPage from "@/components/BookVPage.vue";
-import { addPage, bookPages, bookCover, hidePage, modPage, remPage, swapPage, } from "@/service/BookService";
+import {addPage, bookCover, bookPages, hidePage, modPage, remPage, swapPage,} from "@/service/BookService";
 import SortableJs from "sortablejs";
-import { Sortable } from "sortablejs-vue3";
+import {Sortable} from "sortablejs-vue3";
 import BookVWorkshop from "@/components/BookVWorkshop.vue";
-import { ref, Ref } from "vue";
-import { BookPage } from "@/model/BookPage";
+import {ref, Ref} from "vue";
+import {BookPage} from "@/model/BookPage";
+import SideMenu from "@/components/SideMenu.vue";
+import BookMenuContents from "@/components/BookMenuContents.vue";
 
 const workshopIsOpen = ref(false);
 const workshopPage: Ref<BookPage> = ref(bookPages[0]);

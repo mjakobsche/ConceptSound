@@ -7,7 +7,9 @@ let library: Ref<BookCover[]> = ref([]);
 async function setupLibrary() {
     library.value = await getPersistedBooks();
     watch(library.value, async () => {
+        console.log("persisting book changes...")
         await persistBooksChanges(library.value)
+        console.log("...persisted!")
     });
 }
 
