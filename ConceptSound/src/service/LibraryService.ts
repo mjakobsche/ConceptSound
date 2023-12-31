@@ -8,14 +8,12 @@ const tags: ComputedRef<string[]> = computed(() => {
 })
 
 async function setupLibrary() {
-    addBook("stars")
-    getPersistedBooks().catch((e) => addBook("error: " + e.toString()));
-    // library.value = await getPersistedBooks();
-    // watch(library.value, async () => {
-    //     console.log("persisting book changes...")
-    //     await persistBooksChanges(library.value)
-    //     console.log("...persisted!")
-    // });
+    library.value = await getPersistedBooks();
+    watch(library.value, async () => {
+         console.log("persisting book changes...")
+         await persistBooksChanges(library.value)
+         console.log("...persisted!")
+    });
 }
 
 function addBook(title: string) {

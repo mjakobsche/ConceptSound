@@ -6,7 +6,7 @@ export class BookPage {
     hidden: boolean;
 
     public constructor(type: string) {
-        this.id = new Date().toTimeString();
+        this.id = new Date().getTime().toString();
         this.type = type;
         this.name = type;
         this.data = this.getInitialData(type);
