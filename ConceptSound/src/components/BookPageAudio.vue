@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100%; width: 100%" id="player"></div>
+  <div style="height: 100%; width: 100%" :id="'player' + pageId"></div>
 </template>
 
 <script setup lang="ts">
@@ -8,6 +8,10 @@ import {RecordingData} from "capacitor-voice-recorder";
 import WaveSurfer from "wavesurfer.js";
 
 const props = defineProps({
+  pageId: {
+    type: String,
+    required: true,
+  },
   data: {
     type: String,
     required: true,
@@ -43,7 +47,7 @@ function setPlayer() {
     wavesurfer.destroy();
   }
   wavesurfer = WaveSurfer.create({
-    container: '#player',
+    container: '#player' + props.pageId,
     waveColor: '#428cff',
     progressColor: '#50c8ff',
     cursorWidth: 4,

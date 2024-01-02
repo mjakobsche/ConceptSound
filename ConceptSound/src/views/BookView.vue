@@ -2,31 +2,29 @@
 import {
   IonButton,
   IonButtons,
+  IonChip,
   IonContent,
   IonFab,
   IonFabButton,
   IonFabList,
   IonHeader,
   IonIcon,
+  IonInput,
+  IonMenu,
   IonMenuToggle,
   IonModal,
   IonPage,
+  IonRouterOutlet,
   IonTitle,
-  IonToolbar,
-    IonInput,
+  IonToolbar
 } from "@ionic/vue";
 import BookVPage from "@/components/BookVPage.vue";
-import {
-  bookCover,
-  bookPages,
-  savePages,
-} from "@/service/BookService";
-import {tags} from "@/service/LibraryService";
+import {bookCover, bookPages, savePages,} from "@/service/BookService";
+import {saveLibrary, tags} from "@/service/LibraryService";
 import SortableJs from "sortablejs";
 import {Sortable} from "sortablejs-vue3";
 import {ref, Ref} from "vue";
 import {BookPage} from "@/model/BookPage";
-import BookMenuContents from "@/components/BookMenuContents.vue";
 import {
   addCircleOutline,
   imageOutline,
@@ -50,11 +48,14 @@ const closeWorkshopModal = () => {
 };
 
 function addTag(tag: string): void {
-  bookCover.value.tags.unshift(tag);
+  if (findTagIndex(tag) === -1) {
+    bookCover.value.tags.unshift(tag);
+    saveLibrary();
+  }
 }
 
-function remTag(tag: string): void {
-  bookCover.value.tags.splice(bookCover.value.tags.indexOf(tag), 1);
+function findTagIndex(tag: string): number {
+  return bookCover.value.tags.indexOf(tag);
 }
 
 function addPage(type: string): void {
@@ -91,12 +92,44 @@ function ripPage(pageNumber: number): BookPage {
 function putPage(page: BookPage, pageNumber: number): void {
   bookPages.value.splice(pageNumber, 0, page);
 }
+
+const newTag = ref("");
+
+function toggleTag(selectedTag: string) {
+  const tagIndex = findTagIndex(selectedTag);
+  if (tagIndex === -1) {
+    addTag(selectedTag)
+    newTag.value = ""
+  } else {
+    bookCover.value.tags.splice(tagIndex, 1);
+    saveLibrary();
+  }
+}
+
+const test = () => console.log("test");
 </script>
 <template>
   <ion-page>
-    <BookMenuContents v-model:book-title="bookCover.title" v-model:book-tags="bookCover.tags"
-                      :tags="tags" @rem-tag="(tagName) => remTag(tagName)"
-                      @add-tag="(tagName) => addTag(tagName)"></BookMenuContents>
+    <ion-menu side="start" menuId="BookMenu" contentId="BookMenuContent">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modyfikuj</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <IonInput label="Tytuł:" fill="outline" label-placement="stacked" v-model="bookCover.title"
+        ></IonInput>
+        <div class="ion-margin-top textFieldWithButton">
+          <!--          todo: add new tag-->
+        </div>
+        <div class="ion-margin-top hashtagChips">
+          <div v-for="tag in tags" @click="toggleTag(tag)">
+            <ion-chip :outline="true" :disabled="!bookCover.tags.includes(tag)">#{{ tag }}</ion-chip>
+          </div>
+        </div>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="BookMenuContent"></ion-router-outlet>
     <ion-header>
       <ion-toolbar>
         <ion-title>{{ bookCover.title }}</ion-title>
@@ -136,23 +169,23 @@ function putPage(page: BookPage, pageNumber: number): void {
         <template #item="{ element }">
           <BookVPage :page="element" :editable="isWorkshopModalOpen" @set-hidden="hidePage(element?.id)"
                      @mod-page="openWorkshopModal(element)" @rem-page="remPage(element?.id)">
-            <component :is="'BookPage' + element?.type" :data="element?.data"></component>
+            <component :is="'BookPage' + element?.type" :pageId="element?.id" :data="element?.data"></component>
           </BookVPage>
         </template>
       </Sortable>
       <ion-modal ref="modal" :initial-breakpoint="0.5" :breakpoints="[0, 0.25, 0.5, 0.95]" :backdropDismiss="false"
                  :is-open="isWorkshopModalOpen" :onDidDismiss="closeWorkshopModal" :backdropBreakpoint="0.5">
-          <ion-header>
-            <ion-toolbar>
-              <ion-title>
-                <ion-input v-model="workshopPage.name"></ion-input>
-              </ion-title>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content class="ion-padding">
-            <component :is="'BookWorkshop' + workshopPage.type" :saveProgress="savePages"
-                       v-model:pageData="workshopPage.data"></component>
-          </ion-content>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>
+              <ion-input v-model="workshopPage.name"></ion-input>
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <component :is="'BookWorkshop' + workshopPage.type" :saveProgress="savePages"
+                     v-model:pageData="workshopPage.data"></component>
+        </ion-content>
       </ion-modal>
     </ion-content>
   </ion-page>
@@ -171,5 +204,9 @@ ion-fab-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+ion-menu {
+  --min-width: 90%;
 }
 </style>

@@ -15,6 +15,7 @@ const props = defineProps({
     type: String,
     default: ""
   },
+  pageId: {}
 });
 
 const splitText = computed(() => {

@@ -8,5 +8,6 @@ defineProps({
     required: true,
     type: String,
   },
+  pageId: {}
 });
 </script>
