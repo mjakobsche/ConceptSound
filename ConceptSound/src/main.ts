@@ -31,7 +31,7 @@ import BookPagePhoto from "./components/BookPagePhoto.vue";
 import BookWorkshopPhoto from "./components/BookWorkshopPhoto.vue";
 import BookPageScore from "./components/BookPageScore.vue";
 import BookWorkshopScore from "./components/BookWorkshopScore.vue";
-import {setupLibrary} from "@/service/LibraryService";
+import {setupLibraryService} from "@/service/LibraryService";
 
 const app = createApp(App)
     .use(IonicVue)
@@ -46,4 +46,4 @@ const app = createApp(App)
     .component("BookPageScore", BookPageScore)
     .component("BookWorkshopScore", BookWorkshopScore);
 
-router.isReady().then(() => setupLibrary()).then(() => app.mount("#app")).catch((error) => console.log("initialization error: " + error));
+router.isReady().then(() => setupLibraryService()).then(() => app.mount("#app")).catch((error) => console.log("initialization error: " + error));

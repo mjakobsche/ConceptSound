@@ -2,7 +2,7 @@
   <ion-menu side="start" menuId="BookMenu" contentId="BookMenuContent">
     <ion-header>
       <ion-toolbar>
-        <ion-title>{{ name }}</ion-title>
+        <ion-title>Modyfikuj</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">

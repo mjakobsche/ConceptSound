@@ -6,18 +6,14 @@ import {getPersistedBookPages, persistBookPagesChanges} from "@/service/Writer";
 const bookCover: Ref<BookCover> = ref(new BookCover(""));
 const bookPages: Ref<BookPage[]> = ref([]);
 
-async function openBook(book: BookCover) {
-    bookCover.value = book;
-    bookPages.value = await getPersistedBookPages(book.id)
-    watch(bookPages.value, async () => {
-        console.log("persisting page changes...")
-        await persistBookPagesChanges(book.id, bookPages.value);
-        console.log("...persisted!")
-    });
+function savePages(){
+    console.log("saved")
+    persistBookPagesChanges(bookCover.value.id, bookPages.value).catch((e) => console.log("could not persist book pages\n" + e));
 }
 
-function addPage(type: string): void {
-    putPage(new BookPage(type), 0);
+async function setupBookService(book: BookCover) {
+    bookCover.value = book;
+    bookPages.value = await getPersistedBookPages(book.id)
 }
 
 function addTag(tag: string): void {
@@ -28,23 +24,27 @@ function remTag(tag: string): void {
     bookCover.value.tags.splice(bookCover.value.tags.indexOf(tag), 1);
 }
 
+function addPage(type: string): void {
+    putPage(new BookPage(type), 0);
+    savePages();
+}
+
 function hidePage(id: string): void {
     const pageNumber: number = findPageNumber(id);
     const page: BookPage = ripPage(pageNumber);
     page.hidden = !page.hidden;
     putPage(page, pageNumber);
-}
-
-function modPage(page: BookPage) {
-    console.log("unnecessary call for modPage");
+    savePages();
 }
 
 function remPage(id: string): void {
     ripPage(findPageNumber(id));
+    savePages();
 }
 
 function swapPage(from = 0, to = 0): void {
     putPage(ripPage(from), to);
+    savePages();
 }
 
 function findPageNumber(id: string): number {
@@ -59,4 +59,4 @@ function putPage(page: BookPage, pageNumber: number): void {
     bookPages.value.splice(pageNumber, 0, page);
 }
 
-export {openBook, addTag, remTag, addPage, bookPages, bookCover, remPage, hidePage, swapPage, modPage};
+export {setupBookService, savePages, addTag, remTag, addPage, bookPages, bookCover, remPage, hidePage, swapPage};

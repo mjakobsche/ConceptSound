@@ -2,14 +2,15 @@
   <ion-header>
     <ion-toolbar>
       <ion-title>Filtruj</ion-title>
+      <slot></slot>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <IonInput label="Tytuł:" fill="outline" :value="bookTitle"
-              @input="$emit('update:bookTitle', $event.target.value)"></IonInput>
+    <IonInput label="Tytuł:" fill="outline" :value="titleFilter"
+              @input="$emit('update:titleFilter', $event.target.value)"></IonInput>
     <div class="hashtagChips ion-margin-top">
-      <div v-for="globalTag in globalTags" @click="toggleTag(globalTag)">
-        <ion-chip :outline="true" :disabled="!bookTags.includes(globalTag)">#{{ globalTag }}</ion-chip>
+      <div v-for="tag in tags" @click="toggleTag(tag)">
+        <ion-chip :outline="true" :disabled="!tagFilter.includes(tag)">#{{ tag }}</ion-chip>
       </div>
     </div>
   </ion-content>
@@ -18,14 +19,14 @@
 <script setup lang="ts">
 import {IonChip, IonInput, IonHeader, IonToolbar, IonTitle, IonContent } from "@ionic/vue";
 
-defineEmits(['update:bookTitle', 'update:bookTags'])
-const props = defineProps(['bookTitle', 'bookTags', 'globalTags', 'name']);
+defineEmits(['update:titleFilter'])
+const props = defineProps(['titleFilter', 'tagFilter', 'tags', 'name']);
 
 function toggleTag(tag: string) {
-  if (props.bookTags.includes(tag)) {
-    props.bookTags.splice(props.bookTags.indexOf(tag), 1);
+  if (props.tagFilter.includes(tag)) {
+    props.tagFilter.splice(props.tagFilter.indexOf(tag), 1);
   } else {
-    props.bookTags.push(tag);
+    props.tagFilter.push(tag);
   }
 }
 </script>

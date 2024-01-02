@@ -18,7 +18,6 @@ const props = defineProps({
 });
 
 const splitText = computed(() => {
-
   const textLines = props.data ? props.data.split(/\n|\r|\[@]/) : [];
   const result: { id: number; text: string; type: "text" | "comment" }[] = [];
   for (let i = 0; i < textLines.length; i++) {

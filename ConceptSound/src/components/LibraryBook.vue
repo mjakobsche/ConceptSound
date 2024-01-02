@@ -1,6 +1,6 @@
 <template>
   <ion-card>
-    <IonCardContent>
+    <IonCardContent >
       <ion-card-subtitle>{{ renderDate(book.modificationDate) }}</ion-card-subtitle>
       <div class="bookMainPart">
         <ion-card-title>{{ book.title }}</ion-card-title>
@@ -18,7 +18,6 @@
               size="small"
               shape="round"
               @click="emit('set')"
-              router-link="/book"
           >
             <ion-icon slot="icon-only" :icon="chevronForwardOutline"></ion-icon>
           </ion-button>
