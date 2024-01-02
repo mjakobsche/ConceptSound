@@ -46,4 +46,4 @@ const app = createApp(App)
     .component("BookPageScore", BookPageScore)
     .component("BookWorkshopScore", BookWorkshopScore);
 
-router.isReady().then(() => setupLibraryService()).then(() => app.mount("#app")).catch((error) => console.log("initialization error: " + error));
+router.isReady().then(() => app.mount("#app")).catch((error) => console.log("initialization error: " + error));

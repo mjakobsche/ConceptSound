@@ -47,6 +47,7 @@ const hidden = ref();
 
 let pressStarted = 0;
 
+
 onMounted(() => {
   const gesture = createGesture({
     el: hidden.value.$el,
