@@ -1,18 +1,12 @@
 <template>
   <ion-page>
-    <SideMenu :name="'Filtruj'">
-      <LibraryMenuContents v-model:book-title="filterCriteria.titlePart" v-model:book-tags="filterCriteria.tags"
-                           :global-tags="tags"></LibraryMenuContents>
-    </SideMenu>
     <ion-header>
       <ion-toolbar>
         <ion-title>Biblioteka</ion-title>
         <ion-buttons slot="end">
-          <ion-menu-toggle :auto-hide="false">
-            <ion-button>
+            <ion-button id="openFilter">
               <ion-icon :icon="filterOutline" slot="icon-only"></ion-icon>
             </ion-button>
-          </ion-menu-toggle>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -24,9 +18,14 @@
       </ion-header>
       <LibraryAddBook @add-book="(title) => addBook(title)"></LibraryAddBook>
       <div v-for="bookCover in filteredLibrary" :key="bookCover.id">
-        <LibraryBook :book="bookCover" @rem="remBook(bookCover.id)" @set="openBook(bookCover)">
+        <LibraryBook :book="bookCover" @rem="remBook(bookCover.id)" @set="openBook(bookCover) ">
         </LibraryBook>
       </div>
+      <ion-modal ref="modal" :initial-breakpoint="0.5" :breakpoints="[0, 0.25, 0.5, 0.95]" :backdropDismiss="true" trigger="openFilter"
+                 :is-open="filtersModalIsOpen" :ion-modal-did-dismiss="filtersModalIsOpen = false" :backdropBreakpoint="1">
+        <LibraryFilters v-model:book-title="filterCriteria.titlePart" :name="'Filtruj'" v-model:book-tags="filterCriteria.tags"
+                        :global-tags="tags"></LibraryFilters>
+      </ion-modal>
     </ion-content>
   </ion-page>
 </template>
@@ -38,7 +37,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonMenuToggle,
+  IonModal,
   IonPage,
   IonTitle,
   IonToolbar
@@ -48,15 +47,17 @@ import LibraryBook from "@/components/LibraryBook.vue";
 import LibraryAddBook from "@/components/LibraryAddBook.vue";
 import {addBook, library, remBook, tags} from "@/service/LibraryService";
 import {openBook} from "@/service/BookService";
-import SideMenu from "@/components/SideMenu.vue";
 import {computed, Ref, ref} from "vue";
 import {BookCoverFilter} from "@/utils/BookCoverFilter";
-import LibraryMenuContents from "@/components/LibraryMenuContents.vue";
+import LibraryFilters from "@/components/LibraryFilters.vue";
 
 const filterCriteria: Ref<BookCoverFilter> = ref(new BookCoverFilter());
 const filteredLibrary = computed(() => {
   return library.value.filter((bookCover) => filterCriteria.value.matchesFilter(bookCover));
 })
+
+
+const filtersModalIsOpen = ref(false);
 </script>
 
 <style scoped>

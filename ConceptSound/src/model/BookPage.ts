@@ -14,6 +14,6 @@ export class BookPage {
     }
 
     private getInitialData(type: string) {
-        return type === "Score" ? "X:1\nK:C\n|" : "";
+        return type === "Score" ? "X:1\nK:C\nM:7/8\n|" : "";
     }
 }

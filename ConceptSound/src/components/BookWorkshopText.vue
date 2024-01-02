@@ -1,5 +1,5 @@
 <template>
-  <IonTextarea :value="pageData" :auto-grow="true" @input="$emit('update:pageData', $event.target.value)"></IonTextarea>
+  <IonTextarea :value="pageData" inputmode="email" :auto-grow="true" @input="$emit('update:pageData', $event.target.value)"></IonTextarea>
 </template>
 
 <script setup lang="ts">

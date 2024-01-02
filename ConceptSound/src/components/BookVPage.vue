@@ -42,32 +42,34 @@ defineProps({
 
 const emit = defineEmits(["setHidden", "modPage", "remPage"]);
 
-const DOUBLE_CLICK_THRESHOLD = 500;
+const LONG_PRESS_THRESHOLD = 500;
 const hidden = ref();
 
-let lastOnStart = 0;
+let pressStarted = 0;
 
 onMounted(() => {
   const gesture = createGesture({
     el: hidden.value.$el,
     threshold: 0,
     onStart,
-    gestureName: "double-click",
+    onEnd,
+    gestureName: "long-press",
   });
-
   gesture.enable();
 });
 
-const onStart = () => {
-  const now = Date.now();
-  if (Math.abs(now - lastOnStart) <= DOUBLE_CLICK_THRESHOLD) {
-    emit("remPage");
-    lastOnStart = 0;
+const onEnd = () => {
+  if (Date.now() - pressStarted > LONG_PRESS_THRESHOLD) {
+    emit("remPage")
   } else {
-    emit("setHidden");
-    lastOnStart = now;
+    emit("setHidden")
   }
+}
+
+const onStart = () => {
+  pressStarted = Date.now();
 };
+
 </script>
 
 <style scoped>

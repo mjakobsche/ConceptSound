@@ -1,14 +1,12 @@
 <template>
   <ion-page>
-    <SideMenu :name="'Modyfikuj'">
-      <BookMenuContents v-model:book-cover="bookCover" :tags="tags" @rem-tag="(tagName) => remTag(tagName)"
+      <BookMenuContents v-model:book-title="bookCover.title" v-model:book-tags="bookCover.tags" :name="'Modyfikuj'" :tags="tags" @rem-tag="(tagName) => remTag(tagName)"
                         @add-tag="(tagName) => addTag(tagName)"></BookMenuContents>
-    </SideMenu>
     <ion-header>
       <ion-toolbar>
         <ion-title>{{ bookCover.title }}</ion-title>
         <ion-buttons slot="end">
-          <ion-menu-toggle :auto-hide="false">
+          <ion-menu-toggle menu="BookMenu" :auto-hide="false">
             <ion-button>
               <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
             </ion-button>
