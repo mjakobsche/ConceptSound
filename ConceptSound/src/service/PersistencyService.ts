@@ -21,7 +21,7 @@ async function getPersistedBookPages(bookId: string): Promise<BookPage[]> {
 }
 
 async function getPersistedBooks(): Promise<BookCover[]> {
-    let bookCovers: BookCover[] = [];
+    let bookCovers: BookCover[];
     await initializeFileSystem();
     bookCovers = await readFileContents(indexFile);
     return bookCovers;
@@ -34,13 +34,13 @@ async function assurePagesFilesIntegrity(bookCovers: BookCover[]): Promise<void>
     pagesFiles.map((pagesFile) => pagesFile.substring(0, pagesFile.length - 5)).filter((pagesFile) => !coversId.includes(pagesFile) && pagesFile !== indexFile).forEach((pagesFile) => deleteFile(getFilePath(pagesFile)));
 }
 
-async function initializeFileSystem(){
+async function initializeFileSystem() {
     let files = (await readDirectory("")).files.map((file) => file.name)
-    if(!files.includes(fileDirectory)){
+    if (!files.includes(fileDirectory)) {
         await writeDirectory(fileDirectory);
     }
     files = (await readBaseDirectory()).map((file) => file.name)
-    if(!files.includes(indexFile + fileExtension)){
+    if (!files.includes(indexFile + fileExtension)) {
         await writeFile(getFilePath(indexFile), "[]");
     }
 }

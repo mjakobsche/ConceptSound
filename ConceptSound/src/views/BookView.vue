@@ -15,7 +15,7 @@ import {
 import BookVPage from "@/components/BookVPage.vue";
 import SortableJs from "sortablejs";
 import {Sortable} from "sortablejs-vue3";
-import {onMounted, ref, Ref} from "vue";
+import {ref, Ref} from "vue";
 import {BookPage} from "@/model/BookPage";
 import {
   imageOutline,

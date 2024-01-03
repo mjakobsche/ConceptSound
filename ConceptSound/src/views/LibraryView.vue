@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   IonButton,
-  IonButtons,
   IonCard,
   IonCardContent,
   IonCardSubtitle,
@@ -47,11 +46,11 @@ function matchesFilter(bookCover: BookCover): boolean {
   return bookCover.title.toLowerCase().indexOf(titleFilter.value) != -1 && tagFilter.value.every((tag) => bookCover.tags.includes(tag));
 }
 
-function enableTag(tag: string){
+function enableTag(tag: string) {
   tagFilter.value.push(tag);
 }
 
-function disableTag(tag: string){
+function disableTag(tag: string) {
   tagFilter.value.splice(tagFilter.value.indexOf(tag), 1);
 }
 
