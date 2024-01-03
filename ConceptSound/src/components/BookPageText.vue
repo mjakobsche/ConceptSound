@@ -22,13 +22,22 @@ const textLines = computed(() => {
 
 <template>
   <div v-if="pageData.length > 0" v-for="line in textLines">
-    <div :class="line.type">
-      {{ line.text }}
-    </div>
+    <ion-text :class="line.type">
+      <p class="selectableText">
+        {{ line.text }}
+      </p>
+    </ion-text>
   </div>
 </template>
 
 <style scoped>
+.selectableText {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 .comment {
   color: #6272a4;
   font-size: math;
