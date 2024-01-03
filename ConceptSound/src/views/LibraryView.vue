@@ -28,7 +28,6 @@ import InlineElements from "@/components/InlineElements.vue";
 import Modal from "@/components/Modal.vue";
 import HeaderToolbar from "@/components/HeaderToolbar.vue";
 
-//initialization
 setupLibraryService();
 
 //modal
@@ -48,12 +47,12 @@ function matchesFilter(bookCover: BookCover): boolean {
   return bookCover.title.toLowerCase().indexOf(titleFilter.value) != -1 && tagFilter.value.every((tag) => bookCover.tags.includes(tag));
 }
 
-function toggleTag(tag: string) {
-  if (tagFilter.value.includes(tag)) {
-    tagFilter.value.splice(tagFilter.value.indexOf(tag), 1);
-  } else {
-    tagFilter.value.push(tag);
-  }
+function enableTag(tag: string){
+  tagFilter.value.push(tag);
+}
+
+function disableTag(tag: string){
+  tagFilter.value.splice(tagFilter.value.indexOf(tag), 1);
 }
 
 function renderDate(date: Date): string {
@@ -134,13 +133,12 @@ async function openBook(book) {
         <ion-header>
           <ion-toolbar>
             <ion-title>Filtruj</ion-title>
-            <slot></slot>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
           <IonInput label="Tytuł:" fill="outline" v-model="titleFilter"></IonInput>
           <hashtag-chips :all-tags="tags" :selected-tags="tagFilter"
-                         @toggle-tag="(tag) => toggleTag(tag)"></hashtag-chips>
+                         @enable-tag="(tag) => enableTag(tag)" @disable-tag="(tag) => disableTag(tag)"></hashtag-chips>
         </ion-content>
       </modal>
     </ion-content>

@@ -5,7 +5,7 @@ import {folderOutline} from "ionicons/icons";
 import {ref} from "vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
 
-const emit = defineEmits(['update:pageData'])
+const emit = defineEmits(['update:pageData', 'saveChanges'])
 const props = defineProps({
   pageData: {
     type: String,
@@ -23,6 +23,7 @@ function pickImages() {
     if (result) {
       source.value = "data:" + result.files[0].mimeType + ";base64," + result.files[0].data;
       emit('update:pageData', source.value)
+      emit('saveChanges')
     }
   }).catch(() => console.log("image pick cancelled"));
 }

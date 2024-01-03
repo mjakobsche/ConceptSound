@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   IonButton,
-  IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
@@ -37,28 +36,14 @@ import Modal from "@/components/Modal.vue";
 import HeaderToolbar from "@/components/HeaderToolbar.vue";
 
 const isWorkshopModalOpen = ref(false);
-const workshopPage: Ref<BookPage> = ref(bookPages[0]);
+const editedPage: Ref<BookPage> = ref(bookPages[0]);
 
 const openWorkshopModal = (page) => {
   isWorkshopModalOpen.value = true;
-  workshopPage.value = page;
+  editedPage.value = page;
 }
 
-const closeWorkshopModal = () => {
-  isWorkshopModalOpen.value = false;
-  savePages();
-};
-
-function addTag(tag: string): void {
-  if (findTagIndex(tag) === -1) {
-    bookCover.value.tags.unshift(tag);
-    saveLibrary();
-  }
-}
-
-function findTagIndex(tag: string): number {
-  return bookCover.value.tags.indexOf(tag);
-}
+const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
 
 function addPage(type: string): void {
   putPage(new BookPage(type), 0);
@@ -95,17 +80,16 @@ function putPage(page: BookPage, pageNumber: number): void {
   bookPages.value.splice(pageNumber, 0, page);
 }
 
-const newTag = ref("");
-
-function toggleTag(selectedTag: string) {
-  const tagIndex = findTagIndex(selectedTag);
-  if (tagIndex === -1) {
-    addTag(selectedTag)
-    newTag.value = ""
-  } else {
-    bookCover.value.tags.splice(tagIndex, 1);
+function addTag(tag: string): void {
+  if (!bookCover.value.tags.includes(tag)) {
+    bookCover.value.tags.unshift(tag);
     saveLibrary();
   }
+}
+
+function removeTag(tag: string) {
+  bookCover.value.tags.splice(bookCover.value.tags.indexOf(tag), 1);
+  saveLibrary();
 }
 
 </script>
@@ -119,7 +103,7 @@ function toggleTag(selectedTag: string) {
       </ion-header>
       <ion-content class="ion-padding">
         <inline-elements>
-          <ion-input label="Tytuł:" fill="outline" label-placement="stacked" v-model="bookCover.title"
+          <ion-input label="Tytuł:" fill="outline" label-placement="stacked" v-model="bookCover.title" @focusout="saveLibrary"
           ></ion-input>
           <ion-button id="addTag" fill="clear">
             <ion-icon slot="icon-only" :icon="pricetagOutline"></ion-icon>
@@ -127,17 +111,17 @@ function toggleTag(selectedTag: string) {
           <add-alert :trigger="'addTag'" @add="(tagName) => addTag(tagName)"></add-alert>
         </inline-elements>
         <hashtag-chips :all-tags="tags" :selected-tags="bookCover.tags"
-                       @toggle-tag="(tag) => toggleTag(tag)"></hashtag-chips>
+                       @enable-tag="(tag) => addTag(tag)" @disable-tag="(tag) => removeTag(tag)"></hashtag-chips>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="BookMenuContent"></ion-router-outlet>
     <ion-header>
       <ion-menu-toggle menu="BookMenu" :auto-hide="false">
-      <header-toolbar :title="bookCover.title">
-        <ion-button>
-          <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
-        </ion-button>
-      </header-toolbar>
+        <header-toolbar :title="bookCover.title" @click="closeWorkshopModal">
+          <ion-button>
+            <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </header-toolbar>
       </ion-menu-toggle>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -177,13 +161,13 @@ function toggleTag(selectedTag: string) {
         <ion-header>
           <ion-toolbar>
             <ion-title>
-              <ion-input v-model="workshopPage.name"></ion-input>
+              <ion-input v-model="editedPage.name"></ion-input>
             </ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-          <component :is="'BookWorkshop' + workshopPage.type" :save-progress="savePages"
-                     v-model:page-data="workshopPage.data"></component>
+          <component :is="'BookWorkshop' + editedPage.type" @save-changes="savePages"
+                     v-model:page-data="editedPage.data"></component>
         </ion-content>
       </modal>
     </ion-content>

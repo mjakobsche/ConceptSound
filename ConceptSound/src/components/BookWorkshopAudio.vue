@@ -5,7 +5,7 @@ import {RecordingData, VoiceRecorder} from "capacitor-voice-recorder";
 import {ref, Ref} from "vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
 
-const emit = defineEmits(['update:pageData'])
+const emit = defineEmits(['update:pageData', 'saveChanges'])
 const props = defineProps({
   pageData: {
     type: String,
@@ -39,6 +39,7 @@ function stopRecording() {
     if (result.value) {
       recordingState.value = RecordingState.beforeRetry;
       emit('update:pageData', result.value.recordDataBase64);
+      emit('saveChanges')
     }
   })
 }
