@@ -7,20 +7,6 @@ const fileDirectory: string = "library";
 const indexFile: string = "index";
 const fileExtension: string = ".json";
 
-function getFilePath(fileName: string) {
-    return fileDirectory + "/" + fileName + fileExtension;
-}
-
-async function initializeFileSystem(){
-    let files = (await readDirectory("")).files.map((file) => file.name)
-    if(!files.includes(fileDirectory)){
-        await writeDirectory(fileDirectory);
-    }
-    files = (await readBaseDirectory()).map((file) => file.name)
-    if(!files.includes(indexFile + fileExtension)){
-        await writeFile(getFilePath(indexFile), "[]");
-    }
-}
 async function persistBookPagesChanges(bookId: string, bookPages: BookPage[]): Promise<void> {
     await writeFile(getFilePath(bookId), JSON.stringify(bookPages));
 }
@@ -48,14 +34,15 @@ async function assurePagesFilesIntegrity(bookCovers: BookCover[]): Promise<void>
     pagesFiles.map((pagesFile) => pagesFile.substring(0, pagesFile.length - 5)).filter((pagesFile) => !coversId.includes(pagesFile) && pagesFile !== indexFile).forEach((pagesFile) => deleteFile(getFilePath(pagesFile)));
 }
 
-async function setModificationDates(bookCovers: BookCover[]): Promise<void> {
-    const pagesFiles: FileInfo[] = await readBaseDirectory();
-    bookCovers.forEach((bookCover: BookCover) => {
-        const bookPages: FileInfo | undefined = pagesFiles.find((pagesFile: FileInfo) => pagesFile.name == bookCover.id + fileExtension);
-        if (bookPages != undefined) {
-            bookCover.modificationDate = new Date(bookPages.mtime);
-        }
-    })
+async function initializeFileSystem(){
+    let files = (await readDirectory("")).files.map((file) => file.name)
+    if(!files.includes(fileDirectory)){
+        await writeDirectory(fileDirectory);
+    }
+    files = (await readBaseDirectory()).map((file) => file.name)
+    if(!files.includes(indexFile + fileExtension)){
+        await writeFile(getFilePath(indexFile), "[]");
+    }
 }
 
 async function readBaseDirectory(): Promise<FileInfo[]> {
@@ -66,4 +53,8 @@ async function readFileContents(fileName: string): Promise<any> {
     return JSON.parse((await readFile(getFilePath(fileName))).data);
 }
 
-export {getPersistedBooks, persistBooksChanges, persistBookPagesChanges, getPersistedBookPages, setModificationDates}
+function getFilePath(fileName: string) {
+    return fileDirectory + "/" + fileName + fileExtension;
+}
+
+export {getPersistedBooks, persistBooksChanges, persistBookPagesChanges, getPersistedBookPages}

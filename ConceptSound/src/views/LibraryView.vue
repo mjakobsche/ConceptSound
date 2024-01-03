@@ -15,8 +15,6 @@ import {
   IonToolbar
 } from "@ionic/vue";
 import {bookOutline, chevronForwardOutline, closeCircleOutline, filterOutline} from "ionicons/icons";
-import {library, saveLibrary, setupLibraryService, tags} from "@/service/LibraryService";
-import {setupBookService} from "@/service/BookService";
 import {computed, Ref, ref} from "vue";
 import router from "@/views/Router";
 import {BookCover} from "@/model/BookCover";
@@ -27,21 +25,23 @@ import HashtagChips from "@/components/HashtagChips.vue";
 import InlineElements from "@/components/InlineElements.vue";
 import Modal from "@/components/Modal.vue";
 import HeaderToolbar from "@/components/HeaderToolbar.vue";
+import {useStoreService} from "@/service/StoreService";
+import {storeToRefs} from "pinia";
 
-setupLibraryService();
+const store = useStoreService();
+const {library, tags} = storeToRefs(store);
+store.prepareLibrary();
 
-//modal
 const isFilterModalOpen: Ref<boolean> = ref(false);
 const openFilterModal = () => isFilterModalOpen.value = true;
 const closeFilterModal = () => isFilterModalOpen.value = false;
 
-//filtration
 const titleFilter: Ref<string> = ref("");
 const tagFilter: Ref<string[]> = ref([]);
 
 const filteredLibrary = computed(() => {
-  return library.value.filter((bookCover) => matchesFilter(bookCover));
-})
+  return store.library.filter((bookCover: BookCover) => matchesFilter(bookCover));
+});
 
 function matchesFilter(bookCover: BookCover): boolean {
   return bookCover.title.toLowerCase().indexOf(titleFilter.value) != -1 && tagFilter.value.every((tag) => bookCover.tags.includes(tag));
@@ -62,22 +62,21 @@ function renderDate(date: Date): string {
   return `${day < 10 ? "0" + day : day}.${month < 10 ? "0" + month : month}`;
 }
 
-//operations
 function addBook(title: string) {
   library.value.unshift(new BookCover(title));
-  saveLibrary();
+  store.saveLibrary();
 }
 
-function remBook(id: string) {
+function removeBook(id: string) {
   library.value.splice(library.value.findIndex((bookCover: BookCover) => bookCover.id === id), 1)
-  saveLibrary();
+  store.saveLibrary();
 }
 
-async function openBook(book) {
+function openBook(book) {
   closeFilterModal();
-  await setupBookService(book);
-  await router.push("/book");
+  router.push("/book").then(() => store.prepareBook(book))
 }
+
 
 </script>
 
@@ -100,7 +99,7 @@ async function openBook(book) {
       <div v-for="bookCover in filteredLibrary" :key="bookCover.id">
         <ion-card>
           <ion-card-content>
-            <ion-card-subtitle>{{ renderDate(bookCover.modificationDate) }}</ion-card-subtitle>
+            <ion-card-subtitle>{{ renderDate(bookCover.lastUsed) }}</ion-card-subtitle>
             <inline-elements>
               <ion-card-title>{{ bookCover.title }}</ion-card-title>
               <div>
@@ -108,7 +107,7 @@ async function openBook(book) {
                     fill="clear"
                     size="small"
                     shape="round"
-                    @click="remBook(bookCover.id)"
+                    @click="removeBook(bookCover.id)"
                 >
                   <ion-icon slot="icon-only" :icon="closeCircleOutline"></ion-icon>
                 </ion-button>
