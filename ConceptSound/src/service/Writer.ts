@@ -16,7 +16,7 @@ async function initializeFileSystem(){
     if(!files.includes(fileDirectory)){
         await writeDirectory(fileDirectory);
     }
-    files = (await readDirectory(fileDirectory)).files.map((file) => file.name)
+    files = (await readBaseDirectory()).map((file) => file.name)
     if(!files.includes(indexFile + fileExtension)){
         await writeFile(getFilePath(indexFile), "[]");
     }
@@ -38,7 +38,6 @@ async function getPersistedBooks(): Promise<BookCover[]> {
     let bookCovers: BookCover[] = [];
     await initializeFileSystem();
     bookCovers = await readFileContents(indexFile);
-    await setModificationDates(bookCovers);
     return bookCovers;
 }
 
@@ -52,7 +51,7 @@ async function assurePagesFilesIntegrity(bookCovers: BookCover[]): Promise<void>
 async function setModificationDates(bookCovers: BookCover[]): Promise<void> {
     const pagesFiles: FileInfo[] = await readBaseDirectory();
     bookCovers.forEach((bookCover: BookCover) => {
-        const bookPages: FileInfo | undefined = pagesFiles.find((pagesFile: FileInfo) => pagesFile.name == bookCover.id);
+        const bookPages: FileInfo | undefined = pagesFiles.find((pagesFile: FileInfo) => pagesFile.name == bookCover.id + fileExtension);
         if (bookPages != undefined) {
             bookCover.modificationDate = new Date(bookPages.mtime);
         }
