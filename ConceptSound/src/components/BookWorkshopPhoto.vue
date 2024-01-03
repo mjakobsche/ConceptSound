@@ -1,18 +1,9 @@
-<template>
-  <ion-grid style="height: 100%">
-    <ion-row justify-content-center align-items-center style="height: 100%; flex-direction: column">
-      <ion-button size="large" shape="round" fill="clear" @click="pickImages">
-        <ion-icon slot="icon-only" :icon="folderOutline"></ion-icon>
-      </ion-button>
-    </ion-row>
-  </ion-grid>
-</template>
-
 <script setup lang="ts">
-import {IonButton, IonGrid, IonIcon, IonRow} from "@ionic/vue";
+import {IonButton, IonIcon} from "@ionic/vue";
 import {FilePicker} from "@capawesome/capacitor-file-picker";
 import {folderOutline} from "ionicons/icons";
 import {ref} from "vue";
+import CenteringGrid from "@/components/CenteringGrid.vue";
 
 const emit = defineEmits(['update:pageData'])
 const props = defineProps({
@@ -23,18 +14,25 @@ const props = defineProps({
 });
 
 const source = ref(props.pageData);
-const pickImages = async () => {
-  try {
-    const result = await FilePicker.pickImages({
-      multiple: false,
-      readData: true
-    });
+
+function pickImages() {
+  FilePicker.pickImages({
+    multiple: false,
+    readData: true
+  }).then(result => {
     if (result) {
       source.value = "data:" + result.files[0].mimeType + ";base64," + result.files[0].data;
       emit('update:pageData', source.value)
     }
-  } catch (e) {
-    console.log("cancelled");
-  }
-};
+  }).catch(() => console.log("image pick cancelled"));
+}
 </script>
+
+<template>
+  <centering-grid>
+    <ion-button size="large" shape="round" fill="clear" @click="pickImages">
+      <ion-icon slot="icon-only" :icon="folderOutline"></ion-icon>
+    </ion-button>
+  </centering-grid>
+</template>
+

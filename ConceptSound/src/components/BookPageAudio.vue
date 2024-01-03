@@ -1,10 +1,5 @@
-<template>
-  <div style="height: 100%; width: 100%" :id="'player' + pageId"></div>
-</template>
-
 <script setup lang="ts">
-import {onMounted, Ref, ref, watch} from "vue";
-import {RecordingData} from "capacitor-voice-recorder";
+import {onMounted, watch} from "vue";
 import WaveSurfer from "wavesurfer.js";
 
 const props = defineProps({
@@ -12,42 +7,34 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  data: {
+  pageData: {
     type: String,
     required: true,
   },
 });
 
+const containerElementId = 'player' + props.pageId;
 let wavesurfer: WaveSurfer;
-const recording: Ref<RecordingData> = ref({
-  value: {
-    recordDataBase64: "",
-    msDuration: 0,
-    mimeType: ""
-  }
-});
-watch(() => props.data, async () => {
-  updateRecording();
-})
+
 onMounted(() => {
   updateRecording();
+  watch(props, () => {
+    updateRecording();
+  })
 })
 
 function updateRecording() {
-  if (props.data && props.data.length > 0) {
-    recording.value = JSON.parse(props.data);
-    setPlayer();
+  if (props.pageData && props.pageData.length > 0) {
+    setPlayer(props.pageData);
   }
 }
 
-function setPlayer() {
-  console.log(recording.value.value.mimeType);
-
+function setPlayer(audio: string) {
   if (wavesurfer) {
     wavesurfer.destroy();
   }
   wavesurfer = WaveSurfer.create({
-    container: '#player' + props.pageId,
+    container: '#' + containerElementId,
     waveColor: '#428cff',
     progressColor: '#50c8ff',
     cursorWidth: 4,
@@ -55,10 +42,15 @@ function setPlayer() {
     barGap: 5,
     barRadius: 20,
     barHeight: 0.5,
-    media: new Audio(`data:${recording.value.value.mimeType};base64,${recording.value.value.recordDataBase64}`)
+    media: new Audio(`data:audio/webm;codecs=opus;base64,${audio}`)
   })
   wavesurfer.on('interaction', () => {
     wavesurfer.play()
   })
 }
 </script>
+
+<template>
+  <div style="height: 100%; width: 100%" :id="containerElementId"></div>
+</template>
+

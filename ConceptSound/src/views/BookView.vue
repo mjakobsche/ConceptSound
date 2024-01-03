@@ -167,9 +167,9 @@ const test = () => console.log("test");
         draggable: '.element',
       }" @end="(event: SortableJs.SortableEvent) => { swapPage(event.oldIndex, event.newIndex) }">
         <template #item="{ element }">
-          <BookVPage :page="element" :editable="isWorkshopModalOpen" @set-hidden="hidePage(element?.id)"
-                     @mod-page="openWorkshopModal(element)" @rem-page="remPage(element?.id)">
-            <component :is="'BookPage' + element?.type" :pageId="element?.id" :data="element?.data"></component>
+          <BookVPage :page-name="element?.name" :is-page-visible="!element?.hidden" :is-editable="isWorkshopModalOpen" @change-visibility="hidePage(element?.id)"
+                     @edit-page="openWorkshopModal(element)" @remove-page="remPage(element?.id)">
+            <component :is="'BookPage' + element?.type" :pageId="element?.id" :pageData="element?.data"></component>
           </BookVPage>
         </template>
       </Sortable>
@@ -198,12 +198,6 @@ ion-fab-button {
   --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
   0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   --color: white;
-}
-
-.input-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 ion-menu {
