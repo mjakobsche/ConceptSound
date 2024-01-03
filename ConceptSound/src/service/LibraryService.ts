@@ -27,5 +27,4 @@ function updateBookOrder() {
     })
 }
 
-
 export {library, tags, setupLibraryService, updateBookOrder, saveLibrary};

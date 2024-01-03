@@ -3,6 +3,7 @@ import {createGesture, IonButton, IonCard, IonCardContent, IonCardHeader, IonCar
 import {onMounted, ref} from "vue";
 import {addOutline, eyeOutline} from "ionicons/icons";
 import InlineElements from "@/components/InlineElements.vue";
+import {Haptics, ImpactStyle} from "@capacitor/haptics";
 
 defineProps({
   pageName: {
@@ -42,7 +43,7 @@ const onStart = () => {
 
 const onEnd = () => {
   if (Date.now() - pressStarted > LONG_PRESS_THRESHOLD) {
-    emit("removePage")
+    Haptics.impact({ style: ImpactStyle.Medium }).then(() => emit('removePage'));
   } else {
     emit("changeVisibility")
   }
