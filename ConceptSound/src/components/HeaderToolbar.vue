@@ -2,11 +2,10 @@
 import {IonToolbar, IonTitle, IonButtons} from "@ionic/vue";
 
 defineProps(["title"])
-defineEmits(["click"])
 </script>
 
 <template>
-  <ion-toolbar @click="$emit('click')">
+  <ion-toolbar>
     <ion-title>{{title}}</ion-title>
     <ion-buttons slot="end">
       <slot></slot>

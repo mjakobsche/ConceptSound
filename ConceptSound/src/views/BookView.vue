@@ -133,7 +133,7 @@ function toggleTag(selectedTag: string) {
     <ion-router-outlet id="BookMenuContent"></ion-router-outlet>
     <ion-header>
       <ion-menu-toggle menu="BookMenu" :auto-hide="false">
-      <header-toolbar :title="bookCover.title" @click="">
+      <header-toolbar :title="bookCover.title">
         <ion-button>
           <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
         </ion-button>
