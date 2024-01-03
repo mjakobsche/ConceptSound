@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed} from "vue";
+import {IonText} from "@ionic/vue";
 
 const props = defineProps({
   pageId: {},
