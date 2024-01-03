@@ -69,7 +69,7 @@ const onEnd = () => {
           </div>
         </inline-elements>
       </ion-card-header>
-      <ion-card-content v-if="isPageVisible">
+      <ion-card-content v-if="isPageVisible" @click="emit('editPage')">
         <slot></slot>
       </ion-card-content>
     </ion-card>

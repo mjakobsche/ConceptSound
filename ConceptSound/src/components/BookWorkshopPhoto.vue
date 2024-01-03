@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {IonButton, IonIcon} from "@ionic/vue";
-import {FilePicker} from "@capawesome/capacitor-file-picker";
 import {folderOutline} from "ionicons/icons";
 import {ref} from "vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
+import {getImageFromFilePicker} from "@/composables/ImagePicker";
 
 const emit = defineEmits(['update:pageData', 'saveChanges'])
 const props = defineProps({
@@ -15,17 +15,10 @@ const props = defineProps({
 
 const source = ref(props.pageData);
 
-function pickImages() {
-  FilePicker.pickImages({
-    multiple: false,
-    readData: true
-  }).then(result => {
-    if (result) {
-      source.value = "data:" + result.files[0].mimeType + ";base64," + result.files[0].data;
-      emit('update:pageData', source.value)
-      emit('saveChanges')
-    }
-  }).catch(() => console.log("image pick cancelled"));
+async function pickImages() {
+  source.value = await getImageFromFilePicker();
+  emit('update:pageData', source.value)
+  emit('saveChanges')
 }
 </script>
 

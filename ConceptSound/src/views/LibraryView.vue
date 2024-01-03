@@ -26,6 +26,7 @@ import Modal from "@/components/Modal.vue";
 import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import {useStoreService} from "@/service/StoreService";
 import {storeToRefs} from "pinia";
+import CenteringGrid from "@/components/CenteringGrid.vue";
 
 const store = useStoreService();
 const {library, tags} = storeToRefs(store);
@@ -35,6 +36,7 @@ const isFilterModalOpen: Ref<boolean> = ref(false);
 const openFilterModal = () => isFilterModalOpen.value = true;
 const closeFilterModal = () => isFilterModalOpen.value = false;
 
+let removingBook = false;
 const titleFilter: Ref<string> = ref("");
 const tagFilter: Ref<string[]> = ref([]);
 
@@ -67,13 +69,18 @@ function addBook(title: string) {
 }
 
 function removeBook(id: string) {
+  removingBook = true;
   library.value.splice(library.value.findIndex((bookCover: BookCover) => bookCover.id === id), 1)
   store.saveLibrary();
 }
 
 function openBook(book) {
-  closeFilterModal();
-  router.push("/book").then(() => store.prepareBook(book))
+  if (!removingBook) {
+    closeFilterModal();
+    router.push("/book").then(() => store.prepareBook(book))
+  } else {
+    removingBook = false;
+  }
 }
 
 
@@ -96,7 +103,10 @@ function openBook(book) {
       </floating-button-group>
       <add-alert :trigger="'addBook'" @add="(bookTitle) => addBook(bookTitle)"></add-alert>
       <div v-for="bookCover in filteredLibrary" :key="bookCover.id">
-        <ion-card>
+        <ion-card @click="openBook(bookCover)">
+          <centering-grid v-if="bookCover.image.length > 0">
+            <img :src="bookCover.image" alt="cover photo">
+          </centering-grid>
           <ion-card-content>
             <ion-card-subtitle>{{ renderDate(bookCover.lastUsed) }}</ion-card-subtitle>
             <inline-elements>
@@ -142,3 +152,8 @@ function openBook(book) {
     </ion-content>
   </ion-page>
 </template>
+<style scoped>
+img {
+  object-fit: cover;
+}
+</style>

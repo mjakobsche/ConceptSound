@@ -34,6 +34,8 @@ import Modal from "@/components/Modal.vue";
 import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import {useStoreService} from "@/service/StoreService";
 import {storeToRefs} from "pinia";
+import CenteringGrid from "@/components/CenteringGrid.vue";
+import {getImageFromFilePicker} from "@/composables/ImagePicker";
 
 const store = useStoreService();
 const {bookCover, bookPages, tags} = storeToRefs(store);
@@ -45,6 +47,11 @@ const openWorkshopModal = (page) => {
   editedPage.value = page;
 }
 
+async function setCoverImage() {
+  bookCover.value.image = "";
+  bookCover.value.image = await getImageFromFilePicker();
+  store.saveLibrary();
+}
 const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
 
 function addPage(type: string): void {
@@ -100,11 +107,19 @@ function removeTag(tag: string) {
     <ion-menu side="start" menuId="BookMenu" contentId="BookMenuContent">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Modyfikuj</ion-title>
+          <ion-title>Modyfikuj okładkę</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-        <inline-elements>
+        <div>
+          <centering-grid>
+            <img v-if="bookCover.image.length > 0" @click="setCoverImage" :src="bookCover.image" alt="cover photo">
+            <ion-button v-else size="large" shape="round" fill="clear" @click="setCoverImage">
+              <ion-icon slot="icon-only" :icon="imageOutline"></ion-icon>
+            </ion-button>
+          </centering-grid>
+        </div>
+        <inline-elements class="ion-margin-top" >
           <ion-input label="Tytuł:" fill="outline" label-placement="stacked" v-model="bookCover.title"
                      @focusout="store.saveLibrary"
           ></ion-input>
@@ -180,5 +195,9 @@ function removeTag(tag: string) {
 <style scoped>
 ion-menu {
   --min-width: 100%;
+}
+img{
+  height: 30vmax;
+  object-fit: cover;
 }
 </style>
