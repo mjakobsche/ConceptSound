@@ -2,17 +2,12 @@
 import {
   IonButton,
   IonButtons,
-  IonChip,
   IonContent,
-  IonFab,
-  IonFabButton,
-  IonFabList,
   IonHeader,
   IonIcon,
   IonInput,
   IonMenu,
   IonMenuToggle,
-  IonModal,
   IonPage,
   IonRouterOutlet,
   IonTitle,
@@ -26,13 +21,20 @@ import {Sortable} from "sortablejs-vue3";
 import {ref, Ref} from "vue";
 import {BookPage} from "@/model/BookPage";
 import {
-  addCircleOutline,
   imageOutline,
   languageOutline,
   menuOutline,
   micOutline,
-  musicalNoteOutline
+  musicalNoteOutline,
+  pricetagOutline
 } from "ionicons/icons";
+import FloatingAddButton from "@/components/FloatingButtonGroup.vue";
+import FloatingButton from "@/components/FloatingButton.vue";
+import AddAlert from "@/components/AddAlert.vue";
+import HashtagChips from "@/components/HashtagChips.vue";
+import InlineElements from "@/components/InlineElements.vue";
+import Modal from "@/components/Modal.vue";
+import HeaderToolbar from "@/components/HeaderToolbar.vue";
 
 const isWorkshopModalOpen = ref(false);
 const workshopPage: Ref<BookPage> = ref(bookPages[0]);
@@ -106,7 +108,6 @@ function toggleTag(selectedTag: string) {
   }
 }
 
-const test = () => console.log("test");
 </script>
 <template>
   <ion-page>
@@ -117,64 +118,62 @@ const test = () => console.log("test");
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
-        <IonInput label="Tytuł:" fill="outline" label-placement="stacked" v-model="bookCover.title"
-        ></IonInput>
-        <div class="ion-margin-top textFieldWithButton">
-          <!--          todo: add new tag-->
-        </div>
-        <div class="ion-margin-top hashtagChips">
-          <div v-for="tag in tags" @click="toggleTag(tag)">
-            <ion-chip :outline="true" :disabled="!bookCover.tags.includes(tag)">#{{ tag }}</ion-chip>
-          </div>
-        </div>
+        <inline-elements>
+          <ion-input label="Tytuł:" fill="outline" label-placement="stacked" v-model="bookCover.title"
+          ></ion-input>
+          <ion-button id="addTag" fill="clear">
+            <ion-icon slot="icon-only" :icon="pricetagOutline"></ion-icon>
+          </ion-button>
+          <add-alert :trigger="'addTag'" @add="(tagName) => addTag(tagName)"></add-alert>
+        </inline-elements>
+        <hashtag-chips :all-tags="tags" :selected-tags="bookCover.tags"
+                       @toggle-tag="(tag) => toggleTag(tag)"></hashtag-chips>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="BookMenuContent"></ion-router-outlet>
     <ion-header>
-      <ion-toolbar>
-        <ion-title>{{ bookCover.title }}</ion-title>
-        <ion-buttons slot="end">
-          <ion-menu-toggle menu="BookMenu" :auto-hide="false">
-            <ion-button>
-              <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
-            </ion-button>
-          </ion-menu-toggle>
-        </ion-buttons>
-      </ion-toolbar>
+      <ion-menu-toggle menu="BookMenu" :auto-hide="false">
+      <header-toolbar :title="bookCover.title" @click="">
+        <ion-button>
+          <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </header-toolbar>
+      </ion-menu-toggle>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button size="small">
-          <ion-icon :icon="addCircleOutline"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="top">
-          <ion-fab-button @click="addPage('Text')">
-            <ion-icon :icon="languageOutline"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-button @click="addPage('Score')">
+      <floating-add-button>
+        <floating-button @click="addPage('Text')">
+          <ion-icon :icon="languageOutline"></ion-icon>
+        </floating-button>
+        <floating-button>
+          <floating-button @click="addPage('Score')">
             <ion-icon :icon="musicalNoteOutline"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-button @click="addPage('Audio')">
+          </floating-button>
+        </floating-button>
+        <floating-button>
+          <floating-button @click="addPage('Audio')">
             <ion-icon :icon="micOutline"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-button @click="addPage('Photo')">
+          </floating-button>
+        </floating-button>
+        <floating-button>
+          <floating-button @click="addPage('Photo')">
             <ion-icon :icon="imageOutline"></ion-icon>
-          </ion-fab-button>
-        </ion-fab-list>
-      </ion-fab>
-      <Sortable :list="bookPages" item-key="id" :options="{
+          </floating-button>
+        </floating-button>
+      </floating-add-button>
+      <sortable :list="bookPages" item-key="id" :options="{
         handle: '.handle',
         draggable: '.element',
       }" @end="(event: SortableJs.SortableEvent) => { swapPage(event.oldIndex, event.newIndex) }">
         <template #item="{ element }">
-          <BookVPage :page-name="element?.name" :is-page-visible="!element?.hidden" :is-editable="isWorkshopModalOpen" @change-visibility="hidePage(element?.id)"
+          <BookVPage :page-name="element?.name" :is-page-visible="!element?.hidden" :is-editable="isWorkshopModalOpen"
+                     @change-visibility="hidePage(element?.id)"
                      @edit-page="openWorkshopModal(element)" @remove-page="remPage(element?.id)">
             <component :is="'BookPage' + element?.type" :pageId="element?.id" :pageData="element?.data"></component>
           </BookVPage>
         </template>
-      </Sortable>
-      <ion-modal ref="modal" :initial-breakpoint="0.5" :breakpoints="[0, 0.25, 0.5, 0.95]" :backdropDismiss="false"
-                 :is-open="isWorkshopModalOpen" :onDidDismiss="closeWorkshopModal" :backdropBreakpoint="0.5">
+      </sortable>
+      <modal :is-open="isWorkshopModalOpen" :on-dismiss="closeWorkshopModal">
         <ion-header>
           <ion-toolbar>
             <ion-title>
@@ -183,24 +182,16 @@ const test = () => console.log("test");
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-          <component :is="'BookWorkshop' + workshopPage.type" :saveProgress="savePages"
-                     v-model:pageData="workshopPage.data"></component>
+          <component :is="'BookWorkshop' + workshopPage.type" :save-progress="savePages"
+                     v-model:page-data="workshopPage.data"></component>
         </ion-content>
-      </ion-modal>
+      </modal>
     </ion-content>
   </ion-page>
 </template>
 
 <style scoped>
-
-ion-fab-button {
-  --border-radius: 15px;
-  --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
-  0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-  --color: white;
-}
-
 ion-menu {
-  --min-width: 90%;
+  --min-width: 100%;
 }
 </style>

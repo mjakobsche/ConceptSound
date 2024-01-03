@@ -2,6 +2,7 @@
 import {createGesture, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon,} from "@ionic/vue";
 import {onMounted, ref} from "vue";
 import {addOutline, eyeOutline} from "ionicons/icons";
+import InlineElements from "@/components/InlineElements.vue";
 
 defineProps({
   pageName: {
@@ -52,8 +53,8 @@ const onEnd = () => {
 <template>
   <div id="container" class="element">
     <ion-card>
-      <ion-card-header>
-        <div class="book-header handle">
+      <ion-card-header class="handle">
+        <inline-elements>
           <ion-card-title>
             {{ pageName }}
           </ion-card-title>
@@ -65,7 +66,7 @@ const onEnd = () => {
               <ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
             </ion-button>
           </div>
-        </div>
+        </inline-elements>
       </ion-card-header>
       <ion-card-content v-if="isPageVisible">
         <slot></slot>
@@ -73,11 +74,3 @@ const onEnd = () => {
     </ion-card>
   </div>
 </template>
-
-<style scoped>
-.book-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-</style>

@@ -1,31 +1,32 @@
 <script setup lang="ts">
 import {
-  IonAlert,
   IonButton,
   IonButtons,
   IonCard,
   IonCardContent,
   IonCardSubtitle,
   IonCardTitle,
-  IonChip,
   IonContent,
-  IonFab,
-  IonFabButton,
-  IonFabList,
   IonHeader,
   IonIcon,
   IonInput,
-  IonModal,
   IonPage,
   IonTitle,
   IonToolbar
 } from "@ionic/vue";
-import {addCircleOutline, bookOutline, chevronForwardOutline, closeCircleOutline, filterOutline} from "ionicons/icons";
+import {bookOutline, chevronForwardOutline, closeCircleOutline, filterOutline} from "ionicons/icons";
 import {library, saveLibrary, setupLibraryService, tags} from "@/service/LibraryService";
 import {setupBookService} from "@/service/BookService";
 import {computed, Ref, ref} from "vue";
 import router from "@/views/Router";
 import {BookCover} from "@/model/BookCover";
+import FloatingButtonGroup from "@/components/FloatingButtonGroup.vue";
+import FloatingButton from "@/components/FloatingButton.vue";
+import AddAlert from "@/components/AddAlert.vue";
+import HashtagChips from "@/components/HashtagChips.vue";
+import InlineElements from "@/components/InlineElements.vue";
+import Modal from "@/components/Modal.vue";
+import HeaderToolbar from "@/components/HeaderToolbar.vue";
 
 //initialization
 setupLibraryService();
@@ -62,26 +63,6 @@ function renderDate(date: Date): string {
   return `${day < 10 ? "0" + day : day}.${month < 10 ? "0" + month : month}`;
 }
 
-let mode: "book" | "tag";
-const alertInputs = [{name: "value", placeholder: "Nazwa"}];
-const alertButtons = [
-  {
-    text: "Anuluj",
-    handler: (data: { value: string }) => {
-      data.value = "";
-    },
-  },
-  {
-    text: "Dodaj",
-    handler: (data: { value: string }) => {
-      const title = data.value;
-      if (title.length != 0) {
-        addBook(title)
-      }
-    },
-  },
-];
-
 //operations
 function addBook(title: string) {
   library.value.unshift(new BookCover(title));
@@ -104,36 +85,24 @@ async function openBook(book) {
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar @click="openFilterModal">
-        <ion-title>Biblioteka</ion-title>
-        <ion-buttons slot="end">
-          <ion-button :disabled="isFilterModalOpen">
-            <ion-icon :icon="filterOutline" slot="icon-only"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
+      <header-toolbar :title="'Biblioteka'" @click="openFilterModal">
+        <ion-button :disabled="isFilterModalOpen">
+          <ion-icon :icon="filterOutline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </header-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button size="small">
-          <ion-icon :icon="addCircleOutline"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="top">
-          <ion-fab-button
-              id="addBook"
-              @click="mode = 'book';"
-          >
-            <ion-icon :icon="bookOutline"></ion-icon>
-          </ion-fab-button>
-        </ion-fab-list>
-      </ion-fab>
-      <ion-alert trigger="addBook" :inputs="alertInputs" :buttons="alertButtons">
-      </ion-alert>
+      <floating-button-group>
+        <floating-button id="addBook">
+          <ion-icon :icon="bookOutline"></ion-icon>
+        </floating-button>
+      </floating-button-group>
+      <add-alert :trigger="'addBook'" @add="(bookTitle) => addBook(bookTitle)"></add-alert>
       <div v-for="bookCover in filteredLibrary" :key="bookCover.id">
         <ion-card>
-          <IonCardContent>
+          <ion-card-content>
             <ion-card-subtitle>{{ renderDate(bookCover.modificationDate) }}</ion-card-subtitle>
-            <div class="bookMainPart">
+            <inline-elements>
               <ion-card-title>{{ bookCover.title }}</ion-card-title>
               <div>
                 <ion-button
@@ -153,16 +122,15 @@ async function openBook(book) {
                   <ion-icon slot="icon-only" :icon="chevronForwardOutline"></ion-icon>
                 </ion-button>
               </div>
-            </div>
+            </inline-elements>
             <ion-card-subtitle v-if="bookCover.tags.length > 0">{{
                 "#" + bookCover.tags.join(" #")
               }}
             </ion-card-subtitle>
-          </IonCardContent>
+          </ion-card-content>
         </ion-card>
       </div>
-      <ion-modal ref="modal" :initial-breakpoint="0.5" :breakpoints="[0, 0.25, 0.5, 0.95]" :backdropDismiss="false"
-                 :is-open="isFilterModalOpen" :onDidDismiss="closeFilterModal" :backdropBreakpoint="0.5">
+      <modal :is-open="isFilterModalOpen" :on-dismiss="closeFilterModal">
         <ion-header>
           <ion-toolbar>
             <ion-title>Filtruj</ion-title>
@@ -171,35 +139,10 @@ async function openBook(book) {
         </ion-header>
         <ion-content class="ion-padding">
           <IonInput label="Tytuł:" fill="outline" v-model="titleFilter"></IonInput>
-          <div class="hashtagChips ion-margin-top">
-            <div v-for="tag in tags" @click="toggleTag(tag)">
-              <ion-chip :outline="true" :disabled="!tagFilter.includes(tag)">#{{ tag }}</ion-chip>
-            </div>
-          </div>
+          <hashtag-chips :all-tags="tags" :selected-tags="tagFilter"
+                         @toggle-tag="(tag) => toggleTag(tag)"></hashtag-chips>
         </ion-content>
-      </ion-modal>
+      </modal>
     </ion-content>
   </ion-page>
 </template>
-
-<style scoped>
-.hashtagChips {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.bookMainPart {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-ion-fab-button {
-  --border-radius: 15px;
-  --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
-  0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-  --color: white;
-}
-</style>
