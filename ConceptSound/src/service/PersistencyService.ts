@@ -5,12 +5,11 @@ import CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import {Drivers, Storage} from "@ionic/storage";
 
 const store = new Storage({
-  driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB, Drivers.LocalStorage]
+    driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB, Drivers.LocalStorage]
 });
-await store.create();
 
 async function persistBookPagesChanges(bookId: string, bookPages: BookPage[]): Promise<void> {
-    await writeFile("library/" + bookId + ".json", JSON.stringify(bookPages));
+    await store.set(bookId, JSON.stringify(bookPages));
 }
 
 async function persistBooksChanges(bookCovers: BookCover[]): Promise<void> {
@@ -18,10 +17,12 @@ async function persistBooksChanges(bookCovers: BookCover[]): Promise<void> {
 }
 
 async function getPersistedBookPages(bookId: string): Promise<BookPage[]> {
-    return await readFileContents("library/" + bookId + ".json") as BookPage[];
+    const bookPages = await store.get(bookId);
+    return bookPages ? JSON.parse(bookPages) : [];
 }
 
 async function getPersistedBooks(): Promise<BookCover[]> {
+    await store.create();
     const index = await store.get("index");
     return index ? JSON.parse(index) : [];
 }
