@@ -22,8 +22,9 @@ defineProps({
 
 const emit = defineEmits(["changeVisibility", "editPage", "removePage"]);
 
-let pressStarted = 0;
-const LONG_PRESS_THRESHOLD = 500;
+let isPressed = false;
+let pressStartTime: number;
+const LONG_PRESS_THRESHOLD: number = 500;
 
 const hidden = ref();
 onMounted(() => {
@@ -38,14 +39,23 @@ onMounted(() => {
 });
 
 const onStart = () => {
-  pressStarted = Date.now();
+  isPressed = true;
+  pressStartTime = Date.now();
+  setTimeout(impact, LONG_PRESS_THRESHOLD);
 };
 
 const onEnd = () => {
-  if (Date.now() - pressStarted > LONG_PRESS_THRESHOLD) {
-    Haptics.impact({ style: ImpactStyle.Medium }).then(() => emit('removePage'));
+  if (Date.now() - pressStartTime < LONG_PRESS_THRESHOLD) {
+    emit("changeVisibility");
   } else {
-    emit("changeVisibility")
+    emit('removePage');
+  }
+  isPressed = false;
+}
+
+const impact = async () => {
+  if(isPressed){
+    await Haptics.impact({ style: ImpactStyle.Medium });
   }
 }
 
