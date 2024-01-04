@@ -45,7 +45,7 @@ const filteredLibrary = computed(() => {
 });
 
 function matchesFilter(bookCover: BookCover): boolean {
-  return bookCover.title.toLowerCase().indexOf(titleFilter.value) != -1 && tagFilter.value.every((tag) => bookCover.tags.includes(tag));
+  return bookCover.title.toLowerCase().indexOf(titleFilter.value.toLowerCase()) != -1 && tagFilter.value.every((tag) => bookCover.tags.includes(tag));
 }
 
 function enableTag(tag: string) {
