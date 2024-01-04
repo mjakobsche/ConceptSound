@@ -2,15 +2,11 @@ import {defineStore} from "pinia";
 import {computed, ComputedRef, ref, Ref} from "vue";
 import {BookCover} from "@/model/BookCover";
 import {BookPage} from "@/model/BookPage";
-import {
-    getPersistedBookPages,
-    getPersistedBooks,
-    persistBookPagesChanges,
-    persistBooksChanges,
-} from "@/service/PersistencyService";
+import {Drivers, Storage} from "@ionic/storage";
+import CordovaSQLiteDriver from "localforage-cordovasqlitedriver";
 
 export const useStoreService = defineStore('store', () => {
-
+    const store: Storage = new Storage({driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB, Drivers.LocalStorage]});
     const library: Ref<BookCover[]> = ref([]);
     const bookCover: Ref<BookCover> = ref(new BookCover(""));
     const bookPages: Ref<BookPage[]> = ref([]);
@@ -20,23 +16,26 @@ export const useStoreService = defineStore('store', () => {
 
 
     async function prepareLibrary() {
-        library.value = await getPersistedBooks();
+        await store.create();
+        const persistedLibrary = await store.get("library");
+        library.value = persistedLibrary ? JSON.parse(persistedLibrary) : [];
     }
 
     async function prepareBook(book: BookCover) {
         book.lastUsed = new Date();
         bookCover.value = book;
-        bookPages.value = await getPersistedBookPages(book.id);
+        const persistedPages = await store.get(book.id);
+        bookPages.value = persistedPages ? JSON.parse(persistedPages) : [];
         updateBookOrder();
         saveLibrary();
     }
 
     function saveLibrary() {
-        persistBooksChanges(library.value).catch((e) => console.log("could not persist book pages\n" + e));
+        store.set("library", JSON.stringify(library.value)).catch((e) => console.log("could not persist book pages\n" + e));
     }
 
     function savePages() {
-        persistBookPagesChanges(bookCover.value.id, bookPages.value).catch((e) => console.log("could not persist book pages\n" + e));
+        store.set(bookCover.value.id, JSON.stringify(bookPages.value)).catch((e) => console.log("could not persist book pages\n" + e));
     }
 
     function updateBookOrder() {

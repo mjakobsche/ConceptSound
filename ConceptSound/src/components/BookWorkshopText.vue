@@ -15,7 +15,7 @@ function updatePage(data: string) {
 </script>
 
 <template>
-  <ion-textarea v-bind:value="pageData" @focusout="$emit('saveChanges')" inputmode="email" :auto-grow="true"
+  <ion-textarea v-bind:value="pageData" :fill="'outline'" @focusout="$emit('saveChanges')" inputmode="email" :auto-grow="true"
                 @input="updatePage($event.target.value)"></ion-textarea>
 </template>
 
