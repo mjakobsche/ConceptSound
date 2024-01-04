@@ -10,15 +10,8 @@ const changesCounter: Ref<number> = ref(0);
 function updatePage(data: string) {
   changesCounter.value++;
   emit('update:pageData', data);
-  saveChanges(10);
 }
 
-function saveChanges(requiredChanges: number) {
-  if (changesCounter.value > requiredChanges) {
-    emit("saveChanges");
-    changesCounter.value = 0;
-  }
-}
 </script>
 
 <template>
