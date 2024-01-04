@@ -1,27 +1,35 @@
-<template>
-  <div id="notation"></div>
-</template>
-
 <script setup lang="ts">
 import ABCJS from "abcjs";
 import {onMounted, watch} from "vue";
 
 const props = defineProps({
-  data: {
+  pageId: {
+    type: String,
+    required: true,
+  },
+  pageData: {
     required: true,
     type: String,
-  },
+  }
 });
 
+const containerElementId = 'notation' + props.pageId;
+
 onMounted(() => {
-  render();
-})
-watch(props, () => {
-  render();
+  renderMusicNotation();
+  watch(props, () => {
+    renderMusicNotation();
+  })
 })
 
-function render() {
-  ABCJS.renderAbc("notation", props.data, {
+function renderMusicNotation() {
+  if (props.pageData) {
+    setAbcJs(props.pageData)
+  }
+}
+
+function setAbcJs(notation: string) {
+  ABCJS.renderAbc(containerElementId, notation, {
     scale: 0.5,
     responsive: "resize",
     staffwidth: 300,
@@ -29,3 +37,8 @@ function render() {
   });
 }
 </script>
+
+<template>
+  <div v-if="pageData.length > 0" :id="containerElementId"></div>
+</template>
+

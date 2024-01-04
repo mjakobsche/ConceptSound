@@ -1,24 +1,11 @@
-<template>
-  <ion-grid style="height: 100%">
-    <ion-row justify-content-center align-items-center style="height: 100%; flex-direction: column">
-      <ion-button v-if="recordingStatus != state.beforeStop" size="large" shape="round" fill="clear" @click="begin()">
-        <ion-icon v-if="recordingStatus == state.beforeStart" slot="icon-only" :icon="micOutline"></ion-icon>
-        <ion-icon v-if="recordingStatus == state.beforeRetry" slot="icon-only" :icon="refresh"></ion-icon>
-      </ion-button>
-      <ion-button v-if="recordingStatus == state.beforeStop" size="large" shape="round" fill="clear" @click="finish()">
-        <ion-icon slot="icon-only" :icon="stop"></ion-icon>
-      </ion-button>
-    </ion-row>
-  </ion-grid>
-</template>
-
 <script setup lang="ts">
-import { IonButton, IonGrid, IonRow, IonIcon } from "@ionic/vue";
-import { micOutline, refresh, stop } from "ionicons/icons";
-import { RecordingData, VoiceRecorder } from "capacitor-voice-recorder";
-import { ref, Ref } from "vue";
+import {IonButton, IonIcon} from "@ionic/vue";
+import {micOutline, refresh, stop} from "ionicons/icons";
+import {RecordingData, VoiceRecorder} from "capacitor-voice-recorder";
+import {ref, Ref} from "vue";
+import CenteringGrid from "@/components/CenteringGrid.vue";
 
-const emit = defineEmits(['update:pageData'])
+const emit = defineEmits(['update:pageData', 'saveChanges'])
 const props = defineProps({
   pageData: {
     type: String,
@@ -26,37 +13,48 @@ const props = defineProps({
   },
 });
 
-enum state {
+enum RecordingState {
   beforeStart,
   beforeStop,
   beforeRetry
 }
 
-const recordingStatus: Ref<state> = ref(props.pageData.length > 0 ? state.beforeRetry : state.beforeStart);
-const recording: Ref<RecordingData> = ref({
-  value: {
-    recordDataBase64: "",
-    msDuration: 0,
-    mimeType: ""
-  }
-});
+const recordingState: Ref<RecordingState> = ref(getDefaultRecordingState());
 
-function begin() {
+function getDefaultRecordingState() {
+  return props.pageData && props.pageData.length > 0 ? RecordingState.beforeRetry : RecordingState.beforeStart
+}
+
+function startRecording() {
   VoiceRecorder.requestAudioRecordingPermission().then(result => {
     if (result.value) {
-      recordingStatus.value = state.beforeStop;
+      recordingState.value = RecordingState.beforeStop;
       VoiceRecorder.startRecording()
     }
   })
 }
 
-function finish() {
-  recordingStatus.value = state.beforeRetry;
-  VoiceRecorder.stopRecording()
-    .then((result: RecordingData) => {
-      recording.value = result;
-      emit('update:pageData', JSON.stringify(recording.value));
-    })
-    .catch(error => console.log(error))
+function stopRecording() {
+  VoiceRecorder.stopRecording().then((result: RecordingData) => {
+    if (result.value) {
+      recordingState.value = RecordingState.beforeRetry;
+      emit('update:pageData', result.value.recordDataBase64);
+      emit('saveChanges')
+    }
+  })
 }
 </script>
+
+<template>
+  <centering-grid>
+    <ion-button v-if="recordingState != RecordingState.beforeStop" size="large" shape="round" fill="clear"
+                @click="startRecording()">
+      <ion-icon slot="icon-only"
+                :icon="recordingState == RecordingState.beforeStart ? micOutline : refresh"></ion-icon>
+    </ion-button>
+    <ion-button v-else size="large" shape="round" fill="clear" @click="stopRecording()">
+      <ion-icon slot="icon-only" :icon="stop"></ion-icon>
+    </ion-button>
+  </centering-grid>
+</template>
+

@@ -1,12 +1,14 @@
-<template>
-  <img v-if="data.length > 0" :src="data" alt="selected photo">
-</template>
-
 <script setup lang="ts">
 defineProps({
-  data: {
+  pageId: {},
+  pageData: {
     required: true,
     type: String,
-  },
+  }
 });
 </script>
+
+<template>
+  <img v-if="pageData.length > 0" :src="pageData" alt="selected photo">
+</template>
+

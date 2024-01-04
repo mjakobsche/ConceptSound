@@ -1,0 +1,11 @@
+\babel@toc {polish}{}\relax 
+\contentsline {chapter}{\numberline {1}Wstęp}{2}{}%
+\contentsline {chapter}{\numberline {2}Cel pracy}{3}{}%
+\contentsline {chapter}{\numberline {3}Zakres pracy}{4}{}%
+\contentsline {part}{I\hspace {1em}Część teoretyczna}{5}{}%
+\contentsline {chapter}{\numberline {4}Studium w zakresie stosowanych aplikacji wspomagających muzyków}{6}{}%
+\contentsline {chapter}{\numberline {5}Założenia projektowe}{7}{}%
+\contentsline {part}{II\hspace {1em}Część praktyczna}{8}{}%
+\contentsline {chapter}{\numberline {6}Projekt aplikacji}{9}{}%
+\contentsline {chapter}{\numberline {7}Analiza otrzymanych wyników}{10}{}%
+\contentsline {chapter}{\numberline {8}Wnioski}{11}{}%
