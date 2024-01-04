@@ -27,7 +27,6 @@ import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import {useStoreService} from "@/service/StoreService";
 import {storeToRefs} from "pinia";
 import CenteringGrid from "@/components/CenteringGrid.vue";
-
 const store = useStoreService();
 const {library, tags} = storeToRefs(store);
 store.prepareLibrary();

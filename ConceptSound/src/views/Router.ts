@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from "@ionic/vue-router";
 import {RouteRecordRaw} from "vue-router";
 import LibraryView from "./LibraryView.vue";
 import BookView from "./BookView.vue";
+import {useBackButton} from "@ionic/vue";
 
 const routes: Array<RouteRecordRaw> = [
     {

@@ -7,12 +7,13 @@
 </template>
 
 <script setup lang="ts">
-import {IonApp, IonRouterOutlet} from "@ionic/vue";
-import {getCurrentInstance} from 'vue';
-import {useSQLite} from 'vue-sqlite-hook';
+import {IonApp, IonRouterOutlet, useBackButton, useIonRouter} from "@ionic/vue";
+import {App} from "@capacitor/app";
 
-const app = getCurrentInstance();
-if (app != null) {
-  app.appContext.config.globalProperties.$sqlite = useSQLite();
-}
+const router = useIonRouter();
+useBackButton(-1, () => {
+  if (!router.canGoBack()) {
+    App.exitApp();
+  }
+});
 </script>
