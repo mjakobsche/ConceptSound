@@ -1,15 +1,20 @@
 import {deleteFile, readDirectory, readFile, writeDirectory, writeFile} from "@/utils/FileSystemWrapper";
 import {BookCover} from "@/model/BookCover";
 import {BookPage} from "@/model/BookPage";
+import CordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
+import {Drivers, Storage} from "@ionic/storage";
 
+const store = new Storage({
+  driverOrder: [CordovaSQLiteDriver._driver, Drivers.IndexedDB, Drivers.LocalStorage]
+});
+await store.create();
 
 async function persistBookPagesChanges(bookId: string, bookPages: BookPage[]): Promise<void> {
     await writeFile("library/" + bookId + ".json", JSON.stringify(bookPages));
 }
 
 async function persistBooksChanges(bookCovers: BookCover[]): Promise<void> {
-    await writeFile("library/index.json", JSON.stringify(bookCovers));
-    await assurePagesFilesIntegrity(bookCovers);
+    await store.set("index", JSON.stringify(bookCovers))
 }
 
 async function getPersistedBookPages(bookId: string): Promise<BookPage[]> {
@@ -17,10 +22,8 @@ async function getPersistedBookPages(bookId: string): Promise<BookPage[]> {
 }
 
 async function getPersistedBooks(): Promise<BookCover[]> {
-    let bookCovers: BookCover[];
-    await initializeFileSystem();
-    bookCovers = await readFileContents("library/index.json");
-    return bookCovers;
+    const index = await store.get("index");
+    return index ? JSON.parse(index) : [];
 }
 
 async function assurePagesFilesIntegrity(bookCovers: BookCover[]): Promise<void> {
