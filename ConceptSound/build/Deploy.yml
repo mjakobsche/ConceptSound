@@ -107,7 +107,7 @@
       docker_image_name: "library/ubuntu"
       docker_image_tag: "20.04"
       execute_commands:
-        - "apksigner sign --ks ./ConceptSound/build/app.keystore  --ks-pass pass:Qoncept ./ConceptSound.apk"
+        - "java -jar /usr/bin/apksigner sign --ks ./ConceptSound/build/app.keystore --ks-pass pass:Qoncept ./ConceptSound.apk"
       setup_commands:
         - "apt-get update && apt-get -y install apksigner"
       shell: "BASH"
