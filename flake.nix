@@ -20,7 +20,7 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = with pkgs; [ node2nix nodejs typescript pandoc texlive.combined.scheme-medium];
+          packages = with pkgs; [ node2nix nodejs typescript pandoc (texlive.combine { inherit (texlive) scheme-full; }) vscode-extensions.valentjn.vscode-ltex];
           shellHook = ''
             exec zsh 
           '';

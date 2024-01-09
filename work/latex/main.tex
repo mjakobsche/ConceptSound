@@ -1,0 +1,394 @@
+\documentclass[12pt]{article}
+
+\usepackage[polish]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2cm]{geometry}
+\usepackage{indentfirst}
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setlength{\parindent}{1.25cm}
+\linespread{1.5}
+\setlength{\parskip}{6pt}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+\hypersetup{linkcolor=black}
+\usepackage[all]{hypcap}
+\addto\captionspolish{\renewcommand{\figurename}{Rys.}}
+\addto\captionspolish{\renewcommand{\tablename}{Tab.}}
+\renewcommand{\tableautorefname}{Tab.}
+\renewcommand{\figureautorefname}{Rys.}
+\renewcommand{\listfigurename}{Spis rysunków}
+\renewcommand{\listtablename}{Spis tabel}
+\newcommand{\image}[3][16cm]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#1]{media/#2}
+        \caption{#3}
+        \label{fig:2}
+    \end{figure}
+}
+
+\begin{document}
+
+\newpage
+\clearpage
+\tableofcontents
+
+\newpage
+\addcontentsline{toc}{section}{Wstęp}
+\section*{Wstęp}
+
+\newpage
+\addcontentsline{toc}{section}{Cel pracy}
+\section*{Cel pracy}
+Celem pracy jest stworzenie aplikacji mobilnej, która wesprze początkowe fazy procesu aranżacji muzycznej,
+stanowiąc podręczne narzędzie do wygodnego notowania koncepcji, pomysłów oraz wskazówek artykulacyjnych utworów muzycznych.
+Jej zadaniem jest cyfrowa emulacja \enquote{zeszytu do nut} jako rodzaju muzycznego notesu, rozszerzając jego możliwości
+dzięki wykorzystanej technologii — nie ograniczając się jedynie do zapisu nutowego oraz tekstowego,
+lecz oddając w ręce użytkownika również narzędzia multimedialne, umożliwiające pracę z materiałem muzycznym.
+Stąd proponowana jest nazwa aplikacji \enquote{Concept Sound}.
+Unikatowość projektu opiera się o ukierunkowanie funkcjonalności aplikacji na procesy pomijane przez współczesne
+oprogramowanie wspierające pracę muzyków.
+
+\newpage
+\addcontentsline{toc}{section}{Zakres pracy}
+\section{Zakres pracy}
+\subsection{Studium literaturowe}
+\subsubsection{Rys historyczny dziedzin zagadnienia}
+Projektowana aplikacja — pod kątem zasady działa — stanowi swoisty notatnik; pod kątem dziedziny jest on ukierunkowany na wspomaganie
+muzycznego procesu twórczego.
+Stąd stosowne jest przedstawienie rysu historycznego, nawiązując do obu tych aspektów oraz ich manifestacji na płaszczyźnie wirtualnej.
+
+\textbf{Techniki kompozytorskie}
+Jako pierwszy, należałoby przytoczyć zarys historii muzyki klasycznej, z naciskiem na charakter krajobrazu muzycznego
+poszczególnych epok i tendencji popularnych wśród twórców w Europie. Ukazuje on znaczne zróżnicowanie w podejściu do procesu tworzenia.
+\begin{itemize}
+	\item \textbf{Średniowiecze}:
+	      
+	      Proces twórczy kompozytorów średniowiecza był głęboko osadzony w liturgicznym kontekście religijnym oraz w tradycji
+	      chorału gregoriańskiego.
+	      Kompozytorzy tego okresu opierali się na zawartych w nim melodiach, wykorzystując techniki kompozytorskie, takie jak organum,
+	      melizmaty oraz schematy rytmiczne, aby urozmaicić chorał gregoriański.
+	      Organum polegało na dodawaniu nowych dźwięków do melodii chorału, co pozwalało utworzyć wielowarstwowe melodie.
+	      Melizmaty stosowane były jako melodyczne ozdobniki. Kluczową rolę odgrywał tekst utworów.
+	\item \textbf{Renesans}:
+	      
+	      Punktem przełomowym dla epoki renesansu była polifonia — czyli tworzenie wielu równoległych głosów o różnych liniach melodycznych.
+	      Szczególną popularnością cieszyła się wówczas technika imitacji — naśladownictwa.
+	      Zaczęto stosować także bardziej skomplikowane rytmy, np. opierające się na trójdzielności oraz nowe skale muzyczne.
+	\item \textbf{Barok}:
+	      
+	      Twórczość kompozytorów epoki baroku charakteryzowała się rozbudowaną ornamentacją.
+	      Zaczęto stosować tzw. basso continuo, jako metodę prowadzenia akompaniamentu, oraz technikę kontrapunktu,
+	      w której kontrastujące melodie tworzyły złożone struktury dźwiękowe.
+	      Kompozytorzy baroku eksperymentowali z harmonią i dynamiką,
+	\item \textbf{Klasycyzm}:
+	      
+	      W okresie klasycyzmu proces twórczy kompozytorów cechowała kontrastująca z barokiem precyzja i klarowność.
+	      Zaczęto wręcz masowo stosować ścisłe formy, wśród których królowała forma sonatowa, określająca strukturę, tempo,
+	      charakter i układ poszczególnych części utworów.
+	      Wykorzystywane powtarzalne motywy oraz dążono do równowagi między poszczególnymi elementami składowymi utworów.
+	\item \textbf{Romantyzm}:
+	      
+	      Znów w widocznym kontraście epoka romantyzmu przynosi duże oswobodzenie wyrazowe muzyki.
+	      Kluczowym elementem motywującym twórczość staje się introspekcja, stąd utwory tego okresu nasycone są indywidualizmem
+	      i wyrazistością emocjonalną.
+	      Wciąż stosowane są pewne wzorce — gatunki, jak sonata czy fantazja, ale nie są one już tak ściśle określone,
+	      stąd pojawiają się zróżnicowane eksperymenty kompozytorskie z nietypową harmonią, dynamicznymi kontrastami i rozbudowanymi
+	      frazami melodycznymi.
+	\item \textbf{XX wiek}:
+	      
+	      W XX wieku obserwowane jest szczególne bogactwo i różnorodność podejść do kompozycji.
+	      Pojawiają się nurty impresjonizmu, ekspresjonizmu, neoklasycyzmu.
+	      Muzyka staje się produktem licznych koncepcji, metod tworzenia — aleatoryzmu, opierającego się o losowość,
+	      serializmu, kierowanego przetworzeniami matematycznymi; a także idei — tu można wymienić minimalizm.
+	      Epoka ta przynosi jeszcze jeden przełom — komputery i ich zastosowanie w muzyce, jako narzędzia twórcze, nośniki i instrumenty.
+\end{itemize}
+
+\textbf{Notacja muzyczna}
+Na przestrzeni epok kluczowym nośnikiem pozwalającym na utrwalenie melodii była notacja — być może najcenniejsze narzędzie kompozytorów.
+Ona również ewoluowała i zmieniała się, dostosowując się do zaawansowania rozwoju muzyki.
+Przyglądając się tej ewolucji, zauważalne jest bogactwo koncepcji zapisu melodii oraz jego zróżnicowane ukierunkowanie.
+\begin{itemize}
+	\item \textbf{Starożytność}:
+	      
+	      Najstarsza forma notacji muzycznej przypisywana jest Babilończykom (1400 rok p.n.e.).
+	      Opiera się o zapis klinowy.
+	      Podobnie późniejsze odkrycie — pochodzące ze Starożytnej Grecji — również opiera się o alfabet,
+	      a także symbole określające długość dźwięku.
+	\item \textbf{Średniowiecze}:
+	      
+	      Pojawia się wówczas notacja dedykowana stricte muzyce — neumy. Pierwsza notacja tego typu wywodzi się z Imperium Bizantyjskiego,
+	      jednak aktualnie pod tym pojęciem rozumie się przede wszystkim inną, europejską notację wykorzystywaną początkowo w chorale
+	      gregoriańskim — do określania wysokości dźwięków oraz ich czasu trwania.
+	      Również wtedy pojawiła się solmizacja.
+	\item \textbf{Renesans}:
+	      
+	      Epoka renesansu przynosi podwaliny współczesnej, ogólnej notacji nutowej, zaczynają być stosowane nuty oraz symbole
+	      — jak na przykład klucze.
+	      Na przestrzeni kolejnych epok zapis jest rozwijany, umożliwiając bardzo dokładne określanie zamierzonego przez twórcę przebiegu
+	      melodycznego.
+	      Jednocześnie pojawiają się tabulatury — zapis ukierunkowany pod konkretny instrument, dostosowany pod jego charakterystykę —
+	      przykładowo organy, lutnie itd.
+	\item \textbf{Barok}:
+	      
+	      Zaczyna być stosowany bas cyfrowany.
+	      Jest to notacja numeryczna określające harmonię akompaniamentu utworów.
+	      Rola ta przypadała zwykle konkretnym instrumentom — jak na przykład klawesynowi.
+	      Zasada działania tego rodzaju notacji opierała się o akordy i relacje interwałowe pomiędzy poszczególnymi dźwiękami.
+	\item \textbf{Klasycyzm i romantyzm}:
+	      
+	      Dalszy rozwój standaryzowanego zapisu nutowego, celem oznaczenia konkretnych wskazówek dla wykonawców utworów.
+	\item \textbf{XX wiek}:
+	      
+	      Muzycy zaczynają eksperymentować z zapisem muzycznym, dostosowując go zupełnie do swoich potrzeb, tworząc warstwy abstrakcji,
+	      własne "paradygmaty", odwzorowując w ten sposób skalę eksperymentalizmu tworzonej muzyki.
+	\item \textbf{Współczesność}:
+	      
+	      Współcześnie korzystamy z wielu form zapisu muzycznego. Kluczową rolę odgrywa zapis nutowy,
+	      lecz niektórzy artyści wciąż czasami sięgają po własne formy notacji, podobnie jak miało to miejsce w XX wieku.
+	      Wielką popularnością cieszą się również tabulatury oraz wizualizacje komputerowe, z uwagi ta ich przystępność oraz zapis akordowy.
+	      Jednocześnie w pewnych okolicznościach wciąż wykorzystywane są starsze metody zapisu — sięgające nawet do neum.
+\end{itemize}
+
+\textbf{Technologia współczesna}
+W ramach tej sekcji, przedstawione zostanie oprogramowanie, w kolejności chronologicznej, które przynosiły przełomowe rozwiązania, doprowadzając do aktualnego stanu dziedziny.
+
+\textbf{Wykorzystanie komputerów w tworzeniu muzyki}
+\begin{itemize}
+	\item \textbf{1951 - komputerowe generowanie dźwięku}:
+	      
+	      W 1951 roku inżynier komputerowy Max Mathews stworzył pierwszy program komputerowy do generowania dźwięku.
+	      Program ten działał na komputerze IBM 704 i otworzył drzwi do eksperymentów z syntezą dźwięku przy użyciu komputerów.
+	\item \textbf{1967 - kompozycja z wykorzystaniem komputera}:
+	      
+	      Program komputerowy "MUSIC I", tego samego twórcy, umożliwił kompozytorom tworzenie muzyki za pomocą kodu komputerowego.
+	      Można określić ten moment jako początek muzyki komputerowej.
+	\item \textbf{1980 - MIDI (Musical Instrument Digital Interface) i edycja dźwięku}:
+	      
+	      Wprowadzenie standardu MIDI umożliwiło komunikację między różnymi instrumentami muzycznymi a komputerami.
+	      To znacząco ułatwiło produkcję i edycję muzyki przy użyciu oprogramowania.
+	      W latach 80' pojawiły się też programy takie jak SoundEdit i Sound Forge,
+	      które umożliwiły użytkownikom edycję dźwięku przy użyciu komputera.
+	      Zyskały one popularność w dziedzinie produkcji muzycznej.
+	\item \textbf{1990 - DAW (Digital Audio Workstation), syntezatory i samplowanie}:
+	      
+	      Powstanie programów DAW, takich jak Pro Tools, Cubase, Logic Pro, Ableton Live i FL Studio, umożliwiło profesjonalistom tworzenie,
+	      edycję i produkcję muzyki na komputerach osobistych.
+	      DAW stały się kluczowym narzędziem w przemyśle muzycznym.
+	      Pojawiło się również oprogramowanie, które umożliwia emulację syntezatorów analogowych oraz samplowanie dźwięków.
+	      Programy takie jak Native Instruments Kontakt i Serum stały się ważnymi narzędziami dla producentów muzycznych.
+	\item \textbf{Lata 2000 - Rozwój wirtualnych instrumentów i efektów};
+	      
+	      Oprogramowanie takie jak Kontakt, Omnisphere czy Massive pozwoliło na tworzenie wirtualnych instrumentów i efektów dźwiękowych,
+	      co znacząco rozszerzyło możliwości produkcji muzycznej.
+	      Wciąż pojawiają się rozwiązania oferujące lepszą jakość i realizm dźwięku.
+	\item \textbf{Współczesność}:
+	      
+	      Oferowana jest szeroka gama oprogramowania dla potrzeb muzyków, odpowiadająca na większość potrzeb zarówno profesjonalistów,
+	      jak i amatorów.
+	      Można tu wymienić programy ukierunkowane na produkcję muzyczną, tworzenie zapisów nutowych,
+	      jak również narzędzia umożliwiające generowanie muzyki.
+	      Wyraźny jest jednak brak rozwiązań ukierunkowanych na wstępne fazy tworzenia utworów oraz narzędzi umożliwiających szybkie
+	      odnotowywanie pomysłów i koncepcji.
+\end{itemize}
+\textbf{Aplikacja jako narzędzie do notowania}
+\begin{itemize}
+	\item \textbf{1987 - Lotus Agenda}:
+	      
+	      Lotus Agenda, stworzony przez firmę Lotus Development Corporation oparty, był jednym z pierwszych programów do zarządzania notatkami.
+	      Umożliwiał użytkownikom tworzenie notatek, organizowanie ich w kategorie i przeszukiwanie.
+	\item \textbf{2000 - EverNote}:
+	      
+	      Evernote, założone przez Stepana Pachikova, stało się jednym z najbardziej rozpoznawalnych narzędzi do tworzenia notatek.
+	      To narzędzie pozwala na tworzenie notatek w różnych formatach, w tym tekst, obrazy, dźwięki i wiele innych,
+	      oraz synchronizację ich między różnymi urządzeniami.
+	\item \textbf{2002 - Tomboy}:
+	      
+	      W miarę wzrostu popularności komputerów osobistych pojawiają się projekty open source, takie jak Tomboy,
+	      które umożliwiające użytkownikom tworzenie notatek i notatników.
+	\item \textbf{2003 - Microsoft OneNote}:
+	      
+	      Microsoft OneNote został wprowadzony jako część pakietu Microsoft Office w 2003 roku, ale jego historia sięga wcześniejszych lat.
+	      Pierwotnie nazywany "OneNote 2003", ten program zyskał popularność jako narzędzie do tworzenia notatek na platformach Windows.
+	      W kolejnych edycjach umożliwiał użytkownikom innowacyjne organizowanie notatek w ramach "tablicy".
+	\item \textbf{2008 - Evernote}:
+	      
+	      Zmiana kierunku rozwoju aplikacji, wejście na rynek aplikacji mobilnych doprowadziła do ogromnego wzrostu popularności Evernote,
+	      co oddaje ogromny potencjał aplikacji do notowania, będących zawsze "pod ręką" użytkowników.
+	      Inne aplikacje również podążają za tym trendem.
+	\item \textbf{2013 - Notion}:
+	      
+	      Znaczącą innowację przynosi Notion, oferując niespotykanie szeroki wachlarz możliwości.
+	      O ile sama aplikacja charakteryzuje się stosunkową prostotą, o tyle możliwości, jakie oferuje użytkownikowi — są bardzo liczne
+	      — jest to swoista "piaskownica danych", dowolnie organizowanych i personalizowanych przez użytkownika, przy użyciu notatników,
+	      kalendarzy i tabel.
+	\item \textbf{2020 - Obsidian, Logseq}:
+	      
+	      Kolejnym przełomowym krokiem rozwoju jest Obsidian. Jest on jeszcze prostszy w obsłudze w porównaniu z Notion,
+	      gdyż opiera się o pliki markdown, jednak użytkownik może go dowolnie dostosować do swych potrzeb m.in. za sprawą pluginów.
+	      W ślad za nim podąża Logseq, oprogramowanie Open-Source, które opiera się grafy i listy punktowane.
+	\item \textbf{Współczesność}:
+	      
+	      Na przykładzie najnowszych aplikacji, widoczna jest tendencja, oddawać w ręce użytkowników prostych narzędzi,
+	      które mogą być w możliwie szeroki sposób wykorzystane przez użytkownika — zgodnie z jego zamysłem i stylem pracy.
+\end{itemize}
+\textbf{Wnioski}
+Jak więc wynika z powyższych przykładów, istnieje zauważalny potencjał, w stworzeniu aplikacji-notatnika ukierunkowanego na potrzeby muzyków.
+W założeniach musiałoby być to narzędzie mobilne, proste i oferujące użytkownikowi dużą dowolność w sposobach notacji utworu.
+
+\subsubsection{Badanie rynku}
+\ldots
+
+\subsubsection{Porównanie dostępnych rozwiązań}
+Brak jest na rynku oprogramowania, które mogłoby wesprzeć proces wstępnej kompozycji i aranżacji utworów muzycznych.
+Istnieją rozwiązania desktopowe, pozwalające tworzyć notatki i załączać do nich pliki, takie jak Obsidian i Logseq.
+O ile są one rozbudowanymi narzędziami, nie są ukierunkowane na muzyków i same w sobie nie oferują kluczowych funkcji,
+które pozwoliłyby je wykorzystać jako „muzyczny notatnik”.
+W przypadku aplikacji mobilnych można wyróżnić przynajmniej dwie odrębne grupy:
+\begin{itemize}
+	\item aplikacje do tworzenia notatek — często pozwalające zapisać pliki dźwiękowe (np. Oferowane przez większość systemów „Notatki”);
+	\item proste aplikacje do pisania nut lub akordów;
+\end{itemize}
+Brak jednak aplikacji, która umożliwiałaby połączyć te zastosowania.
+Istnieje natomiast kilka rozwiązań wspomagających bardziej zaawansowane stadia rozwoju kompozycji,
+doskonałym przykładem byłby tu GarageBand od Apple.
+Jest to już jednak przede wszystkim DAW, umożliwiający w zasadzie już produkcję muzyki i nie oferuje narzędzi wspierających wczesnych,
+konceptualnych faz rozwoju utworu.
+Proponowana w tej pracy aplikacja czerpałaby inspiracje również z innych programów i serwisów.
+Przykładem może być tu serwis streamingowy Soundcloud, wizualizujący falę dźwiękową pliku muzycznego, co ułatwia orientację w jego przebiegu.
+
+\subsection{Identyfikacja aktorów}
+Osoby zajmujące się muzyką, pracujące nad tworzeniem, aranżacją utworów.
+Celem pracy jest zaprojektowanie aplikacji wspomagającej proces aranżacji utworów muzycznych.
+Ma ona służyć za narzędzie umożliwiające zapisywanie szkiców melodii, tekstów oraz notatek i wskazówek do utworów.
+Wspomniane funkcjonalności okażą się zatem użyteczne dla aranżerów, jak również kompozytorów i wykonawców.
+Nie jest brany tu pod uwagę profesjonalizm użytkowników, raczej program ma odpowiadać potrzebom tych,
+których proces twórczy przebiega nieoczekiwanie — w takich sytuacjach, podręczny „notatnik” muzyczny okaże się szczególnie przydatny.
+
+\subsection{Identyfikacja problemów rozwiązywanych przez proponowaną aplikację}
+\begin{itemize}
+	\item Aranżer  ma kilka pomysłów na pewien jego fragment, ale jeszcze nie wie, który z nich wykorzysta:
+	      może wszystkie je zapisać oraz opisać słownie, do późniejszej weryfikacji.
+	\item Muzyk uczestniczy w próbie zespołu, dyrygent proponuje alternatywną linię melodyczną:
+	      korzystając z aplikacji, muzyk może szybko i wygodnie zapisać ją w formie nutowej.
+	\item Uczeń otrzymuje wskazówki od nauczyciela, dotyczące sposobu wykonania pewnego przebiegu w utworze:
+	      korzystając z aplikacji, może zapisać przebieg jako nagranie audio, opisać go tekstem.
+	\item Kompozytor tworzy nowy utwór, ma kilka fragmentów melodycznych, które chciałby wykorzystać:
+	      może je zapisać i dowolnie zorganizować wizualnie (przesuwając, ukrywając elementy na tablicy).
+	\item Muzyk nie ma przy sobie nut, otrzymuje zdjęcie od współczłonka zespołu:
+	      może je zapisać w aplikacji, aby mieć do nich łatwy dostęp oraz odnotowywać na bieżąco istotne uwagi bezpośrednio
+	      pod zapisem nutowym.
+\end{itemize}
+\subsection{Założenia projektowe}
+
+\subsubsection{Wymagania jakościowe}
+Biorąc pod uwagę charakter problemu oraz czerpiąc inspirację z pokrewnych współczesnych rozwiązań,
+zdecydowano się na rozwiązanie będące aplikacją mobilną.
+Jest to szczególnie istotne, z uwagi na dostępność i wygodę.
+Telefony komórkowe stanowią w dzisiejszych czasach narzędzie uniwersalne, będące zawsze w zasięgu ręki [c.n.]
+stąd stanowią doskonałą platformę dla aplikacji, mającej odpowiadać jako notatnik na \enquote{potrzebę chwili}.
+Zaletę tę docenią także instrumentaliści — nie musząc odchodzić od instrumentu, by zapisać cenną i ulotną muzyczną myśl,
+co zwykle ma miejsce przy pracy z programami komputerowymi, często również przy korzystaniu z nie-cyfrowych metod
+— na przykład zeszytów.
+
+Kolejną istotną cechą takiej aplikacji musi być jej niezależność od połączenia sieciowego.
+Aplikacja powinna móc działać w pełni lokalnie — bez dostępu do sieci.
+O ile rozwiązania sieciowe przynoszą wiele potencjalnie przydatnych funkcjonalności,
+takich jak współdzielenie danych między urządzeniami,
+o tyle (pomijając kwestię dodatkowego skomplikowania architektury programu)
+sama aplikacja nie powinna być od nich zależna, z uwagi na warunki pracy muzyków.
+Często sale koncertowe lub sale prób z uwagi na architekturę budynku mogą uniemożliwiać całkowicie
+bądź w znaczącym stopniu połączenie sieciowe [c.n.]; również w trasie, czy podczas pobytu w obcym kraju
+— internet bywa zawodny.
+Stąd, aby zapewnić niezawodność działania aplikacji bez względu na warunki — musi ona działać bez dostępu do internetu.
+
+W kwestii zasady działania — jako notatnik — aplikacja powinna stanowić swoiste środowisko,
+oddając w ręce użytkownika decyzje o tym, jak zostanie ono wykorzystane.
+W ten sposób jest w stanie odpowiedzieć na personalne potrzeby artysty, dostosować się do jego technik i charakteru pracy,
+jak pusta karta o wirtualnie nieograniczonym potencjale.
+Taki charakter przywodzi na myśl \enquote{piaskownicę}, jako odpowiedź na środowisko pracy kreatywnej [c.n.].
+
+Idąc dalej tym tokiem, należałoby również nakreślić pewne właściwości samego interfejsu użytkownika.
+Aby nie stanowił przeszkody w pracy, lecz współgrał z użytkownikiem, musi cechować się przejrzystością,
+intuicyjnością oraz prostotą.
+Przytoczone wcześniej serwisy [c.n.] mają te cechy, zatem należy przyjąć je i w tej kwestii za inspirację.
+Aby osiągnąć zamierzony cel, w procesie projektowania interfejsu przyjęto także za ideę kluczową minimalizm;
+słuszność tej decyzji mogą potwierdzić współczesne badania \cite{minimalism}.
+Oprócz intuicyjności i wygody przekłada się to również na wysoki stopień interaktywności interfejsu — zawierając tylko to,
+co konieczne można pozwolić, by każdy widoczny element umożliwiał określoną funkcjonalność
+i odpowiadał na akcje użytkownika.
+
+Możemy stąd wyciągnąć kluczowe wymagania jakościowe aplikacji:
+\begin{itemize}
+	\item mobilność
+	\item niezawodność
+	\item niezależność od warunków użytkowania
+	\item prostota
+	\item przejrzystość
+	\item intuicyjność
+	\item interaktywność
+\end{itemize}
+
+\subsection{Wymagania funkcjonalne}
+\label{subsec:wymagania-funkcjonalne}
+Najszerzej rzecz ujmując, aplikacja ma umożliwić użytkownikowi notowanie muzycznych koncepcji aranżacji utworów.
+Należałoby tu odnieść się do wcześniejszego fragmentu pracy, ukazującej zróżnicowanie notacji muzycznej.
+Aby pokryć możliwie szerokie spektrum praktyk zapisywania muzyki,
+zdecydowano się na wyszczególnienie następujących formatów:
+\begin{itemize}
+	\item Nutowy — jako podstawowa i uniwersalna forma zapisu dźwięku.
+	\item Tekstowy — jako medium pozwalające opisywać dźwięk, jak również zapisywać teksty utworów, chwyty gitarowe.
+	\item Dźwiękowy — jako nagranie, umożliwia przechwycenie i zapis brzmienia.
+	\item Wizualny — jako zdjęcia, przykładowo nut, ustawienia zespołu podczas prób.
+\end{itemize}
+
+Częstą praktyką wśród muzyków jest również notowanie wskazówek wykonawczych (na przykład artykulacyjnych)
+na stronach z nutami.
+Konieczne jest zatem umożliwienie użytkownikowi tworzenie podobnych adnotacji, jako komentarzy przy nutach,
+bądź między liniami tekstu.
+Aplikacja musi także umożliwiać określoną metodą organizacji tworzonych przez użytkownika zbiorów notatek,
+umożliwiając łatwą ich lokalizację.
+Dodatkowymi zaletami byłaby również możliwość wizualnego rozróżniania zbiorów notatek,
+co może zostać osiągnięte przez (\ldots).
+
+Aplikacja musi zatem umożliwiać:
+\begin{itemize}
+	\item Wyświetlanie, edycję oraz zapis notatek nutowych.
+	\item Wyświetlanie, edycję oraz zapis notatek tekstowych.
+	\item Dodawanie komentarzy do fragmentów notatek nutowych oraz tekstowych.
+	\item Nagrywanie, zapis oraz wizualizację dźwięku.
+	\item Wyświetlanie zdjęć jako notatek.
+	\item Ustawianie zdjęć jako okładek zbiorów notatek.
+	\item Ustawianie słów kluczowych jako metody identyfikacji zbiorów notatek.
+	\item Wyszukiwanie zbiorów notatek po nazwie oraz po słowach kluczowych.
+\end{itemize}
+\newpage
+
+\addcontentsline{toc}{section}{Projekt aplikacji wspomagającej aranżacje i usługi muzyczne}
+
+\section*{Projekt aplikacji wspomagającej aranżacje i usługi muzyczne}
+\newpage
+
+\addcontentsline{toc}{section}{Analiza otrzymanych wyników i wnioski}
+\section*{Analiza otrzymanych wyników i wnioski}
+\newpage
+
+\addcontentsline{toc}{section}{Bibliografia}
+\printbibliography
+\newpage
+
+\addcontentsline{toc}{section}{Spis rysunków}
+\listoffigures
+\newpage
+
+\addcontentsline{toc}{section}{Spis tabel}
+\listoftables
+\newpage
+
+\end{document}

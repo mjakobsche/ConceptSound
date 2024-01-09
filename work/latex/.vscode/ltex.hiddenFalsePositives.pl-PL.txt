@@ -1,0 +1,4 @@
+{"rule":"WACHLARZ_CZEGO","sentence":"^\\Q2013 - Notion: Znaczącą innowację przynosi Notion, oferując niespotykanie szeroki wachlarz możliwości.\\E$"}
+{"rule":"W_SLAD_ZA","sentence":"^\\QW ślad za nim podąża Logseq, oprogramowanie Open-Source, które opiera się grafy i listy punktowane.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QDAW stały się kluczowym narzędziem w przemyśle muzycznym.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QJest to już jednak przede wszystkim DAW, umożliwiający w zasadzie już produkcję muzyki i nie oferuje narzędzi wspierających wczesnych, konceptualnych faz rozwoju utworu.\\E$"}
