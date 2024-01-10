@@ -1,0 +1,144 @@
+\subsection{Identyfikacja aktorów}
+Aktorem korzystającym z zaprojektowanej aplikacji jest użytkownik.
+W założeniu jest to osoba zajmująca się muzyką, szczególnie: pracująca nad tworzeniem i aranżacją utworów.
+Nie jest tu brany pod uwagę profesjonalizm użytkownika; program ma odpowiedzieć jako podręczny notatnik przede wszystkim
+na potrzeby muzyków, których proces twórczy nie przebiega w sposób całkowicie usystematyzowany, bywając efektem chwili.
+
+\subsection{Poglądowe scenariusze wspierania procesu aranżacji}
+Poniżej przedstawiono potencjalne sytuacje problematyczne, jakie mogłaby rozwiązać projektowana aplikacja:
+\begin{itemize}
+	\item Aranżer ma kilka pomysłów na pewien jego fragment, ale jeszcze nie wie, który z nich wykorzysta:
+	      może wszystkie je zapisać jako nagrania oraz opisać słowami, do późniejszej weryfikacji.
+	\item Muzyk uczestniczy w próbie zespołu, dyrygent proponuje mu alternatywną linię melodyczną:
+	      korzystając z aplikacji, muzyk może w łatwy sposób zapisać ją w formie nutowej.
+	\item Aranżer pracuje nad utworem, ma kilka fragmentów melodycznych, które zamierza wykorzystać:
+	      może dowolnie je zorganizować w aplikacji, ułatwiając ich lokalizację.
+\end{itemize}
+
+\subsection{Wymagania}
+\subsubsection{Wymagania jakościowe}
+Biorąc pod uwagę charakter problemu oraz czerpiąc inspirację z pokrewnych współczesnych rozwiązań,
+zdecydowano się na rozwiązanie będące aplikacją mobilną.
+Jest to szczególnie istotne, z uwagi na dostępność i wygodę.
+Telefony komórkowe stanowią współcześnie narzędzie uniwersalne, będące zawsze w zasięgu ręki,
+stąd są najbardziej przystępną platformę dla aplikacji, mającej odpowiadać jako notatnik na \enquote{potrzebę chwili}.
+Zaletę tę docenią także instrumentaliści — nie musząc odchodzić od instrumentu, by zapisać muzyczną myśl,
+co zwykle ma miejsce przy pracy z programami komputerowymi bądź przy korzystaniu z nie-cyfrowych metod
+— na przykład zeszytów.
+
+Kolejną cechą takiej aplikacji musi być jej niezależność od połączenia sieciowego.
+Aplikacja powinna móc działać w pełni lokalnie — bez dostępu do sieci.
+O ile rozwiązania sieciowe przynoszą wiele potencjalnie przydatnych funkcjonalności,
+takich jak współdzielenie danych między urządzeniami,
+o tyle (pomijając kwestię dodatkowego skomplikowania architektury programu)
+sama aplikacja nie powinna być od nich zależna, z uwagi na warunki pracy muzyków.
+Będąc w trasie, podczas pobytu na sali koncertowej, bądź nawet w salach prób — mogą mieć oni ograniczony dostęp do internetu,
+z uwagi na lokalizację, bądź architekturę budynku.
+Stąd, aby zapewnić niezawodność działania aplikacji bez względu na warunki — musi ona działać bez dostępu do internetu.
+
+W kwestii zasady działania — jako notatnik — aplikacja powinna stanowić swoiste środowisko,
+w którym użytkownik decyduje o tym, w jaki sposób je wykorzysta.
+W ten sposób aplikacja może odpowiedzieć na personalne potrzeby artysty, dostosowując się do jego technik i charakteru pracy.
+Taki charakter przywodzi na myśl \enquote{piaskownicę}, jako środowisko pracy kreatywnej.
+
+Idąc dalej, należałoby również określić właściwości samego interfejsu użytkownika.
+Aby nie stanowił przeszkody w pracy, lecz współgrał z użytkownikiem, musi cechować się przejrzystością,
+intuicyjnością oraz prostotą.
+Aby osiągnąć zamierzony cel, w procesie projektowania interfejsu przyjęto także za ideę kluczową minimalizm~\cite{minimalism}.
+Oprócz intuicyjności i wygody przekłada się ona również na wysoki stopień interaktywności interfejsu — zawierając tylko to,
+co konieczne można pozwolić, by każdy widoczny element umożliwiał określoną funkcjonalność i odpowiadał na akcje użytkownika.
+
+Możemy stąd wyciągnąć kluczowe wymagania jakościowe aplikacji:
+\begin{itemize}
+	\item mobilność,
+	\item niezawodność,
+	\item niezależność od warunków użytkowania,
+	\item prostota,
+	\item przejrzystość,
+	\item intuicyjność,
+	\item interaktywność.
+\end{itemize}
+
+\subsubsection{Wymagania funkcjonalne}
+Najszerzej rzecz ujmując, aplikacja ma umożliwić użytkownikowi notowanie muzycznych koncepcji aranżacji utworów.
+Należałoby tu odnieść się do wcześniejszego fragmentu pracy, ukazującego zróżnicowanie notacji muzycznej.
+Aby pokryć możliwie szerokie spektrum metod zapisywania muzyki, zdecydowano się wyszczególnić następujące formaty:
+\begin{itemize}
+	\item Nutowy — jako podstawowa i uniwersalna forma zapisu dźwięku.
+	\item Tekstowy — jako medium pozwalające opisywać dźwięk, jak również zapisywać teksty utworów, chwyty gitarowe.
+	\item Dźwiękowy — jako nagranie, umożliwia przechwycenie i zapis brzmienia.
+	\item Wizualny — jako zdjęcia, przykładowo nut, ustawienia zespołu podczas prób.
+\end{itemize}
+
+Częstą praktyką wśród muzyków jest również notowanie wskazówek wykonawczych (na przykład artykulacyjnych)
+na stronach z nutami.
+Przydatne okazałoby się zatem umożliwienie użytkownikowi tworzenie podobnych adnotacji, jako komentarzy przy nutach,
+bądź między liniami tekstu.
+
+Aby umożliwić wyszukiwanie oraz lokalizację elementów, należy zapewnić możliwość ich organizacji.
+Biorąc przykład z przytoczonych wcześniej przykładów aplikacji do tworzenia notatek, może mieć ona charakter wizualny,
+opierający się na umiejscowieniu elementu na określonej przestrzeni, w odniesieniu do innych elementów.
+Również pomocna może okazać się możliwość wizualnej modyfikacji samego elementu — wyróżniając go.
+Skuteczna organizacja wymaga jednak również systematycznej struktury poza wymiarem wizualnym, która umożliwiłaby wyszukiwanie
+elementów według określonych przez użytkownika grup.
+
+Na podstawie powyższych założeń, można ująć wymagania funkcjonalne aplikacji jako:
+\begin{itemize}
+	\item zapisywanie i edycja notatek opisujących założenia aranżacyjne utworu jako:
+	      \subitem nuty
+	      \subitem tekst
+	      \subitem nagranie
+	      \subitem obraz
+	\item opatrywanie komentarzami fragmentów notatek nutowych i tekstowych
+	\item organizacja przestrzenna notatek
+	\item organizacja zbiorów notatek poprzez nadawanie tytułów i tagów
+	\item wizualne wyróżnianie zbiorów notatek przez dołączanie zdjęć
+\end{itemize}
+
+\subsection{Wykaz użytych technologii}
+Celem zrealizowania projektu wykorzystano następujące kluczowe technologie:
+\begin{itemize}
+	\item TypeScript (5.1.6)
+
+	      Język programowania rozwijany przez Microsoft, będący nadzbiorem języka JavaScript.
+	      Dzięki systemowi typów TypeScript wspiera programistów w wykrywaniu błędów na etapie kompilacji,
+	      co zwiększa niezawodność i utrzymanie kodu w projektach. Z tego względu, jak również z uwagi na jego znajomość
+	      przez Autora pracy, został wykorzystany jako główny język projektu.
+	\item Ionic (cli — 7.1.5)
+
+	      Framework do budowy hybrydowych aplikacji mobilnych, korzystający z języków webowych takich jak HTML,
+	      CSS i JavaScript bądź TypeScript.
+	      Ionic CLI ułatwia tworzenie, testowanie i wdrażanie aplikacji mobilnych na różne platformy, na podstawie jednego,
+	      wspólnego kodu źródłowego.
+	      Wybrano tę technologię z uwagi na jej uniwersalność pomiędzy platformami, oferującą potencjalne dalsze kierunki
+	      rozwoju projektu, jak również zaznajomienie Autora pracy z podobnymi technologiami.
+	\item Capacitor (core — 5.4.0)
+
+	      Narzędzie do budowy natywnych aplikacji mobilnych, przy użyciu technologii webowych.
+	      Capacitor umożliwia dostęp do funkcji natywnych urządzeń jak na przykład aparatu czy mikrofonu.
+	      Współgra on z frameworkiem Ionic, celem dostarczania aplikacji na urządzenia z systemami Android i IOS.
+	\item Vue.js (3.2.45)
+
+	      Progresywny framework JavaScript do budowy interfejsów użytkownika.
+	      Vue.js umożliwia łatwe tworzenie interaktywnych interfejsów, dzięki deklaratywnemu podejściu do komponentów i
+	      reaktywnemu systemowi danych. Był on tworzony z myślą o przystępności i intuicyjności
+	      — i z tego względu został wybrany do wykorzystania w połączeniu z Ionic.
+	\item Pinia (2.1.4)
+
+	      Biblioteka do zarządzania stanem globalnym aplikacji. Stanowi następstwo Vuex store — jako dedykowana dla
+	      Vue.js. Umożliwia ona również korzystanie z narzędzi deweloperskich pozwalających śledzić zmiany stanu aplikacji.
+	\item Ionic Storage (4.0.0)
+
+	      Moduł do przechowywania danych w aplikacjach Ionic. Umożliwia przechowywanie i pobieranie danych
+	      w aplikacjach mobilnych, zapewniając prosty interfejs do manipulacji danymi, przy użyciu par klucz—wartość.
+	\item Biblioteki JavaScript do obsługi notatek:
+	      \subitem SortableJs — dla umożliwienia wygodnej organizacji przestrzennej,
+	      \subitem Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej,
+	      \subitem ABCjs — renderujący notację nutową na podstawie tekstu.
+
+	\item Środowiska i aplikacje programistyczne:
+	      \subitem JetBrains Webstorm — główne środowisko programistyczne przygotowania projektu
+	      \subitem GitHub oraz Git — celem realizacji kontroli wersji
+	      \subitem Buddy CI/CD — jako narzędzie do Continous Delivery, umożliwiające automatyczne budowanie projektu do
+	      postaci aplikacji mobilnej.
+\end{itemize}

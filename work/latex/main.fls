@@ -333,6 +333,10 @@ INPUT /nix/store/cgxsgfyhjqh95ivnmfk8pxz4phlmw1wb-texlive-combined-2022-texmfdis
 INPUT /nix/store/cgxsgfyhjqh95ivnmfk8pxz4phlmw1wb-texlive-combined-2022-texmfdist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /nix/store/2qhkhclcz7xgnmmky5jbkiaq2ybc3bzp-texlive-combined-2022/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 OUTPUT main.toc
+INPUT ./text/studium.tex
+INPUT ./text/studium.tex
+INPUT ./text/zalozenia.tex
+INPUT ./text/zalozenia.tex
 INPUT ./main.lof
 INPUT ./main.lof
 OUTPUT main.lof

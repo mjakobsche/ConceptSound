@@ -10,3 +10,5 @@
 {"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QSortableJs — dla umożliwienia wygodnej organizacji przestrzennej Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej ABCjs — renderujący notację nutową na podstawie tekstu\\E$"}
 {"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QSortableJs — dla umożliwienia wygodnej organizacji przestrzennej, Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej, ABCjs — renderujący notację nutową na podstawie tekstu.\\E$"}
 {"rule":"ZDANIA_ZLOZONE","sentence":"^\\QIonic CLI ułatwia tworzenie, testowanie i wdrażanie aplikacji mobilnych na różne platformy, z jednym kodem źródłowym.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QIonic CLI ułatwia tworzenie, testowanie i wdrażanie aplikacji mobilnych na różne platformy, na podstawie jednego, wspólnego kodu źródłowego.\\E$"}
+{"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QBiblioteki JavaScript do obsługi notatek: SortableJs — dla umożliwienia wygodnej organizacji przestrzennej, Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej, ABCjs — renderujący notację nutową na podstawie tekstu.\\E$"}
