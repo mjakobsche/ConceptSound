@@ -7,3 +7,6 @@
 {"rule":"ZDANIA_ZLOZONE","sentence":"^\\QJest to w zasadzie pełne DAW, pozwalające\\E$"}
 {"rule":"ZDANIA_ZLOZONE","sentence":"^\\QJest to w zasadzie pełne DAW, pozwalające na tworzenie muzyki przy użyciu smartfona.\\E$"}
 {"rule":"W_OPARCIU","sentence":"^\\QCharakteryzuje się większą prostotą od Notion, gdyż działa w oparciu o pliki markdown, jednak użytkownik może go dowolnie dostosować do swych potrzeb m.in. za sprawą wtyczek.\\E$"}
+{"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QSortableJs — dla umożliwienia wygodnej organizacji przestrzennej Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej ABCjs — renderujący notację nutową na podstawie tekstu\\E$"}
+{"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QSortableJs — dla umożliwienia wygodnej organizacji przestrzennej, Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej, ABCjs — renderujący notację nutową na podstawie tekstu.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QIonic CLI ułatwia tworzenie, testowanie i wdrażanie aplikacji mobilnych na różne platformy, z jednym kodem źródłowym.\\E$"}
