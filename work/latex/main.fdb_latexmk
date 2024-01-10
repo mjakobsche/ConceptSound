@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1704907751 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1704908198 -1
   "./bibliography.bib" 1704657188 3048 8e9b0ceb34738310eab4e4f8152d2eb3 ""
-  "main.bcf" 1704907750 106963 216ac1f5cd94c1930df39ae05a840f14 "lualatex"
+  "main.bcf" 1704908198 106963 216ac1f5cd94c1930df39ae05a840f14 "lualatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["lualatex"] 1704907749 "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" "main.pdf" "main" 1704907751 0
+["lualatex"] 1704908197 "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" "main.pdf" "main" 1704908198 0
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1704740533 128312 fed65183dfbc168f421586b68ddf8f85 ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1704740532 127683 7c6392bfe1c2b59c63a349e1326c5578 ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/times-new-roman-bold-italic.luc" 1704740533 100787 ef95c44f6b2a4f41e70d72b68df5f1f6 ""
@@ -15,7 +15,7 @@
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/times-new-roman.luc" 1704740533 141731 3f0679799aa9c326e7662e41adeb51c7 ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc" 1704740533 1873 ec3ae2eacb90cd5fa0aa60d12cc5ccde ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1704740532 302731 0395eacf4a66d8bad3d42e153a44d012 ""
-  "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" 1704907441 3381 768a9ee6338a814bc5f82d5f019dae66 ""
+  "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" 1704908196 3387 518c78857574a5d4f7b394fdf3a54fd3 ""
   "/nix/store/2qhkhclcz7xgnmmky5jbkiaq2ybc3bzp-texlive-combined-2022/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 4623451 0dc8381614adce093d1b849ff26b73b0 ""
   "/nix/store/2qhkhclcz7xgnmmky5jbkiaq2ybc3bzp-texlive-combined-2022/share/texmf-var/tex/generic/config/language.dat" 1 6694 3301ae1e7ef2675b1a671502edb35f8e ""
   "/nix/store/2qhkhclcz7xgnmmky5jbkiaq2ybc3bzp-texlive-combined-2022/share/texmf-var/web2c/luahbtex/lualatex.fmt" 1 11873299 af0eebf4147e781d51189ba9079789a9 ""
@@ -176,14 +176,14 @@
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman.ttf" 1 330412 4f97f4d6ba74767259ccfb242ce0e3f7 ""
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Bold.ttf" 1 333900 ed6e29caf3843142d739232aa8642158 ""
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Italic.ttf" 1 247092 957dd4f17296522dead302ab4fcdfa8d ""
-  "main.aux" 1704907750 4507 10d145210aa274142e5a53bd943b5d42 "lualatex"
+  "main.aux" 1704908198 4507 10d145210aa274142e5a53bd943b5d42 "lualatex"
   "main.bbl" 1704793956 1888 105d4b0131d295b188fa74e14b666b07 "biber main"
-  "main.lof" 1704907750 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
-  "main.lot" 1704907750 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
-  "main.out" 1704907750 5377 3e1271dfbb0f0bdf14afed9a7e65b31c "lualatex"
-  "main.run.xml" 1704907750 2341 f5b21bfdab19385ae52f27a31b9d99b7 "lualatex"
-  "main.tex" 1704907441 3381 768a9ee6338a814bc5f82d5f019dae66 ""
-  "main.toc" 1704907750 2493 394c59a856a51be9a163c6bdfffc0d68 "lualatex"
+  "main.lof" 1704908198 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
+  "main.lot" 1704908198 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
+  "main.out" 1704908198 5377 3e1271dfbb0f0bdf14afed9a7e65b31c "lualatex"
+  "main.run.xml" 1704908198 2341 f5b21bfdab19385ae52f27a31b9d99b7 "lualatex"
+  "main.tex" 1704908196 3387 518c78857574a5d4f7b394fdf3a54fd3 ""
+  "main.toc" 1704908198 2493 394c59a856a51be9a163c6bdfffc0d68 "lualatex"
   "text/studium.tex" 1704907749 15696 f8b5061b3d8899d7a92dd934bdb8a3ba ""
   "text/zalozenia.tex" 1704907731 9567 abf276158820a4591e88c563f078432a ""
   (generated)
