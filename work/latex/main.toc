@@ -1,19 +1,27 @@
 \babel@toc {polish}{}\relax 
-\contentsline {section}{Wstęp}{2}{section*.1}%
-\contentsline {section}{Cel pracy}{3}{section*.2}%
-\contentsline {section}{Zakres pracy}{4}{section*.3}%
-\contentsline {section}{\numberline {1}Zakres pracy}{4}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Studium literaturowe}{4}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Rys historyczny dziedzin zagadnienia}{4}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Badanie rynku}{10}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Porównanie dostępnych rozwiązań}{10}{subsubsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.2}Identyfikacja aktorów}{10}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Identyfikacja problemów rozwiązywanych przez proponowaną aplikację}{11}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Założenia projektowe}{11}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Wymagania jakościowe}{11}{subsubsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.5}Wymagania funkcjonalne}{13}{subsection.1.5}%
-\contentsline {section}{Projekt aplikacji wspomagającej aranżacje i usługi muzyczne}{15}{subsection.1.5}%
-\contentsline {section}{Analiza otrzymanych wyników i wnioski}{16}{section*.4}%
-\contentsline {section}{Bibliografia}{17}{section*.5}%
-\contentsline {section}{Spis rysunków}{18}{section*.6}%
-\contentsline {section}{Spis tabel}{19}{section*.7}%
+\contentsline {section}{Słownik pojęć}{3}{section*.1}%
+\contentsline {section}{Wstęp}{4}{section*.2}%
+\contentsline {section}{Cel pracy}{5}{section*.3}%
+\contentsline {section}{Zakres pracy}{6}{section*.4}%
+\contentsline {section}{\numberline {1}Studium w zakresie problematyki procesu aranżacji muzycznej}{7}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Definicja problematyki procesu aranżacji}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Rys historyczny historii muzyki klasycznej}{7}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Techniki kompozytorskie}{7}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Notacja muzyczna}{9}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Podsumowanie}{10}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3}Badanie rynku oprogramowania wspierającego pracę muzyków}{10}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Programy komputerowe}{10}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Aplikacje mobilne}{11}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Podsumowanie}{12}{subsubsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.4}Rozwiązania oferowane przez aplikacje niezwiązane z procesem aranżacji}{12}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Założenia projektowe}{15}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Identyfikacja aktorów}{15}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Poglądowe scenariusze wspierania procesu aranżacji}{15}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Wymagania jakościowe}{16}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Wymagania funkcjonalne}{17}{subsection.2.3}%
+\contentsline {section}{Część praktyczna}{19}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Projekt aplikacji wspomagającej aranżacje muzyczne}{20}{section.3}%
+\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{21}{section.4}%
+\contentsline {section}{Bibliografia}{22}{section.4}%
+\contentsline {section}{Spis rysunków}{23}{section*.7}%
+\contentsline {section}{Spis tabel}{24}{section*.8}%

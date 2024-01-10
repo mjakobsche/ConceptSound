@@ -1,1 +1,0 @@
-webstorm </dev/null &>/dev/null &
