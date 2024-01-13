@@ -25,10 +25,10 @@ import InlineElements from "@/components/InlineElements.vue";
 import Modal from "@/components/Modal.vue";
 import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
-import {useLibraryService} from "@/service/LibraryService";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
+import {useBookService} from "@/service/BookService";
 
-const store = useLibraryService();
+const store = useBookService();
 store.initLibrary();
 
 const isFilterModalOpen: Ref<boolean> = ref(false);
@@ -69,7 +69,8 @@ function removeBook(book: Book) {
 async function openBook(book) {
   if (!removingBook) {
     closeFilterModal();
-    router.push("/book/" + book.id).then(() => store.moveToTop(book));
+    store.initBook(book);
+    router.push("/book").then(() => store.moveToTop(book));
   } else {
     removingBook = false;
   }

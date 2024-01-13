@@ -17,8 +17,7 @@ const source = ref(props.pageData);
 
 async function pickImages() {
   source.value = await getImageFromFilePicker();
-  emit('update:pageData', source.value)
-  emit('saveChanges')
+  emit('saveChanges', source.value)
 }
 </script>
 

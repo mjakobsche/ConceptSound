@@ -38,8 +38,7 @@ function stopRecording() {
   VoiceRecorder.stopRecording().then((result: RecordingData) => {
     if (result.value) {
       recordingState.value = RecordingState.beforeRetry;
-      emit('update:pageData', result.value.recordDataBase64);
-      emit('saveChanges')
+      emit('saveChanges', result.value.recordDataBase64)
     }
   })
 }

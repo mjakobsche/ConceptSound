@@ -6,7 +6,6 @@ export class Book implements Entity {
     tags: string[];
     cover: string;
     modificationDate: Date;
-    pagesId: string[];
 
     public constructor(title: string) {
         const date: Date = new Date();
@@ -15,6 +14,5 @@ export class Book implements Entity {
         this.tags = [];
         this.cover = "";
         this.modificationDate = date;
-        this.pagesId = [];
     }
 }

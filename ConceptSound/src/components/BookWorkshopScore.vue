@@ -9,13 +9,13 @@ const changesCounter: Ref<number> = ref(0);
 
 function updatePage(data: string) {
   changesCounter.value++;
-  emit('update:pageData', data);
+  emit('saveChanges', data);
 }
 
 </script>
 
 <template>
-  <ion-textarea v-bind:value="pageData" :fill="'outline'" :auto-grow="true" @focusout="$emit('saveChanges')"
+  <ion-textarea v-bind:value="pageData" :fill="'outline'" :auto-grow="true"
                 @input="updatePage($event.target.value)"></ion-textarea>
 </template>
 

@@ -14,10 +14,9 @@ const routes: Array<RouteRecordRaw> = [
         component: LibraryView,
     },
     {
-        path: "/book/:id",
+        path: "/book",
         name: "Utwór",
         component: BookView,
-        props: true,
     },
 ];
 

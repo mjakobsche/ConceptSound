@@ -34,26 +34,14 @@ import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
 import {getImageFromFilePicker} from "@/composables/ImagePicker";
 import {useBookService} from "@/service/BookService";
-import {useLibraryService} from "@/service/LibraryService";
+import {Page} from "@/model/Page";
 
 const store = useBookService();
 const isWorkshopModalOpen = ref(false);
-const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  }
-})
-onMounted(() => {
-  if (props.id) {
-    store.initBook(props.id);
-  }
-})
 
-const editedPage = ref(store.pages[0]);
 const openWorkshopModal = (page) => {
   isWorkshopModalOpen.value = true;
-  editedPage.value = page;
+  store.editPage(page)
 }
 
 async function setCoverImage() {
@@ -62,6 +50,11 @@ async function setCoverImage() {
 }
 
 const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
+
+async function toggleVisibility(page: Page){
+  store.editPage(page)
+  await store.togglePageVisibility();
+}
 
 </script>
 <template>
@@ -88,7 +81,7 @@ const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
           </ion-button>
           <add-alert :trigger="'addTag'" @add="(tagName) => store.addTag(tagName)"></add-alert>
         </inline-elements>
-        <hashtag-chips :all-tags="useLibraryService().tags" :selected-tags="store.book.tags"
+        <hashtag-chips :all-tags="store.tags" :selected-tags="store.book.tags"
                        @enable-tag="(tag) => store.addTag(tag)" @disable-tag="(tag) => store.removeTag(tag)"></hashtag-chips>
       </ion-content>
     </ion-menu>
@@ -129,7 +122,7 @@ const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
       }" @end="(event: SortableJs.SortableEvent) => { store.swapPage(event.oldIndex, event.newIndex) }">
         <template #item="{ element }">
           <BookVPage :page-name="element?.name" :is-page-visible="!element?.hidden" :is-editable="isWorkshopModalOpen"
-                     @change-visibility="store.togglePageVisibility(element)"
+                     @change-visibility="toggleVisibility(element)"
                      @edit-page="openWorkshopModal(element)" @remove-page="store.removePage(element)">
             <component :is="'BookPage' + element?.type" :pageId="element?.id" :pageData="element?.data"></component>
           </BookVPage>
@@ -139,13 +132,13 @@ const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
                 <ion-header>
                   <ion-toolbar>
                     <ion-title>
-                      <ion-input v-model="editedPage.name" @input="store.setPageName(editedPage, editedPage.name)"></ion-input>
+                      <ion-input v-bind:value="store.editedPage.name" @input="store.setPageName($event.target.value)"></ion-input>
                     </ion-title>
                   </ion-toolbar>
                 </ion-header>
                 <ion-content class="ion-padding">
-                  <component :is="'BookWorkshop' + editedPage.type" @save-changes="store.setPageData(editedPage, editedPage.data)"
-                             v-model:page-data="editedPage.data"></component>
+                  <component :is="'BookWorkshop' + store.editedPage.type" @save-changes="(data) => store.setPageData(data)"
+                             v-bind:page-data="store.editedPage.data"></component>
                 </ion-content>
       </modal>
     </ion-content>
