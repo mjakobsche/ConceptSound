@@ -31,6 +31,7 @@ import BookPagePhoto from "./components/BookPagePhoto.vue";
 import BookWorkshopPhoto from "./components/BookWorkshopPhoto.vue";
 import BookPageScore from "./components/BookPageScore.vue";
 import BookWorkshopScore from "./components/BookWorkshopScore.vue";
+import {initStorage} from "@/utils/StorageWrapper";
 
 const app = createApp(App)
     .use(IonicVue)
@@ -45,4 +46,4 @@ const app = createApp(App)
     .component("BookPageScore", BookPageScore)
     .component("BookWorkshopScore", BookWorkshopScore);
 
-router.isReady().then(() => app.mount("#app"));
+router.isReady().then(() => initStorage()).then(() => app.mount("#app"));

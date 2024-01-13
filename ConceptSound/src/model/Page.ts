@@ -1,4 +1,6 @@
-export class BookPage {
+import {Entity} from "@/model/Entity";
+
+export class Page implements Entity {
     id: string;
     type: string;
     name: string;

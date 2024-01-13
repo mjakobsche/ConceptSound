@@ -1,16 +1,20 @@
-export class BookCover {
+import {Entity} from "@/model/Entity";
+
+export class Book implements Entity {
     id: string;
     title: string;
     tags: string[];
-    image: string;
-    lastUsed: Date;
+    cover: string;
+    modificationDate: Date;
+    pagesId: string[];
 
     public constructor(title: string) {
         const date: Date = new Date();
         this.id = date.getTime().toString();
         this.title = title;
         this.tags = [];
-        this.image = "";
-        this.lastUsed = date;
+        this.cover = "";
+        this.modificationDate = date;
+        this.pagesId = [];
     }
 }

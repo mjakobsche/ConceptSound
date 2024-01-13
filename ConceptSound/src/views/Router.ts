@@ -2,7 +2,6 @@ import {createRouter, createWebHistory} from "@ionic/vue-router";
 import {RouteRecordRaw} from "vue-router";
 import LibraryView from "./LibraryView.vue";
 import BookView from "./BookView.vue";
-import {useBackButton} from "@ionic/vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -15,9 +14,10 @@ const routes: Array<RouteRecordRaw> = [
         component: LibraryView,
     },
     {
-        path: "/book",
+        path: "/book/:id",
         name: "Utwór",
         component: BookView,
+        props: true,
     },
 ];
 
