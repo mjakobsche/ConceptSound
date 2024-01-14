@@ -6,7 +6,7 @@ export class LongPressGesture {
     private gesture: Gesture;
     private pressStartTime: number = 0;
     private isPressed: boolean = false;
-    private readonly LONG_PRESS_THRESHOLD: number = 500;
+    private readonly LONG_PRESS_THRESHOLD: number = 1000;
 
     public constructor(target: any, onShortPress, onLongPress) {
         this.gesture = createGesture({
