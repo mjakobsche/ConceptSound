@@ -146,7 +146,7 @@ function addPage(type: string) {
         <ion-header>
           <ion-toolbar>
             <ion-title>
-              <ion-input placeholder="Nazwa" maxlength="12" v-bind:value="store.editedPage.name"
+              <ion-input placeholder="Nazwa" maxlength="12" autocapitalize="characters" v-bind:value="store.editedPage.name"
                          @focusout="store.setPageName($event.target.value)"></ion-input>
             </ion-title>
           </ion-toolbar>

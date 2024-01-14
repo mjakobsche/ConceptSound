@@ -7,7 +7,7 @@ defineEmits(['saveChanges'])
 </script>
 
 <template>
-  <ion-textarea v-bind:value="pageData" :autofocus="true" :fill="'outline'" inputmode="email" :auto-grow="true"
+  <ion-textarea v-bind:value="pageData" rows="12" :autofocus="true" :fill="'outline'" inputmode="email"
                 @input="$emit('saveChanges', $event.target.value)"
   ></ion-textarea>
 </template>
