@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {IonFab, IonFabList, IonIcon} from "@ionic/vue";
+import {IonFab, IonIcon} from "@ionic/vue";
 import {addCircleOutline} from "ionicons/icons";
-import FloatingButton from "@/components/FloatingButton.vue";
+import FloatingButton from "@/components/FloatingInnerButton.vue";
 </script>
 
 <template>
@@ -9,8 +9,6 @@ import FloatingButton from "@/components/FloatingButton.vue";
     <floating-button size="small">
       <ion-icon :icon="addCircleOutline"></ion-icon>
     </floating-button>
-    <ion-fab-list side="top">
-      <slot></slot>
-    </ion-fab-list>
+    <slot></slot>
   </ion-fab>
 </template>

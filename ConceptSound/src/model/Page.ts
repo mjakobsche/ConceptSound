@@ -12,7 +12,7 @@ export class Page implements Entity {
         this.type = type;
         this.name = this.getDefaultName(type);
         this.data = this.getInitialData(type);
-        this.hidden = false;
+        this.hidden = true;
     }
 
     private getInitialData(type: string) {

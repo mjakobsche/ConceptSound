@@ -5,6 +5,7 @@ import {removeEntity, retrieveEntities, saveEntity} from "@/utils/PersistencySer
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {Page} from "@/model/Page";
 import {useIndexer} from "@/service/Indexer";
+import {DeepWatcher} from "@/composables/DeepWatcher";
 
 export const useBookService = defineStore('bookService', () => {
     const indexer = useIndexer();
@@ -14,7 +15,9 @@ export const useBookService = defineStore('bookService', () => {
     })
     const book: Ref<Book> = ref(new Book(""));
     const pages: Ref<Page[]> = ref([]);
-    const editedPage: Ref<Page> = ref(null as Object)
+    const editedPage: Ref<Page> = ref(null as Object);
+    const bookWatcher: DeepWatcher = new DeepWatcher();
+    const editedPageWatcher: DeepWatcher = new DeepWatcher();
 
     function initLibrary() {
         indexer.initIndexer().then(() => {
@@ -25,11 +28,17 @@ export const useBookService = defineStore('bookService', () => {
     }
 
     function initBook(bookToInit: Book) {
-        resetWatcher(book)
+        bookWatcher.destroyWatcher();
         book.value = bookToInit;
         book.value.modificationDate = new Date();
-        watch(book, () => saveEntity(book.value), {deep: true})
         retrieveEntities(indexer.pageIndexes).then((retrievedPages: Page[]) => pages.value = retrievedPages);
+        bookWatcher.createWatcher(book, () => saveEntity(book.value))
+    }
+
+    function editPage(page: Page){
+        editedPageWatcher.destroyWatcher();
+        this.editedPage = page;
+        editedPageWatcher.createWatcher(editedPage, () => saveEntity(editedPage.value));
     }
 
     async function addBook(title: string) {
@@ -68,17 +77,6 @@ export const useBookService = defineStore('bookService', () => {
         await indexer.updatePages();
     }
 
-    function editPage(page) {
-        resetWatcher(editedPage);
-        editedPage.value = page;
-        watch(editedPage, async () => await saveEntity(editedPage.value), {deep: true})
-    }
-
-    function resetWatcher(watchedObject: Ref<any>) {
-        watch(watchedObject, () => {
-        })
-    }
-
     async function togglePageVisibility() {
         editedPage.value.hidden = !editedPage.value.hidden;
     }
@@ -115,7 +113,6 @@ export const useBookService = defineStore('bookService', () => {
         book,
         pages,
         editedPage,
-        editPage,
         initBook,
         addPage,
         removePage,

@@ -14,11 +14,11 @@ import {
   IonToolbar
 } from "@ionic/vue";
 import {bookOutline, chevronForwardOutline, closeCircleOutline, filterOutline} from "ionicons/icons";
-import {computed, Ref, ref} from "vue";
+import {computed, onMounted, Ref, ref} from "vue";
 import router from "@/views/Router";
 import {Book} from "@/model/Book";
-import FloatingButtonGroup from "@/components/FloatingButtonGroup.vue";
-import FloatingButton from "@/components/FloatingButton.vue";
+import FloatingButtonGroup from "@/components/FloatingOuterButton.vue";
+import FloatingButton from "@/components/FloatingInnerButton.vue";
 import AddAlert from "@/components/AddAlert.vue";
 import HashtagChips from "@/components/HashtagChips.vue";
 import InlineElements from "@/components/InlineElements.vue";
@@ -27,6 +27,7 @@ import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {useBookService} from "@/service/BookService";
+import {impact} from "@/composables/Impact";
 
 const store = useBookService();
 store.initLibrary();
@@ -63,7 +64,8 @@ function renderDate(date: Date): string {
 
 function removeBook(book: Book) {
   removingBook = true;
-  store.removeBook(book)
+  impact();
+  store.removeBook(book);
 }
 
 async function openBook(book) {
@@ -75,6 +77,7 @@ async function openBook(book) {
     removingBook = false;
   }
 }
+
 </script>
 
 <template>
@@ -87,10 +90,7 @@ async function openBook(book) {
       </header-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <floating-button-group>
-        <floating-button id="addBook">
-          <ion-icon :icon="bookOutline"></ion-icon>
-        </floating-button>
+      <floating-button-group id="addBook">
       </floating-button-group>
       <add-alert :trigger="'addBook'" @add="(bookTitle) => store.addBook(bookTitle)"></add-alert>
       <div v-for="book in filteredLibrary" :key="book.id">
@@ -115,7 +115,6 @@ async function openBook(book) {
                     fill="clear"
                     size="small"
                     shape="round"
-                    @click="openBook(book)"
                 >
                   <ion-icon slot="icon-only" :icon="chevronForwardOutline"></ion-icon>
                 </ion-button>

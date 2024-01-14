@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import {createGesture, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon,} from "@ionic/vue";
+import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon} from "@ionic/vue";
 import {onMounted, ref} from "vue";
-import {addOutline, eyeOutline} from "ionicons/icons";
+import {addOutline, eyeOutline, reorderTwoOutline} from "ionicons/icons";
 import InlineElements from "@/components/InlineElements.vue";
-import {Haptics, ImpactStyle} from "@capacitor/haptics";
+import {LongPressGesture} from "@/utils/LongPressGesture";
+import {Semaphore} from "@/composables/semaphore";
 
-defineProps({
+const props = defineProps({
   pageName: {
     type: String,
     required: true,
@@ -22,40 +23,22 @@ defineProps({
 
 const emit = defineEmits(["changeVisibility", "editPage", "removePage"]);
 
-let isPressed = false;
-let pressStartTime: number;
-const LONG_PRESS_THRESHOLD: number = 500;
-
 const hidden = ref();
+const semaphore = new Semaphore();
+
 onMounted(() => {
-  const gesture = createGesture({
-    el: hidden.value.$el,
-    threshold: 0,
-    onStart,
-    onEnd,
-    gestureName: "long-press",
-  });
-  gesture.enable();
+  new LongPressGesture(hidden.value.$el,
+      () => {
+        emit("changeVisibility")
+      },
+      () => {
+        emit("removePage")
+      })
 });
 
-const onStart = () => {
-  isPressed = true;
-  pressStartTime = Date.now();
-  setTimeout(impact, LONG_PRESS_THRESHOLD);
-};
-
-const onEnd = () => {
-  if (Date.now() - pressStartTime < LONG_PRESS_THRESHOLD) {
-    emit("changeVisibility");
-  } else {
-    emit('removePage');
-  }
-  isPressed = false;
-}
-
-const impact = async () => {
-  if(isPressed){
-    await Haptics.impact({ style: ImpactStyle.Medium });
+function editBook() {
+  if (props.isEditable) {
+    semaphore.execute(() => emit("editPage"))
   }
 }
 
@@ -63,18 +46,23 @@ const impact = async () => {
 
 <template>
   <div id="container" class="element">
-    <ion-card>
-      <ion-card-header class="handle">
+    <ion-card @click="editBook()">
+      <ion-card-header>
         <inline-elements>
           <ion-card-title>
             {{ pageName }}
           </ion-card-title>
           <div>
-            <ion-button fill="clear" size="small" shape="round" @click="emit('editPage')" :disabled="isEditable">
-              <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
+            <ion-button fill="clear" size="small" shape="round" color="medium" class="handle"
+                        @click="semaphore.closeSemaphore()">
+              <ion-icon slot="icon-only" :icon="reorderTwoOutline"></ion-icon>
             </ion-button>
-            <ion-button fill="clear" size="small" shape="round" ref="hidden">
+            <ion-button fill="clear" size="small" shape="round" ref="hidden" :disabled="!isEditable"
+                        @click="semaphore.closeSemaphore()">
               <ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" size="small" shape="round" :disabled="!isEditable">
+              <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
             </ion-button>
           </div>
         </inline-elements>
