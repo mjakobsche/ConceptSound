@@ -43,7 +43,6 @@ const isWorkshopModalOpen = ref(false);
 
 const openWorkshopModal = (page) => {
   isWorkshopModalOpen.value = true;
-  page.hidden = false;
   store.editPage(page)
 }
 
@@ -57,6 +56,12 @@ const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
 async function toggleVisibility(page: Page) {
   store.editPage(page)
   await store.togglePageVisibility();
+}
+
+function addPage(type: string) {
+  store.addPage(type).then(() => {
+    openWorkshopModal(store.pages[0])
+  });
 }
 
 </script>
@@ -103,21 +108,21 @@ async function toggleVisibility(page: Page) {
     <ion-content :fullscreen="true">
       <floating-outer-button>
         <ion-fab-list side="top">
-          <floating-inner-button @click="store.addPage('Text')">
+          <floating-inner-button @click="addPage('Text')">
             <ion-icon :icon="languageOutline"></ion-icon>
           </floating-inner-button>
           <floating-inner-button>
-            <floating-inner-button @click="store.addPage('Score')">
+            <floating-inner-button @click="addPage('Score')">
               <ion-icon :icon="musicalNoteOutline"></ion-icon>
             </floating-inner-button>
           </floating-inner-button>
           <floating-inner-button>
-            <floating-inner-button @click="store.addPage('Audio')">
+            <floating-inner-button @click="addPage('Audio')">
               <ion-icon :icon="micOutline"></ion-icon>
             </floating-inner-button>
           </floating-inner-button>
           <floating-inner-button>
-            <floating-inner-button @click="store.addPage('Photo')">
+            <floating-inner-button @click="addPage('Photo')">
               <ion-icon :icon="imageOutline"></ion-icon>
             </floating-inner-button>
           </floating-inner-button>
@@ -140,7 +145,7 @@ async function toggleVisibility(page: Page) {
         <ion-header>
           <ion-toolbar>
             <ion-title>
-              <ion-input v-bind:value="store.editedPage.name"
+              <ion-input placeholder="Nazwa" v-bind:value="store.editedPage.name"
                          @focusout="store.setPageName($event.target.value)"></ion-input>
             </ion-title>
           </ion-toolbar>

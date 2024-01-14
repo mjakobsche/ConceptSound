@@ -10,31 +10,12 @@ export class Page implements Entity {
     public constructor(type: string) {
         this.id = new Date().getTime().toString();
         this.type = type;
-        this.name = this.getDefaultName(type);
+        this.name = "";
         this.data = this.getInitialData(type);
-        this.hidden = true;
+        this.hidden = false;
     }
 
     private getInitialData(type: string) {
         return type === "Score" ? "X:1\nK:C\n|]" : "";
-    }
-
-    private getDefaultName(type: string) {
-        let name;
-        switch (type) {
-            case "Text":
-                name = "Tekst";
-                break;
-            case "Score":
-                name = "Nuty";
-                break;
-            case "Audio":
-                name = "Nagranie";
-                break;
-            case "Photo":
-                name = "Zdjęcie";
-                break;
-        }
-        return name;
     }
 }

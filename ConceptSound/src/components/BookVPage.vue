@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon} from "@ionic/vue";
 import {onMounted, ref} from "vue";
-import {addOutline, eyeOutline, reorderTwoOutline} from "ionicons/icons";
-import InlineElements from "@/components/InlineElements.vue";
+import {addOutline, eyeOffOutline, eyeOutline, reorderThreeOutline, reorderTwoOutline} from "ionicons/icons";
 import {LongPressGesture} from "@/utils/LongPressGesture";
 import {Semaphore} from "@/composables/semaphore";
+import InlineElements from "@/components/InlineElements.vue";
 
 const props = defineProps({
   pageName: {
@@ -37,7 +37,7 @@ onMounted(() => {
 });
 
 function editBook() {
-  if (props.isEditable) {
+  if (props.isEditable && props.isPageVisible) {
     semaphore.execute(() => emit("editPage"))
   }
 }
@@ -46,20 +46,20 @@ function editBook() {
 
 <template>
   <div id="container" class="element">
-    <ion-card @click="editBook()">
-      <ion-card-header>
+    <ion-card>
+      <ion-card-header @click="editBook()">
         <inline-elements>
           <ion-card-title>
-            {{ pageName }}
+            <ion-button fill="outline" size="small" shape="round" color="medium" class="handle"
+                        @click="semaphore.closeSemaphore()">
+              {{ pageName }}
+              <ion-icon :slot="pageName.length > 0 ? 'start' : 'icon-only'" :icon="reorderTwoOutline"></ion-icon>
+            </ion-button>
           </ion-card-title>
           <div>
-            <ion-button fill="clear" size="small" shape="round" color="medium" class="handle"
-                        @click="semaphore.closeSemaphore()">
-              <ion-icon slot="icon-only" :icon="reorderTwoOutline"></ion-icon>
-            </ion-button>
             <ion-button fill="clear" size="small" shape="round" ref="hidden" :disabled="!isEditable"
                         @click="semaphore.closeSemaphore()">
-              <ion-icon slot="icon-only" :icon="eyeOutline"></ion-icon>
+              <ion-icon slot="icon-only" :icon="isPageVisible ? eyeOutline : eyeOffOutline"></ion-icon>
             </ion-button>
             <ion-button fill="clear" size="small" shape="round" :disabled="!isEditable">
               <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>

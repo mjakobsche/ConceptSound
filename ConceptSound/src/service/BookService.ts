@@ -37,7 +37,7 @@ export const useBookService = defineStore('bookService', () => {
 
     function editPage(page: Page){
         editedPageWatcher.destroyWatcher();
-        this.editedPage = page;
+        editedPage.value = page;
         editedPageWatcher.createWatcher(editedPage, () => saveEntity(editedPage.value));
     }
 
