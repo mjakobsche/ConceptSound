@@ -11,7 +11,8 @@ import {
   IonPage,
   IonRouterOutlet,
   IonTitle,
-  IonToolbar
+  IonToolbar,
+  useBackButton
 } from "@ionic/vue";
 import BookVPage from "@/components/BookVPage.vue";
 import SortableJs from "sortablejs";
@@ -33,14 +34,20 @@ import InlineElements from "@/components/InlineElements.vue";
 import Modal from "@/components/Modal.vue";
 import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
-import {getImageFromFilePicker} from "@/composables/ImagePicker";
+import {useImagePicker} from "@/composables/UseImagePicker";
 import {useBookService} from "@/service/BookService";
 import {Page} from "@/model/Page";
+import router from "@/views/Router";
 
+useBackButton(1, () => {
+  if (isWorkshopModalOpen.value) {
+    isWorkshopModalOpen.value = false;
+  }
+  router.back();
+});
 
 const store = useBookService();
 const isWorkshopModalOpen = ref(false);
-
 const openWorkshopModal = (page) => {
   isWorkshopModalOpen.value = true;
   store.editPage(page)
@@ -48,7 +55,7 @@ const openWorkshopModal = (page) => {
 
 async function setCoverImage() {
   await store.setBookCover("");
-  await store.setBookCover(await getImageFromFilePicker());
+  await store.setBookCover(await useImagePicker());
 }
 
 const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
@@ -111,20 +118,14 @@ function addPage(type: string) {
           <floating-inner-button @click="addPage('Text')">
             <ion-icon :icon="languageOutline"></ion-icon>
           </floating-inner-button>
-          <floating-inner-button>
-            <floating-inner-button @click="addPage('Score')">
-              <ion-icon :icon="musicalNoteOutline"></ion-icon>
-            </floating-inner-button>
+          <floating-inner-button @click="addPage('Score')">
+            <ion-icon :icon="musicalNoteOutline"></ion-icon>
           </floating-inner-button>
-          <floating-inner-button>
-            <floating-inner-button @click="addPage('Audio')">
-              <ion-icon :icon="micOutline"></ion-icon>
-            </floating-inner-button>
+          <floating-inner-button @click="addPage('Audio')">
+            <ion-icon :icon="micOutline"></ion-icon>
           </floating-inner-button>
-          <floating-inner-button>
-            <floating-inner-button @click="addPage('Photo')">
-              <ion-icon :icon="imageOutline"></ion-icon>
-            </floating-inner-button>
+          <floating-inner-button @click="addPage('Photo')">
+            <ion-icon :icon="imageOutline"></ion-icon>
           </floating-inner-button>
         </ion-fab-list>
       </floating-outer-button>
@@ -133,11 +134,11 @@ function addPage(type: string) {
         draggable: '.element',
       }" @end="(event: SortableJs.SortableEvent) => { store.swapPage(event.oldIndex, event.newIndex) }">
         <template #item="{ element }">
-          <BookVPage :page-name="element?.name" :is-page-visible="!element?.hidden"
-                     :has-content="element?.data.length != 0" :is-editable="!isWorkshopModalOpen"
+          <BookVPage :page-name="element?.name" :is-page-visible="!element?.isVisible"
+                     :has-content="element?.content.length != 0" :is-editable="!isWorkshopModalOpen"
                      @change-visibility="toggleVisibility(element)"
                      @edit-page="openWorkshopModal(element)" @remove-page="store.removePage(element)">
-            <component :is="'BookPage' + element?.type" :pageId="element?.id" :pageData="element?.data"></component>
+            <component :is="'BookPage' + element?.type" :pageId="element?.id" :pageData="element?.content"></component>
           </BookVPage>
         </template>
       </sortable>
@@ -145,14 +146,14 @@ function addPage(type: string) {
         <ion-header>
           <ion-toolbar>
             <ion-title>
-              <ion-input placeholder="Nazwa" v-bind:value="store.editedPage.name"
+              <ion-input placeholder="Nazwa" maxlength="12" v-bind:value="store.editedPage.name"
                          @focusout="store.setPageName($event.target.value)"></ion-input>
             </ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
           <component :is="'BookWorkshop' + store.editedPage.type" @save-changes="(data) => store.setPageData(data)"
-                     v-bind:page-data="store.editedPage.data"></component>
+                     v-bind:page-data="store.editedPage.content"></component>
         </ion-content>
       </modal>
     </ion-content>

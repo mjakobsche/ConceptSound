@@ -2,7 +2,7 @@
 import {IonTextarea} from "@ionic/vue";
 
 defineProps(['pageData']);
-defineEmits(['update:pageData', 'saveChanges'])
+defineEmits(['saveChanges'])
 </script>
 
 <template>

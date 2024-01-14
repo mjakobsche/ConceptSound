@@ -3,7 +3,7 @@ import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon
 import {onMounted, ref} from "vue";
 import {addOutline, eyeOffOutline, eyeOutline, reorderThreeOutline, reorderTwoOutline} from "ionicons/icons";
 import {LongPressGesture} from "@/utils/LongPressGesture";
-import {Semaphore} from "@/composables/semaphore";
+import {Semaphore} from "@/utils/Semaphore";
 import InlineElements from "@/components/InlineElements.vue";
 
 const props = defineProps({

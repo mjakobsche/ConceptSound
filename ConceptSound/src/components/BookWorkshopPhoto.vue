@@ -3,7 +3,7 @@ import {IonButton, IonIcon} from "@ionic/vue";
 import {folderOutline} from "ionicons/icons";
 import {ref} from "vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
-import {getImageFromFilePicker} from "@/composables/ImagePicker";
+import {useImagePicker} from "@/composables/UseImagePicker";
 
 const emit = defineEmits(['update:pageData', 'saveChanges'])
 const props = defineProps({
@@ -16,7 +16,7 @@ const props = defineProps({
 const source = ref(props.pageData);
 
 async function pickImages() {
-  source.value = await getImageFromFilePicker();
+  source.value = await useImagePicker();
   emit('saveChanges', source.value)
 }
 </script>

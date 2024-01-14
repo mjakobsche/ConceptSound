@@ -4,6 +4,7 @@ import {find, save} from "@/utils/StorageWrapper";
 import {useBookService} from "@/service/BookService";
 import {Index} from "@/model/Index";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
+import {retrieveIndex, saveIndex} from "@/utils/PersistencyService";
 
 export const useIndexer = defineStore('indexer', () => {
     const indexes: Ref<Index[]> = ref([]);
@@ -18,7 +19,7 @@ export const useIndexer = defineStore('indexer', () => {
     })
 
     async function initIndexer() {
-        const indexesState = await find("indexesState");
+        const indexesState = await retrieveIndex();
         indexes.value = (indexesState ? indexesState : []) as Index[];
     }
 
@@ -28,12 +29,12 @@ export const useIndexer = defineStore('indexer', () => {
         indexesToRemove.forEach((index) => ripFromArray(indexes.value, index));
         const indexesToAdd = currentBookIndexes.filter((bookId) => !indexes.value.map((index) => index.bookId).includes(bookId));
         indexesToAdd.forEach((bookId) => putToArray(indexes.value, new Index(bookId)));
-        await save("indexesState", indexes.value);
+        await saveIndex(indexes.value)
     }
 
     async function updatePages() {
         getCurrentBookIndex().pagesId = getCurrentPageIndexes();
-        await save("indexesState", indexes.value);
+        await saveIndex(indexes.value)
     }
 
     function getCurrentBookIndex() {

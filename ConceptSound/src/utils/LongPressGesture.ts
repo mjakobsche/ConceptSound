@@ -1,6 +1,6 @@
 import {createGesture, Gesture} from "@ionic/vue";
 import {Haptics, ImpactStyle} from "@capacitor/haptics";
-import {impact} from "@/composables/Impact";
+import {useImpact} from "@/composables/UseImpact";
 
 export class LongPressGesture {
     private gesture: Gesture;
@@ -25,7 +25,7 @@ export class LongPressGesture {
             this.pressStartTime = Date.now();
             setTimeout(async () => {
                 if (this.isPressed) {
-                    impact();
+                    useImpact();
                 }
             }, this.LONG_PRESS_THRESHOLD);
         }

@@ -6,5 +6,4 @@ export class Index {
         this.bookId = bookId;
         this.pagesId = [];
     }
-
 }

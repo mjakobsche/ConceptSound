@@ -1,9 +1,10 @@
 import {drop, find, save} from "@/utils/StorageWrapper";
 import {Entity} from "@/model/Entity";
+import {Index} from "@/model/Index";
 
 const indexKey: string = "INDEX";
 
-async function saveIndex(bookIndex: string[]) {
+async function saveIndex(bookIndex: Index[]) {
     console.log("savesIndex")
     await save(indexKey, bookIndex);
 }

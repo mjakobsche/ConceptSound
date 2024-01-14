@@ -5,7 +5,7 @@ import {removeEntity, retrieveEntities, saveEntity} from "@/utils/PersistencySer
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {Page} from "@/model/Page";
 import {useIndexer} from "@/service/Indexer";
-import {DeepWatcher} from "@/composables/DeepWatcher";
+import {DeepWatcher} from "@/utils/DeepWatcher";
 
 export const useBookService = defineStore('bookService', () => {
     const indexer = useIndexer();
@@ -31,8 +31,10 @@ export const useBookService = defineStore('bookService', () => {
         bookWatcher.destroyWatcher();
         book.value = bookToInit;
         book.value.modificationDate = new Date();
-        retrieveEntities(indexer.pageIndexes).then((retrievedPages: Page[]) => pages.value = retrievedPages);
-        bookWatcher.createWatcher(book, () => saveEntity(book.value))
+        retrieveEntities(indexer.pageIndexes).then((retrievedPages: Page[]) => {
+            pages.value = retrievedPages
+            bookWatcher.createWatcher(book, () => saveEntity(book.value))
+        });
     }
 
     function editPage(page: Page){
@@ -78,11 +80,11 @@ export const useBookService = defineStore('bookService', () => {
     }
 
     async function togglePageVisibility() {
-        editedPage.value.hidden = !editedPage.value.hidden;
+        editedPage.value.isVisible = !editedPage.value.isVisible;
     }
 
     async function setPageData(pageData: string) {
-        editedPage.value.data = pageData;
+        editedPage.value.content = pageData;
     }
 
     async function setPageName(pageName: string) {

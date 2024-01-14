@@ -9,7 +9,6 @@ export class Semaphore {
         if (this.isClosed) {
             this.isClosed = false;
         } else {
-            console.log("entered")
             await fn();
         }
     }

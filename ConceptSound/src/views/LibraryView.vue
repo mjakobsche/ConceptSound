@@ -13,12 +13,11 @@ import {
   IonTitle,
   IonToolbar
 } from "@ionic/vue";
-import {bookOutline, chevronForwardOutline, closeCircleOutline, filterOutline} from "ionicons/icons";
-import {computed, onMounted, Ref, ref} from "vue";
+import {chevronForwardOutline, closeCircleOutline, filterOutline} from "ionicons/icons";
+import {computed, Ref, ref} from "vue";
 import router from "@/views/Router";
 import {Book} from "@/model/Book";
 import FloatingButtonGroup from "@/components/FloatingOuterButton.vue";
-import FloatingButton from "@/components/FloatingInnerButton.vue";
 import AddAlert from "@/components/AddAlert.vue";
 import HashtagChips from "@/components/HashtagChips.vue";
 import InlineElements from "@/components/InlineElements.vue";
@@ -27,16 +26,16 @@ import HeaderToolbar from "@/components/HeaderToolbar.vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {useBookService} from "@/service/BookService";
-import {impact} from "@/composables/Impact";
+import {useImpact} from "@/composables/UseImpact";
+import {Semaphore} from "@/utils/Semaphore";
 
 const store = useBookService();
 store.initLibrary();
-
+const semaphore = new Semaphore();
 const isFilterModalOpen: Ref<boolean> = ref(false);
 const openFilterModal = () => isFilterModalOpen.value = true;
 const closeFilterModal = () => isFilterModalOpen.value = false;
 
-let removingBook = false;
 const titleFilter: Ref<string> = ref("");
 const tagFilter: Ref<string[]> = ref([]);
 
@@ -63,19 +62,17 @@ function renderDate(date: Date): string {
 }
 
 function removeBook(book: Book) {
-  removingBook = true;
-  impact();
+  semaphore.closeSemaphore();
+  useImpact();
   store.removeBook(book);
 }
 
 async function openBook(book) {
-  if (!removingBook) {
+  await semaphore.execute(() => {
     closeFilterModal();
     store.initBook(book);
     router.push("/book").then(() => store.moveToTop(book));
-  } else {
-    removingBook = false;
-  }
+  })
 }
 
 </script>

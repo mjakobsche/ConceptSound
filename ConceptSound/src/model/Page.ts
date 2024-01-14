@@ -4,15 +4,15 @@ export class Page implements Entity {
     id: string;
     type: string;
     name: string;
-    data: string;
-    hidden: boolean;
+    content: string;
+    isVisible: boolean;
 
     public constructor(type: string) {
         this.id = new Date().getTime().toString();
         this.type = type;
         this.name = "";
-        this.data = this.getInitialData(type);
-        this.hidden = false;
+        this.content = this.getInitialData(type);
+        this.isVisible = false;
     }
 
     private getInitialData(type: string) {
