@@ -115,6 +115,7 @@ export const useBookService = defineStore('bookService', () => {
         editedPage,
         initBook,
         addPage,
+        editPage,
         removePage,
         togglePageVisibility,
         setPageData,

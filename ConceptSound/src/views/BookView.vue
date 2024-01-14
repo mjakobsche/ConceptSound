@@ -44,7 +44,7 @@ const isWorkshopModalOpen = ref(false);
 const openWorkshopModal = (page) => {
   isWorkshopModalOpen.value = true;
   page.hidden = false;
-  store.editedPage = page;
+  store.editPage(page)
 }
 
 async function setCoverImage() {
@@ -55,7 +55,7 @@ async function setCoverImage() {
 const closeWorkshopModal = () => isWorkshopModalOpen.value = false;
 
 async function toggleVisibility(page: Page) {
-  store.editedPage = page;
+  store.editPage(page)
   await store.togglePageVisibility();
 }
 
