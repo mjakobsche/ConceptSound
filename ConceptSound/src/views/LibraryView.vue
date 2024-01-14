@@ -143,4 +143,11 @@ async function openBook(book) {
 img {
   object-fit: cover;
 }
+
+ion-card-title {
+  --color:  #ebdbb2;
+}
+ion-card-subtitle{
+  --color: #a89984;
+}
 </style>

@@ -40,13 +40,13 @@ const textLines = computed(() => {
 }
 
 .comment {
-  color: #6272a4;
+  color: #a89984;
   font-size: math;
   text-align: end;
 }
 
 .normal {
   font-size: medium;
-  color: white;
+  color: #ebdbb2;
 }
 </style>

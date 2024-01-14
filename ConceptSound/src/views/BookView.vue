@@ -90,9 +90,9 @@ function addPage(type: string) {
           </centering-grid>
         </div>
         <inline-elements class="ion-margin-top">
-          <ion-input label="Tytuł:" fill="outline" label-placement="stacked" v-model="store.book.title"
+          <ion-input label="Tytuł:" fill="outline" label-placement="stacked" maxlength="20" v-model="store.book.title"
                      @focusout="store.setBookTitle($event.target.value)"></ion-input>
-          <ion-button id="addTag" fill="clear">
+          <ion-button class="ion-margin-start" shape="round" id="addTag" fill="clear">
             <ion-icon slot="icon-only" :icon="pricetagOutline"></ion-icon>
           </ion-button>
           <add-alert :trigger="'addTag'" @add="(tagName) => store.addTag(tagName)"></add-alert>
@@ -114,7 +114,7 @@ function addPage(type: string) {
     </ion-header>
     <ion-content :fullscreen="true">
       <floating-outer-button>
-        <ion-fab-list side="top">
+        <ion-fab-list side="start">
           <floating-inner-button @click="addPage('Text')">
             <ion-icon :icon="languageOutline"></ion-icon>
           </floating-inner-button>

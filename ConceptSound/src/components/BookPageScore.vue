@@ -34,6 +34,9 @@ function setAbcJs(notation: string) {
     responsive: "resize",
     staffwidth: 300,
     wrap: {minSpacing: 1.8, maxSpacing: 2.7, preferredMeasuresPerLine: 2},
+    foregroundColor: "#d5c4a1",
+    selectionColor: "#b8bb26",
+    selectTypes: false
   });
 }
 </script>

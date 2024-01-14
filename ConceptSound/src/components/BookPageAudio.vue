@@ -35,8 +35,8 @@ function setPlayer(audio: string) {
   }
   wavesurfer = WaveSurfer.create({
     container: '#' + containerElementId,
-    waveColor: '#428cff',
-    progressColor: '#50c8ff',
+    waveColor: '#98971a',
+    progressColor: '#b8bb26',
     cursorWidth: 4,
     barWidth: 3,
     barGap: 5,
