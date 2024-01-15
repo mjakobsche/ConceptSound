@@ -12,7 +12,6 @@ const props = defineProps({
 
 const textLines = computed(() => {
   return (props.pageData ? props.pageData.split(/[\n|\r]/) : []).map((line) => {
-    console.log(line)
     const isComment = line[0] == ("@");
     return {
       type: isComment ? "comment" : "normal",
@@ -20,6 +19,7 @@ const textLines = computed(() => {
     }
   });
 });
+
 </script>
 
 <template>

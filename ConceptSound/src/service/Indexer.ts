@@ -1,10 +1,10 @@
 import {defineStore} from "pinia";
 import {computed, Ref, ref} from "vue";
-import {find, save} from "@/utils/StorageWrapper";
+import {drop, find, save} from "@/utils/StorageWrapper";
 import {useBookService} from "@/service/BookService";
 import {Index} from "@/model/Index";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
-import {retrieveIndex, saveIndex} from "@/utils/PersistencyService";
+import {removeEntities, retrieveIndex, saveIndex} from "@/utils/PersistencyService";
 
 export const useIndexer = defineStore('indexer', () => {
     const indexes: Ref<Index[]> = ref([]);
@@ -26,6 +26,7 @@ export const useIndexer = defineStore('indexer', () => {
     async function updateBooks() {
         const currentBookIndexes = getCurrentBookIndexes();
         const indexesToRemove = indexes.value.filter((index) => !currentBookIndexes.includes(index.bookId))
+        indexesToRemove.forEach((index) => removeEntities(index.pagesId));
         indexesToRemove.forEach((index) => ripFromArray(indexes.value, index));
         const indexesToAdd = currentBookIndexes.filter((bookId) => !indexes.value.map((index) => index.bookId).includes(bookId));
         indexesToAdd.forEach((bookId) => putToArray(indexes.value, new Index(bookId)));
