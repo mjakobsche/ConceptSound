@@ -1,30 +1,80 @@
-\subsection{Model encji bazodanowych}
+\subsection{Architektura aplikacji}
+Jako model architektury aplikacji przyjęto architekturę wartstwową. Pozwala ona odseparować zadania wykonywane przez
+poszczególne komponenty aplikacji, ułatwiając utrzymanie kodu. Jest to osiągane poprzez rozgranizczenie zadań
+realizowanych przez poszczególne warstwy. Architektura wartstwowa charakteryzuje się hierarchicznym układem komponentów,
+co przekłada się na zwiększenie przejrzystości pozwalające na elastyczny rozwój aplikacji.
+W ramach projektu zastosowano trzy warstwy podziału:
+\begin{itemize}
+	\item Warstwa dostępu do danych — odpowiadająca za komunikacje z bazą przy użyciu modelu encji.
+	\item Warstwa logiki biznesowej — obejmująca szczególnie serwisy zarządzania stanem aplikacji.
+	\item Warstwa prezentacji — realizowana przez komponenty Vue.
+\end{itemize}
+<diagram architektury>
+\subsection{Warstwa dostępu do danych}
+\subsubsection{Modele bazodanowe}
 Dane użytkownika, zapisywane w aplikacji można sklasyfikować jako forma \enquote{notatek}.
 Zdecydowano się nadać im modułowy charakter, pozwalając w ten sposób na wykorzystywanie różnych typów notacji muzycznej
 w ramach określonego zbioru, który sumarycznie może opisywać aranżowany utwór.
 Wykorzystano stąd dwupoziomowy podział obiektów. Jako pierwszy poziom przyjęto koncepcję
 \enquote{zeszytu do nut}, jako zbioru notatek,
-co przynosi stosowną nazwę wykorzystaną w kodzie źródłowym \equote{book} (od ang.
+co przynosi stosowną nazwę wykorzystaną w kodzie źródłowym \enquote{book} (od ang.
 music book — \textit{zeszyt do nut}).
+<encja zeszytu>
 Idąc dalej tym tokiem, przyjęto określenie \enquote{page} (z ang. — textit{strona}),
 jako odnoszące się do poziomu drugiego — pojedynczej notatki użytkownika.
-Stąd też zbiór zeszytów użytkownika określany jest pojęciem \enquote{library} (z ang. — textit{biblioteka}).
-\subsubsection{Zeszyt}
-\subsubsection{Książka}
-\subsection{Serwisy zarządzania persystencją}
+<encja książki>
+Obie encje implementują prosty interfejs Entity, deklarujący pole id,
+ułatwiając działanie serwisów zarządzających persystencją:
+<interfejs entity>
+Jako wyznacznik powiązań między encjami Book i Page, w bazie przechowywana jest dotatkowo tablica obiektów Index.
+Z uwagi na jej nadrzędny charakter, nie implementuje ona od interfejsu Entity. Występuje w bazie pojedynczo, pod ustalonym
+kluczem \enquote{INDEX}.
+<encja index>
+\subsubsection{Serwisy zarządzające persystencją}
 W aplikacji zastosowano bazę danych Ionic Storage. Jest to baza typu klucz-wartość. Aby umożliwić
 zarządzanie obiektami zagnieżdżonymi — jako: \textit{zeszyt} zawierać może wiele \textit{stron} — przy zachowaniu
 niezależności operacji na obiektach, zastosowano trzy serwisy:
-\subsubsection{StorageWrapper}
-Z uwagi na charakter kluczy i wartości bazy — jako dwóch ciągów znaków — obiekty zapisywane w bazie są
-konwertowane do ciągów JSON. [...]
-\textit{Opakowuje} bibliotekę Ionic Storage, udostępniając podstawowe metody zarządzania danymi. Konwertuje
-obiekty na ciągi znaków JSON, stanowiące wartości bazy. Jako jedyny bezpośrednio korzysta z metod oferowanych
-przez Ionic Storage.
-Wykorzystuje funkcje serwisu StorageWrapper
+\begin{itemize}
+	\item StorageWrapper
 
-\subsection{Serwisy zarządzania stanem aplikacji}
-\subsection{Projekt interfejsu}
-\subsection{Implementacja widoków i komponentów głównych}
-\subsection{Implementacja funkcjonalności wspierających aranżację}
+	      Z uwagi na charakter kluczy i wartości bazy — jako dwóch ciągów znaków — obiekty zapisywane w bazie są
+	      konwertowane do ciągów JSON. StorageWrapper \textit{Opakowuje} bibliotekę Ionic Storage, udostępniając podstawowe
+	      metody zarządzania danymi oraz konwertując przetwarzane dane na ciągi znaków JSON i odwrotnie.
+	      Jako jedyny bezpośrednio korzysta z metod oferowanych przez Ionic Storage.
+	\item PersistencyService
+
+	      Z StorageWrappera korzysta explicite PersistencyService, wykorzystujący jego metody w kontekście konkretnych obiektów.
+	      Zawiera logikę opartą o interfejs Entity, implementowany przez encje Book i Page. Odwołuje się do danych
+	      serwisu Indexer, celem identyfikacji i lokalizacji obiektów zapisanych w bazie.
+	\item Indexer
+
+	      Poza encjami Book i Page przechowywana jest również tablica obiektów Index określająca
+	      zależności między encjami. Stąd stan początkowy Indexera jest wczytywany z bazy przez PersistencyService
+	      na początku działania aplikacji.
+	      Informacje o zmianach są sygnalizowane przez serwisy zarządzania stanem aplikacji.
+	      Odpowiadając na nie, serwis Indexer zapewnia zgodność tablicy Indexów ze stanem rzeczywistym
+	      \textit{biblioteki} użytkownika. W pewnym stopniu emuluje on możliwości bazy relacyjnej.
+\end{itemize}
+Zależności między opisanymi serwisami obrazuje przedstawiony poniżej diagram:
+<diagram persystencji>
+\subsection{Warstwa logiki biznesowej}
+\subsubsection{Serwisy zarządzające stanem aplikacji}
+Warstwę logiki biznesowej stanowią serwisy zarządzania stanem aplikacji.
+Wszystkie opierają się na bibliotece Pinia.
+Umożliwia to funkcjonowanie niezależne od komponentów Vue aplikacji, udostępniając dla nich globalny stan,
+do którego mogą się odwoływać. Serwisy zostały podzielone według domen:
+\begin{itemize}
+	\item
+\end{itemize}
+Serwisy zarządzania stanem komunikują się z serwisami odpowiadającymi za persystencję,
+do odczytu i zapisu danych w pamięci trwałej. Odczytane obiekty w ramach bieżących potrzeb aplikacji, przyjmowane są
+za \textit{stan} danego serwisu. Komponenty vue mogą dzięki temu z nich korzytać — także — modyfikując je, przy użyciu
+funkcji udostepnianych przez serwisy. Obserwacja zmian globalnego stanu pozwala odzworować je, zapisując w bazie danych.
+
+
+
+\subsection{Warstwa prezentacji}
+\subsubsection{Projekt interfejsu}
+\subsubsection{Implementacja widoków i komponentów głównych}
+\subsubsection{Implementacja funkcjonalności wspierających aranżację}
 \subsection{Testowanie aplikacji}
