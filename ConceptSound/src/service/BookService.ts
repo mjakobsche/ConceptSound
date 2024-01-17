@@ -1,31 +1,19 @@
 import {defineStore} from "pinia";
-import {computed, ComputedRef, ref, Ref, watch} from "vue";
+import {ref, Ref} from "vue";
 import {Book} from "@/model/Book";
 import {removeEntity, retrieveEntities, saveEntity} from "@/utils/PersistencyService";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {Page} from "@/model/Page";
-import {useIndexer} from "@/service/Indexer";
+import {useIndexingService} from "@/service/IndexingService";
 import {DeepWatcher} from "@/utils/DeepWatcher";
+import {usePageService} from "@/service/PageService";
 
 export const useBookService = defineStore('bookService', () => {
-    const indexer = useIndexer();
-    const library: Ref<Book[]> = ref([]);
-    const tags: ComputedRef<string[]> = computed(() => {
-        return [...new Set(library.value.flatMap((book: Book) => book.tags))];
-    })
+    const pageService = usePageService();
+    const indexer = useIndexingService();
     const book: Ref<Book> = ref(new Book(""));
     const pages: Ref<Page[]> = ref([]);
-    const editedPage: Ref<Page> = ref(null as Object);
     const bookWatcher: DeepWatcher = new DeepWatcher();
-    const editedPageWatcher: DeepWatcher = new DeepWatcher();
-
-    function initLibrary() {
-        indexer.initIndexer().then(() => {
-            retrieveEntities(indexer.bookIndexes).then((books) => {
-                library.value = books;
-            })
-        });
-    }
 
     function initBook(bookToInit: Book) {
         bookWatcher.destroyWatcher();
@@ -37,36 +25,12 @@ export const useBookService = defineStore('bookService', () => {
         });
     }
 
-    function editPage(page: Page){
-        editedPageWatcher.destroyWatcher();
-        editedPage.value = page;
-        editedPageWatcher.createWatcher(editedPage, () => saveEntity(editedPage.value));
-    }
-
-    async function addBook(title: string) {
-        const book: Book = new Book(title);
-        await saveEntity(book);
-        putToArray(library.value, book);
-        await indexer.updateBooks();
-    }
-
-    async function moveToTop(book: Book) {
-        putToArray(library.value, ripFromArray(library.value, book))
-        await indexer.updateBooks();
-    }
-
-    async function removeBook(book: Book) {
-        ripFromArray(library.value, book);
-        await indexer.updateBooks();
-        await removeEntity(book);
-    }
-
     async function addPage(type: string) {
         const page: Page = new Page(type);
         await saveEntity(page);
         putToArray(pages.value, page);
         await indexer.updatePages();
-        editPage(page)
+        pageService.editPage(page)
     }
 
     async function removePage(page: Page) {
@@ -78,18 +42,6 @@ export const useBookService = defineStore('bookService', () => {
     async function swapPage(from = 0, to = 0) {
         putToArray(pages.value, ripFromArray(pages.value, pages.value[from]), to);
         await indexer.updatePages();
-    }
-
-    async function togglePageVisibility() {
-        editedPage.value.isVisible = !editedPage.value.isVisible;
-    }
-
-    async function setPageData(pageData: string) {
-        editedPage.value.content = pageData;
-    }
-
-    async function setPageName(pageName: string) {
-        editedPage.value.name = pageName
     }
 
     async function setBookTitle(title: string) {
@@ -111,26 +63,15 @@ export const useBookService = defineStore('bookService', () => {
     }
 
     return {
-        library,
-        tags,
         book,
         pages,
-        editedPage,
         initBook,
         addPage,
-        editPage,
         removePage,
-        togglePageVisibility,
-        setPageData,
-        setPageName,
         swapPage,
         setBookTitle,
         setBookCover,
         addTag,
         removeTag,
-        initLibrary,
-        addBook,
-        removeBook,
-        moveToTop
     }
 });

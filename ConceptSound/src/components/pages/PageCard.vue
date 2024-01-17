@@ -7,6 +7,7 @@ import {Semaphore} from "@/utils/Semaphore";
 import InlineElements from "@/components/InlineElements.vue";
 import {Page} from "@/model/Page";
 import {useBookService} from "@/service/BookService";
+import {usePageService} from "@/service/PageService";
 
 const props = defineProps({
   page: {
@@ -20,7 +21,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["editPage"]);
-const store = useBookService();
+const store = usePageService();
 const hidden = ref();
 const semaphore = new Semaphore();
 
@@ -47,7 +48,7 @@ async function toggleVisibility() {
 }
 
 function removePage() {
-  store.removePage(props.page as Page);
+  useBookService().removePage(props.page as Page);
 }
 
 function beforeEdit() {

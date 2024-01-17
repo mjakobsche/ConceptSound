@@ -1,5 +1,15 @@
 <script setup lang="ts">
-import {IonButton, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, IonButtons} from "@ionic/vue";
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonInput,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from "@ionic/vue";
 import {filterOutline} from "ionicons/icons";
 import {computed, Ref, ref} from "vue";
 import router from "@/views/Router";
@@ -8,10 +18,11 @@ import FloatingButton from "@/components/FloatingButton.vue";
 import AddAlert from "@/components/AddAlert.vue";
 import HashtagChips from "@/components/books/HashtagChips.vue";
 import Modal from "@/components/Modal.vue";
-import {useBookService} from "@/service/BookService";
 import {Filters} from "@/utils/Filters";
+import {useLibraryService} from "@/service/LibraryService";
+import {useBookService} from "@/service/BookService";
 
-const store = useBookService();
+const store = useLibraryService();
 store.initLibrary();
 const areFiltersOpen: Ref<boolean> = ref(false);
 const openFilters = () => areFiltersOpen.value = true;
@@ -25,7 +36,7 @@ const filteredLibrary = computed(() => {
 
 async function openBook(book) {
   closeFilters();
-  store.initBook(book);
+  useBookService().initBook(book);
   router.push("/book").then().then(() => store.moveToTop(book));
 }
 
@@ -59,7 +70,7 @@ async function openBook(book) {
         </ion-header>
         <ion-content class="ion-padding">
           <IonInput label="Tytuł:" fill="outline" v-model="filters.titleFilter.value"></IonInput>
-          <hashtag-chips :all-tags="store.tags" :selected-tags="filters.tagFilter.value"
+          <hashtag-chips :selected-tags="filters.tagFilter.value"
                          @enable-tag="(tag) => filters.enableTag(tag)"
                          @disable-tag="(tag) => filters.disableTag(tag)"></hashtag-chips>
         </ion-content>

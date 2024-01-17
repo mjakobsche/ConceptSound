@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import {IonHeader, IonToolbar, IonTitle, IonInput, IonContent} from "@ionic/vue";
-import {useBookService} from "@/service/BookService";
-const store = useBookService();
+import {IonContent, IonHeader, IonInput, IonTitle, IonToolbar} from "@ionic/vue";
+import {usePageService} from "@/service/PageService";
+
+const pageService = usePageService();
 </script>
 
 <template>
@@ -9,8 +10,8 @@ const store = useBookService();
     <ion-toolbar>
       <ion-title>
         <ion-input placeholder="Nazwa" maxlength="12" autocapitalize="characters"
-                   v-bind:value="store.editedPage.name"
-                   @focusout="store.setPageName($event.target.value)"></ion-input>
+                   v-bind:value="pageService.editedPage.name"
+                   @focusout="pageService.setPageName($event.target.value)"></ion-input>
       </ion-title>
     </ion-toolbar>
   </ion-header>
@@ -18,7 +19,3 @@ const store = useBookService();
     <slot></slot>
   </ion-content>
 </template>
-
-<style scoped>
-
-</style>

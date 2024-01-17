@@ -5,10 +5,11 @@ import {useBookService} from "@/service/BookService";
 import {Index} from "@/model/Index";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {removeEntities, retrieveIndex, saveIndex} from "@/utils/PersistencyService";
+import {useLibraryService} from "@/service/LibraryService";
 
-export const useIndexer = defineStore('indexer', () => {
+export const useIndexingService = defineStore('indexingService', () => {
     const indexes: Ref<Index[]> = ref([]);
-    const store = useBookService();
+    const bookService = useBookService();
 
     const bookIndexes = computed(() => {
         return indexes.value.map((index) => index.bookId);
@@ -39,15 +40,15 @@ export const useIndexer = defineStore('indexer', () => {
     }
 
     function getCurrentBookIndex() {
-        return indexes.value.find((index) => index.bookId === store.book.id)
+        return indexes.value.find((index) => index.bookId === useBookService().book.id)
     }
 
     function getCurrentBookIndexes() {
-        return store.library.map((book) => book.id);
+        return useLibraryService().library.map((book) => book.id);
     }
 
     function getCurrentPageIndexes() {
-        return store.pages.map((page) => page.id);
+        return useBookService().pages.map((page) => page.id);
     }
 
     return {bookIndexes, pageIndexes, initIndexer, updateBooks, updatePages}

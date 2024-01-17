@@ -22,18 +22,20 @@ import router from "@/views/Router";
 import BookMenu from "@/components/books/BookMenu.vue";
 import AddPageButtons from "@/components/pages/AddPageButtons.vue";
 import Editor from "@/components/pages/Editor.vue";
+import {usePageService} from "@/service/PageService";
 
 useBackButton(1, () => {
   isEditorOpen.value ? isEditorOpen.value = false : router.back()
 });
 
-const store = useBookService();
+const bookService = useBookService();
+const pageService = usePageService();
 
 const isEditorOpen = ref(false);
 const openEditor = () => isEditorOpen.value = true;
 const closeEditor = () => isEditorOpen.value = false;
 
-const addPage = (pageType: string) => store.addPage(pageType).then(() => openEditor())
+const addPage = (pageType: string) => bookService.addPage(pageType).then(() => openEditor())
 
 </script>
 <template>
@@ -42,7 +44,7 @@ const addPage = (pageType: string) => store.addPage(pageType).then(() => openEdi
     <ion-header>
       <ion-menu-toggle menu="BookMenu" :auto-hide="false">
         <ion-toolbar>
-          <ion-title @click="closeEditor()">{{ store.book.title }}</ion-title>
+          <ion-title @click="closeEditor()">{{ bookService.book.title }}</ion-title>
           <ion-buttons slot="end">
             <ion-button>
               <ion-icon :icon="menuOutline" slot="icon-only"></ion-icon>
@@ -52,12 +54,12 @@ const addPage = (pageType: string) => store.addPage(pageType).then(() => openEdi
       </ion-menu-toggle>
     </ion-header>
     <ion-content :fullscreen="true">
-      <sortable :list="store.pages" item-key="id"
+      <sortable :list="bookService.pages" item-key="id"
                 :options="{
                   handle: '.handle',
                   draggable: '.element',
                 }"
-                @end="(event) => store.swapPage(event.oldIndex, event.newIndex)">
+                @end="(event) => bookService.swapPage(event.oldIndex, event.newIndex)">
         <template #item="{ element }">
           <page-card :page="element" :is-editable="!isEditorOpen" @edit-page="openEditor()">
             <component :is="element?.type + `-page`" :pageId="element?.id" :pageData="element?.content"></component>
@@ -69,8 +71,8 @@ const addPage = (pageType: string) => store.addPage(pageType).then(() => openEdi
       </floating-outer-button>
       <modal :is-open="isEditorOpen" :on-dismiss="closeEditor">
         <editor>
-          <component :is="store.editedPage.type + '-editor'" @save-changes="(data) => store.setPageData(data)"
-                     v-bind:page-data="store.editedPage.content"></component>
+          <component :is="pageService.editedPage.type + '-editor'" @save-changes="(data) => pageService.setPageData(data)"
+                     v-bind:page-data="pageService.editedPage.content"></component>
         </editor>
       </modal>
     </ion-content>
