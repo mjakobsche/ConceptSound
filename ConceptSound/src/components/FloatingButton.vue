@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {IonFab, IonIcon, IonFabButton} from "@ionic/vue";
+import {IonFab, IonFabButton, IonIcon} from "@ionic/vue";
 import {addCircleOutline} from "ionicons/icons";
 </script>
 
@@ -13,7 +13,7 @@ import {addCircleOutline} from "ionicons/icons";
 </template>
 
 <style scoped>
-ion-fab-button{
+ion-fab-button {
   --color: #ebdbb2;
   --background: #d65d0e;
 }

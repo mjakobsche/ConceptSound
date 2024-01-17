@@ -1,6 +1,6 @@
 import {Book} from "@/model/Book";
 import {Page} from "@/model/Page";
-import {save} from "@/utils/StorageWrapper";
+import {save} from "@/database/StorageWrapper";
 import {Index} from "@/model/Index";
 
 async function createGuidePage(name: string, content: string) {

@@ -1,16 +1,15 @@
 import {defineStore} from "pinia";
 import {ref, Ref} from "vue";
 import {Book} from "@/model/Book";
-import {removeEntity, retrieveEntities, saveEntity} from "@/utils/PersistencyService";
+import {removeEntity, retrieveEntities, saveEntity} from "@/database/PersistencyService";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {Page} from "@/model/Page";
-import {useIndexingService} from "@/service/IndexingService";
-import {DeepWatcher} from "@/utils/DeepWatcher";
+import {DeepWatcher} from "@/helpers/DeepWatcher";
 import {usePageService} from "@/service/PageService";
+import {pageIndexes, updatePages} from "@/database/Indexer";
 
 export const useBookService = defineStore('bookService', () => {
     const pageService = usePageService();
-    const indexer = useIndexingService();
     const book: Ref<Book> = ref(new Book(""));
     const pages: Ref<Page[]> = ref([]);
     const bookWatcher: DeepWatcher = new DeepWatcher();
@@ -19,7 +18,7 @@ export const useBookService = defineStore('bookService', () => {
         bookWatcher.destroyWatcher();
         book.value = bookToInit;
         book.value.modificationDate = new Date();
-        retrieveEntities(indexer.pageIndexes).then((retrievedPages: Page[]) => {
+        retrieveEntities(pageIndexes.value).then((retrievedPages: Page[]) => {
             pages.value = retrievedPages
             bookWatcher.createWatcher(book, () => saveEntity(book.value))
         });
@@ -29,19 +28,19 @@ export const useBookService = defineStore('bookService', () => {
         const page: Page = new Page(type);
         await saveEntity(page);
         putToArray(pages.value, page);
-        await indexer.updatePages();
+        await updatePages();
         pageService.editPage(page)
     }
 
     async function removePage(page: Page) {
         ripFromArray(pages.value, page)
-        await indexer.updatePages();
+        await updatePages();
         await removeEntity(page);
     }
 
     async function swapPage(from = 0, to = 0) {
         putToArray(pages.value, ripFromArray(pages.value, pages.value[from]), to);
-        await indexer.updatePages();
+        await updatePages();
     }
 
     async function setBookTitle(title: string) {

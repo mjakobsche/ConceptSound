@@ -71,7 +71,8 @@ const addPage = (pageType: string) => bookService.addPage(pageType).then(() => o
       </floating-outer-button>
       <modal :is-open="isEditorOpen" :on-dismiss="closeEditor">
         <editor>
-          <component :is="pageService.editedPage.type + '-editor'" @save-changes="(data) => pageService.setPageData(data)"
+          <component :is="pageService.editedPage.type + '-editor'"
+                     @save-changes="(data) => pageService.setPageData(data)"
                      v-bind:page-data="pageService.editedPage.content"></component>
         </editor>
       </modal>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {IonChip} from "@ionic/vue";
 import {computed} from "vue";
-import {useBookService} from "@/service/BookService";
 import {useTagService} from "@/service/TagService";
 
 const props = defineProps(["selectedTags"]);

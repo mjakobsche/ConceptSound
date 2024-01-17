@@ -1,7 +1,7 @@
-import {clear, drop, find, save} from "@/utils/StorageWrapper";
+import {clear, drop, find, save} from "@/database/StorageWrapper";
 import {Entity} from "@/model/Entity";
 import {Index} from "@/model/Index";
-import {setupGuide} from "@/utils/GuideBook";
+import {setupGuide} from "@/resources/GuideBook";
 
 const indexKey: string = "INDEX";
 
@@ -39,7 +39,7 @@ async function retrieveEntity(key: string) {
     return await find(key);
 }
 
-async function removeEntities(keys: string[]){
+async function removeEntities(keys: string[]) {
     await keys.forEach((key) => drop(key));
 }
 

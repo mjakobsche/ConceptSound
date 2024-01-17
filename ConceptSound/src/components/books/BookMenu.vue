@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import {
-  IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
   IonButton,
-  IonInput,
+  IonContent,
+  IonHeader,
   IonIcon,
-  IonRouterOutlet
+  IonInput,
+  IonMenu,
+  IonRouterOutlet,
+  IonTitle,
+  IonToolbar
 } from "@ionic/vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
 import {imageOutline, pricetagOutline} from "ionicons/icons";
@@ -16,12 +16,13 @@ import InlineElements from "@/components/InlineElements.vue";
 import AddAlert from "@/components/AddAlert.vue";
 import HashtagChips from "@/components/books/HashtagChips.vue";
 import {useBookService} from "@/service/BookService";
-import {useImagePicker} from "@/composables/UseImagePicker";
+import {pickImages} from "@/utils/PickImages";
+
 const store = useBookService();
 
 async function setCoverImage() {
   await store.setBookCover("");
-  await store.setBookCover(await useImagePicker());
+  await store.setBookCover(await pickImages());
 }
 
 const hasCover = () => store.book.cover.length > 0;

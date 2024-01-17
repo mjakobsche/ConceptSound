@@ -19,7 +19,7 @@ import "@ionic/vue/css/flex-utils.css";
 import "@ionic/vue/css/display.css";
 
 import "./theme.css";
-import {initStorage} from "@/utils/StorageWrapper";
+import {initStorage} from "@/database/StorageWrapper";
 import TextPage from "@/components/pages/TextPage.vue";
 import TextEditor from "@/components/pages/TextEditor.vue";
 import AudioPage from "@/components/pages/AudioPage.vue";

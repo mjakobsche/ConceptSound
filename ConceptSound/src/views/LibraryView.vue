@@ -18,7 +18,7 @@ import FloatingButton from "@/components/FloatingButton.vue";
 import AddAlert from "@/components/AddAlert.vue";
 import HashtagChips from "@/components/books/HashtagChips.vue";
 import Modal from "@/components/Modal.vue";
-import {Filters} from "@/utils/Filters";
+import {Filters} from "@/helpers/Filters";
 import {useLibraryService} from "@/service/LibraryService";
 import {useBookService} from "@/service/BookService";
 

@@ -1,15 +1,15 @@
 import {defineStore} from "pinia";
 import {ref, Ref} from "vue";
 import {Page} from "@/model/Page";
-import {DeepWatcher} from "@/utils/DeepWatcher";
-import {saveEntity} from "@/utils/PersistencyService";
+import {DeepWatcher} from "@/helpers/DeepWatcher";
+import {saveEntity} from "@/database/PersistencyService";
 
 export const usePageService = defineStore('pageService', () => {
 
     const editedPage: Ref<Page> = ref(null as Object);
     const editedPageWatcher: DeepWatcher = new DeepWatcher();
 
-    function editPage(page: Page){
+    function editPage(page: Page) {
         editedPageWatcher.destroyWatcher();
         editedPage.value = page;
         editedPageWatcher.createWatcher(editedPage, () => saveEntity(editedPage.value));

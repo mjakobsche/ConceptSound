@@ -1,6 +1,5 @@
 import {defineStore} from "pinia";
 import {computed, ComputedRef} from "vue";
-import {useBookService} from "@/service/BookService";
 import {Book} from "@/model/Book";
 import {useLibraryService} from "@/service/LibraryService";
 

@@ -19,7 +19,7 @@ async function drop(key: string) {
     await store.remove(key);
 }
 
-async function clear(){
+async function clear() {
     await store.clear()
 }
 

@@ -2,8 +2,8 @@
 import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon} from "@ionic/vue";
 import {onMounted, PropType, ref} from "vue";
 import {addOutline, eyeOffOutline, eyeOutline, reorderTwoOutline} from "ionicons/icons";
-import {LongPressGesture} from "@/utils/LongPressGesture";
-import {Semaphore} from "@/utils/Semaphore";
+import {LongPressGesture} from "@/helpers/LongPressGesture";
+import {Semaphore} from "@/helpers/Semaphore";
 import InlineElements from "@/components/InlineElements.vue";
 import {Page} from "@/model/Page";
 import {useBookService} from "@/service/BookService";

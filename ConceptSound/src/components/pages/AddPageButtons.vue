@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {IonFabButton, IonIcon, IonFabList} from "@ionic/vue";
+import {IonFabButton, IonFabList, IonIcon} from "@ionic/vue";
 import {imageOutline, languageOutline, micOutline, musicalNoteOutline} from "ionicons/icons";
 
 const emit = defineEmits(["addPage"])

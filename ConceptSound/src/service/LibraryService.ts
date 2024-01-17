@@ -1,17 +1,16 @@
 import {defineStore} from "pinia";
-import {useIndexingService} from "@/service/IndexingService";
 import {ref, Ref} from "vue";
 import {Book} from "@/model/Book";
-import {removeEntity, retrieveEntities, saveEntity} from "@/utils/PersistencyService";
+import {removeEntity, retrieveEntities, saveEntity} from "@/database/PersistencyService";
 import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
+import {bookIndexes, initIndexer, updateBooks} from "@/database/Indexer";
 
 export const useLibraryService = defineStore('libraryService', () => {
-    const indexer = useIndexingService();
     const library: Ref<Book[]> = ref([]);
 
     function initLibrary() {
-        indexer.initIndexer().then(() => {
-            retrieveEntities(indexer.bookIndexes).then((books) => {
+        initIndexer().then(() => {
+            retrieveEntities(bookIndexes.value).then((books) => {
                 library.value = books;
             })
         });
@@ -21,17 +20,17 @@ export const useLibraryService = defineStore('libraryService', () => {
         const book: Book = new Book(title);
         await saveEntity(book);
         putToArray(library.value, book);
-        await indexer.updateBooks();
+        await updateBooks();
     }
 
     async function moveToTop(book: Book) {
         putToArray(library.value, ripFromArray(library.value, book))
-        await indexer.updateBooks();
+        await updateBooks();
     }
 
     async function removeBook(book: Book) {
         ripFromArray(library.value, book);
-        await indexer.updateBooks();
+        await updateBooks();
         await removeEntity(book);
     }
 

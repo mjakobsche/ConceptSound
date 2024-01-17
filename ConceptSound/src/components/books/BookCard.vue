@@ -5,9 +5,8 @@ import InlineElements from "@/components/InlineElements.vue";
 import {chevronForwardOutline, closeCircleOutline} from "ionicons/icons";
 import {PropType} from "vue";
 import {Book} from "@/model/Book";
-import {Semaphore} from "@/utils/Semaphore";
-import {useImpact} from "@/composables/UseImpact";
-import {useBookService} from "@/service/BookService";
+import {Semaphore} from "@/helpers/Semaphore";
+import {impact} from "@/utils/Impact";
 import {useLibraryService} from "@/service/LibraryService";
 
 const props = defineProps({
@@ -29,7 +28,7 @@ function renderDate(date: Date): string {
 
 function removeBook() {
   semaphore.closeSemaphore();
-  useImpact();
+  impact();
   libraryService.removeBook(props.book as Book);
 }
 

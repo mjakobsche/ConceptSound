@@ -1,8 +1,8 @@
 import {FilePicker} from "@capawesome/capacitor-file-picker";
 
-export async function useImagePicker() {
+export async function pickImages() {
     let picture: string = "";
-    try{
+    try {
         const result = await FilePicker.pickImages({
             multiple: false,
             readData: true
