@@ -1,0 +1,30 @@
+\subsection{Model encji bazodanowych}
+Dane użytkownika, zapisywane w aplikacji można sklasyfikować jako forma \enquote{notatek}.
+Zdecydowano się nadać im modułowy charakter, pozwalając w ten sposób na wykorzystywanie różnych typów notacji muzycznej
+w ramach określonego zbioru, który sumarycznie może opisywać aranżowany utwór.
+Wykorzystano stąd dwupoziomowy podział obiektów. Jako pierwszy poziom przyjęto koncepcję
+\enquote{zeszytu do nut}, jako zbioru notatek,
+co przynosi stosowną nazwę wykorzystaną w kodzie źródłowym \equote{book} (od ang.
+music book — \textit{zeszyt do nut}).
+Idąc dalej tym tokiem, przyjęto określenie \enquote{page} (z ang. — textit{strona}),
+jako odnoszące się do poziomu drugiego — pojedynczej notatki użytkownika.
+Stąd też zbiór zeszytów użytkownika określany jest pojęciem \enquote{library} (z ang. — textit{biblioteka}).
+\subsubsection{Zeszyt}
+\subsubsection{Książka}
+\subsection{Serwisy zarządzania persystencją}
+W aplikacji zastosowano bazę danych Ionic Storage. Jest to baza typu klucz-wartość. Aby umożliwić
+zarządzanie obiektami zagnieżdżonymi — jako: \textit{zeszyt} zawierać może wiele \textit{stron} — przy zachowaniu
+niezależności operacji na obiektach, zastosowano trzy serwisy:
+\subsubsection{StorageWrapper}
+Z uwagi na charakter kluczy i wartości bazy — jako dwóch ciągów znaków — obiekty zapisywane w bazie są
+konwertowane do ciągów JSON. [...]
+\textit{Opakowuje} bibliotekę Ionic Storage, udostępniając podstawowe metody zarządzania danymi. Konwertuje
+obiekty na ciągi znaków JSON, stanowiące wartości bazy. Jako jedyny bezpośrednio korzysta z metod oferowanych
+przez Ionic Storage.
+Wykorzystuje funkcje serwisu StorageWrapper
+
+\subsection{Serwisy zarządzania stanem aplikacji}
+\subsection{Projekt interfejsu}
+\subsection{Implementacja widoków i komponentów głównych}
+\subsection{Implementacja funkcjonalności wspierających aranżację}
+\subsection{Testowanie aplikacji}

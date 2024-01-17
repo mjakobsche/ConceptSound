@@ -66,6 +66,7 @@ export const useBookService = defineStore('bookService', () => {
         await saveEntity(page);
         putToArray(pages.value, page);
         await indexer.updatePages();
+        editPage(page)
     }
 
     async function removePage(page: Page) {

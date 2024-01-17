@@ -1,78 +1,32 @@
 <script setup lang="ts">
-import {
-  IonButton,
-  IonCard,
-  IonCardContent,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonInput,
-  IonPage,
-  IonTitle,
-  IonToolbar
-} from "@ionic/vue";
-import {chevronForwardOutline, closeCircleOutline, filterOutline} from "ionicons/icons";
+import {IonButton, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, IonButtons} from "@ionic/vue";
+import {filterOutline} from "ionicons/icons";
 import {computed, Ref, ref} from "vue";
 import router from "@/views/Router";
-import {Book} from "@/model/Book";
-import FloatingButtonGroup from "@/components/FloatingOuterButton.vue";
+import BookCard from "@/components/books/BookCard.vue"
+import FloatingButton from "@/components/FloatingButton.vue";
 import AddAlert from "@/components/AddAlert.vue";
-import HashtagChips from "@/components/HashtagChips.vue";
-import InlineElements from "@/components/InlineElements.vue";
+import HashtagChips from "@/components/books/HashtagChips.vue";
 import Modal from "@/components/Modal.vue";
-import HeaderToolbar from "@/components/HeaderToolbar.vue";
-import CenteringGrid from "@/components/CenteringGrid.vue";
-import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {useBookService} from "@/service/BookService";
-import {useImpact} from "@/composables/UseImpact";
-import {Semaphore} from "@/utils/Semaphore";
+import {Filters} from "@/utils/Filters";
 
 const store = useBookService();
 store.initLibrary();
-const semaphore = new Semaphore();
-const isFilterModalOpen: Ref<boolean> = ref(false);
-const openFilterModal = () => isFilterModalOpen.value = true;
-const closeFilterModal = () => isFilterModalOpen.value = false;
+const areFiltersOpen: Ref<boolean> = ref(false);
+const openFilters = () => areFiltersOpen.value = true;
+const closeFilters = () => areFiltersOpen.value = false;
 
-const titleFilter: Ref<string> = ref("");
-const tagFilter: Ref<string[]> = ref([]);
+const filters = new Filters();
 
 const filteredLibrary = computed(() => {
-  return store.library.filter((book: Book) => matchesFilter(book));
+  return store.library.filter((book) => filters.matchesFilter(book));
 });
 
-function matchesFilter(bookCover: Book): boolean {
-  return bookCover.title.toLowerCase().indexOf(titleFilter.value.toLowerCase()) != -1 && tagFilter.value.every((tag) => bookCover.tags.includes(tag));
-}
-
-function enableTag(tag: string) {
-  putToArray(tagFilter.value, tag);
-}
-
-function disableTag(tag: string) {
-  ripFromArray(tagFilter.value, tag)
-}
-
-function renderDate(date: Date): string {
-  const day = new Date(date).getDate();
-  const month = new Date(date).getMonth() + 1;
-  return `${day < 10 ? "0" + day : day}.${month < 10 ? "0" + month : month}`;
-}
-
-function removeBook(book: Book) {
-  semaphore.closeSemaphore();
-  useImpact();
-  store.removeBook(book);
-}
-
 async function openBook(book) {
-  await semaphore.execute(() => {
-    closeFilterModal();
-    store.initBook(book);
-    router.push("/book").then(() => store.moveToTop(book));
-  })
+  closeFilters();
+  store.initBook(book);
+  router.push("/book").then().then(() => store.moveToTop(book));
 }
 
 </script>
@@ -80,74 +34,38 @@ async function openBook(book) {
 <template>
   <ion-page>
     <ion-header>
-      <header-toolbar :title="'Biblioteka'" @click="openFilterModal">
-        <ion-button :disabled="isFilterModalOpen">
-          <ion-icon :icon="filterOutline" slot="icon-only"></ion-icon>
-        </ion-button>
-      </header-toolbar>
+      <ion-toolbar @click="openFilters">
+        <ion-title>Biblioteka</ion-title>
+        <ion-buttons slot="end">
+          <ion-button :disabled="areFiltersOpen">
+            <ion-icon :icon="filterOutline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
-      <floating-button-group id="addBook">
-      </floating-button-group>
+      <floating-button id="addBook">
+      </floating-button>
       <add-alert :trigger="'addBook'" @add="(bookTitle) => store.addBook(bookTitle)"></add-alert>
       <div v-for="book in filteredLibrary" :key="book.id">
-        <ion-card @click="openBook(book)">
-          <centering-grid v-if="book.cover.length > 0">
-            <img :src="book.cover" alt="cover photo">
-          </centering-grid>
-          <ion-card-content>
-            <ion-card-subtitle>{{ renderDate(book.modificationDate) }}</ion-card-subtitle>
-            <inline-elements>
-              <ion-card-title>{{ book.title }}</ion-card-title>
-              <div>
-                <ion-button
-                    fill="clear"
-                    size="small"
-                    shape="round"
-                    @click="removeBook(book)"
-                >
-                  <ion-icon slot="icon-only" :icon="closeCircleOutline"></ion-icon>
-                </ion-button>
-                <ion-button
-                    fill="clear"
-                    size="small"
-                    shape="round"
-                >
-                  <ion-icon slot="icon-only" :icon="chevronForwardOutline"></ion-icon>
-                </ion-button>
-              </div>
-            </inline-elements>
-            <ion-card-subtitle v-if="book.tags.length > 0">{{
-                "#" + book.tags.join(" #")
-              }}
-            </ion-card-subtitle>
-          </ion-card-content>
-        </ion-card>
+        <book-card :book="book" @open-book="openBook(book)">
+        </book-card>
       </div>
-      <modal :is-open="isFilterModalOpen" :on-dismiss="closeFilterModal">
+      <modal :is-open="areFiltersOpen" :on-dismiss="closeFilters">
         <ion-header>
           <ion-toolbar>
             <ion-title>Filtruj</ion-title>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-          <IonInput label="Tytuł:" fill="outline" v-model="titleFilter"></IonInput>
-          <hashtag-chips :all-tags="store.tags" :selected-tags="tagFilter"
-                         @enable-tag="(tag) => enableTag(tag)" @disable-tag="(tag) => disableTag(tag)"></hashtag-chips>
+          <IonInput label="Tytuł:" fill="outline" v-model="filters.titleFilter.value"></IonInput>
+          <hashtag-chips :all-tags="store.tags" :selected-tags="filters.tagFilter.value"
+                         @enable-tag="(tag) => filters.enableTag(tag)"
+                         @disable-tag="(tag) => filters.disableTag(tag)"></hashtag-chips>
         </ion-content>
       </modal>
     </ion-content>
   </ion-page>
 </template>
 <style scoped>
-img {
-  object-fit: cover;
-}
-
-ion-card-title {
-  --color:  #ebdbb2;
-}
-ion-card-subtitle{
-  --color: #a89984;
-}
 </style>

@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import {IonChip} from "@ionic/vue";
 import {computed} from "vue";
+import {useBookService} from "@/service/BookService";
 
-const props = defineProps(["allTags", "selectedTags"]);
+const props = defineProps(["selectedTags"]);
 defineEmits(["enableTag", "disableTag"])
 
 const tags = computed(() => {
-  return props.allTags.map((tag) => {
+  return useBookService().tags.map((tag) => {
     const tagDisabled = props.selectedTags.length === 0 || !props.selectedTags.includes(tag);
     return {
       name: tag,

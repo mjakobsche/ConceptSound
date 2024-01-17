@@ -5,7 +5,7 @@ import {Index} from "@/model/Index";
 
 async function createGuidePage(name: string, content: string) {
     await new Promise(r => setTimeout(r, 1));
-    const page = new Page("Text");
+    const page = new Page("text");
     page.name = name;
     page.content = content;
     return page;

@@ -1,73 +1,87 @@
 <script setup lang="ts">
 import {IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonIcon} from "@ionic/vue";
-import {onMounted, ref} from "vue";
-import {addOutline, eyeOffOutline, eyeOutline, reorderThreeOutline, reorderTwoOutline} from "ionicons/icons";
+import {onMounted, PropType, ref} from "vue";
+import {addOutline, eyeOffOutline, eyeOutline, reorderTwoOutline} from "ionicons/icons";
 import {LongPressGesture} from "@/utils/LongPressGesture";
 import {Semaphore} from "@/utils/Semaphore";
 import InlineElements from "@/components/InlineElements.vue";
+import {Page} from "@/model/Page";
+import {useBookService} from "@/service/BookService";
 
 const props = defineProps({
-  pageName: {
-    type: String,
-    required: true,
-  },
-  isPageVisible: {
-    type: Boolean,
+  page: {
+    type: Object as PropType<Page>,
     required: true,
   },
   isEditable: {
     type: Boolean,
     required: true,
-  },
+  }
 });
 
-const emit = defineEmits(["changeVisibility", "editPage", "removePage"]);
-
+const emit = defineEmits(["editPage"]);
+const store = useBookService();
 const hidden = ref();
 const semaphore = new Semaphore();
 
 onMounted(() => {
   new LongPressGesture(hidden.value.$el,
       () => {
-        emit("changeVisibility")
+        toggleVisibility();
       },
       () => {
-        emit("removePage")
+        removePage();
       })
 });
 
-function editBook() {
-  if (props.isEditable && props.isPageVisible) {
+function editPage() {
+  if (props.isEditable && props.page?.isVisible) {
+    beforeEdit();
     semaphore.execute(() => emit("editPage"))
   }
 }
 
+async function toggleVisibility() {
+  beforeEdit();
+  await store.togglePageVisibility()
+}
+
+function removePage() {
+  store.removePage(props.page as Page);
+}
+
+function beforeEdit() {
+  store.editPage(props.page as Page)
+}
+
+const movePageIcon = () => props.page?.name.length > 0 ? 'start' : 'icon-only';
+const toggleVisibilityIcon = () => props.page?.isVisible ? eyeOutline : eyeOffOutline;
 </script>
 
 <template>
   <div id="container" class="element">
     <ion-card>
-      <ion-card-header @click="editBook()">
+      <ion-card-header @click="editPage()">
         <inline-elements>
           <ion-card-title>
             <ion-button fill="outline" size="small" shape="round" color="medium" class="handle"
                         @click="semaphore.closeSemaphore()">
-              {{ pageName }}
-              <ion-icon :slot="pageName.length > 0 ? 'start' : 'icon-only'" :icon="reorderTwoOutline"></ion-icon>
+              {{ page.name }}
+              <ion-icon :slot="movePageIcon()" :icon="reorderTwoOutline"></ion-icon>
             </ion-button>
           </ion-card-title>
           <div>
             <ion-button fill="clear" size="small" shape="round" ref="hidden" :disabled="!isEditable"
                         @click="semaphore.closeSemaphore()">
-              <ion-icon slot="icon-only" :icon="isPageVisible ? eyeOutline : eyeOffOutline"></ion-icon>
+              <ion-icon slot="icon-only" :icon="toggleVisibilityIcon()"></ion-icon>
             </ion-button>
-            <ion-button fill="clear" size="small" shape="round" :disabled="!isEditable">
+            <ion-button fill="clear" size="small" shape="round" :disabled="!isEditable || !page.isVisible">
               <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
             </ion-button>
           </div>
         </inline-elements>
       </ion-card-header>
-      <ion-card-content v-if="isPageVisible">
+      <ion-card-content v-if="page.isVisible">
         <slot></slot>
       </ion-card-content>
     </ion-card>

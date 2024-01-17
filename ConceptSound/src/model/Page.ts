@@ -12,10 +12,10 @@ export class Page implements Entity {
         this.type = type;
         this.name = "";
         this.content = this.getInitialData(type);
-        this.isVisible = false;
+        this.isVisible = true;
     }
 
     private getInitialData(type: string) {
-        return type === "Score" ? "X:1\nK:C\n|]" : "";
+        return type === "score" ? "X:1\nK:C\n|]" : "";
     }
 }
