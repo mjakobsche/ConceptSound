@@ -29,12 +29,12 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Serwisy zarządzające persystencją}{21}{subsubsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.3}Warstwa logiki biznesowej}{22}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Serwisy zarządzające stanem aplikacji}{22}{subsubsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.4}Warstwa prezentacji}{22}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Projekt interfejsu}{22}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Implementacja widoków i komponentów głównych}{22}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Implementacja funkcjonalności wspierających aranżację}{22}{subsubsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.5}Testowanie aplikacji}{22}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{23}{section.4}%
-\contentsline {section}{Bibliografia}{24}{section.4}%
-\contentsline {section}{Spis rysunków}{24}{section*.7}%
-\contentsline {section}{Spis tabel}{24}{section*.8}%
+\contentsline {subsection}{\numberline {3.4}Warstwa prezentacji}{23}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Projekt interfejsu}{23}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Implementacja widoków i komponentów głównych}{24}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Implementacja funkcjonalności wspierających aranżację}{28}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.5}Testowanie aplikacji}{32}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{33}{section.4}%
+\contentsline {section}{Bibliografia}{34}{section.4}%
+\contentsline {section}{Spis rysunków}{34}{section*.7}%
+\contentsline {section}{Spis tabel}{34}{section*.8}%

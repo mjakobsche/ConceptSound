@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1705527475 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1705624250 -1
   "./bibliography.bib" 1704657188 3048 8e9b0ceb34738310eab4e4f8152d2eb3 ""
-  "main.bcf" 1705527475 106963 216ac1f5cd94c1930df39ae05a840f14 "lualatex"
+  "main.bcf" 1705624249 106963 216ac1f5cd94c1930df39ae05a840f14 "lualatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["lualatex"] 1705527474 "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" "main.pdf" "main" 1705527475 0
+["lualatex"] 1705624248 "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" "main.pdf" "main" 1705624250 0
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1704740533 128312 fed65183dfbc168f421586b68ddf8f85 ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1704740532 127683 7c6392bfe1c2b59c63a349e1326c5578 ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/times-new-roman-bold-italic.luc" 1704740533 100787 ef95c44f6b2a4f41e70d72b68df5f1f6 ""
@@ -176,15 +176,24 @@
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman.ttf" 1 330412 4f97f4d6ba74767259ccfb242ce0e3f7 ""
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Bold.ttf" 1 333900 ed6e29caf3843142d739232aa8642158 ""
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Italic.ttf" 1 247092 957dd4f17296522dead302ab4fcdfa8d ""
-  "main.aux" 1705527475 6088 0c59f34d4b09776086e5c62b17658121 "lualatex"
+  "main.aux" 1705624249 8039 a8e1c37c8945f85978ac389145dd1189 "lualatex"
   "main.bbl" 1705421477 1888 105d4b0131d295b188fa74e14b666b07 "biber main"
-  "main.lof" 1705527475 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
-  "main.lot" 1705527475 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
-  "main.out" 1705527475 7781 370ff7c2f5ae5de50aa2b8ce31c1e3b3 "lualatex"
-  "main.run.xml" 1705527475 2341 f5b21bfdab19385ae52f27a31b9d99b7 "lualatex"
+  "main.lof" 1705624249 922 5bf27b94991b9c68fe99f639e0c38061 "lualatex"
+  "main.lot" 1705624249 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
+  "main.out" 1705624249 7781 370ff7c2f5ae5de50aa2b8ce31c1e3b3 "lualatex"
+  "main.run.xml" 1705624249 2341 f5b21bfdab19385ae52f27a31b9d99b7 "lualatex"
   "main.tex" 1705521204 3459 0c4f534bf6c950de88f0de4cebda499f ""
-  "main.toc" 1705527475 3623 cf88d5f67e2b843b8b90825351e48df8 "lualatex"
-  "text/projekt.tex" 1705527473 5184 f7f42f2d40adbb8a7d4622fc13222125 ""
+  "main.toc" 1705624249 3623 89a8f073ac279b6cdbbeef49c40e84cc "lualatex"
+  "media/AudioPage.jpg" 1705623390 102161 fbc92242dc62ca6fbfa4c4b7c8d4560a ""
+  "media/BookMenu.jpg" 1705623390 85357 1a53aef367241f55fe032d4e2b1ea80e ""
+  "media/BookView.jpg" 1705623390 142217 e23629ff11acab8455e4a384b2984967 ""
+  "media/EditorModal.jpg" 1705623390 112622 a50e1c920d05dbfd181cacd289ea56e9 ""
+  "media/FilterModal.jpg" 1705623390 99402 c62b5d885c31fa1ec226e50ab4422434 ""
+  "media/LibraryView.jpg" 1705623390 189996 ae0bfa687843b77e01425a45804313e6 ""
+  "media/PhotoPage.jpg" 1705623390 170512 60105c254dff5d28eb90df5daff09482 ""
+  "media/ScorePage.jpg" 1705623390 123826 90ad380906ef3cee578d23d8236a4fb0 ""
+  "media/TextPage.jpg" 1705623390 207912 a8fd07a2b9ac5a7e0c5df6e438d5c921 ""
+  "text/projekt.tex" 1705624248 14176 4be950e8b4988341dfef1090843bb7fe ""
   "text/studium.tex" 1705523465 15702 2f925a3b2b7f4202c86e663a90903863 ""
   "text/zalozenia.tex" 1704907731 9567 abf276158820a4591e88c563f078432a ""
   (generated)
