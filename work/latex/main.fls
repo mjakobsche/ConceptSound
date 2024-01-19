@@ -387,6 +387,9 @@ INPUT ./media/AudioPage.jpg
 INPUT ./media/PhotoPage.jpg
 INPUT ./media/PhotoPage.jpg
 INPUT ./media/PhotoPage.jpg
+INPUT ./media/ContinousDelivery.png
+INPUT ./media/ContinousDelivery.png
+INPUT ./media/ContinousDelivery.png
 INPUT ./main.lof
 INPUT ./main.lof
 OUTPUT main.lof

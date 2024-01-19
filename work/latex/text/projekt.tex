@@ -33,6 +33,15 @@ ułatwiając działanie serwisów zarządzających persystencją.
 	\label{rys:entity}
 \end{figure}
 
+Model encji Book zawiera pola: title — zawierające tytuł zeszytu, tags — przechowujące słowa kluczowe opisujące utwór,
+cover — będące zapisem base64 zdjęcia, ustawionego jako okładka zeszytu, oraz automatycznie ustawiane modificationDate — wskazujące
+na datę ostatniej modyfikacji zeszytu.
+Model encji page zawiera pola: type — określające typ strony, name — zawierające jej nazwę, content — przechowujące zawartość oraz
+isVisible — wyznaczające stan widoczności zawartości strony.
+Identyfikatory encji są tworzone uniformowo, jako sygnatura czasowa systemu Unix, w momencie utworzenia obiektu.
+Synchroniczność realizowanych przez aplikację akcji tworzących instacje obiektów gwarantuje unikatowość identyfikatorów w bazie.
+Po utworzeniu obiektu jego identyfikator nie podlega modyfikacji.
+
 Jako wyznacznik powiązań między encjami Book i Page, w bazie przechowywana jest dotatkowo tablica obiektów Index.
 Z uwagi na jej nadrzędny charakter, nie implementuje ona od interfejsu Entity. Występuje w bazie pojedynczo, pod ustalonym
 kluczem \enquote{INDEX}.
@@ -282,4 +291,23 @@ Edycjastrony polega na możliwości zmiany wybranego zdjęcia.
 	\label{rys:photo-page}
 \end{figure}
 
-\subsection{Testowanie aplikacji}
+\subsection{Continous Integration i Continous Delivery}
+Przeprowadzenie procesu budowy aplikacji i generowania pliku APK jest realizowane przez aplikację
+Buddy CI/CD. Umożliwia to automatyzację tych zadań, przyspieszając proces powstawania aplikacji.
+W serwise zastosowano pojedynczy pipeline, który wykonuje następujący algorytm:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{media/ContinousDelivery.png}
+	\end{center}
+	\caption{Algorytm Continous Delivery realizowany przez Buddy CI/CD.}
+	\label{rys:continous-delivery}
+\end{figure}
+
+Po przygotowaniu systemu pipeline projekt jest budowany przy użyciu Ionic oraz Capacitor, do wyjściowego projektu Java.
+Zadeklarowane w osobnym pliku wymagane uprawnienia, pozwalające m.in. na korzystanie z mikrofonu urządzenia, są
+przenoszone do projektu. Wówczas ustawiana jest nazwa wyjściowego pliku APK.
+Za jego budowę odpowiada akcja oparta o Gradle. Plik instalacyjny aplikacji jest przenoszony do łatwo dostępnej
+lokalizacji, podpisywany certyfikatem oraz publikowany przez akcję push na repozytorium GitHub.
+
+Algorytmy Countinous Integration i Continous Development zostały zrealizowane w konwencji IAC, w pliku YAML.
