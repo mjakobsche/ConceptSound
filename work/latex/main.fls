@@ -339,6 +339,12 @@ INPUT ./text/zalozenia.tex
 INPUT ./text/zalozenia.tex
 INPUT ./text/projekt.tex
 INPUT ./text/projekt.tex
+INPUT ./media/Entity.png
+INPUT ./media/Entity.png
+INPUT ./media/Entity.png
+INPUT ./media/Index.png
+INPUT ./media/Index.png
+INPUT ./media/Index.png
 INPUT ./media/PersistencyLayer.png
 INPUT ./media/PersistencyLayer.png
 INPUT ./media/PersistencyLayer.png
@@ -354,6 +360,9 @@ INPUT ./media/LibraryView.jpg
 INPUT ./media/FilterModal.jpg
 INPUT ./media/FilterModal.jpg
 INPUT ./media/FilterModal.jpg
+INPUT ./media/LibraryComponents.png
+INPUT ./media/LibraryComponents.png
+INPUT ./media/LibraryComponents.png
 INPUT ./media/BookView.jpg
 INPUT ./media/BookView.jpg
 INPUT ./media/BookView.jpg
@@ -363,6 +372,9 @@ INPUT ./media/EditorModal.jpg
 INPUT ./media/BookMenu.jpg
 INPUT ./media/BookMenu.jpg
 INPUT ./media/BookMenu.jpg
+INPUT ./media/WorkshopComponents.png
+INPUT ./media/WorkshopComponents.png
+INPUT ./media/WorkshopComponents.png
 INPUT ./media/TextPage.jpg
 INPUT ./media/TextPage.jpg
 INPUT ./media/TextPage.jpg

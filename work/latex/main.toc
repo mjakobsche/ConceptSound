@@ -32,9 +32,9 @@
 \contentsline {subsection}{\numberline {3.4}Warstwa prezentacji}{24}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Projekt interfejsu}{24}{subsubsection.3.4.1}%
 \contentsline {subsubsection}{\numberline {3.4.2}Implementacja widoków i komponentów głównych}{25}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Implementacja funkcjonalności wspierających aranżację}{30}{subsubsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.5}Testowanie aplikacji}{34}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{35}{section.4}%
-\contentsline {section}{Bibliografia}{36}{section.4}%
-\contentsline {section}{Spis rysunków}{36}{section*.7}%
-\contentsline {section}{Spis tabel}{36}{section*.8}%
+\contentsline {subsubsection}{\numberline {3.4.3}Implementacja funkcjonalności wspierających aranżację}{31}{subsubsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.5}Testowanie aplikacji}{35}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{36}{section.4}%
+\contentsline {section}{Bibliografia}{37}{section.4}%
+\contentsline {section}{Spis rysunków}{37}{section*.7}%
+\contentsline {section}{Spis tabel}{37}{section*.8}%

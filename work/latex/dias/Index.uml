@@ -1,0 +1,9 @@
+@startuml
+allowmixing
+
+object Index{
+    +bookId: string
+    +pagesId: string[]
+}
+
+@enduml

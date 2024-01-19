@@ -1,0 +1,20 @@
+@startuml
+node CommonComponents {
+}
+
+[WorkshopView] -left-> CommonComponents
+[WorkshopView] -up-> [BookMenu]
+[BookMenu] -right-> [HashtagChips]
+[WorkshopView] -down-> [AddPageButtons]
+[WorkshopView] -up-> [PageCard]
+[WorkshopView] -down-> [Editor]
+
+[PageCard] -up-> [AudioCard]
+[PageCard] -up-> [TextCard]
+[PageCard] -up-> [ScoreCard]
+[PageCard] -up-> [PhotoCard]
+[Editor] -down-> [ScoreEditor]
+[Editor] -down-> [TextEditor]
+[Editor] -down-> [AudioEditor]
+[Editor] -down-> [PhotoEditor]
+@enduml

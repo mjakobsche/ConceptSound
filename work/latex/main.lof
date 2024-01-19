@@ -1,13 +1,17 @@
 \babel@toc {polish}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Serwisy warstwy dostępu do danych.}}{22}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Serwisy warstwy logiki biznesowej.}}{23}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Diagram przedstawiający komunikację warstwy logiki biznesowej z warstwą dostępu do danycha.}}{24}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Widok biblioteki.}}{26}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Modal filtrowania.}}{27}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Widok zeszytu.}}{28}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Modal edycji strony.}}{29}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Menu edycji danych zeszytu.}}{30}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Komponenty strony o typie tekstowym.}}{31}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Komponenty strony o typie nutowym.}}{32}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Komponenty strony zawierającym nagranie audio.}}{33}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Komponenty strony zawierającej zdjęcie.}}{34}{figure.12}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Modele encji implementujące interfejs Entity.}}{21}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Model obiektu Index.}}{21}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Serwisy warstwy dostępu do danych.}}{22}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Serwisy warstwy logiki biznesowej.}}{23}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Diagram przedstawiający komunikację warstwy logiki biznesowej z warstwą dostępu do danycha.}}{24}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Widok biblioteki.}}{26}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Modal filtrowania.}}{27}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Drzewo komponentów widoku biblioteki.}}{27}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Widok zeszytu.}}{28}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Modal edycji strony.}}{29}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Menu edycji danych zeszytu.}}{30}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Drzewo komponentów widoku zeszytu.}}{31}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Komponenty strony o typie tekstowym.}}{32}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Komponenty strony o typie nutowym.}}{33}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Komponenty strony zawierającym nagranie audio.}}{34}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Komponenty strony zawierającej zdjęcie.}}{35}{figure.16}%

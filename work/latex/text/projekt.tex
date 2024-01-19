@@ -4,6 +4,7 @@ poszczególne komponenty aplikacji, ułatwiając utrzymanie kodu. Jest to osiąg
 realizowanych przez poszczególne warstwy. Architektura warstwowa charakteryzuje się hierarchicznym układem komponentów,
 co przekłada się na zwiększenie przejrzystości kodu.
 W ramach projektu zastosowano trzy warstwy podziału:
+
 \begin{itemize}
 	\item Warstwa dostępu do danych — odpowiadająca za komunikacje z bazą przy użyciu modelu encji.
 	\item Warstwa logiki biznesowej — obejmująca szczególnie serwisy zarządzania stanem aplikacji.
@@ -19,29 +20,36 @@ Wykorzystano stąd dwupoziomowy podział obiektów. Jako pierwszy poziom przyję
 \enquote{zeszytu do nut}, jako zbioru notatek,
 co przynosi stosowną nazwę wykorzystaną w kodzie źródłowym \enquote{book} (od ang.
 music book — \textit{zeszyt do nut}).
-
-<encja zeszytu i opis pól>
-
 Idąc dalej tym tokiem, przyjęto określenie \enquote{page} (z ang. — textit{strona}),
 jako odnoszące się do poziomu drugiego — pojedynczej notatki użytkownika.
-
-<encja książki i opis pól>
-
 Obie encje implementują prosty interfejs Entity, deklarujący pole id,
 ułatwiając działanie serwisów zarządzających persystencją.
 
-<interfejs entity>
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{media/Entity.png}
+	\end{center}
+	\caption{Modele encji implementujące interfejs Entity.}
+	\label{rys:entity}
+\end{figure}
 
 Jako wyznacznik powiązań między encjami Book i Page, w bazie przechowywana jest dotatkowo tablica obiektów Index.
 Z uwagi na jej nadrzędny charakter, nie implementuje ona od interfejsu Entity. Występuje w bazie pojedynczo, pod ustalonym
 kluczem \enquote{INDEX}.
 
-<encja index>
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{media/Index.png}
+	\end{center}
+	\caption{Model obiektu Index.}
+	\label{rys:index}
+\end{figure}
 
 \subsubsection{Serwisy zarządzające persystencją}
 W aplikacji zastosowano bazę danych Ionic Storage. Jest to baza typu klucz-wartość. Aby umożliwić
 zarządzanie obiektami zagnieżdżonymi — jako: \textit{zeszyt} zawierać może wiele \textit{stron} — przy zachowaniu
 niezależności operacji na obiektach, zastosowano trzy serwisy:
+
 \begin{itemize}
 	\item StorageWrapper
 
@@ -106,6 +114,7 @@ Ma to miejsce na dwóch płaszczyznach: (1) w przypadku modyfikacji danych obiek
 odpowiedzialność przekazywana jest do PersistencyService; (2) w przypadku modyfikacji przynależności obiektu — jako akcji
 tworzenia i usuwania zeszytów oraz stron, persystencja realizowana jest w koordynacji z serwisem Indexer.
 Przyjęty model działania zapewnia w ten sposób spójność danych między warstwami aplikacji.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.5]{media/LayerComunication.png}
@@ -131,8 +140,6 @@ Polepsza to również odczucie responsywności aplikacji.
 Zastosowano również menu, jako komponent dodatkowy, stanowiący przestrzeń edycji danych wybranego zeszytu. Proces ten zwykle
 nie odnosi się do innych elementów kolekcji, dlatego może być w ten sposób odseparowany od kontekstu.
 
-<diagram przedstawiający drzewo komponentów>
-
 \subsubsection{Implementacja widoków i komponentów głównych}
 Widok biblioteki umożliwia wizualizację kolekcji zeszytów użytkownika. Na kartach przedstawiających zeszyty widoczny jest tytuł,
 data modyfikacji oraz przypisane tagi. Jeżeli użytkownik doda do zeszytu okładkę, ułatwiającą identyfikację zeszytu w kolekcji — zostanie
@@ -140,6 +147,7 @@ tu wyświetlona. Widok biblioteki umożliwia podstawowo trzy akcje: (1) Dodawani
 (2) Usuwanie zeszytów, po kliknięciu ikony usunięcia na określonej karcie;
 (3) Otwieranie zeszytów — przejście do widoku zeszytu, po kliknięciu dowolnego miejsca karty (symbol strzałki
 ma jedynie znaczenie ideowe).
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/LibraryView.jpg}
@@ -150,6 +158,7 @@ ma jedynie znaczenie ideowe).
 
 Możliwość filtracji zeszytów realizowana jest przez modal, otwierany po kliknięciu górnego paska widoku biblioteki.
 Użytkownik może szukać zeszytów po ich tytułach oraz po słowach kluczowych. Wyszukiwanie po tytule jest case-insensitive.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/FilterModal.jpg}
@@ -158,11 +167,20 @@ Użytkownik może szukać zeszytów po ich tytułach oraz po słowach kluczowych
 	\label{rys:filter-modal}
 \end{figure}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{media/LibraryComponents.png}
+	\end{center}
+	\caption{Drzewo komponentów widoku biblioteki.}
+	\label{rys:library-components}
+\end{figure}
+
 Widok zeszytu umożliwia wizualizację jego zawartości. Przycisk w rogu ekranu pozwala dodać stronę do zeszytu.
 Po dodaniu jest ona reprezentowana przez komponent karty. Zawartość strony może zostać ukryta,
 przy użyciu przycisku z symbolem oka. Przytrzymanie przycisku powoduje trwałe usunięcie strony, sygnalizowane wibracją urządzenia.
 Strona zawiera także przycisk umożliwiający jej przemieszczenie względem pozostałych stron. W tym miejscu wyświetla się także nazwa
 strony, jeżeli została nadana przez użytkownika.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/BookView.jpg}
@@ -173,6 +191,7 @@ strony, jeżeli została nadana przez użytkownika.
 
 Możliwość edycji strony realizowana jest przez modal, otwierany po kliknięciu ikony plusa. Zawartość modalu zależy od
 typu edytowanej strony, zawierając stosowny interfejs edycji zawartości. Każdej stronie można tu również przypisać nazwę.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/EditorModal.jpg}
@@ -184,12 +203,21 @@ typu edytowanej strony, zawierając stosowny interfejs edycji zawartości. Każd
 Modyfikacja danych zeszytu umożliwiana jest przez menu, otwierane przy kliknięciu górnego paska widoku zeszytu.
 Przycisk z ikoną zdjęcia umożliwia dodanie okładki; kliknięcie symbolu zakładki pozwala przypisać słowo kluczowe
 do zeszytu. Można w tym miejscu również zmienić tytuł zeszytu.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/BookMenu.jpg}
 	\end{center}
 	\caption{Menu edycji danych zeszytu.}
 	\label{rys:book-menu}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{media/WorkshopComponents.png}
+	\end{center}
+	\caption{Drzewo komponentów widoku zeszytu.}
+	\label{rys:workshop-components}
 \end{figure}
 
 \subsubsection{Implementacja funkcjonalności wspierających aranżację}
@@ -203,6 +231,7 @@ Komponenty wizualizacji i edycji tekstu obsługują notatki tekstowe, umożliwia
 komentarzy. Podczas edycji użytkownik zapisuje notatkę w polu tekstowym. Linijka tekstu poprzedzona symbolem \enquote{@} traktowana jest
 jako komentarz. Aby to ułatwić, układ klawiatury przy edycji treści takiej strony ustawiony jest na tryb \textit{e-mail}.
 Komentarz wyświetlany jest przy prawej krawędzi strony, mniej wyrazistą czcionką.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/TextPage.jpg}
@@ -219,6 +248,7 @@ ABC.js — za sprawą stosowania nazw literowych do określania nut, implementac
 Każda strona o tym typie jest domyślnie inicjalizowana wartościami renderującymi kluczowe elementy notacji muzycznej.
 Jednocześnie należy zwrócić uwagę, iż użytkownik potrzebujący szerszych możliwości edytora nutowego, powinien zaznajomić
 się z dodatkowymi funkcjami oferowanymi przez ABC.js.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/ScorePage.jpg}
@@ -231,6 +261,7 @@ Komponent edycji notatek dźwiękowych wykorzystuje do działania wtyczkę capac
 dźwięk, korzystając z mikrofonu urządzenia. Po nagraniu użytkonik może ponownie edytować zawartość strony, zastępując
 wcześniejszy zapis dźwiękowy nowym nagraniem. Wizualizacja fali dźwiękowej, realizowana przez bibliotekę Wavesurfer.js.
 Umożliwia orientację w jej przebiegu oraz odtworzenie nagrania od wybranego momentu.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/AudioPage.jpg}
@@ -241,7 +272,8 @@ Umożliwia orientację w jej przebiegu oraz odtworzenie nagrania od wybranego mo
 
 Możliwość użycia zdjęcia jako notatki realizowana jest przez wtyczkę capacitor-file-picker,
 pozwalającej wybrać plik (tu: zdjęcie) z pamięci urządzenia. Wybrane zdjęcie jest wyświetlane jako zawartość strony.
-Edycja strony polega na możliwości zmiany wybranego zdjęcia.
+Edycjastrony polega na możliwości zmiany wybranego zdjęcia.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/PhotoPage.jpg}
