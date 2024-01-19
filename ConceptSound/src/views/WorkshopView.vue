@@ -9,7 +9,8 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  useBackButton
+  useBackButton,
+  useIonRouter
 } from "@ionic/vue";
 import PageCard from "@/components/pages/PageCard.vue";
 import {Sortable} from "sortablejs-vue3";
@@ -23,9 +24,10 @@ import BookMenu from "@/components/books/BookMenu.vue";
 import AddPageButtons from "@/components/pages/AddPageButtons.vue";
 import Editor from "@/components/pages/Editor.vue";
 import {usePageService} from "@/service/PageService";
+import {App} from "@capacitor/app";
 
 useBackButton(1, () => {
-  isEditorOpen.value ? isEditorOpen.value = false : router.back()
+  isEditorOpen.value ? isEditorOpen.value = false : useIonRouter().canGoBack() ? router.back() : App.exitApp();
 });
 
 const bookService = useBookService();
