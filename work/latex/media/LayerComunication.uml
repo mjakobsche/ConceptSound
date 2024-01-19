@@ -1,0 +1,39 @@
+@startuml
+
+node WARSTWA_PREZENTACJI {
+}
+
+node WARSTWA_DOSTĘPU_DO_DANYCH {
+	(StorageWrapper)
+	(PersistencyService)
+	(Indexer)
+}
+
+node WARSTWA_LOGIKI_BIZNESOWEJ {
+	(LibraryService)
+	(TagService)
+	(BookService)
+	(PageService)
+}
+
+(StorageWrapper)-right->(PersistencyService)
+
+(PersistencyService)-up->(LibraryService)
+(PersistencyService)-right->(BookService)
+(PersistencyService)-down->(PageService)
+
+(PersistencyService)<-->(Indexer)
+(LibraryService)<-up-(Indexer)
+(BookService)<-up-(Indexer)
+(PageService)<-up-(Indexer)
+
+(LibraryService) -down-> (TagService)
+(LibraryService) -right-> (BookService)
+(BookService) -right-> (PageService)
+
+(BookService) -down-> WARSTWA_PREZENTACJI
+(LibraryService) -down-> WARSTWA_PREZENTACJI
+(TagService) -down-> WARSTWA_PREZENTACJI
+(PageService) -down-> WARSTWA_PREZENTACJI
+
+@enduml

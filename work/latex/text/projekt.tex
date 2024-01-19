@@ -1,16 +1,14 @@
 \subsection{Architektura aplikacji}
-Jako model architektury aplikacji przyjęto architekturę wartstwową. Pozwala ona odseparować zadania wykonywane przez
-poszczególne komponenty aplikacji, ułatwiając utrzymanie kodu. Jest to osiągane poprzez rozgranizczenie zadań
-realizowanych przez poszczególne warstwy. Architektura wartstwowa charakteryzuje się hierarchicznym układem komponentów,
-co przekłada się na zwiększenie przejrzystości pozwalające na elastyczny rozwój aplikacji.
+Jako model architektury aplikacji przyjęto architekturę warstwową. Pozwala ona odseparować zadania wykonywane przez
+poszczególne komponenty aplikacji, ułatwiając utrzymanie kodu. Jest to osiągane poprzez rozgraniczenie zadań
+realizowanych przez poszczególne warstwy. Architektura warstwowa charakteryzuje się hierarchicznym układem komponentów,
+co przekłada się na zwiększenie przejrzystości kodu.
 W ramach projektu zastosowano trzy warstwy podziału:
 \begin{itemize}
 	\item Warstwa dostępu do danych — odpowiadająca za komunikacje z bazą przy użyciu modelu encji.
 	\item Warstwa logiki biznesowej — obejmująca szczególnie serwisy zarządzania stanem aplikacji.
 	\item Warstwa prezentacji — realizowana przez komponenty Vue.
 \end{itemize}
-
-<diagram architektury>
 
 \subsection{Warstwa dostępu do danych}
 \subsubsection{Modele bazodanowe}
@@ -30,7 +28,7 @@ jako odnoszące się do poziomu drugiego — pojedynczej notatki użytkownika.
 <encja książki i opis pól>
 
 Obie encje implementują prosty interfejs Entity, deklarujący pole id,
-ułatwiając działanie serwisów zarządzających persystencją:
+ułatwiając działanie serwisów zarządzających persystencją.
 
 <interfejs entity>
 
@@ -48,7 +46,7 @@ niezależności operacji na obiektach, zastosowano trzy serwisy:
 	\item StorageWrapper
 
 	      Z uwagi na charakter kluczy i wartości bazy — jako dwóch ciągów znaków — obiekty zapisywane w bazie są
-	      konwertowane do ciągów JSON. StorageWrapper \textit{Opakowuje} bibliotekę Ionic Storage, udostępniając podstawowe
+	      konwertowane do ciągów JSON. StorageWrapper \textit{opakowuje} bibliotekę Ionic Storage, udostępniając podstawowe
 	      metody zarządzania danymi oraz konwertując przetwarzane dane na ciągi znaków JSON i odwrotnie.
 	      Jako jedyny bezpośrednio korzysta z metod oferowanych przez Ionic Storage.
 	\item PersistencyService
@@ -62,20 +60,24 @@ niezależności operacji na obiektach, zastosowano trzy serwisy:
 	      zależności między encjami. Stąd stan początkowy Indexera jest wczytywany z bazy przez PersistencyService
 	      na początku działania aplikacji.
 	      Informacje o zmianach są sygnalizowane przez serwisy zarządzania stanem aplikacji.
-	      Odpowiadając na nie, serwis Indexer zapewnia zgodność tablicy Indexów ze stanem rzeczywistym
-	      \textit{biblioteki} użytkownika. W pewnym stopniu emuluje on możliwości bazy relacyjnej.
+	      Odpowiadając na nie, serwis Indexer zapewnia zgodność tablicy indeksów ze stanem rzeczywistym
+	      biblioteki użytkownika. W pewnym stopniu emuluje on możliwości bazy relacyjnej.
 \end{itemize}
 
-Zależności między opisanymi serwisami obrazuje przedstawiony poniżej diagram:
-
-<diagram persystencji>
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{media/PersistencyLayer.png}
+	\end{center}
+	\caption{Serwisy warstwy dostępu do danych.}
+	\label{rys:persistency-layer}
+\end{figure}
 
 \subsection{Warstwa logiki biznesowej}
 \subsubsection{Serwisy zarządzające stanem aplikacji}
 Warstwę logiki biznesowej stanowią serwisy zarządzania stanem aplikacji.
 Wszystkie opierają się na bibliotece Pinia.
-Umożliwia to funkcjonowanie niezależne od komponentów Vue aplikacji, udostępniając dla nich globalny stan,
-do którego mogą się odwoływać.
+Umożliwia to funkcjonowanie niezależne od komponentów Vue budujących interfejs aplikacji,
+udostępniając dla nich globalny stan, do którego mogą się odwoływać.
 
 Aby rozdzielić zadania tej warstwy, serwisy zostały podzielone według domen:
 \begin{itemize}
@@ -85,30 +87,43 @@ Aby rozdzielić zadania tej warstwy, serwisy zostały podzielone według domen:
 	\item PageService — odpowiada za wprowadzanie zmian w ramach stron wybranej książki.
 \end{itemize}
 
-Poniżej przedstawiono wykaz obiektów definiujących stan poszczególnych serwisów oraz udostępnianych przez nie metod:
-
-<diagram przedstawiający serwisy>
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.9]{media/LogicLayer.png}
+	\end{center}
+	\caption{Serwisy warstwy logiki biznesowej.}
+	\label{rys:logic-layer}
+\end{figure}
 
 Serwisy zarządzania stanem komunikują się z serwisami odpowiadającymi za persystencję danych.
 Umożliwia to odczyt i zapis danych w pamięci trwałej. Odczytane obiekty, dostarczane przez serwisy persystencji,
-są traktowane jako aktualny \textit{stan} danego serwisu.
+są traktowane jako stan danego serwisu w ujęciu globalnym — stąd sumarycznie: stan aplikacji.
 Komponenty Vue mogą korzystać z tych obiektów, modyfikując je za pomocą funkcji udostępnianych przez serwisy.
 Taki rozdział zadań daje możliwość kontroli akcji podejmowanych przez użytkownika, co pozwala uniknąć nieoczekiwanych
 zdarzenień podczas działania aplikacji — mogących doprowadzić do błędów.
 W ramach serwisów obserwowane są zmiany globalnego stanu aplikacji, co pozwala na odzwierciedlenie ich w bazie danych.
-Ten model działania gwarantuje spójność danych między warstwami aplikacji.
-
-<diagram zależności między serwisami a pozostałymi warstwami>
+Ma to miejsce na dwóch płaszczyznach: (1) w przypadku modyfikacji danych obiektu,
+odpowiedzialność przekazywana jest do PersistencyService; (2) w przypadku modyfikacji przynależności obiektu — jako akcji
+tworzenia i usuwania zeszytów oraz stron, persystencja realizowana jest w koordynacji z serwisem Indexer.
+Przyjęty model działania zapewnia w ten sposób spójność danych między warstwami aplikacji.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.5]{media/LayerComunication.png}
+	\end{center}
+	\caption{Diagram przedstawiający komunikację warstwy logiki biznesowej z warstwą dostępu do danycha.}
+	\label{rys:layer-communication}
+\end{figure}
 
 \subsection{Warstwa prezentacji}
 \subsubsection{Projekt interfejsu}
 Współgrając z dwupoziomową strukturą modelu danych, projekt interfejsu obejmuje dwa widoki: widok biblioteki oraz widok zeszytu.
-Są one wspierane przez komponenty główne w postaci modali oraz menu, rozszerzających funkcjonalności aplikacji.
-Czerpiąc inspirację ze współczesnych, popularnych koncepcji projektowania interfejsów opartych o moduły, wizualizacja
-tworzonych przez użytkownika notatek realizowana jest przez komponenty \enquote{kart}. Dotyczy to zeszytów oraz stron.
-Podobne rozwiązania stosowane są m.in. widocznych w przytoczonych w części teoretycznej aplikacjach jak Notion.
-Poszczególne moduły są od siebie oddzielone. Charakteryzują się przyjaznym kształtem oraz szczególnie dobrze sprawdzają
-się enkapsulując zawartość niewielkich rozmiarów. Stanowią one kluczowe elementy widoków aplikacji.
+Są one wspierane przez komponenty główne w postaci oferowanych przez framework Ionic modali oraz menu,
+rozszerzających funkcjonalności aplikacji. Czerpiąc inspirację ze współczesnych, popularnych koncepcji projektowania interfejsów
+opartych o modułowość, wizualizacja tworzonych przez użytkownika notatek realizowana jest przez komponenty
+kart (tu: oferowanych przez framework Ionic). Podobne rozwiązania stosowane są widoczne w przytoczonych w części teoretycznej
+aplikacjach — m.in. Notion. Karty szczególnie dobrze sprawdzają się enkapsulując zawartość niewielkich rozmiarów.
+Ich zastosowanie wizualnie oddziela od siebie poszczególne moduły. Z tych powodów przyjęto je jako kluczowe elementy
+kompozycji aplikacji — nadające kształt zeszytom oraz stronom.
 
 Do edycji składu lub zawartości modułów reprezentowanych przez karty wykorzystano komponenty wysuwanych od dołu ekranu modali.
 Pozwalają one śledzić proces edycji na bieżąco — zajmując jedynie część ekranu, nie przysłaniają edytowanych kart.
@@ -119,16 +134,12 @@ nie odnosi się do innych elementów kolekcji, dlatego może być w ten sposób 
 <diagram przedstawiający drzewo komponentów>
 
 \subsubsection{Implementacja widoków i komponentów głównych}
-Widok biblioteki umożliwia wizualizację kolekcji zeszytów użytkownika. Zgodnie z wcześniej opisanymi założeniami zeszyty
-reprezentowane są przez karty. Znajdują się na nich tytuł, data modyfikacji oraz tagi zeszytu.
-Jeżeli użytkownik doda do zeszytu okładkę, ułatwiającą identyfikację zeszytu w kolekcji,
-jest ona również wyświetlana w tym widoku. Widok biblioteki umożliwia podstawowo trzy akcje:
-\begin{itemize}
-	\item Dodawanie zeszytów, realizowane przez przycisk w dolnym rogu ekranu.
-	\item Usuwanie zeszytów, po kliknięciu ikony usunięcia na określonej karcie.
-	\item Otwieranie zeszytów — przejście do widoku zeszytu, po kliknięciu dowolnego miejsca karty; symbol strzałki
-	      ma jedynie znaczenie ideowe.
-\end{itemize}
+Widok biblioteki umożliwia wizualizację kolekcji zeszytów użytkownika. Na kartach przedstawiających zeszyty widoczny jest tytuł,
+data modyfikacji oraz przypisane tagi. Jeżeli użytkownik doda do zeszytu okładkę, ułatwiającą identyfikację zeszytu w kolekcji — zostanie
+tu wyświetlona. Widok biblioteki umożliwia podstawowo trzy akcje: (1) Dodawanie zeszytów, realizowane przez przycisk w dolnym rogu ekranu;
+(2) Usuwanie zeszytów, po kliknięciu ikony usunięcia na określonej karcie;
+(3) Otwieranie zeszytów — przejście do widoku zeszytu, po kliknięciu dowolnego miejsca karty (symbol strzałki
+ma jedynie znaczenie ideowe).
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/LibraryView.jpg}
@@ -138,8 +149,7 @@ jest ona również wyświetlana w tym widoku. Widok biblioteki umożliwia podsta
 \end{figure}
 
 Możliwość filtracji zeszytów realizowana jest przez modal, otwierany po kliknięciu górnego paska widoku biblioteki.
-Użytkownik może przeszukiwać kolekcje po tytułach zeszytów oraz po słowach kluczowych.
-Wyszukiwanie po tytule jest case-insensitive.
+Użytkownik może szukać zeszytów po ich tytułach oraz po słowach kluczowych. Wyszukiwanie po tytule jest case-insensitive.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/FilterModal.jpg}
@@ -148,7 +158,7 @@ Wyszukiwanie po tytule jest case-insensitive.
 	\label{rys:filter-modal}
 \end{figure}
 
-Widok zeszytu umożliwia wizualizację zawartości wybranego zeszytu. Przycisk w rogu ekranu pozwala dodać stronę do zeszytu.
+Widok zeszytu umożliwia wizualizację jego zawartości. Przycisk w rogu ekranu pozwala dodać stronę do zeszytu.
 Po dodaniu jest ona reprezentowana przez komponent karty. Zawartość strony może zostać ukryta,
 przy użyciu przycisku z symbolem oka. Przytrzymanie przycisku powoduje trwałe usunięcie strony, sygnalizowane wibracją urządzenia.
 Strona zawiera także przycisk umożliwiający jej przemieszczenie względem pozostałych stron. W tym miejscu wyświetla się także nazwa
@@ -162,7 +172,7 @@ strony, jeżeli została nadana przez użytkownika.
 \end{figure}
 
 Możliwość edycji strony realizowana jest przez modal, otwierany po kliknięciu ikony plusa. Zawartość modalu zależy od
-typu edytowanej strony, umożliwiając stosowny interfejs edycji zawartości. Każdej stronie można tu również przypisać nazwę.
+typu edytowanej strony, zawierając stosowny interfejs edycji zawartości. Każdej stronie można tu również przypisać nazwę.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/EditorModal.jpg}
@@ -184,10 +194,10 @@ do zeszytu. Można w tym miejscu również zmienić tytuł zeszytu.
 
 \subsubsection{Implementacja funkcjonalności wspierających aranżację}
 Przedstawione wcześniej komponenty stanowią \enquote{środowisko}, które umożliwiaja implementację konkretnych funkcjonalności
-wspierających proces aranżacji muzycznej. Realizowane są one przez podział stron na cztery zdefiniowane typy.
+wspierających proces aranżacji muzycznej. Realizowane są one przez podział stron na cztery — zdefiniowane w wymaganiach aplikacji — typy.
 Charakteryzują się one odmiennym rodzajem wizualizacji oraz zróżnicowanym procesem edycji. Aby to umożliwić, komponenty główne
 dopasowują dynamicznie komponenty odpowiadające za wizualizację i edycję stron w zależności od ich typu.
-Dynamiczne dopasowanie jest realizowane dzięki zastosowaniu \textit{component-is} oferowanego przez Vue.
+Dynamiczne dopasowanie jest realizowane dzięki zastosowaniu component-is oferowanego przez Vue.
 
 Komponenty wizualizacji i edycji tekstu obsługują notatki tekstowe, umożliwiając dodawanie subtelnych (jako: nieodwracających uwagi)
 komentarzy. Podczas edycji użytkownik zapisuje notatkę w polu tekstowym. Linijka tekstu poprzedzona symbolem \enquote{@} traktowana jest
@@ -202,11 +212,12 @@ Komentarz wyświetlany jest przy prawej krawędzi strony, mniej wyrazistą czcio
 \end{figure}
 
 Wizualizacja zapisu nutowego realizowana jest przy użyciu biblioteki ABC.js. W ramach komponentu umożliwiającego edycję
-użytkownik znów zapisuje notatkę w polu tekstowym, lecz jest ona renderowana jako zapis nutowy w komponencie strony. Pomocna jest tu forma komponentu modala,
+użytkownik znów zapisuje notatkę w polu tekstowym, lecz jest ona renderowana jako zapis nutowy w komponencie strony.
+Pomocna jest tu forma komponentu modala,
 jako umożliwiającego śledzenie zmian zapisu nutowego podczas jego edycji. Z uwagi na przystępną zasadę działania biblioteki
-ABC.js — za sprawą stosowania nazw literowych do określania nut, nie jest wymagane stosowanie edytorów.
-Każda taka strona domyślnie inicjalizowana jest wartościami renderującymi kluczowe elementy notacji muzycznej.
-Jednocześnie należy zwrócić uwagę, że użytkownik potrzebujący szerszych możliwości edytora nutowego, powinien zaznajomić
+ABC.js — za sprawą stosowania nazw literowych do określania nut, implementacja edytorów nut nie jest wymagana.
+Każda strona o tym typie jest domyślnie inicjalizowana wartościami renderującymi kluczowe elementy notacji muzycznej.
+Jednocześnie należy zwrócić uwagę, iż użytkownik potrzebujący szerszych możliwości edytora nutowego, powinien zaznajomić
 się z dodatkowymi funkcjami oferowanymi przez ABC.js.
 \begin{figure}[H]
 	\begin{center}
@@ -218,8 +229,8 @@ się z dodatkowymi funkcjami oferowanymi przez ABC.js.
 
 Komponent edycji notatek dźwiękowych wykorzystuje do działania wtyczkę capacitor-voice-recorder. Pozwala ona nagrać
 dźwięk, korzystając z mikrofonu urządzenia. Po nagraniu użytkonik może ponownie edytować zawartość strony, zastępując
-wcześniejszy zapis dźwiękowy nowym nagraniem. Wizualizacja fali dźwiękowej, realizowana przez bibliotekę Wavesurfer.js,
-umożliwia orientację w jej przebiegu oraz odtworzenie nagrania od wybranego momentu.
+wcześniejszy zapis dźwiękowy nowym nagraniem. Wizualizacja fali dźwiękowej, realizowana przez bibliotekę Wavesurfer.js.
+Umożliwia orientację w jej przebiegu oraz odtworzenie nagrania od wybranego momentu.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/AudioPage.jpg}
@@ -228,9 +239,9 @@ umożliwia orientację w jej przebiegu oraz odtworzenie nagrania od wybranego mo
 	\label{rys:audio-page}
 \end{figure}
 
-Możliwość dołączenia zdjęcia jako notatki realizowana jest przy zastosowaniu wtyczki capacitor-file-picket,
+Możliwość użycia zdjęcia jako notatki realizowana jest przez wtyczkę capacitor-file-picker,
 pozwalającej wybrać plik (tu: zdjęcie) z pamięci urządzenia. Wybrane zdjęcie jest wyświetlane jako zawartość strony.
-Edycja strony polega na możliwości zmiany wybranego zdjęcia na inne.
+Edycja strony polega na możliwości zmiany wybranego zdjęcia.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.2]{media/PhotoPage.jpg}
@@ -240,6 +251,3 @@ Edycja strony polega na możliwości zmiany wybranego zdjęcia na inne.
 \end{figure}
 
 \subsection{Testowanie aplikacji}
-
-opisać implementacje
-drzewo komponentów

@@ -854,78 +854,102 @@ Package biblatex Info: Reference segment=0 on input line 40.
 \tf@toc=\write5
 
 \openout5 = main.toc
- [2] [3] [4] [5] [6] (./text/studium.tex [7] [8] [9] [10] [11] [12] [13]) [14] (./text/zalozenia.tex [15] [16] [17] [18]) [19] (./text/projekt.tex [20] [21] [22] [23]
-<media/LibraryView.jpg, id=304, 813.0375pt x 1761.58125pt>
+ [2] [3] [4] [5] [6] (./text/studium.tex [7] [8] [9] [10] [11] [12] [13]) [14] (./text/zalozenia.tex [15] [16] [17] [18]) [19] (./text/projekt.tex [20] [21]
+<media/PersistencyLayer.png, id=296, 423.5825pt x 163.61125pt>
+File: media/PersistencyLayer.png Graphic file (type png)
+<use media/PersistencyLayer.png>
+Package luatex.def Info: media/PersistencyLayer.png  used on input line 69.
+(luatex.def)             Requested size: 381.22073pt x 147.24875pt.
+<media/LogicLayer.png, id=297, 378.41376pt x 310.15875pt>
+File: media/LogicLayer.png Graphic file (type png)
+<use media/LogicLayer.png>
+Package luatex.def Info: media/LogicLayer.png  used on input line 92.
+(luatex.def)             Requested size: 340.56923pt x 279.14029pt.
+ [22
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.1'
+<./media/PersistencyLayer.png>]
+<media/LayerComunication.png, id=303, 598.235pt x 516.93124pt>
+File: media/LayerComunication.png Graphic file (type png)
+<use media/LayerComunication.png>
+Package luatex.def Info: media/LayerComunication.png  used on input line 111.
+(luatex.def)             Requested size: 299.11676pt x 258.46498pt.
+ [23
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.2'
+<./media/LogicLayer.png>] [24
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.3'
+<./media/LayerComunication.png>]
+<media/LibraryView.jpg, id=314, 813.0375pt x 1761.58125pt>
 File: media/LibraryView.jpg Graphic file (type jpg)
 <use media/LibraryView.jpg>
-Package luatex.def Info: media/LibraryView.jpg  used on input line 134.
+Package luatex.def Info: media/LibraryView.jpg  used on input line 145.
 (luatex.def)             Requested size: 162.60461pt x 352.31001pt.
-<media/FilterModal.jpg, id=305, 813.0375pt x 1761.58125pt>
+ [25]
+<media/FilterModal.jpg, id=319, 813.0375pt x 1761.58125pt>
 File: media/FilterModal.jpg Graphic file (type jpg)
 <use media/FilterModal.jpg>
-Package luatex.def Info: media/FilterModal.jpg  used on input line 145.
-(luatex.def)             Requested size: 162.60461pt x 352.31001pt.
- [24
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.1'
-<./media/LibraryView.jpg>]
-<media/BookView.jpg, id=311, 1084.05pt x 2348.775pt>
-File: media/BookView.jpg Graphic file (type jpg)
-<use media/BookView.jpg>
-Package luatex.def Info: media/BookView.jpg  used on input line 158.
-(luatex.def)             Requested size: 216.80615pt x 469.74669pt.
- [25
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.2'
-<./media/FilterModal.jpg>]
-<media/EditorModal.jpg, id=317, 813.0375pt x 1761.58125pt>
-File: media/EditorModal.jpg Graphic file (type jpg)
-<use media/EditorModal.jpg>
-Package luatex.def Info: media/EditorModal.jpg  used on input line 168.
+Package luatex.def Info: media/FilterModal.jpg  used on input line 155.
 (luatex.def)             Requested size: 162.60461pt x 352.31001pt.
  [26
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.3'
-<./media/BookView.jpg>]
-<media/BookMenu.jpg, id=323, 813.0375pt x 1761.58125pt>
-File: media/BookMenu.jpg Graphic file (type jpg)
-<use media/BookMenu.jpg>
-Package luatex.def Info: media/BookMenu.jpg  used on input line 179.
-(luatex.def)             Requested size: 162.60461pt x 352.31001pt.
- [27
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.4'
-<./media/EditorModal.jpg>]
-<media/TextPage.jpg, id=329, 813.0375pt x 1761.58125pt>
-File: media/TextPage.jpg Graphic file (type jpg)
-<use media/TextPage.jpg>
-Package luatex.def Info: media/TextPage.jpg  used on input line 198.
+<./media/LibraryView.jpg>]
+<media/BookView.jpg, id=325, 1084.05pt x 2348.775pt>
+File: media/BookView.jpg Graphic file (type jpg)
+<use media/BookView.jpg>
+Package luatex.def Info: media/BookView.jpg  used on input line 168.
+(luatex.def)             Requested size: 216.80615pt x 469.74669pt.
+ [27
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.5'
+<./media/FilterModal.jpg>]
+<media/EditorModal.jpg, id=331, 813.0375pt x 1761.58125pt>
+File: media/EditorModal.jpg Graphic file (type jpg)
+<use media/EditorModal.jpg>
+Package luatex.def Info: media/EditorModal.jpg  used on input line 178.
 (luatex.def)             Requested size: 162.60461pt x 352.31001pt.
  [28
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.5'
-<./media/BookMenu.jpg>]
-<media/ScorePage.jpg, id=335, 813.0375pt x 1761.58125pt>
-File: media/ScorePage.jpg Graphic file (type jpg)
-<use media/ScorePage.jpg>
-Package luatex.def Info: media/ScorePage.jpg  used on input line 213.
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.6'
+<./media/BookView.jpg>]
+<media/BookMenu.jpg, id=337, 813.0375pt x 1761.58125pt>
+File: media/BookMenu.jpg Graphic file (type jpg)
+<use media/BookMenu.jpg>
+Package luatex.def Info: media/BookMenu.jpg  used on input line 189.
 (luatex.def)             Requested size: 162.60461pt x 352.31001pt.
  [29
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.6'
-<./media/TextPage.jpg>]
-<media/AudioPage.jpg, id=341, 813.0375pt x 1761.58125pt>
-File: media/AudioPage.jpg Graphic file (type jpg)
-<use media/AudioPage.jpg>
-Package luatex.def Info: media/AudioPage.jpg  used on input line 225.
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.7'
+<./media/EditorModal.jpg>]
+<media/TextPage.jpg, id=343, 813.0375pt x 1761.58125pt>
+File: media/TextPage.jpg Graphic file (type jpg)
+<use media/TextPage.jpg>
+Package luatex.def Info: media/TextPage.jpg  used on input line 208.
 (luatex.def)             Requested size: 162.60461pt x 352.31001pt.
  [30
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.7'
-<./media/ScorePage.jpg>]
-<media/PhotoPage.jpg, id=347, 813.0375pt x 1761.58125pt>
-File: media/PhotoPage.jpg Graphic file (type jpg)
-<use media/PhotoPage.jpg>
-Package luatex.def Info: media/PhotoPage.jpg  used on input line 236.
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.8'
+<./media/BookMenu.jpg>]
+<media/ScorePage.jpg, id=349, 813.0375pt x 1761.58125pt>
+File: media/ScorePage.jpg Graphic file (type jpg)
+<use media/ScorePage.jpg>
+Package luatex.def Info: media/ScorePage.jpg  used on input line 224.
 (luatex.def)             Requested size: 162.60461pt x 352.31001pt.
  [31
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.8'
-<./media/AudioPage.jpg>]) [32
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.9'
-<./media/PhotoPage.jpg>] [33] (./main.lof)
+<./media/TextPage.jpg>]
+<media/AudioPage.jpg, id=356, 813.0375pt x 1761.58125pt>
+File: media/AudioPage.jpg Graphic file (type jpg)
+<use media/AudioPage.jpg>
+Package luatex.def Info: media/AudioPage.jpg  used on input line 236.
+(luatex.def)             Requested size: 162.60461pt x 352.31001pt.
+ [32
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.10'
+<./media/ScorePage.jpg>]
+<media/PhotoPage.jpg, id=362, 813.0375pt x 1761.58125pt>
+File: media/PhotoPage.jpg Graphic file (type jpg)
+<use media/PhotoPage.jpg>
+Package luatex.def Info: media/PhotoPage.jpg  used on input line 247.
+(luatex.def)             Requested size: 162.60461pt x 352.31001pt.
+ [33
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.11'
+<./media/AudioPage.jpg>]) [34
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.12'
+<./media/PhotoPage.jpg>] [35] (./main.lof)
 \tf@lof=\write6
 
 \openout6 = main.lof
@@ -933,7 +957,7 @@ warning  (pdf backend): ignoring duplicate destination with the name 'figure.9'
 \tf@lot=\write7
 
 \openout7 = main.lot
- [34] (./main.aux)
+ [36] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 370FF7C2F5AE5DE50AA2B8CE31C1E3B3;7781.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -942,19 +966,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 22714 strings out of 478290
+ 22758 strings out of 478290
  125081,1977958 words of node,token memory allocated
- 599 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 10 attribute, 67 glue_spec, 7 attribute_list, 1 write nodes
-   avail lists: 1:2,2:755,3:360,4:247,5:289,6:95,7:5228,8:77,9:460,10:8,11:669
- 42039 multiletter control sequences out of 65536+600000
+ 611 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 12 attribute, 67 glue_spec, 8 attribute_list, 1 write, 1 pdf_action nodes
+   avail lists: 1:2,2:752,3:360,4:247,5:288,6:94,7:4975,8:77,9:460,10:13,11:630
+ 42060 multiletter control sequences out of 65536+600000
  46 fonts using 5236487 bytes
  72i,8n,79p,737b,2022s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Italic.ttf></nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman.ttf></nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Bold.ttf>
-Output written on main.pdf (34 pages, 1385312 bytes).
+Output written on main.pdf (36 pages, 1465263 bytes).
 
-PDF statistics: 406 PDF objects out of 1000 (max. 8388607)
- 348 compressed objects within 4 object streams
- 85 named destinations out of 1000 (max. 131072)
+PDF statistics: 424 PDF objects out of 1000 (max. 8388607)
+ 361 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 131072)
  313 words of extra memory for PDF output out of 10000 (max. 100000000)
 

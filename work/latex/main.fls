@@ -339,6 +339,15 @@ INPUT ./text/zalozenia.tex
 INPUT ./text/zalozenia.tex
 INPUT ./text/projekt.tex
 INPUT ./text/projekt.tex
+INPUT ./media/PersistencyLayer.png
+INPUT ./media/PersistencyLayer.png
+INPUT ./media/PersistencyLayer.png
+INPUT ./media/LogicLayer.png
+INPUT ./media/LogicLayer.png
+INPUT ./media/LogicLayer.png
+INPUT ./media/LayerComunication.png
+INPUT ./media/LayerComunication.png
+INPUT ./media/LayerComunication.png
 INPUT ./media/LibraryView.jpg
 INPUT ./media/LibraryView.jpg
 INPUT ./media/LibraryView.jpg
