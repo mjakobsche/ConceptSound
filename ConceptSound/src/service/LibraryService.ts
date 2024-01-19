@@ -1,47 +1,38 @@
+import {defineStore} from "pinia";
+import {ref, Ref} from "vue";
 import {Book} from "@/model/Book";
-import {Cover} from "@/model/Cover";
-import {computed, ComputedRef,} from "vue";
-import inMemoryData from "@/data/InMemoryData";
-import {setBook} from "./BookService"
+import {removeEntity, retrieveEntities, saveEntity} from "@/database/PersistencyService";
+import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
+import {bookIndexes, initIndexer, updateBooks} from "@/database/Indexer";
 
-const data = inMemoryData;
+export const useLibraryService = defineStore('libraryService', () => {
+    const library: Ref<Book[]> = ref([]);
 
-const library: ComputedRef<Cover[]> = computed(() => {
-    const covers: Cover[] = [];
-    data.value.forEach((book) => {
-        covers.push(book.cover);
-    });
-    return covers;
-});
-
-function addBook(title: string) {
-    const book: Book = {
-        cover: {id: selectMaxId() + 1, title: title, date: new Date()},
-        pages: [],
-    };
-    data.value.push(book);
-}
-
-function remBook(id: number) {
-    data.value = data.value.filter((b) => b != selectBookById(id));
-    const maxId = selectMaxId();
-    if (maxId > 1) {
-        data.value[maxId].cover.id = id;
+    function initLibrary() {
+        initIndexer().then(() => {
+            retrieveEntities(bookIndexes.value).then((books) => {
+                library.value = books;
+            })
+        });
     }
-}
 
-function openBook(id: number) {
-    setBook(selectBookById(id));
-}
+    async function addBook(title: string) {
+        const book: Book = new Book(title);
+        await saveEntity(book);
+        putToArray(library.value, book);
+        await updateBooks();
+    }
 
-function selectBookById(id: number): Book {
-    const books: Book[] = data.value.filter((b) => b.cover.id == id);
-    if (books.length != 1) throw "explicit book not found";
-    return books[0];
-}
+    async function moveToTop(book: Book) {
+        putToArray(library.value, ripFromArray(library.value, book))
+        await updateBooks();
+    }
 
-function selectMaxId(): number {
-    return library.value.length - 1;
-}
+    async function removeBook(book: Book) {
+        ripFromArray(library.value, book);
+        await updateBooks();
+        await removeEntity(book);
+    }
 
-export {library, addBook, remBook, openBook};
+    return {library, initLibrary, addBook, moveToTop, removeBook}
+})

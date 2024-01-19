@@ -1,0 +1,26 @@
+@startuml
+allowmixing
+
+object Entity {
+	+id: string
+}
+
+object Book{
+    +id: string
+    +title: string
+    +tags: string[]
+    +cover: string
+    +modificationDate: Date
+}
+
+object Page{
+    +id: string
+    +type: string
+    +name: string
+    +content: string
+    +isVisible: boolean
+}
+
+Entity --> Book
+Entity --> Page
+@enduml

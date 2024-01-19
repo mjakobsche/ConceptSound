@@ -1,0 +1,16 @@
+{"rule":"WACHLARZ_CZEGO","sentence":"^\\Q2013 - Notion: Znaczącą innowację przynosi Notion, oferując niespotykanie szeroki wachlarz możliwości.\\E$"}
+{"rule":"W_SLAD_ZA","sentence":"^\\QW ślad za nim podąża Logseq, oprogramowanie Open-Source, które opiera się grafy i listy punktowane.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QDAW stały się kluczowym narzędziem w przemyśle muzycznym.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QJest to już jednak przede wszystkim DAW, umożliwiający w zasadzie już produkcję muzyki i nie oferuje narzędzi wspierających wczesnych, konceptualnych faz rozwoju utworu.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QProgramy DAW wciąż stanowią kluczowy element przemysłu muzycznego.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QProgramy DAW wciąż stanowią podstawowe narzędzie współczesnych muzyków.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QJest to w zasadzie pełne DAW, pozwalające\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QJest to w zasadzie pełne DAW, pozwalające na tworzenie muzyki przy użyciu smartfona.\\E$"}
+{"rule":"W_OPARCIU","sentence":"^\\QCharakteryzuje się większą prostotą od Notion, gdyż działa w oparciu o pliki markdown, jednak użytkownik może go dowolnie dostosować do swych potrzeb m.in. za sprawą wtyczek.\\E$"}
+{"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QSortableJs — dla umożliwienia wygodnej organizacji przestrzennej Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej ABCjs — renderujący notację nutową na podstawie tekstu\\E$"}
+{"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QSortableJs — dla umożliwienia wygodnej organizacji przestrzennej, Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej, ABCjs — renderujący notację nutową na podstawie tekstu.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QIonic CLI ułatwia tworzenie, testowanie i wdrażanie aplikacji mobilnych na różne platformy, z jednym kodem źródłowym.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QIonic CLI ułatwia tworzenie, testowanie i wdrażanie aplikacji mobilnych na różne platformy, na podstawie jednego, wspólnego kodu źródłowego.\\E$"}
+{"rule":"SKROTOWCE_BEZ_DYWIZU","sentence":"^\\QBiblioteki JavaScript do obsługi notatek: SortableJs — dla umożliwienia wygodnej organizacji przestrzennej, Wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej, ABCjs — renderujący notację nutową na podstawie tekstu.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q.\\E$"}
+{"rule":"PREP_CASUS","sentence":"^\\QAlgorytm Continous Delivery realizowany przez Buddy CI/CD.\\E$"}

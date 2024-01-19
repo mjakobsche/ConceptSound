@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+
+\usepackage[polish]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2cm]{geometry}
+\usepackage{indentfirst}
+% Useful packages
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setlength{\parindent}{1.25cm}
+\linespread{1.5}
+\setlength{\parskip}{6pt}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+\hypersetup{linkcolor=black}
+\usepackage[all]{hypcap}
+\addto\captionspolish{\renewcommand{\figurename}{Rys.}}
+\addto\captionspolish{\renewcommand{\tablename}{Tab.}}
+\renewcommand{\tableautorefname}{Tab.} % PS
+\renewcommand{\figureautorefname}{Rys.} % PS
+\renewcommand{\listfigurename}{Spis rysunków}
+\renewcommand{\listtablename}{Spis tabel}
+
+\input{commands}
+
+\begin{document}
+
+\newpage
+\clearpage
+\tableofcontents
+
+\newpage
+\addcontentsline{toc}{section}{Wstęp}
+\section*{Wstęp}
+\input{sections/introduction}
+\newpage
+
+\addcontentsline{toc}{section}{Cel i zakres pracy}
+\section*{Cel i zakres pracy}
+\input{sections/target}
+\newpage
+
+\input{sections/contentagregator}
+\newpage
+
+\addcontentsline{toc}{section}{Bibliografia}
+\input{sections/bibiography}
+\newpage
+
+\addcontentsline{toc}{section}{Spis rysunków}
+\input{sections/imagelist}
+\newpage
+
+\addcontentsline{toc}{section}{Spis tabel}
+\input{sections/tablelist}
+\newpage
+
+\addcontentsline{toc}{section}{A. Załączniki}
+\section*{A. Załączniki}
+\input{sections/attachments}
+\end{document}

@@ -1,0 +1,15 @@
+- pipeline: "Test"
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/main"
+  fail_on_prepare_env_warning: true
+  actions:
+  - action: "npm run test"
+    type: "BUILD"
+    docker_image_name: "library/node"
+    docker_image_tag: "20"
+    execute_commands:
+    - "cd ConceptSound && npm install"
+    - "npm run test"
+    shell: "BASH"

@@ -1,0 +1,10 @@
+env:
+  node: true
+extends:
+  - standard-with-typescript
+  - plugin:vue/vue3-essential
+parserOptions:
+  ecmaVersion: 2020
+plugins:
+  - vue
+rules: {}

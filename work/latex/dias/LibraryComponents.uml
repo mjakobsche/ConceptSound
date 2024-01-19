@@ -1,0 +1,13 @@
+@startuml
+node CommonComponents {
+	[AddAlert]
+	[CenteringGrid]
+	[FloatingButton]
+	[InlineElements]
+	[Modal]
+	[HashtagChips]
+}
+
+[LibraryView] -right-> CommonComponents
+[LibraryView] --> [BookCard]
+@enduml

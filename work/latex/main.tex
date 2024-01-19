@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+
+\usepackage[polish]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=3cm,right=2cm]{geometry}
+\usepackage{indentfirst}
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setlength{\parindent}{1.25cm}
+\linespread{1.5}
+\setlength{\parskip}{6pt}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
+\hypersetup{linkcolor=black}
+\usepackage[all]{hypcap}
+\addto\captionspolish{\renewcommand{\figurename}{Rys.}}
+\addto\captionspolish{\renewcommand{\tablename}{Tab.}}
+\renewcommand{\tableautorefname}{Tab.}
+\renewcommand{\figureautorefname}{Rys.}
+\renewcommand{\listfigurename}{Spis rysunków}
+\renewcommand{\listtablename}{Spis tabel}
+\newcommand{\image}[3][16cm]{
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#1]{media/#2}
+        \caption{#3}
+        \label{fig:2}
+    \end{figure}
+}
+
+\usepackage{secdot}
+\sectiondot{subsection}
+\sectiondot{subsubsection}
+
+\begin{document}
+
+\newpage
+\clearpage
+\tableofcontents
+
+\newpage
+\addcontentsline{toc}{section}{Słownik pojęć}
+\section*{Słownik pojęć}
+Celem przybliżenia konceptualnego projektu aplikacji, wykorzystano szereg pojęć, odnoszących się do poszczególnych jej
+elementów (w nawiasach umieszczone angielskie odpowiedniki użyte w kodzie aplikacji):
+\begin{itemize}
+	\item \textit{strona} (Page) — pojedyncza notatka w ramach zbioru
+	\item \textit{zeszyt} (Book) — zbiór notatek dotyczących jednego utworu, od \enquote{zeszytu do nut} (eng. \enquote{Music Book})
+	\item \textit{biblioteka} (Library) — kolekcja zbiorów notatek użytkownika
+\end{itemize}
+
+\newpage
+\addcontentsline{toc}{section}{Wstęp}
+\section*{Wstęp}
+…
+
+\newpage
+\addcontentsline{toc}{section}{Cel pracy}
+\section*{Cel pracy}
+Celem pracy jest stworzenie aplikacji mobilnej, która umożliwi zapis i organizację koncepcji utworów muzycznych podczas procesu aranżacji.
+W założeniach jako narzędzie mobilne, proste i oferujące użytkownikowi dowolność w wyborze sposobu notacji muzycznej utworu.
+Jego zadaniem jest \enquote{cyfrowa emulacja zeszytu do nut} jako rodzaju muzycznego notesu, rozszerzając jego możliwości: nie
+ograniczając się jedynie do zapisu nutowego oraz tekstowego, lecz wykorzystując również multimedia — jako nośniki informacji o dźwięku.
+Unikatowość projektu opiera się o ukierunkowanie funkcjonalności aplikacji na procesy pomijane przez współczesne oprogramowanie
+wspierające pracę muzyków.
+
+\newpage
+\addcontentsline{toc}{section}{Zakres pracy}
+\section*{Zakres pracy}
+…
+
+\newpage
+\section{Studium w zakresie problematyki procesu aranżacji muzycznej}
+\input{text/studium.tex}
+
+\newpage
+\section{Założenia projektowe}
+\input{text/zalozenia.tex}
+
+\newpage
+\addcontentsline{toc}{section}{Część praktyczna}
+\section*{Część praktyczna}
+%architektura, CI/CD
+\section{Projekt aplikacji wspomagającej aranżacje muzyczne}
+\input{text/projekt.tex}
+
+\newpage
+\section{Analiza otrzymanych wyników i wnioski}
+
+\newpage
+\addcontentsline{toc}{section}{Bibliografia}
+\printbibliography
+
+\addcontentsline{toc}{section}{Spis rysunków}
+\listoffigures
+
+\addcontentsline{toc}{section}{Spis tabel}
+\listoftables
+
+\end{document}

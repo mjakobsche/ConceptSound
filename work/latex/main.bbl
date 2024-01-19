@@ -1,0 +1,57 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{minimalism}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=66f6c494ecf41750a84f46ce88d205dd}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yiwen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=1ced2e596745819d327151f61f410bce}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Kun},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Atlantis Press}%
+      }
+      \strng{namehash}{502fe34a7475d6e02ea3c1e596133eac}
+      \strng{fullhash}{502fe34a7475d6e02ea3c1e596133eac}
+      \strng{bibnamehash}{502fe34a7475d6e02ea3c1e596133eac}
+      \strng{authorbibnamehash}{502fe34a7475d6e02ea3c1e596133eac}
+      \strng{authornamehash}{502fe34a7475d6e02ea3c1e596133eac}
+      \strng{authorfullhash}{502fe34a7475d6e02ea3c1e596133eac}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 International Conference on Science Education and Art Appreciation (SEAA 2022)}
+      \field{title}{Research on Minimalism in Interface Design Based on Gestalt Psychology}
+      \field{year}{2022}
+      \field{pages}{825\bibrangedash 837}
+      \range{pages}{13}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

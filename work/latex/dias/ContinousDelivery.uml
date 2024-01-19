@@ -1,0 +1,12 @@
+@startuml
+start
+:Przygotowanie systemu;
+:Wykonanie akcji Ionic build;
+:Przypisanie deklaracji wymaganych uprawnień aplikcji;
+:Ustawienie nazwy aplikacji;
+:Wygenerowanie pliku .apk przy użyciu gradle;
+:Umieszczenie pliku .apk w lokalizacji root projektu;
+:Podpisanie aplikacji;
+:Wykonanie akcji push na repozytorium projektu;
+end
+@enduml

@@ -1,64 +1,76 @@
+import {defineStore} from "pinia";
+import {ref, Ref} from "vue";
 import {Book} from "@/model/Book";
-import {ref, Ref, watch} from "vue";
+import {removeEntity, retrieveEntities, saveEntity} from "@/database/PersistencyService";
+import {putToArray, ripFromArray} from "@/utils/ArrayHelper";
 import {Page} from "@/model/Page";
-import inMemoryData from "@/data/InMemoryData";
+import {DeepWatcher} from "@/helpers/DeepWatcher";
+import {usePageService} from "@/service/PageService";
+import {pageIndexes, updatePages} from "@/database/Indexer";
 
-const data = inMemoryData;
-const book: Ref<Book> = ref(data.value[0]);
+export const useBookService = defineStore('bookService', () => {
+    const pageService = usePageService();
+    const book: Ref<Book> = ref(new Book(""));
+    const pages: Ref<Page[]> = ref([]);
+    const bookWatcher: DeepWatcher = new DeepWatcher();
 
-function setBook(newBook: Book) {
-    book.value = newBook;
-    watch(book.value.pages, () => {
-        update(book.value);
-    });
-}
-
-function addPage(type: string) {
-    const bookIndex = book.value.pages.length;
-    let initData = "";
-    if (type == "Score") {
-        initData = "X:1\nK:C\n|";
+    function initBook(bookToInit: Book) {
+        bookWatcher.destroyWatcher();
+        book.value = bookToInit;
+        book.value.modificationDate = new Date();
+        retrieveEntities(pageIndexes.value).then((retrievedPages: Page[]) => {
+            pages.value = retrievedPages
+            bookWatcher.createWatcher(book, () => saveEntity(book.value))
+        });
     }
 
-    book.value.pages.push({
-        id: bookIndex,
-        type: type,
-        name: type,
-        data: initData,
-        hidden: false,
-    });
-}
-
-function hidePage(id: number) {
-    const page = book.value.pages.find((t) => t.id == id);
-    if (page != undefined) {
-        page.hidden = !page.hidden;
+    async function addPage(type: string) {
+        const page: Page = new Page(type);
+        await saveEntity(page);
+        putToArray(pages.value, page);
+        await updatePages();
+        pageService.editPage(page)
     }
-}
 
-function remPage(id: number) {
-    const page = book.value.pages.find((t) => t.id == id);
-    if (page != undefined) {
-        book.value.pages.splice(book.value.pages.indexOf(page), 1);
+    async function removePage(page: Page) {
+        ripFromArray(pages.value, page)
+        await updatePages();
+        await removeEntity(page);
     }
-}
 
-function swapPage(from = 0, to = 0) {
-    const page = book.value.pages.splice(from, 1)[0];
-    book.value.pages.splice(to, 0, page);
-}
+    async function swapPage(from = 0, to = 0) {
+        putToArray(pages.value, ripFromArray(pages.value, pages.value[from]), to);
+        await updatePages();
+    }
 
-function modPage(page: Page) {
-    const pageIndex = book.value.pages.findIndex((t) => t.id == page.id);
-    book.value.pages[pageIndex] = page;
-}
+    async function setBookTitle(title: string) {
+        book.value.title = title;
+    }
 
-function update(book: Book): void {
-    const bookIndex = data.value.findIndex(
-        (b) => b.cover.id == book.cover.id
-    );
-    if (bookIndex == -1) throw "explicit book not found";
-    data.value[bookIndex] = book;
-}
+    async function setBookCover(picture: string) {
+        book.value.cover = picture;
+    }
 
-export {book, setBook, addPage, remPage, hidePage, swapPage, modPage};
+    async function addTag(tag: string) {
+        if (!book.value.tags.includes(tag)) {
+            putToArray(book.value.tags, tag);
+        }
+    }
+
+    async function removeTag(tag: string) {
+        ripFromArray(book.value.tags, tag);
+    }
+
+    return {
+        book,
+        pages,
+        initBook,
+        addPage,
+        removePage,
+        swapPage,
+        setBookTitle,
+        setBookCover,
+        addTag,
+        removeTag,
+    }
+});
