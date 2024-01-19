@@ -1,0 +1,14 @@
+@startuml
+start
+:Utworzenie tablicy;
+:Weryfikacja wartości elementu wyciągniętego z tablicy;
+:Weryfikacja zmienionego rozmiaru tablicy;
+end
+
+start
+:Utworzenie tablicy;
+:Dodanie elementu na początku tablicy;
+:Weryfikacja obecności dodanego elementu w tablicy;
+:Weryfikacja zmienionego rozmiaru tablicy;
+end
+@enduml

@@ -34,7 +34,7 @@
 \contentsline {subsubsection}{\numberline {3.4.2}Implementacja widoków i komponentów głównych}{26}{subsubsection.3.4.2}%
 \contentsline {subsubsection}{\numberline {3.4.3}Implementacja funkcjonalności wspierających aranżację}{31}{subsubsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.5}Continous Integration i Continous Delivery}{35}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{37}{section.4}%
-\contentsline {section}{Bibliografia}{38}{section.4}%
-\contentsline {section}{Spis rysunków}{38}{section*.7}%
-\contentsline {section}{Spis tabel}{38}{section*.8}%
+\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{38}{section.4}%
+\contentsline {section}{Bibliografia}{39}{section.4}%
+\contentsline {section}{Spis rysunków}{39}{section*.7}%
+\contentsline {section}{Spis tabel}{40}{section*.8}%

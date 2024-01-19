@@ -390,6 +390,9 @@ INPUT ./media/PhotoPage.jpg
 INPUT ./media/ContinousDelivery.png
 INPUT ./media/ContinousDelivery.png
 INPUT ./media/ContinousDelivery.png
+INPUT ./media/ContinousIntegration.png
+INPUT ./media/ContinousIntegration.png
+INPUT ./media/ContinousIntegration.png
 INPUT ./main.lof
 INPUT ./main.lof
 OUTPUT main.lof

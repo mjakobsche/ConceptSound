@@ -310,4 +310,16 @@ przenoszone do projektu. Wówczas ustawiana jest nazwa wyjściowego pliku APK.
 Za jego budowę odpowiada akcja oparta o Gradle. Plik instalacyjny aplikacji jest przenoszony do łatwo dostępnej
 lokalizacji, podpisywany certyfikatem oraz publikowany przez akcję push na repozytorium GitHub.
 
+Została przygotowana także implementacja testów jednostkowych.
+Testowaniu podlega serwis pomocniczy ArrayHelper udostępniający metody modyfikacji tablic.
+Przebieg algorytmu testów można przedstawić za pomocą diagramu:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{media/ContinousIntegration.png}
+	\end{center}
+	\caption{Algorytm testów w ramach Continous Integration realizowany przez Buddy CI/CD.}
+	\label{rys:continous-integration}
+\end{figure}
+
 Algorytmy Countinous Integration i Continous Development zostały zrealizowane w konwencji IAC, w pliku YAML.

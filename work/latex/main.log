@@ -986,17 +986,25 @@ Package luatex.def Info: media/ContinousDelivery.png  used on input line 301.
 (luatex.def)             Requested size: 194.52824pt x 326.42201pt.
  [35
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.16'
-<./media/PhotoPage.jpg>]) [36
+<./media/PhotoPage.jpg>]
+<media/ContinousIntegration.png, id=386, 321.2pt x 557.08125pt>
+File: media/ContinousIntegration.png Graphic file (type png)
+<use media/ContinousIntegration.png>
+Package luatex.def Info: media/ContinousIntegration.png  used on input line 319.
+(luatex.def)             Requested size: 192.72148pt x 334.25133pt.
+ [36
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.17'
-<./media/ContinousDelivery.png>] [37] (./main.lof)
+<./media/ContinousDelivery.png>]) [37
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.18'
+<./media/ContinousIntegration.png>] [38] (./main.lof)
 \tf@lof=\write6
 
 \openout6 = main.lof
- (./main.lot)
+ [39] (./main.lot)
 \tf@lot=\write7
 
 \openout7 = main.lot
- [38] [39] (./main.aux)
+ [40] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EB5CA6D5E96ABFA02E50D5717DD16523;7900.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -1005,19 +1013,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 22831 strings out of 478290
+ 22846 strings out of 478290
  125081,1977958 words of node,token memory allocated
- 611 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 12 attribute, 67 glue_spec, 8 attribute_list, 1 write, 1 pdf_action nodes
-   avail lists: 1:2,2:793,3:360,4:247,5:288,6:94,7:4975,8:77,9:460,10:14,11:630
- 42095 multiletter control sequences out of 65536+600000
+ 623 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 14 attribute, 67 glue_spec, 9 attribute_list, 1 write, 2 pdf_action nodes
+   avail lists: 1:2,2:798,3:360,4:247,5:288,6:93,7:4975,8:77,9:460,10:14,11:630
+ 42102 multiletter control sequences out of 65536+600000
  46 fonts using 5236487 bytes
  72i,7n,79p,737b,2022s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Italic.ttf></nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman.ttf></nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Bold.ttf>
-Output written on main.pdf (39 pages, 1548338 bytes).
+Output written on main.pdf (40 pages, 1576046 bytes).
 
-PDF statistics: 452 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
- 98 named destinations out of 1000 (max. 131072)
+PDF statistics: 461 PDF objects out of 1000 (max. 8388607)
+ 388 compressed objects within 4 object streams
+ 100 named destinations out of 1000 (max. 131072)
  313 words of extra memory for PDF output out of 10000 (max. 100000000)
 
