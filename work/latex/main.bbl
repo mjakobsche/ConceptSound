@@ -209,7 +209,7 @@
            giveni={M\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Oxford University Press}%
+        {OUP USA}%
       }
       \strng{namehash}{920d844ac1245df38ce3420a923b8118}
       \strng{fullhash}{920d844ac1245df38ce3420a923b8118}
@@ -221,7 +221,7 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{9780199746392}
+      \field{isbn}{0199746397}
       \field{title}{Electronic and Computer Music}
       \field{year}{2013}
     \endentry
