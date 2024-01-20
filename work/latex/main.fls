@@ -393,6 +393,7 @@ INPUT ./media/ContinousDelivery.png
 INPUT ./media/ContinousIntegration.png
 INPUT ./media/ContinousIntegration.png
 INPUT ./media/ContinousIntegration.png
+INPUT /home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono12-regular.luc
 INPUT ./main.lof
 INPUT ./main.lof
 OUTPUT main.lof

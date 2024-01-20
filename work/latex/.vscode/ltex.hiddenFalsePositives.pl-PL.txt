@@ -15,3 +15,7 @@
 {"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\Q.\\E$"}
 {"rule":"PREP_CASUS","sentence":"^\\QAlgorytm Continous Delivery realizowany przez Buddy CI/CD.\\E$"}
 {"rule":"PREP_CASUS","sentence":"^\\QAlgorytm testów w ramach Continous Integration realizowany przez Buddy CI/CD.\\E$"}
+{"rule":"ZDANIA_ZLOZONE","sentence":"^\\QDAW stają się kluczowym narzędziem w przemyśle muzycznym.\\E$"}
+{"rule":"W_OPARCIU","sentence":"^\\QCharakteryzuje się większą prostotą od Notion, działając w oparciu o pliki markdown, jednak użytkownik może go dowolnie dostosować do swych potrzeb m.in. za sprawą wtyczek.\\E$"}
+{"rule":"W_OPARCIU","sentence":"^\\QCharakteryzuje się większą prostotą od Notion, działając w oparciu o pliki markdown, jednak użytkownik może ją dowolnie dostosować do swych potrzeb m.in. za sprawą wtyczek.\\E$"}
+{"rule":"W_OPARCIU","sentence":"^\\QCharakteryzuje się większą prostotą od Notion, działając w oparciu o pliki markdown, jednak użytkownik może ją dowolnie dostosować do swych potrzeb m.in. za sprawą wtyczek \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}

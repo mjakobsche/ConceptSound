@@ -19,6 +19,379 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{wsjp}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a64d5583b58cbf13972868c113d71bc5}{%
+           family={(red.)},
+           familyi={(\bibinitperiod},
+           given={Żmigrodzki\bibnamedelima P.},
+           giveni={Ż\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{a64d5583b58cbf13972868c113d71bc5}
+      \strng{fullhash}{a64d5583b58cbf13972868c113d71bc5}
+      \strng{bibnamehash}{a64d5583b58cbf13972868c113d71bc5}
+      \strng{authorbibnamehash}{a64d5583b58cbf13972868c113d71bc5}
+      \strng{authornamehash}{a64d5583b58cbf13972868c113d71bc5}
+      \strng{authorfullhash}{a64d5583b58cbf13972868c113d71bc5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Wielki słownik języka polskiego PAN}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://wsjp.pl
+      \endverb
+      \verb{url}
+      \verb https://wsjp.pl
+      \endverb
+    \endentry
+    \entry{orchestration}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a1ee3d52006b2a0a455f0fc8aacb1cc0}{%
+           family={S.},
+           familyi={S\bibinitperiod},
+           given={Adler},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {W.W. Norton}%
+      }
+      \strng{namehash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
+      \strng{fullhash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
+      \strng{bibnamehash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
+      \strng{authorbibnamehash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
+      \strng{authornamehash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
+      \strng{authorfullhash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780393920659}
+      \field{series}{The Study of Orchestration}
+      \field{title}{The Study of Orchestration}
+      \field{year}{2016}
+    \endentry
+    \entry{abc}{book}{}
+      \name{author}{1}{}{%
+        {{hash=cbf6ffda2c281e8e4cd98b30c6ba7db7}{%
+           family={M.},
+           familyi={M\bibinitperiod},
+           given={Kowalska},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Musica Iagiellonica}%
+      }
+      \strng{namehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{fullhash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{bibnamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{authorbibnamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{authornamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{authorfullhash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{8370991025}
+      \field{title}{ABC historii muzyki}
+      \field{year}{2005}
+    \endentry
+    \entry{atlas1}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b7edcbed5721731a99b89645c83e0907}{%
+           family={U.},
+           familyi={U\bibinitperiod},
+           given={Michels},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prószyński Media}%
+      }
+      \strng{namehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{fullhash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{bibnamehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{authorbibnamehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{authornamehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{authorfullhash}{b7edcbed5721731a99b89645c83e0907}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{t. 1}
+      \field{title}{Atlas Muzyki}
+      \field{year}{2002}
+    \endentry
+    \entry{estetyka}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b507999ac9c62d6d6c5fc025999b3eee}{%
+           family={Fubini\bibnamedelima E.},
+           familyi={F\bibinitperiod\bibinitdelim E\bibinitperiod},
+           given={Skowron\bibnamedelima Z.},
+           giveni={S\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Musica Iagellonica}%
+      }
+      \strng{namehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{fullhash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{bibnamehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{authorbibnamehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{authornamehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{authorfullhash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9788370990701}
+      \field{series}{Studia et Dissertationes Instituti Musicologiae Universitatis Varsoviensis}
+      \field{title}{Historia estetyki muzycznej}
+      \field{year}{1997}
+    \endentry
+    \entry{atlas2}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b7edcbed5721731a99b89645c83e0907}{%
+           family={U.},
+           familyi={U\bibinitperiod},
+           given={Michels},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prószyński Media}%
+      }
+      \strng{namehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{fullhash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{bibnamehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{authorbibnamehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{authornamehash}{b7edcbed5721731a99b89645c83e0907}
+      \strng{authorfullhash}{b7edcbed5721731a99b89645c83e0907}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{t. 2}
+      \field{title}{Atlas Muzyki}
+      \field{year}{2003}
+    \endentry
+    \entry{modern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=584b4b378e7e589a75a916768331bc29}{%
+           family={T.},
+           familyi={T\bibinitperiod},
+           given={Rutherford-Johnson},
+           giveni={R\bibinithyphendelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University of California Press}%
+      }
+      \strng{namehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{fullhash}{584b4b378e7e589a75a916768331bc29}
+      \strng{bibnamehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{authorbibnamehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{authornamehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{authorfullhash}{584b4b378e7e589a75a916768331bc29}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Music after the fall: Modern composition and culture since 1989}
+      \field{year}{2017}
+    \endentry
+    \entry{50}{book}{}
+      \name{author}{1}{}{%
+        {{hash=920d844ac1245df38ce3420a923b8118}{%
+           family={P.},
+           familyi={P\bibinitperiod},
+           given={Manning},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{fullhash}{920d844ac1245df38ce3420a923b8118}
+      \strng{bibnamehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{authorbibnamehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{authornamehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{authorfullhash}{920d844ac1245df38ce3420a923b8118}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780199746392}
+      \field{title}{Electronic and Computer Music}
+      \field{year}{2013}
+    \endentry
+    \entry{90}{book}{}
+      \name{author}{1}{}{%
+        {{hash=08a97e5e1aa154bafbc520bd0faffa4a}{%
+           family={Dodge\bibnamedelima C.},
+           familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Jerse\bibnamedelima T.A.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Schirmer Books}%
+      }
+      \strng{namehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{fullhash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{bibnamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{authorbibnamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{authornamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{authorfullhash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780028646824}
+      \field{title}{Computer Music: Synthesis, Composition, and Performance}
+      \field{year}{1997}
+    \endentry
+    \entry{00}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d018e2e6d18748e99ada14e91c222f87}{%
+           family={N.},
+           familyi={N\bibinitperiod},
+           given={Collins},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{fullhash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{bibnamehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{authorbibnamehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{authornamehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{authorfullhash}{d018e2e6d18748e99ada14e91c222f87}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780470714553}
+      \field{title}{Introduction to Computer Music}
+      \field{year}{2010}
+    \endentry
+    \entry{10}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fef88a78672eaaf19b43b1f6b3030970}{%
+           family={Greher\bibnamedelima G.R.},
+           familyi={G\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Burton\bibnamedelima S.L.},
+           giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{fullhash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{bibnamehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{authorbibnamehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{authornamehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{authorfullhash}{fef88a78672eaaf19b43b1f6b3030970}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780190078133}
+      \field{title}{Creative Music Making at Your Fingertips: A Mobile Technology Guide for Music Educators}
+      \field{year}{2021}
+    \endentry
+    \entry{interaction}{book}{}
+      \name{author}{1}{}{%
+        {{hash=be184ca9ed70b8f86f9ef55f62fb93fc}{%
+           family={Holland\bibnamedelima S.},
+           familyi={H\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Seago\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           suffix={Wilkie\bibnamedelima K.},
+           suffixi={W\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer London}%
+      }
+      \strng{namehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{fullhash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{bibnamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{authorbibnamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{authornamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{authorfullhash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781447161271}
+      \field{title}{Music and Human-Computer Interaction}
+      \field{year}{2015}
+    \endentry
+    \entry{evernote}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Evernote}
+      \verb{urlraw}
+      \verb https://evernote.com/
+      \endverb
+      \verb{url}
+      \verb https://evernote.com/
+      \endverb
+    \endentry
+    \entry{onenote}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{OneNote}
+      \verb{urlraw}
+      \verb https://www.onenote.com/
+      \endverb
+      \verb{url}
+      \verb https://www.onenote.com/
+      \endverb
+    \endentry
+    \entry{notion}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Notion}
+      \verb{urlraw}
+      \verb https://www.notion.so/
+      \endverb
+      \verb{url}
+      \verb https://www.notion.so/
+      \endverb
+    \endentry
+    \entry{obsidian}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Obsidian}
+      \verb{urlraw}
+      \verb https://obsidian.md/
+      \endverb
+      \verb{url}
+      \verb https://obsidian.md/
+      \endverb
+    \endentry
+    \entry{logseq}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Logseq}
+      \verb{urlraw}
+      \verb https://docs.logseq.com/
+      \endverb
+      \verb{url}
+      \verb https://docs.logseq.com/
+      \endverb
+    \endentry
     \entry{minimalism}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=66f6c494ecf41750a84f46ce88d205dd}{%
@@ -41,8 +414,8 @@
       \strng{authorbibnamehash}{502fe34a7475d6e02ea3c1e596133eac}
       \strng{authornamehash}{502fe34a7475d6e02ea3c1e596133eac}
       \strng{authorfullhash}{502fe34a7475d6e02ea3c1e596133eac}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2022 International Conference on Science Education and Art Appreciation (SEAA 2022)}
