@@ -392,37 +392,200 @@
       \verb https://docs.logseq.com/
       \endverb
     \endentry
-    \entry{minimalism}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=66f6c494ecf41750a84f46ce88d205dd}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Yiwen},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=1ced2e596745819d327151f61f410bce}{%
-           family={Fu},
-           familyi={F\bibinitperiod},
-           given={Kun},
-           giveni={K\bibinitperiod}}}%
-      }
-      \list{organization}{1}{%
-        {Atlantis Press}%
-      }
-      \strng{namehash}{502fe34a7475d6e02ea3c1e596133eac}
-      \strng{fullhash}{502fe34a7475d6e02ea3c1e596133eac}
-      \strng{bibnamehash}{502fe34a7475d6e02ea3c1e596133eac}
-      \strng{authorbibnamehash}{502fe34a7475d6e02ea3c1e596133eac}
-      \strng{authornamehash}{502fe34a7475d6e02ea3c1e596133eac}
-      \strng{authorfullhash}{502fe34a7475d6e02ea3c1e596133eac}
+    \entry{node}{misc}{}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{2022 International Conference on Science Education and Art Appreciation (SEAA 2022)}
-      \field{title}{Research on Minimalism in Interface Design Based on Gestalt Psychology}
-      \field{year}{2022}
-      \field{pages}{825\bibrangedash 837}
-      \range{pages}{13}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Node.js}
+      \verb{urlraw}
+      \verb https://nodejs.org/docs/latest/api
+      \endverb
+      \verb{url}
+      \verb https://nodejs.org/docs/latest/api
+      \endverb
+    \endentry
+    \entry{npm}{misc}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{npm}
+      \verb{urlraw}
+      \verb https://docs.npmjs.com/
+      \endverb
+      \verb{url}
+      \verb https://docs.npmjs.com/
+      \endverb
+    \endentry
+    \entry{ts}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{TypeScript}
+      \verb{urlraw}
+      \verb https://www.typescriptlang.org/docs/
+      \endverb
+      \verb{url}
+      \verb https://www.typescriptlang.org/docs/
+      \endverb
+    \endentry
+    \entry{ionic}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Ionic Framework}
+      \verb{urlraw}
+      \verb https://ionicframework.com/docs
+      \endverb
+      \verb{url}
+      \verb https://ionicframework.com/docs
+      \endverb
+    \endentry
+    \entry{capacitor}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{capacitor}
+      \verb{urlraw}
+      \verb https://capacitorjs.com/docs
+      \endverb
+      \verb{url}
+      \verb https://capacitorjs.com/docs
+      \endverb
+    \endentry
+    \entry{vue}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Vue.js}
+      \verb{urlraw}
+      \verb https://vuejs.org/
+      \endverb
+      \verb{url}
+      \verb https://vuejs.org/
+      \endverb
+    \endentry
+    \entry{pinia}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Pinia}
+      \verb{urlraw}
+      \verb https://pinia.vuejs.org/
+      \endverb
+      \verb{url}
+      \verb https://pinia.vuejs.org/
+      \endverb
+    \endentry
+    \entry{storage}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Ionic Storage}
+      \verb{urlraw}
+      \verb https://github.com/ionic-team/ionic-storage
+      \endverb
+      \verb{url}
+      \verb https://github.com/ionic-team/ionic-storage
+      \endverb
+    \endentry
+    \entry{sortablejs}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{SortableJS}
+      \verb{urlraw}
+      \verb https://github.com/SortableJS/Sortable
+      \endverb
+      \verb{url}
+      \verb https://github.com/SortableJS/Sortable
+      \endverb
+    \endentry
+    \entry{wavesurfer}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{wavesurfer.js}
+      \verb{urlraw}
+      \verb https://wavesurfer.xyz/docs/
+      \endverb
+      \verb{url}
+      \verb https://wavesurfer.xyz/docs/
+      \endverb
+    \endentry
+    \entry{abcjs}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{abcjs}
+      \verb{urlraw}
+      \verb https://github.com/paulrosen/abcjs
+      \endverb
+      \verb{url}
+      \verb https://github.com/paulrosen/abcjs
+      \endverb
+    \endentry
+    \entry{webstorm}{misc}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{WebStorm}
+      \verb{urlraw}
+      \verb https://www.jetbrains.com/webstorm
+      \endverb
+      \verb{url}
+      \verb https://www.jetbrains.com/webstorm
+      \endverb
+    \endentry
+    \entry{github}{misc}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{GitHub}
+      \verb{urlraw}
+      \verb https://github.com/
+      \endverb
+      \verb{url}
+      \verb https://github.com/
+      \endverb
+    \endentry
+    \entry{git}{misc}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{git}
+      \verb{urlraw}
+      \verb https://git-scm.com/doc
+      \endverb
+      \verb{url}
+      \verb https://git-scm.com/doc
+      \endverb
+    \endentry
+    \entry{buddy}{misc}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Buddy}
+      \verb{urlraw}
+      \verb https://buddy.works/docs
+      \endverb
+      \verb{url}
+      \verb https://buddy.works/docs
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

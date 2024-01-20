@@ -36,5 +36,5 @@
 \contentsline {subsection}{\numberline {3.5}Continous Integration i Continous Delivery}{35}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{38}{section.4}%
 \contentsline {section}{Bibliografia}{39}{section.4}%
-\contentsline {section}{Spis rysunków}{39}{section*.7}%
-\contentsline {section}{Spis tabel}{40}{section*.8}%
+\contentsline {section}{Spis rysunków}{40}{section*.7}%
+\contentsline {section}{Spis tabel}{41}{section*.8}%

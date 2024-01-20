@@ -2387,7 +2387,22 @@
     <bcf:citekey order="24" intorder="1">notion</bcf:citekey>
     <bcf:citekey order="25" intorder="1">obsidian</bcf:citekey>
     <bcf:citekey order="26" intorder="1">logseq</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">minimalism</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">10</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">node</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">npm</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">ts</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">ionic</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">capacitor</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">vue</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">pinia</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">storage</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">sortablejs</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">wavesurfer</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">abcjs</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">webstorm</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">github</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">git</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">buddy</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
