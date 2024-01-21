@@ -26,6 +26,5 @@ const addPage = (pageType: string) => emit("addPage", pageType);
 <style scoped>
 ion-fab-button {
   --border-radius: 15px;
-  --background: #282828;
 }
 </style>
