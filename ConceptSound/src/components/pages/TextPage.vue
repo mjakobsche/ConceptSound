@@ -42,13 +42,13 @@ const textLines = computed(() => {
 }
 
 .comment {
-  color: #a89984;
+  color: #98971a;
   font-size: math;
   text-align: end;
 }
 
 .normal {
+  color: #222428;
   font-size: medium;
-  color: #ebdbb2;
 }
 </style>
