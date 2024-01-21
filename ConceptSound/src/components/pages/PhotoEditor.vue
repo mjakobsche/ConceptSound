@@ -15,7 +15,7 @@ const props = defineProps({
 
 const source = ref(props.pageData);
 
-async function pickImages() {
+async function selectImage() {
   source.value = await pickImages();
   emit('saveChanges', source.value)
 }
@@ -23,7 +23,7 @@ async function pickImages() {
 
 <template>
   <centering-grid>
-    <ion-button size="large" shape="round" fill="clear" @click="pickImages">
+    <ion-button size="large" shape="round" fill="clear" @click="selectImage()">
       <ion-icon slot="icon-only" :icon="folderOutline"></ion-icon>
     </ion-button>
   </centering-grid>
