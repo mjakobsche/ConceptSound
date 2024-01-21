@@ -1,14 +1,14 @@
 \babel@toc {polish}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Modele encji implementujące interfejs Entity.}}{20}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Model obiektu Index.}}{21}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Diagram przepływu dla widoku biblioteki zeszytów użytkownika.}}{22}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Diagram przepływu dla widoku warsztatu użytkownika.}}{23}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Diagram przepływu dla menu edycji zeszytu.}}{24}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Diagram realizacji architektury warstwowej.}}{25}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Diagram przedstawiający komunikację między serwisami warstw aplikacji.}}{26}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Serwisy warstwy dostępu do danych.}}{27}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Serwisy warstwy logiki biznesowej.}}{28}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Drzewo komponentów widoku biblioteki.}}{30}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Drzewo komponentów widoku zeszytu.}}{31}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Algorytm Continous Delivery realizowany przez Buddy CI/CD.}}{33}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Algorytm testów w ramach Continous Integration realizowany przez Buddy CI/CD.}}{34}{figure.13}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Modele encji implementujące interfejs Entity.}}{19}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Model obiektu Index.}}{20}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Diagram przepływu dla widoku biblioteki zeszytów użytkownika.}}{21}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Diagram przepływu dla widoku warsztatu użytkownika.}}{22}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Diagram przepływu dla menu edycji zeszytu.}}{23}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Diagram realizacji architektury warstwowej.}}{24}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Diagram przedstawiający komunikację między serwisami warstw aplikacji.}}{25}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Serwisy warstwy dostępu do danych.}}{26}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Serwisy warstwy logiki biznesowej.}}{27}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Drzewo komponentów widoku biblioteki.}}{29}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Drzewo komponentów widoku zeszytu.}}{30}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Algorytm Continous Delivery realizowany przez Buddy CI/CD.}}{32}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Algorytm testów w ramach Continous Integration realizowany przez Buddy CI/CD.}}{33}{figure.13}%

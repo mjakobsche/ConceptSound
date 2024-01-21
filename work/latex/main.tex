@@ -58,22 +58,32 @@ elementów (w nawiasach umieszczone zostały ich angielskie odpowiedniki użyte 
 \newpage
 \addcontentsline{toc}{section}{Wstęp}
 \section*{Wstęp}
-…
+Współcześne rozwiązania programistyczne wspierają działanie wielu dziedzin życia.
+Udział aplikacji mobilnych wśród innych rodzajów oprogramowania staje się coraz bardziej znaczący,
+wraz ze wzrostem możliwości telefonów komórkowych.
+Atut mobilności jest wysoce ceniony, szczególnie w nieprzewidywalnych sytuacjach życia codziennego
+— zapewniając dostępność, a co za tym idzie — wygodę, niezależną od okoliczności.
+
+Jednocześnie jest wiele dziedzin pracy profesjonalnej, w których zdecydowanie dominują aplikacje na komputery osobiste.
+Na potrzeby muzyków dostępne są obszerne ekosystemy takich aplikacji, których celem jest wspomaganie procesu powstawania utworów.
+Dziedzina ta — jako dziedzina sztuki — często charakteryzuje się jednak dużą nieprzewidywalnością.
+Procesy kreatywne artystów mogą przybierać nieuporządkowane struktury, przynoszące mnogość koncepcji i planów.
+Wykorzystywane przez muzyków narzędzia programistyczne zdają się często charakteryzować nastawieniem na pracę
+z koncepcją już \textit{stworzoną i określoną}.
+Przypadek procesu aranżacji — opracowań utworów — można w tym świetle uznać za szczególny, jako ogniwo pomiędzy kompozycją
+a interpretacją utworu. Wymagana jest organizacja i dyscyplina, by szkice koncepcji melodii przerodziły się w kompletne
+dzieło muzyczne. Tkwi stąd potencjał w projekcie aplikacji — jako mobilnego narzędzia pozwalającego uporządkować i określić
+poszczególne produkty procesu kreatywnego, nadając koncepcji wyrazisty kształt.
 
 \newpage
-\addcontentsline{toc}{section}{Cel pracy}
-\section*{Cel pracy}
+\addcontentsline{toc}{section}{Cel i zakres pracy}
+\section*{Cel i zakres pracy}
 Celem pracy jest stworzenie aplikacji mobilnej, która umożliwi zapis i organizację koncepcji utworów muzycznych podczas procesu aranżacji.
-Narzędzie mobilne, o prostej obsłudze, oferujące użytkownikowi dowolność w wyborze sposobu notacji muzycznej utworu.
-Jego zadaniem jest \enquote{cyfrowa emulacja zeszytu do nut} jako rodzaju \textit{muzycznego notesu} oraz rozszerzenie jego możliwości: nie
+Aplikacja ma stanowić narzędzie o prostej obsłudze, oferujące użytkownikowi dowolność w wyborze sposobu notacji muzycznej utworu.
+Jej zadaniem jest \enquote{cyfrowa emulacja zeszytu do nut} jako rodzaju \textit{muzycznego notesu} oraz rozszerzenie jego możliwości: nie
 ograniczając się jedynie do zapisu nutowego i tekstowego, lecz wykorzystując również multimedia — jako nośniki informacji o dźwięku.
 Unikatowość projektu opiera się o ukierunkowanie funkcjonalności aplikacji na wspomaganie części procesów pomijanych przez współczesnie
 dostępne oprogramowanie.
-
-\newpage
-\addcontentsline{toc}{section}{Zakres pracy}
-\section*{Zakres pracy}
-…
 
 \newpage
 \section{Studium w zakresie problematyki procesu aranżacji muzycznej}
@@ -91,6 +101,41 @@ dostępne oprogramowanie.
 
 \newpage
 \section{Analiza otrzymanych wyników i wnioski}
+Zrealizowany projekt aplikacji odpowiada na problematykę procesu aranżacji, stanowiąc unikatowe narzędzie wielofunkcyjne,
+jako organizer koncepcji muzycznych. Możliwości oferowane przez aplikacje wspierają części procesu twórczego pomijane przez
+dostępne współcześnie oprogramowanie. Będąc najbliżej warsztatu kreatywnego, jako pierwsze \enquote{płótno}
+umożliwiająca odnotowywanie koncepcji, aplikacja dąży do stania się istotnym narzędziem muzyka.
+W ramach projektu udało się zrealizować założone wymagania:
+\begin{itemize}
+	\item Aplikacja jest mobilna, działając na platformie Android.
+	\item Przechowuje dane w pełni lokalnie na urządzeniu, oferując pełny zakres funkcjonalności niezależnie od dostępu do internetu.
+	\item Projekt interfejsu jest zgodny z założeniami, realizowany zgodnie z ideą minimalizmu i użyteczności.
+	\item Aplikacja umożliwia zapis oraz rewizję pomysłów i koncepcji w formie notatek — textit{stron}.
+	\item Tworzone przez użytkownika strony mogą być realizowane przy użyciu różnych rodzajów notacji oraz jako multimedia.
+	\item Strony mogą być organizowane wizualnie || przestrzennie — w określonej kolejności, umożliwiając ukrywanie zawartości.
+	\item Zeszyty, stanowiące zbiory stron, mogą organizowane przy użyciu słów kluczowych oraz przeszukiwane — zarówno po słowach kluczowych, jak i tytułach.
+	\item Wybrane przez użytkownika zeszyty mogą być opatrzone okładką, ułatwiającą ich identyfikację.
+\end{itemize}
+
+Jednocześnie dostępne funkcjonalności wciąż mogą być rozbudowywane w wielu kierunkach,
+zwiększając możliwości aplikacji oraz swobodę użytkownika podczas procesu twórczego:
+\begin{itemize}
+	\item Rozszerzenie funkcjonalności istniejących typów stron: umożliwiając odtworzenie zapisu nutowego, modyfikację nagrania dźwiękowego.
+	\item Możliwość dodawania innych typów stron — na przykład załączników PDF.
+	\item Umożliwienie eksportu i importu tworzonych zeszytów oraz mechanizmy kopii zapasowych.
+	\item Architektura umożliwiająca połączenie z internetem celem synchronizacji danych pomiędzy urządzeniami.
+\end{itemize}
+
+Pozostają jednak wciąż pewne kwestie wymagające weryfikacji. Chociaż nie zauważono istotnych błędów działania podczas użytkowania aplikacji,
+okres jej testowania jest zbyt krótki, aby móc poświadczyć jej niezawodność.
+Problematyczny może się okazać mechanizm persystencji,
+mogąc powodować nieprzewidziane zdarzenia przy wyłączeniu aplikacji przed zakończeniem przebiegu funkcji realizujących zapis danych w bazie.
+W takiej sytuacji można temu wciąż zaradzić, rozbudowując architekturę serwisów persystencji lub zmieniając metodę zapisu danych.
+Praca aplikacji może również przebiegać zawodnie na urządzeniach starszych, z uwagi na spadek wydajności. Skomplikowana problematyka
+optymalizacji wykracza jednak poza zakres tej pracy.
+
+Kod źródłowy aplikacji umożliwiający jej budowę oraz zbudowany instalacyjnym APK zostały umieszczone na płycie dołączonej do pracy.
+Są one również dostępne na publicznym repozytorium GitHub na gałęzi enquote{praca-dyplomowa} \cite{source}.
 
 \newpage
 \addcontentsline{toc}{section}{Bibliografia}
