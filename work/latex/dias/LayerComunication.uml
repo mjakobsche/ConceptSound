@@ -1,6 +1,6 @@
 @startuml
 
-node WARSTWA_PREZENTACJI {
+node KOMPONENTY_WARSTWY_PREZENTACJI {
 }
 
 node WARSTWA_DOSTĘPU_DO_DANYCH {
@@ -16,24 +16,19 @@ node WARSTWA_LOGIKI_BIZNESOWEJ {
 	(PageService)
 }
 
-(StorageWrapper)-right->(PersistencyService)
+(StorageWrapper)-left->(PersistencyService) : umożliwia zarządzanie obiektami w pamięci trwałej
 
-(PersistencyService)-up->(LibraryService)
-(PersistencyService)-right->(BookService)
-(PersistencyService)-down->(PageService)
+(PersistencyService)<-right->WARSTWA_LOGIKI_BIZNESOWEJ : przekazuje odczytane obiekty \n zapisuje zmodyfikowane obiekty
+(Indexer)<-down-WARSTWA_LOGIKI_BIZNESOWEJ : aktualizuje zależności \n między obiektami
+(PersistencyService)<--(Indexer) : umożliwia operacje na \n obiektach zagnieżdżonych
 
-(PersistencyService)<-->(Indexer)
-(LibraryService)<-up-(Indexer)
-(BookService)<-up-(Indexer)
-(PageService)<-up-(Indexer)
+(LibraryService) -down-> (TagService) : przechowuje tagi \n obecne w bibliotece
+(LibraryService) -right-> (BookService) : przechowuje wybrany zeszyt, \n umożliwia jego edycję
+(BookService) -right-> (PageService) : umożliwia edycję strony
 
-(LibraryService) -down-> (TagService)
-(LibraryService) -right-> (BookService)
-(BookService) -right-> (PageService)
-
-(BookService) -down-> WARSTWA_PREZENTACJI
-(LibraryService) -down-> WARSTWA_PREZENTACJI
-(TagService) -down-> WARSTWA_PREZENTACJI
-(PageService) -down-> WARSTWA_PREZENTACJI
+(BookService) -down-> KOMPONENTY_WARSTWY_PREZENTACJI
+(LibraryService) -down-> KOMPONENTY_WARSTWY_PREZENTACJI
+(TagService) -down->KOMPONENTY_WARSTWY_PREZENTACJI
+(PageService) -down->KOMPONENTY_WARSTWY_PREZENTACJI
 
 @enduml

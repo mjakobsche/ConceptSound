@@ -1,0 +1,29 @@
+@startuml
+!pragma useVerticalIf on
+start
+:widoczne menu modyfikacji zeszytu;
+if(użytkownik chce zmienić tytuł zeszytu) then (tak)
+	:wpisanie nowego tytułu;
+	end
+elseif(użytkownik chce dodać okładkę) then (tak)
+	:wybór zdjęcia z galerii;
+	:zdjęcie widoczne jako okładka zeszytu;
+	end
+elseif(użytkownik chce zmodyfikować tagi) then (tak)
+	:widoczna lista tagów istniejących w bibliotece;
+	if(użytkownik chce dodać tag) then (tak)
+		if(tag istnieje w bibliotece) then (tak)
+			:kliknięcie nieprzypisanego tagu na liście;
+			end
+		else(nie)
+			:utworzenie nowego tagu przez wpisanie nazwy;
+			end
+		endif
+	else(nie)
+		:kliknięcie przypisanego tagu na liście;
+		end
+	endif
+else(zakończenie modyfikacji)
+endif
+end
+@enduml

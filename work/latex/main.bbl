@@ -501,7 +501,7 @@
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{SortableJS}
+      \field{title}{Sortable}
       \verb{urlraw}
       \verb https://github.com/SortableJS/Sortable
       \endverb
@@ -585,6 +585,121 @@
       \endverb
       \verb{url}
       \verb https://buddy.works/docs
+      \endverb
+    \endentry
+    \entry{64}{misc}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Base64}
+      \verb{urlraw}
+      \verb https://developer.mozilla.org/en-US/docs/Glossary/Base64
+      \endverb
+      \verb{url}
+      \verb https://developer.mozilla.org/en-US/docs/Glossary/Base64
+      \endverb
+    \endentry
+    \entry{json}{misc}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{JSON}
+      \verb{urlraw}
+      \verb https://json.org/
+      \endverb
+      \verb{url}
+      \verb https://json.org/
+      \endverb
+    \endentry
+    \entry{vr}{misc}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Capacitor Voice Recorder}
+      \verb{urlraw}
+      \verb https://github.com/tchvu3/capacitor-voice-recorder
+      \endverb
+      \verb{url}
+      \verb https://github.com/tchvu3/capacitor-voice-recorder
+      \endverb
+    \endentry
+    \entry{plugins}{misc}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Capacitor Plugins}
+      \verb{urlraw}
+      \verb https://github.com/capawesome-team/capacitor-plugins
+      \endverb
+      \verb{url}
+      \verb https://github.com/capawesome-team/capacitor-plugins
+      \endverb
+    \endentry
+    \entry{gradle}{misc}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Gradle}
+      \verb{urlraw}
+      \verb https://gradle.org/
+      \endverb
+      \verb{url}
+      \verb https://gradle.org/
+      \endverb
+    \endentry
+    \entry{jest}{misc}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{Jest}
+      \verb{urlraw}
+      \verb https://jestjs.io/
+      \endverb
+      \verb{url}
+      \verb https://jestjs.io/
+      \endverb
+    \endentry
+    \entry{iac}{book}{}
+      \name{author}{1}{}{%
+        {{hash=09518d7c710d3d1d36aff0264459af1b}{%
+           family={K.},
+           familyi={K\bibinitperiod},
+           given={Morris},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{fullhash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{bibnamehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{authorbibnamehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{authornamehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{authorfullhash}{09518d7c710d3d1d36aff0264459af1b}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Infrastructure as code}
+      \field{year}{2020}
+    \endentry
+    \entry{yaml}{misc}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{title}{YAML}
+      \verb{urlraw}
+      \verb https://yaml.org/
+      \endverb
+      \verb{url}
+      \verb https://yaml.org/
       \endverb
     \endentry
   \enddatalist

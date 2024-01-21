@@ -30,7 +30,8 @@ o tyle (pomijając kwestię dodatkowego skomplikowania architektury programu)
 sama aplikacja nie powinna być od nich zależna, z uwagi na warunki pracy muzyków.
 Będąc w trasie, podczas pobytu na sali koncertowej, bądź nawet w salach prób — mogą mieć oni ograniczony dostęp do internetu,
 z uwagi na lokalizację, bądź architekturę budynku [Wymagane źródło bibliograficzne].
-Stąd, aby zapewnić niezawodność działania aplikacji bez względu na warunki, wymagane jest działanie bez dostępu do internetu.
+Stąd, aby zapewnić niezawodność działania aplikacji bez względu na warunki, wymagana jest \textit{lokalna} praca aplikacji —
+bez połączenia sieciowego.
 
 W kwestii zasady działania — jako notatnik — aplikacja powinna stanowić swoiste \enquote{środowisko},
 w którym użytkownik decyduje o tym, w jaki sposób je wykorzysta.
@@ -122,7 +123,7 @@ Celem zrealizowania projektu wykorzystano następujące kluczowe technologie:
 	      Progresywny framework JavaScript do budowy interfejsów użytkownika.
 	      Vue.js umożliwia łatwe tworzenie interaktywnych interfejsów, dzięki deklaratywnemu podejściu do komponentów i
 	      reaktywnemu systemowi danych. Tworzony jest z myślą o przystępności i intuicyjności \cite{vue}
-	      — i z tego względu został wybrany do wykorzystania, w połączeniu z Ionic.
+	      — z tego względu został wybrany do wykorzystania, w połączeniu z Ionic.
 	\item Pinia (2.1.4)
 
 	      Biblioteka do zarządzania stanem globalnym aplikacji. Stanowi następstwo Vuex store — jako dedykowana dla
@@ -134,13 +135,13 @@ Celem zrealizowania projektu wykorzystano następujące kluczowe technologie:
 	      Jest aktywnie wspierany oraz zgodny z Ionic w wersji 7, co nie jest aktualnie oferowane inne biblioteki persystencji \cite{storage}.
 	\item Biblioteki JavaScript do obsługi notatek:
 
-	      SortableJS — dla umożliwienia wygodnej organizacji przestrzennej \cite{sortablejs},
+	      Sortable — dla umożliwienia wygodnej organizacji przestrzennej \cite{sortablejs},
 	      wavesurfer.js — wizualizujący przebieg nagrania w formie dźwiękowej \cite{wavesurfer},
 	      abcjs — renderujący notację nutową na podstawie tekstu \cite{abcjs}.
 
 	\item Środowiska i aplikacje programistyczne:
-	      JetBrains WebStorm — główne środowisko programistyczne przygotowania projektu\cite{webstorm},
+	      JetBrains WebStorm — główne środowisko programistyczne przygotowania projektu \cite{webstorm},
 	      GitHub oraz Git — celem realizacji kontroli wersji \cite{github}\cite{git},
-	      Buddy CI/CD — jako narzędzie do Continous Delivery, umożliwiające automatyczne budowanie projektu do
+	      Buddy CI/CD — jako narzędzie do Continous Integration i Continous Delivery, umożliwiające automatyczne budowanie projektu do
 	      postaci aplikacji mobilnej \cite{buddy}.
 \end{itemize}

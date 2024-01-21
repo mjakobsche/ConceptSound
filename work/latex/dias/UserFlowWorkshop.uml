@@ -1,0 +1,47 @@
+@startuml
+!pragma useVerticalIf on
+start
+:widoczna lista stron zeszytu;
+if(użytkownik chce zmodyfikować) then (dane zeszytu)
+	:przejście do menu edycji zeszytu;
+	end
+else(strony zeszytu)
+	if(użytkownik chce dodać nową stronę do zeszytu) then (tak)
+		:wybór typu nowej strony;
+		if(strona tekstowa)
+			:otwiera się pole edycji tekstu;
+			:zapisywany tekst i komentarze są wyświetlane na stronie;
+		elseif(strona z nutami)
+			:otwiera się edytor umożliwiający zapis nutowy;
+			:zapisywane dźwięki i komentarze są wyświetlane na stronie;
+		elseif(strona z nagraniem)
+			:wyświetla się przycisk utworzenia nagrania;
+			:użytkownik nagrywa dźwięk;
+			:wyświetla się wizualizacja fali dźwiękowej;
+		elseif(strona ze zdjęciem)
+			:wyświetla się przycisk wyboru zdjęcia z galerii;
+			:użytkownik wybiera zdjęcie;
+			:zdjęcie jest wyświetlonw jako zawartość strony;
+		endif
+		:użytkownik zamyka pole edycji;
+	else(nie)
+	 	if(użytkownik chce edytować zawartość istniejącej strony) then (tak)
+			:otwiera się pole edycji strony określonego typu;
+			:modyfikacja zawartości strony w ramach jej typu;
+			if(użytkownik chce zmienić nazwę strony) then (tak)
+				:wpisanie nowej nazwy strony;
+			endif
+		else(nie)
+		 	if(użytkownik chce zmienić położenie strony) then (tak)
+				:przeciągnięcie strony na wybraną pozycje;
+			endif
+			if(użytkownik chce usunąć stronę) then (tak)
+				:usunięcie strony;
+				:strona nie wyświetla się na liście;
+			endif
+		endif
+		end
+	endif
+endif
+end
+@enduml

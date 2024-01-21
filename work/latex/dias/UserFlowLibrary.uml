@@ -1,0 +1,26 @@
+@startuml
+start
+:widoczna lista zeszytów użytkownika;
+if () then (użytkownik chce wybrać zeszyt)
+	if(użytkownik widzi zeszyt na liście) then (nie)
+		if() then (użytkownik pamięta tytuł)
+			:wyszukiwanie po tytule;
+		else (użytkownik dodał tagi)
+			:wyszukiwanie po tagach;
+		endif
+		:wyświetlona jest przefiltrowana lista;
+		else (tak)
+	endif
+	:użytkownik wybiera zeszyt z listy;
+	if() then (użytkownik otwiera zeszyt)
+		:przejście do widoku warsztatu zeszytu;
+		end
+	else (użytkownik usuwa zeszyt)
+		:usunięcie zeszytu z listy;
+		end
+	endif
+else (użytkownik tworzy zeszyt podając jego nazwę)
+	:nowy zeszyt wyświetla się na liście;
+	end
+endif
+@enduml

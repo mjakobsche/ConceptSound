@@ -23,18 +23,16 @@
 \contentsline {subsection}{\numberline {2.4}Wykaz użytych technologii}{18}{subsection.2.4}%
 \contentsline {section}{Część praktyczna}{20}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Projekt aplikacji wspomagającej aranżacje muzyczne}{20}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Architektura aplikacji}{20}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Warstwa dostępu do danych}{20}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Modele bazodanowe}{20}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Serwisy zarządzające persystencją}{22}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Warstwa logiki biznesowej}{23}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Serwisy zarządzające stanem aplikacji}{23}{subsubsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.4}Warstwa prezentacji}{25}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Projekt interfejsu}{25}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Implementacja widoków i komponentów głównych}{26}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Implementacja funkcjonalności wspierających aranżację}{31}{subsubsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.5}Continous Integration i Continous Delivery}{35}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{38}{section.4}%
-\contentsline {section}{Bibliografia}{39}{section.4}%
-\contentsline {section}{Spis rysunków}{40}{section*.7}%
-\contentsline {section}{Spis tabel}{41}{section*.8}%
+\contentsline {subsection}{\numberline {3.1}Modele danych}{20}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Diagramy przepływu}{21}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Architektura aplikacji}{24}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Warstwa dostępu do danych}{26}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Warstwa logiki biznesowej}{28}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Warstwa prezentacji}{29}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Projekt interfejsu}{29}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Implementacja funkcjonalności wspierających aranżację}{31}{subsubsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.7}Continous Integration i Continous Delivery}{32}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{35}{section.4}%
+\contentsline {section}{Bibliografia}{36}{section.4}%
+\contentsline {section}{Spis rysunków}{37}{section*.7}%
+\contentsline {section}{Spis tabel}{38}{section*.8}%
