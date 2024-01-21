@@ -1,0 +1,37 @@
+@startuml
+
+component "Widok warsztatu" {
+	component "Przycisk dodania strony" as pd {
+		[Przyciski wyboru typu strony]
+	}
+	component "Lista stron" as ls {
+		component "Karta strony" {
+			component "Pasek zarządzania stroną" as pz{
+				component "Element umożliwiający przemieszczenie strony"{
+					[Nazwa strony]
+				}
+				[Przycisk ukrycia zawartości \n i usunięcia strony]
+				[Ikona edycji strony]
+			}
+			[Zawartość strony]
+		}
+	}
+	component "Edytor strony" as es {
+		[Pole edycji tytułu]
+		[Pole edycji zawartości]
+	}
+	[Pasek narzędzi z ikoną menu] as pn
+	component "Menu edycji zeszytu" as mn {
+		[Przycisk wyboru okładki]
+		[Pole edycji tytułu zeszytu]
+		[Przycisk dodania tagu]
+		[Lista wyboru istniejących tagów]
+	}
+}
+
+ls -[hidden]-> es
+ls -[hidden]-> pd
+es -[hidden]> pn
+pn --> mn : otwiera
+
+@enduml

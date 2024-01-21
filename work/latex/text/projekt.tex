@@ -207,16 +207,30 @@ Użytkownik może szukać zeszytów po ich tytułach oraz po słowach kluczowych
 
 \begin{figure}[H]
 	\begin{center}
+		\includegraphics[scale=0.5]{media/LibraryInterface.png}
+	\end{center}
+	\caption{Diagram interfejsu widoku biblioteki.}
+	\label{rys:library-interface}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
 		\includegraphics[scale=0.6]{media/LibraryComponents.png}
 	\end{center}
-	\caption{Drzewo komponentów widoku biblioteki.}
+	\caption{Drzewo komponentów Vue realizujących widok biblioteki.}
 	\label{rys:library-components}
 \end{figure}
+
+Grupa komponentów wspólnych stanowi elementy, z których korzystają oba widoki — biblioteka i warsztat. Należą do nich:
+AddAlert — umożliwiający dodanie elementu poprzez wpisanie jego nazwy, FloatingButton — obecny w postaci przycisku dodania elementu,
+a także komponenty odpowiadające za przypisanie określonego stylu komponentom w nich zagnieżdżonych.
 
 Widok warsztatu umożliwia wizualizację i edycję zawartości zeszytu. Przycisk w rogu ekranu pozwala dodać stronę do zeszytu.
 Po dodaniu jest ona reprezentowana przez komponent karty. Zawartość strony może zostać ukryta,
 przy użyciu przycisku z ikoną oka \cite{ionic}. Przytrzymanie przycisku powoduje trwałe usunięcie strony, sygnalizowane wibracją urządzenia.
-Strona zawiera także przycisk umożliwiający jej przemieszczenie względem pozostałych stron. W tym miejscu wyświetla się także nazwa
+Strona zawiera także przycisk umożliwiający jej przemieszczenie względem pozostałych stron. Jest to realizowane przy użyciu
+biblioteki SortableJS \cite{sortablejs}.
+W tym miejscu wyświetla się także nazwa
 strony, jeżeli została nadana przez użytkownika.
 
 Możliwość edycji strony realizowana jest przez modal, otwierany po kliknięciu ikony plusa \cite{ionic}. Zawartość modalu zależy od
@@ -228,9 +242,17 @@ do zeszytu. Można w tym miejscu również zmienić tytuł zeszytu.
 
 \begin{figure}[H]
 	\begin{center}
+		\includegraphics[scale=0.4]{media/WorkshopInterface.png}
+	\end{center}
+	\caption{Diagram interfejsu widoku warsztatu.}
+	\label{rys:workshop-interface}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
 		\includegraphics[scale=0.6]{media/WorkshopComponents.png}
 	\end{center}
-	\caption{Drzewo komponentów widoku zeszytu.}
+	\caption{Drzewo komponentów Vue realizujących widoku zeszytu.}
 	\label{rys:workshop-components}
 \end{figure}
 

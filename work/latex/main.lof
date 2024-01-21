@@ -8,7 +8,9 @@
 \contentsline {figure}{\numberline {7}{\ignorespaces Diagram przedstawiający komunikację między serwisami warstw aplikacji.}}{25}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Serwisy warstwy dostępu do danych.}}{26}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Serwisy warstwy logiki biznesowej.}}{27}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Drzewo komponentów widoku biblioteki.}}{29}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Drzewo komponentów widoku zeszytu.}}{30}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Algorytm Continous Delivery realizowany przez Buddy CI/CD.}}{32}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Algorytm testów w ramach Continous Integration realizowany przez Buddy CI/CD.}}{33}{figure.13}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Diagram interfejsu widoku biblioteki.}}{29}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Drzewo komponentów Vue realizujących widok biblioteki.}}{29}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Diagram interfejsu widoku warsztatu.}}{31}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Drzewo komponentów Vue realizujących widoku zeszytu.}}{32}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Algorytm Continous Delivery realizowany przez Buddy CI/CD.}}{34}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Algorytm testów w ramach Continous Integration realizowany przez Buddy CI/CD.}}{35}{figure.15}%

@@ -925,38 +925,54 @@ Package luatex.def Info: media/LogicLayer.png  used on input line 170.
  [27
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.9'
 <./media/LogicLayer.png>]
-<media/LibraryComponents.png, id=422, 645.41125pt x 246.9225pt>
+<media/LibraryInterface.png, id=422, 800.9925pt x 685.56125pt>
+File: media/LibraryInterface.png Graphic file (type png)
+<use media/LibraryInterface.png>
+Package luatex.def Info: media/LibraryInterface.png  used on input line 210.
+(luatex.def)             Requested size: 400.49527pt x 342.77979pt.
+ [28]
+<media/LibraryComponents.png, id=429, 645.41125pt x 246.9225pt>
 File: media/LibraryComponents.png Graphic file (type png)
 <use media/LibraryComponents.png>
-Package luatex.def Info: media/LibraryComponents.png  used on input line 210.
+Package luatex.def Info: media/LibraryComponents.png  used on input line 218.
 (luatex.def)             Requested size: 387.24974pt x 148.15462pt.
- [28]
-<media/WorkshopComponents.png, id=432, 693.59125pt x 510.90875pt>
-File: media/WorkshopComponents.png Graphic file (type png)
-<use media/WorkshopComponents.png>
-Package luatex.def Info: media/WorkshopComponents.png  used on input line 231.
-(luatex.def)             Requested size: 416.15796pt x 306.5476pt.
  [29
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.10'
-<./media/LibraryComponents.png>] [30
+
 warning  (pdf backend): ignoring duplicate destination with the name 'figure.11'
+<./media/LibraryInterface.png><./media/LibraryComponents.png>]
+<media/WorkshopInterface.png, id=440, 1120.185pt x 906.38625pt>
+File: media/WorkshopInterface.png Graphic file (type png)
+<use media/WorkshopInterface.png>
+Package luatex.def Info: media/WorkshopInterface.png  used on input line 245.
+(luatex.def)             Requested size: 448.06606pt x 362.54808pt.
+ [30]
+<media/WorkshopComponents.png, id=446, 693.59125pt x 510.90875pt>
+File: media/WorkshopComponents.png Graphic file (type png)
+<use media/WorkshopComponents.png>
+Package luatex.def Info: media/WorkshopComponents.png  used on input line 253.
+(luatex.def)             Requested size: 416.15796pt x 306.5476pt.
+ [31
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.12'
+<./media/WorkshopInterface.png>] [32
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.13'
 <./media/WorkshopComponents.png>]
-<media/ContinousDelivery.png, id=453, 324.21124pt x 544.0325pt>
+<media/ContinousDelivery.png, id=467, 324.21124pt x 544.0325pt>
 File: media/ContinousDelivery.png Graphic file (type png)
 <use media/ContinousDelivery.png>
-Package luatex.def Info: media/ContinousDelivery.png  used on input line 274.
+Package luatex.def Info: media/ContinousDelivery.png  used on input line 296.
 (luatex.def)             Requested size: 194.52824pt x 326.42201pt.
- [31]
-<media/ContinousIntegration.png, id=467, 321.2pt x 557.08125pt>
+ [33]
+<media/ContinousIntegration.png, id=480, 321.2pt x 557.08125pt>
 File: media/ContinousIntegration.png Graphic file (type png)
 <use media/ContinousIntegration.png>
-Package luatex.def Info: media/ContinousIntegration.png  used on input line 294.
+Package luatex.def Info: media/ContinousIntegration.png  used on input line 316.
 (luatex.def)             Requested size: 192.72148pt x 334.25133pt.
- [32
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.12'
-<./media/ContinousDelivery.png>]) [33
-warning  (pdf backend): ignoring duplicate destination with the name 'figure.13'
-<./media/ContinousIntegration.png>] [34] [35] [36] (./main.lof [37])
+ [34
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.14'
+<./media/ContinousDelivery.png>]) [35
+warning  (pdf backend): ignoring duplicate destination with the name 'figure.15'
+<./media/ContinousIntegration.png>] [36] [37] [38] (./main.lof [39])
 \tf@lof=\write6
 
 \openout6 = main.lof
@@ -964,7 +980,7 @@ warning  (pdf backend): ignoring duplicate destination with the name 'figure.13'
 \tf@lot=\write7
 
 \openout7 = main.lot
- [38] (./main.aux)
+ [40] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: BB0B25A8C0E6ADD12AAAAC21F362C593;7139.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -973,19 +989,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 22929 strings out of 478290
+ 22959 strings out of 478290
  125081,1977958 words of node,token memory allocated
  659 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 20 attribute, 67 glue_spec, 12 attribute_list, 1 write, 5 pdf_action nodes
-   avail lists: 1:1,2:1295,3:435,4:252,5:294,6:89,7:5937,8:104,9:462,10:11,11:764
- 42185 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:1295,3:435,4:253,5:294,6:89,7:5937,8:104,9:462,10:11,11:764
+ 42199 multiletter control sequences out of 65536+600000
  47 fonts using 5362575 bytes
  72i,7n,79p,737b,2034s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/mzdfldbi0g8dp4gdj2gzg8bmfzlqlcbk-texlive-lm-2.005/fonts/opentype/public/lm/lmmono12-regular.otf></nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Italic.ttf></nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman.ttf></nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Bold.ttf>
-Output written on main.pdf (38 pages, 623833 bytes).
+Output written on main.pdf (40 pages, 706747 bytes).
 
-PDF statistics: 598 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 130 named destinations out of 1000 (max. 131072)
+PDF statistics: 613 PDF objects out of 1000 (max. 8388607)
+ 538 compressed objects within 6 object streams
+ 134 named destinations out of 1000 (max. 131072)
  289 words of extra memory for PDF output out of 10000 (max. 100000000)
 

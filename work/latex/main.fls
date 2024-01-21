@@ -366,9 +366,15 @@ INPUT ./media/PersistencyLayer.png
 INPUT ./media/LogicLayer.png
 INPUT ./media/LogicLayer.png
 INPUT ./media/LogicLayer.png
+INPUT ./media/LibraryInterface.png
+INPUT ./media/LibraryInterface.png
+INPUT ./media/LibraryInterface.png
 INPUT ./media/LibraryComponents.png
 INPUT ./media/LibraryComponents.png
 INPUT ./media/LibraryComponents.png
+INPUT ./media/WorkshopInterface.png
+INPUT ./media/WorkshopInterface.png
+INPUT ./media/WorkshopInterface.png
 INPUT ./media/WorkshopComponents.png
 INPUT ./media/WorkshopComponents.png
 INPUT ./media/WorkshopComponents.png

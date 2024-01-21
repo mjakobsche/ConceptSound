@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1705841694 "main.bcf" "main.bbl" "main" 1705856705 0
+["biber main"] 1705857206 "main.bcf" "main.bbl" "main" 1705860112 0
   "./bibliography.bib" 1705841664 6345 9cf3e3f84032eea08e522859fc516c11 ""
-  "main.bcf" 1705856705 111367 078cd6cc56f92865bbf742bd1436e066 "lualatex"
+  "main.bcf" 1705860112 111433 ee723a583309b8ef6b0130fe7d35cc9d "lualatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["lualatex"] 1705856703 "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" "main.pdf" "main" 1705856705 0
+["lualatex"] 1705860110 "/home/mateo/WebstormProjects/PracaDyplomowa_fixed/work/latex/main.tex" "main.pdf" "main" 1705860112 0
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmmono12-regular.luc" 1704740533 81785 27f2d8e6569a9447d95c790fd5d431b7 ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc" 1704740533 128312 fed65183dfbc168f421586b68ddf8f85 ""
   "/home/mateo/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-regular.luc" 1704740532 127683 7c6392bfe1c2b59c63a349e1326c5578 ""
@@ -178,14 +178,14 @@
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Bold.ttf" 1 333900 ed6e29caf3843142d739232aa8642158 ""
   "/nix/store/lsf9qizw9g7fa6j8mfi4w4xslq4g90sm-home-manager-path/share/fonts/truetype/Times_New_Roman_Italic.ttf" 1 247092 957dd4f17296522dead302ab4fcdfa8d ""
   "/nix/store/mzdfldbi0g8dp4gdj2gzg8bmfzlqlcbk-texlive-lm-2.005/fonts/opentype/public/lm/lmmono12-regular.otf" 1 63012 5db69ad3c177ae338e5504d80d9e9eb6 ""
-  "main.aux" 1705856705 15375 8c68b9adbd18945c9cb137364845b2f3 "lualatex"
-  "main.bbl" 1705841694 24913 cffe3cac3187ca8ad8f68c66b4a4cf35 "biber main"
-  "main.lof" 1705856705 1580 c7032083522606523bd18082d8798a97 "lualatex"
-  "main.lot" 1705856705 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
-  "main.out" 1705856705 7139 bb0b25a8c0e6add12aaaac21f362c593 "lualatex"
-  "main.run.xml" 1705856705 2341 f5b21bfdab19385ae52f27a31b9d99b7 "lualatex"
+  "main.aux" 1705860112 15999 0a551134e705a5f89d6bc100fa7545c7 "lualatex"
+  "main.bbl" 1705857207 24913 cffe3cac3187ca8ad8f68c66b4a4cf35 "biber main"
+  "main.lof" 1705860112 1836 da1a8f084264f2eb6b4af918b2b622d3 "lualatex"
+  "main.lot" 1705860112 29 1e1405008ff3f86b64f7d6ea4d45a69d "lualatex"
+  "main.out" 1705860112 7139 bb0b25a8c0e6add12aaaac21f362c593 "lualatex"
+  "main.run.xml" 1705860112 2341 f5b21bfdab19385ae52f27a31b9d99b7 "lualatex"
   "main.tex" 1705856703 8154 20a8f57341ac04b84919a68f948c54f8 ""
-  "main.toc" 1705856705 3317 4e23b39367a997036a264cc5bc93dfbc "lualatex"
+  "main.toc" 1705860112 3317 ef164425f3c4c0550f9d1da474f9fbb8 "lualatex"
   "media/Architecture.png" 1705785448 31787 8576a216a2826c417ea8c4b102568222 ""
   "media/ContinousDelivery.png" 1705687775 27795 9dbb3b3f5689cd031390bfe18ecd71b9 ""
   "media/ContinousIntegration.png" 1705688414 26958 911d4b28fb46d10078cbf6241b456b95 ""
@@ -193,13 +193,15 @@
   "media/Index.png" 1705687775 2296 ebf41b188c1cfa477c029365fe7624ab ""
   "media/LayerComunication.png" 1705795539 73292 8a978e3d4bd00a14157dd8c5c987e84d ""
   "media/LibraryComponents.png" 1705687775 12229 a20dc4de72c1a4c5f6c041e90e4c0a46 ""
+  "media/LibraryInterface.png" 1705859782 34317 4c699261387197202c091c8d14eb288e ""
   "media/LogicLayer.png" 1705687775 14975 a974f7e23563ef9213b249e5afdfe780 ""
   "media/PersistencyLayer.png" 1705687775 12093 7d9677f76691efb731f5ddb60fedb27e ""
   "media/UserFlowBook.png" 1705792246 53141 14d3c1c4208f0770c67c628a4662c501 ""
   "media/UserFlowLibrary.png" 1705792250 38866 aaaf51bc40e5152efecc3b3a4e4dd76f ""
   "media/UserFlowWorkshop.png" 1705792242 113191 0d5437e55c4a2a7c6ce0f0c3d66262e8 ""
   "media/WorkshopComponents.png" 1705687775 30345 e1dfcf8a9a5c8835c0c52b9a354646e1 ""
-  "text/projekt.tex" 1705796865 18113 d554a65e5356b89cdb5f3244cef3faf6 ""
+  "media/WorkshopInterface.png" 1705859768 48005 c7451efa95f00b7c616867f7f9dad4f1 ""
+  "text/projekt.tex" 1705860107 18998 e5bdd12aca08baa2d1330701981f7f98 ""
   "text/studium.tex" 1705769721 15620 2fead4ea293fc25dea7206eaa64e0b74 ""
   "text/zalozenia.tex" 1705841253 9768 7bee96bf7ab6b636d7ceda84c6cac2d0 ""
   (generated)

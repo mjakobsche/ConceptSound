@@ -29,9 +29,9 @@
 \contentsline {subsection}{\numberline {3.5}Warstwa logiki biznesowej}{27}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Warstwa prezentacji}{28}{subsection.3.6}%
 \contentsline {subsubsection}{\numberline {3.6.1}Projekt interfejsu}{28}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Implementacja funkcjonalności wspierających aranżację}{30}{subsubsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.7}Continous Integration i Continous Delivery}{31}{subsection.3.7}%
-\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{34}{section.4}%
-\contentsline {section}{Bibliografia}{36}{section.4}%
-\contentsline {section}{Spis rysunków}{37}{section*.6}%
-\contentsline {section}{Spis tabel}{38}{section*.7}%
+\contentsline {subsubsection}{\numberline {3.6.2}Implementacja funkcjonalności wspierających aranżację}{32}{subsubsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.7}Continous Integration i Continous Delivery}{33}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Analiza otrzymanych wyników i wnioski}{36}{section.4}%
+\contentsline {section}{Bibliografia}{38}{section.4}%
+\contentsline {section}{Spis rysunków}{39}{section*.6}%
+\contentsline {section}{Spis tabel}{40}{section*.7}%
