@@ -6,14 +6,14 @@ na potrzeby muzyków, których proces twórczy nie przebiega w sposób całkowic
 
 \subsection{Poglądowe scenariusze wspierania procesu aranżacji}
 Poniżej przedstawiono przykładowe sytuacje problematyczne, jakie mogłaby rozwiązać projektowana aplikacja:
-\begin{itemize}
+\begin{enumerate}
 	\item Aranżer ma kilka pomysłów na pewien fragment utworu, ale jeszcze nie wie, który z nich wykorzysta:
 	      może wszystkie je zapisać jako nagrania oraz opisać słowami, do późniejszej weryfikacji.
 	\item Muzyk uczestniczy w próbie zespołu, dyrygent proponuje mu alternatywną linię melodyczną:
 	      korzystając z aplikacji, muzyk może zapisać ją w formie nutowej.
 	\item Aranżer pracuje nad utworem, ma kilka fragmentów melodycznych, które zamierza wykorzystać:
 	      może dowolnie je zorganizować w aplikacji, ułatwiając ich lokalizację.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Wymagania}
 \subsubsection{Wymagania jakościowe}
@@ -44,26 +44,26 @@ interaktywności — zawierając tylko to, co konieczne można pozwolić, by ka�
 funkcjonalność i odpowiadał na akcje użytkownika.
 
 Przedstawione powyżej założenia stanowią podstawę do sformułowania kluczowych wymagań jakościowych aplikacji:
-\begin{itemize}
-	\item mobilność,
-	\item niezawodność,
-	\item niezależność od warunków użytkowania,
-	\item prostota,
-	\item przejrzystość,
-	\item intuicyjność,
-	\item interaktywność.
-\end{itemize}
+\begin{enumerate}
+	\item Mobilność.
+	\item Niezawodność.
+	\item Niezależność od warunków użytkowania.
+	\item Prostota.
+	\item Przejrzystość.
+	\item Intuicyjność.
+	\item Interaktywność.
+\end{enumerate}
 
 \subsubsection{Wymagania funkcjonalne}
 W najszerszym ujęciu aplikacja ma umożliwić użytkownikowi notowanie muzycznych koncepcji aranżacji utworów.
 Odnosząc się do zróżnicowania notacji muzycznej — aby pokryć możliwie szerokie spektrum metod zapisu muzyki,
 wyszczególnione zostały formaty:
-\begin{itemize}
+\begin{enumerate}
 	\item Nutowy — jako podstawowa i uniwersalna forma zapisu dźwięku.
 	\item Tekstowy — jako medium pozwalające opisywać dźwięk, jak również zapisywać teksty utworów, chwyty gitarowe.
 	\item Dźwiękowy — jako nagranie, umożliwia przechwycenie i zapis brzmienia.
 	\item Wizualny — jako zdjęcia, przykładowo nut, ustawienia zespołu podczas prób.
-\end{itemize}
+\end{enumerate}
 
 Częstą praktyką wśród muzyków jest również notowanie wskazówek wykonawczych (na przykład artykulacyjnych)
 na stronach z nutami.
@@ -81,17 +81,17 @@ elastyczny od struktury drzewiastej (realizowanej na przykład jako \textit{syst
 elementu do wielu grup.
 
 Na podstawie powyższych założeń, można ująć wymagania funkcjonalne aplikacji jako:
-\begin{itemize}
-	\item zapisywanie i edycja notatek opisujących założenia aranżacyjne utworu jako: nuty, tekst, nagranie, obraz
-	\item opatrywanie komentarzami fragmentów notatek nutowych i tekstowych
-	\item organizacja przestrzenna notatek
-	\item organizacja zbiorów notatek poprzez nadawanie tytułów i tagów
-	\item wizualne wyróżnianie zbiorów notatek przez dołączanie zdjęć
-\end{itemize}
+\begin{enumerate}
+	\item Zapisywanie i edycja notatek opisujących założenia aranżacyjne utworu jako: nuty, tekst, nagranie, obraz.
+	\item Opatrywanie komentarzami fragmentów notatek nutowych i tekstowych.
+	\item Organizacja przestrzenna notatek.
+	\item Organizacja zbiorów notatek poprzez nadawanie tytułów i tagów.
+	\item Wizualne wyróżnianie zbiorów notatek przez dołączanie zdjęć.
+\end{enumerate}
 
 \subsection{Wykaz użytych technologii}
 Celem zrealizowania projektu wykorzystano następujące kluczowe technologie:
-\begin{itemize}
+\begin{enumerate}
 	\item Node.js (18.16.1) oraz npm (9.5.1)
 
 	      Node.js to środowisko uruchomieniowe JavaScript na silniku V8 \cite{node}.
@@ -144,4 +144,4 @@ Celem zrealizowania projektu wykorzystano następujące kluczowe technologie:
 	      GitHub oraz Git — celem realizacji kontroli wersji \cite{github}\cite{git},
 	      Buddy CI/CD — jako narzędzie do Continous Integration i Continous Delivery, umożliwiające automatyczne budowanie projektu do
 	      postaci aplikacji mobilnej \cite{buddy}.
-\end{itemize}
+\end{enumerate}

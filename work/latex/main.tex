@@ -14,7 +14,8 @@
 \setlength{\parindent}{1.25cm}
 \linespread{1.5}
 \setlength{\parskip}{6pt}
-\usepackage[sorting=none]{biblatex}
+\usepackage[sorting=nyt, backend=biber]{biblatex}
+\renewcommand*{\newunitpunct}{\addcomma\space}
 \addbibresource{bibliography.bib}
 \hypersetup{linkcolor=black}
 \usepackage[all]{hypcap}
@@ -23,7 +24,6 @@
 \renewcommand{\tableautorefname}{Tab.}
 \renewcommand{\figureautorefname}{Rys.}
 \renewcommand{\listfigurename}{Spis rysunków}
-\renewcommand{\listtablename}{Spis tabel}
 \newcommand{\image}[3][16cm]{
     \begin{figure}[H]
         \centering
@@ -32,28 +32,34 @@
         \label{fig:2}
     \end{figure}
 }
-
-\usepackage{secdot}
-\sectiondot{subsection}
-\sectiondot{subsubsection}
-
+\usepackage{caption}
+\captionsetup[figure]{labelsep=period}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}.}
+\usepackage{blindtext}
+\usepackage{tocbasic}
+\usepackage{capt-of}
+\DeclareTOCStyleEntry[entrynumberformat=\adddot]{tocline}{figure}
+\newcommand*{\adddot}[1]{#1\unskip.\hfil}
 \begin{document}
 
 \newpage
 \clearpage
 \tableofcontents
 
+
 \newpage
 \addcontentsline{toc}{section}{Słownik pojęć}
 \section*{Słownik pojęć}
 Celem przybliżenia konceptualnego projektu aplikacji, wykorzystano szereg pojęć, odnoszących się do poszczególnych jej
 elementów (w nawiasach umieszczone zostały ich angielskie odpowiedniki użyte w kodzie aplikacji):
-\begin{itemize}
+\begin{enumerate}
 	\item \textit{strona} (Page) — pojedyncza notatka w ramach zbioru
 	\item \textit{zeszyt} (Book) — zbiór notatek dotyczących jednego utworu, od \enquote{zeszytu do nut} (eng. \enquote{Music Book})
 	\item \textit{biblioteka} (Library) — kolekcja zbiorów notatek użytkownika
 	\item \textit{warsztat} (Workshop) - ekran edycji notatek
-\end{itemize}
+\end{enumerate}
 
 \newpage
 \addcontentsline{toc}{section}{Wstęp}
@@ -106,7 +112,7 @@ jako organizer koncepcji muzycznych. Możliwości oferowane przez aplikacje wspi
 dostępne współcześnie oprogramowanie. Będąc najbliżej warsztatu kreatywnego, jako pierwsze \enquote{płótno}
 umożliwiająca odnotowywanie koncepcji, aplikacja dąży do stania się istotnym narzędziem muzyka.
 W ramach projektu udało się zrealizować założone wymagania:
-\begin{itemize}
+\begin{enumerate}
 	\item Aplikacja jest mobilna, działając na platformie Android.
 	\item Przechowuje dane w pełni lokalnie na urządzeniu, oferując pełny zakres funkcjonalności niezależnie od dostępu do internetu.
 	\item Projekt interfejsu jest zgodny z założeniami, realizowany zgodnie z ideą minimalizmu i użyteczności.
@@ -115,16 +121,16 @@ W ramach projektu udało się zrealizować założone wymagania:
 	\item Strony mogą być organizowane wizualnie || przestrzennie — w określonej kolejności, umożliwiając ukrywanie zawartości.
 	\item Zeszyty, stanowiące zbiory stron, mogą organizowane przy użyciu słów kluczowych oraz przeszukiwane — zarówno po słowach kluczowych, jak i tytułach.
 	\item Wybrane przez użytkownika zeszyty mogą być opatrzone okładką, ułatwiającą ich identyfikację.
-\end{itemize}
+\end{enumerate}
 
 Jednocześnie dostępne funkcjonalności wciąż mogą być rozbudowywane w wielu kierunkach,
 zwiększając możliwości aplikacji oraz swobodę użytkownika podczas procesu twórczego:
-\begin{itemize}
+\begin{enumerate}
 	\item Rozszerzenie funkcjonalności istniejących typów stron: umożliwiając odtworzenie zapisu nutowego, modyfikację nagrania dźwiękowego.
 	\item Możliwość dodawania innych typów stron — na przykład załączników PDF.
 	\item Umożliwienie eksportu i importu tworzonych zeszytów oraz mechanizmy kopii zapasowych.
 	\item Architektura umożliwiająca połączenie z internetem celem synchronizacji danych pomiędzy urządzeniami.
-\end{itemize}
+\end{enumerate}
 
 Pozostają jednak wciąż pewne kwestie wymagające weryfikacji. Chociaż nie zauważono istotnych błędów działania podczas użytkowania aplikacji,
 okres jej testowania jest zbyt krótki, aby móc poświadczyć jej niezawodność.
@@ -143,8 +149,5 @@ Są one również dostępne na publicznym repozytorium GitHub na gałęzi enquot
 
 \addcontentsline{toc}{section}{Spis rysunków}
 \listoffigures
-
-\addcontentsline{toc}{section}{Spis tabel}
-\listoftables
 
 \end{document}

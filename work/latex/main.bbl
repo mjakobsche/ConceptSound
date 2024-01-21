@@ -18,26 +18,507 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{abcjs}{misc}{}
+      \field{sortinit}{a}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{abcjs}
+      \verb{urlraw}
+      \verb https://github.com/paulrosen/abcjs
+      \endverb
+      \verb{url}
+      \verb https://github.com/paulrosen/abcjs
+      \endverb
+    \endentry
+    \entry{64}{misc}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Base64}
+      \verb{urlraw}
+      \verb https://developer.mozilla.org/en-US/docs/Glossary/Base64
+      \endverb
+      \verb{url}
+      \verb https://developer.mozilla.org/en-US/docs/Glossary/Base64
+      \endverb
+    \endentry
+    \entry{buddy}{misc}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Buddy}
+      \verb{urlraw}
+      \verb https://buddy.works/docs
+      \endverb
+      \verb{url}
+      \verb https://buddy.works/docs
+      \endverb
+    \endentry
+    \entry{capacitor}{misc}{}
+      \field{sortinit}{c}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{capacitor}
+      \verb{urlraw}
+      \verb https://capacitorjs.com/docs
+      \endverb
+      \verb{url}
+      \verb https://capacitorjs.com/docs
+      \endverb
+    \endentry
+    \entry{plugins}{misc}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Capacitor Plugins}
+      \verb{urlraw}
+      \verb https://github.com/capawesome-team/capacitor-plugins
+      \endverb
+      \verb{url}
+      \verb https://github.com/capawesome-team/capacitor-plugins
+      \endverb
+    \endentry
+    \entry{vr}{misc}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Capacitor Voice Recorder}
+      \verb{urlraw}
+      \verb https://github.com/tchvu3/capacitor-voice-recorder
+      \endverb
+      \verb{url}
+      \verb https://github.com/tchvu3/capacitor-voice-recorder
+      \endverb
+    \endentry
+    \entry{90}{book}{}
+      \name{author}{1}{}{%
+        {{hash=08a97e5e1aa154bafbc520bd0faffa4a}{%
+           family={Dodge\bibnamedelima C.},
+           familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           given={Jerse\bibnamedelima T.A.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Schirmer Books}%
+      }
+      \strng{namehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{fullhash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{bibnamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{authorbibnamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{authornamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \strng{authorfullhash}{08a97e5e1aa154bafbc520bd0faffa4a}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Computer Music: Synthesis, Composition, and Performance}
+      \field{year}{1997}
+    \endentry
+    \entry{evernote}{misc}{}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Evernote}
+      \verb{urlraw}
+      \verb https://evernote.com/
+      \endverb
+      \verb{url}
+      \verb https://evernote.com/
+      \endverb
+    \endentry
+    \entry{estetyka}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b507999ac9c62d6d6c5fc025999b3eee}{%
+           family={Fubini\bibnamedelima E.},
+           familyi={F\bibinitperiod\bibinitdelim E\bibinitperiod},
+           given={Skowron\bibnamedelima Z.},
+           giveni={S\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Musica Iagellonica}%
+      }
+      \strng{namehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{fullhash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{bibnamehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{authorbibnamehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{authornamehash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \strng{authorfullhash}{b507999ac9c62d6d6c5fc025999b3eee}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Studia et Dissertationes Instituti Musicologiae Universitatis Varsoviensis}
+      \field{title}{Historia estetyki muzycznej}
+      \field{year}{1997}
+    \endentry
+    \entry{git}{misc}{}
+      \field{sortinit}{g}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{git}
+      \verb{urlraw}
+      \verb https://git-scm.com/doc
+      \endverb
+      \verb{url}
+      \verb https://git-scm.com/doc
+      \endverb
+    \endentry
+    \entry{github}{misc}{}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{GitHub}
+      \verb{urlraw}
+      \verb https://github.com/
+      \endverb
+      \verb{url}
+      \verb https://github.com/
+      \endverb
+    \endentry
+    \entry{gradle}{misc}{}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Gradle}
+      \verb{urlraw}
+      \verb https://gradle.org/
+      \endverb
+      \verb{url}
+      \verb https://gradle.org/
+      \endverb
+    \endentry
+    \entry{10}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fef88a78672eaaf19b43b1f6b3030970}{%
+           family={Greher\bibnamedelima G.R.},
+           familyi={G\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Burton\bibnamedelima S.L.},
+           giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{fullhash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{bibnamehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{authorbibnamehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{authornamehash}{fef88a78672eaaf19b43b1f6b3030970}
+      \strng{authorfullhash}{fef88a78672eaaf19b43b1f6b3030970}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Creative Music Making at Your Fingertips: A Mobile Technology Guide for Music Educators}
+      \field{year}{2021}
+    \endentry
+    \entry{interaction}{book}{}
+      \name{author}{1}{}{%
+        {{hash=be184ca9ed70b8f86f9ef55f62fb93fc}{%
+           family={Holland\bibnamedelima S.},
+           familyi={H\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Seago\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+           suffix={Wilkie\bibnamedelima K.},
+           suffixi={W\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer London}%
+      }
+      \strng{namehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{fullhash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{bibnamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{authorbibnamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{authornamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \strng{authorfullhash}{be184ca9ed70b8f86f9ef55f62fb93fc}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Music and Human-Computer Interaction}
+      \field{year}{2015}
+    \endentry
+    \entry{ionic}{misc}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Ionic Framework}
+      \verb{urlraw}
+      \verb https://ionicframework.com/docs
+      \endverb
+      \verb{url}
+      \verb https://ionicframework.com/docs
+      \endverb
+    \endentry
+    \entry{storage}{misc}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Ionic Storage}
+      \verb{urlraw}
+      \verb https://github.com/ionic-team/ionic-storage
+      \endverb
+      \verb{url}
+      \verb https://github.com/ionic-team/ionic-storage
+      \endverb
+    \endentry
+    \entry{jest}{misc}{}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Jest}
+      \verb{urlraw}
+      \verb https://jestjs.io/
+      \endverb
+      \verb{url}
+      \verb https://jestjs.io/
+      \endverb
+    \endentry
+    \entry{json}{misc}{}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{JSON}
+      \verb{urlraw}
+      \verb https://json.org/
+      \endverb
+      \verb{url}
+      \verb https://json.org/
+      \endverb
+    \endentry
+    \entry{iac}{book}{}
+      \name{author}{1}{}{%
+        {{hash=09518d7c710d3d1d36aff0264459af1b}{%
+           family={K.},
+           familyi={K\bibinitperiod},
+           given={Morris},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{fullhash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{bibnamehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{authorbibnamehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{authornamehash}{09518d7c710d3d1d36aff0264459af1b}
+      \strng{authorfullhash}{09518d7c710d3d1d36aff0264459af1b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Infrastructure as code}
+      \field{year}{2020}
+    \endentry
+    \entry{source}{misc}{}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Kod źródłowy}
+      \verb{urlraw}
+      \verb https://github.com/mjakobsche/ConceptSound/tree/praca-dyplomowa
+      \endverb
+      \verb{url}
+      \verb https://github.com/mjakobsche/ConceptSound/tree/praca-dyplomowa
+      \endverb
+    \endentry
+    \entry{logseq}{misc}{}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Logseq}
+      \verb{urlraw}
+      \verb https://docs.logseq.com/
+      \endverb
+      \verb{url}
+      \verb https://docs.logseq.com/
+      \endverb
+    \endentry
+    \entry{abc}{book}{}
+      \name{author}{1}{}{%
+        {{hash=cbf6ffda2c281e8e4cd98b30c6ba7db7}{%
+           family={M.},
+           familyi={M\bibinitperiod},
+           given={Kowalska},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Musica Iagiellonica}%
+      }
+      \strng{namehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{fullhash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{bibnamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{authorbibnamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{authornamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \strng{authorfullhash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ABC historii muzyki}
+      \field{year}{2005}
+    \endentry
+    \entry{00}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d018e2e6d18748e99ada14e91c222f87}{%
+           family={N.},
+           familyi={N\bibinitperiod},
+           given={Collins},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{fullhash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{bibnamehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{authorbibnamehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{authornamehash}{d018e2e6d18748e99ada14e91c222f87}
+      \strng{authorfullhash}{d018e2e6d18748e99ada14e91c222f87}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Computer Music}
+      \field{year}{2010}
+    \endentry
+    \entry{node}{misc}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Node.js}
+      \verb{urlraw}
+      \verb https://nodejs.org/docs/latest/api
+      \endverb
+      \verb{url}
+      \verb https://nodejs.org/docs/latest/api
+      \endverb
+    \endentry
+    \entry{notion}{misc}{}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Notion}
+      \verb{urlraw}
+      \verb https://www.notion.so/
+      \endverb
+      \verb{url}
+      \verb https://www.notion.so/
+      \endverb
+    \endentry
+    \entry{npm}{misc}{}
+      \field{sortinit}{n}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{npm}
+      \verb{urlraw}
+      \verb https://docs.npmjs.com/
+      \endverb
+      \verb{url}
+      \verb https://docs.npmjs.com/
+      \endverb
+    \endentry
+    \entry{obsidian}{misc}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Obsidian}
+      \verb{urlraw}
+      \verb https://obsidian.md/
+      \endverb
+      \verb{url}
+      \verb https://obsidian.md/
+      \endverb
+    \endentry
+    \entry{onenote}{misc}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{OneNote}
+      \verb{urlraw}
+      \verb https://www.onenote.com/
+      \endverb
+      \verb{url}
+      \verb https://www.onenote.com/
+      \endverb
+    \endentry
+    \entry{50}{book}{}
+      \name{author}{1}{}{%
+        {{hash=920d844ac1245df38ce3420a923b8118}{%
+           family={P.},
+           familyi={P\bibinitperiod},
+           given={Manning},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OUP USA}%
+      }
+      \strng{namehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{fullhash}{920d844ac1245df38ce3420a923b8118}
+      \strng{bibnamehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{authorbibnamehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{authornamehash}{920d844ac1245df38ce3420a923b8118}
+      \strng{authorfullhash}{920d844ac1245df38ce3420a923b8118}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Electronic and Computer Music}
+      \field{year}{2013}
+    \endentry
+    \entry{pinia}{misc}{}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Pinia}
+      \verb{urlraw}
+      \verb https://pinia.vuejs.org/
+      \endverb
+      \verb{url}
+      \verb https://pinia.vuejs.org/
+      \endverb
+    \endentry
     \entry{wsjp}{misc}{}
       \name{author}{1}{}{%
-        {{hash=a64d5583b58cbf13972868c113d71bc5}{%
-           family={(red.)},
-           familyi={(\bibinitperiod},
+        {{hash=29e2c4b666870db10ce6b91783a51d21}{%
+           family={red.},
+           familyi={r\bibinitperiod},
            given={Żmigrodzki\bibnamedelima P.},
            giveni={Ż\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
       }
-      \strng{namehash}{a64d5583b58cbf13972868c113d71bc5}
-      \strng{fullhash}{a64d5583b58cbf13972868c113d71bc5}
-      \strng{bibnamehash}{a64d5583b58cbf13972868c113d71bc5}
-      \strng{authorbibnamehash}{a64d5583b58cbf13972868c113d71bc5}
-      \strng{authornamehash}{a64d5583b58cbf13972868c113d71bc5}
-      \strng{authorfullhash}{a64d5583b58cbf13972868c113d71bc5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{namehash}{29e2c4b666870db10ce6b91783a51d21}
+      \strng{fullhash}{29e2c4b666870db10ce6b91783a51d21}
+      \strng{bibnamehash}{29e2c4b666870db10ce6b91783a51d21}
+      \strng{authorbibnamehash}{29e2c4b666870db10ce6b91783a51d21}
+      \strng{authornamehash}{29e2c4b666870db10ce6b91783a51d21}
+      \strng{authorfullhash}{29e2c4b666870db10ce6b91783a51d21}
+      \field{sortinit}{r}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{addendum}{dostęp: 01.01.2024}
       \field{title}{Wielki słownik języka polskiego PAN}
       \field{year}{2007}
       \verb{urlraw}
@@ -64,39 +545,63 @@
       \strng{authorbibnamehash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
       \strng{authornamehash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
       \strng{authorfullhash}{a1ee3d52006b2a0a455f0fc8aacb1cc0}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{9780393920659}
       \field{series}{The Study of Orchestration}
       \field{title}{The Study of Orchestration}
       \field{year}{2016}
     \endentry
-    \entry{abc}{book}{}
+    \entry{sortablejs}{misc}{}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{Sortable}
+      \verb{urlraw}
+      \verb https://github.com/SortableJS/Sortable
+      \endverb
+      \verb{url}
+      \verb https://github.com/SortableJS/Sortable
+      \endverb
+    \endentry
+    \entry{modern}{book}{}
       \name{author}{1}{}{%
-        {{hash=cbf6ffda2c281e8e4cd98b30c6ba7db7}{%
-           family={M.},
-           familyi={M\bibinitperiod},
-           given={Kowalska},
-           giveni={K\bibinitperiod}}}%
+        {{hash=584b4b378e7e589a75a916768331bc29}{%
+           family={T.},
+           familyi={T\bibinitperiod},
+           given={Rutherford-Johnson},
+           giveni={R\bibinithyphendelim J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Musica Iagiellonica}%
+        {University of California Press}%
       }
-      \strng{namehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
-      \strng{fullhash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
-      \strng{bibnamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
-      \strng{authorbibnamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
-      \strng{authornamehash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
-      \strng{authorfullhash}{cbf6ffda2c281e8e4cd98b30c6ba7db7}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \strng{namehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{fullhash}{584b4b378e7e589a75a916768331bc29}
+      \strng{bibnamehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{authorbibnamehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{authornamehash}{584b4b378e7e589a75a916768331bc29}
+      \strng{authorfullhash}{584b4b378e7e589a75a916768331bc29}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{8370991025}
-      \field{title}{ABC historii muzyki}
-      \field{year}{2005}
+      \field{title}{Music after the fall: Modern composition and culture since 1989}
+      \field{year}{2017}
+    \endentry
+    \entry{ts}{misc}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labeltitlesource}{title}
+      \field{addendum}{dostęp: 01.01.2024}
+      \field{title}{TypeScript}
+      \verb{urlraw}
+      \verb https://www.typescriptlang.org/docs/
+      \endverb
+      \verb{url}
+      \verb https://www.typescriptlang.org/docs/
+      \endverb
     \endentry
     \entry{atlas1}{book}{}
       \name{author}{1}{}{%
@@ -116,39 +621,13 @@
       \strng{authornamehash}{b7edcbed5721731a99b89645c83e0907}
       \strng{authorfullhash}{b7edcbed5721731a99b89645c83e0907}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{t. 1}
       \field{title}{Atlas Muzyki}
       \field{year}{2002}
-    \endentry
-    \entry{estetyka}{book}{}
-      \name{author}{1}{}{%
-        {{hash=b507999ac9c62d6d6c5fc025999b3eee}{%
-           family={Fubini\bibnamedelima E.},
-           familyi={F\bibinitperiod\bibinitdelim E\bibinitperiod},
-           given={Skowron\bibnamedelima Z.},
-           giveni={S\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Musica Iagellonica}%
-      }
-      \strng{namehash}{b507999ac9c62d6d6c5fc025999b3eee}
-      \strng{fullhash}{b507999ac9c62d6d6c5fc025999b3eee}
-      \strng{bibnamehash}{b507999ac9c62d6d6c5fc025999b3eee}
-      \strng{authorbibnamehash}{b507999ac9c62d6d6c5fc025999b3eee}
-      \strng{authornamehash}{b507999ac9c62d6d6c5fc025999b3eee}
-      \strng{authorfullhash}{b507999ac9c62d6d6c5fc025999b3eee}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9788370990701}
-      \field{series}{Studia et Dissertationes Instituti Musicologiae Universitatis Varsoviensis}
-      \field{title}{Historia estetyki muzycznej}
-      \field{year}{1997}
     \endentry
     \entry{atlas2}{book}{}
       \name{author}{1}{}{%
@@ -168,300 +647,19 @@
       \strng{authornamehash}{b7edcbed5721731a99b89645c83e0907}
       \strng{authorfullhash}{b7edcbed5721731a99b89645c83e0907}
       \field{extraname}{2}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{t. 2}
       \field{title}{Atlas Muzyki}
       \field{year}{2003}
     \endentry
-    \entry{modern}{book}{}
-      \name{author}{1}{}{%
-        {{hash=584b4b378e7e589a75a916768331bc29}{%
-           family={T.},
-           familyi={T\bibinitperiod},
-           given={Rutherford-Johnson},
-           giveni={R\bibinithyphendelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {University of California Press}%
-      }
-      \strng{namehash}{584b4b378e7e589a75a916768331bc29}
-      \strng{fullhash}{584b4b378e7e589a75a916768331bc29}
-      \strng{bibnamehash}{584b4b378e7e589a75a916768331bc29}
-      \strng{authorbibnamehash}{584b4b378e7e589a75a916768331bc29}
-      \strng{authornamehash}{584b4b378e7e589a75a916768331bc29}
-      \strng{authorfullhash}{584b4b378e7e589a75a916768331bc29}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Music after the fall: Modern composition and culture since 1989}
-      \field{year}{2017}
-    \endentry
-    \entry{50}{book}{}
-      \name{author}{1}{}{%
-        {{hash=920d844ac1245df38ce3420a923b8118}{%
-           family={P.},
-           familyi={P\bibinitperiod},
-           given={Manning},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {OUP USA}%
-      }
-      \strng{namehash}{920d844ac1245df38ce3420a923b8118}
-      \strng{fullhash}{920d844ac1245df38ce3420a923b8118}
-      \strng{bibnamehash}{920d844ac1245df38ce3420a923b8118}
-      \strng{authorbibnamehash}{920d844ac1245df38ce3420a923b8118}
-      \strng{authornamehash}{920d844ac1245df38ce3420a923b8118}
-      \strng{authorfullhash}{920d844ac1245df38ce3420a923b8118}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{0199746397}
-      \field{title}{Electronic and Computer Music}
-      \field{year}{2013}
-    \endentry
-    \entry{90}{book}{}
-      \name{author}{1}{}{%
-        {{hash=08a97e5e1aa154bafbc520bd0faffa4a}{%
-           family={Dodge\bibnamedelima C.},
-           familyi={D\bibinitperiod\bibinitdelim C\bibinitperiod},
-           given={Jerse\bibnamedelima T.A.},
-           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Schirmer Books}%
-      }
-      \strng{namehash}{08a97e5e1aa154bafbc520bd0faffa4a}
-      \strng{fullhash}{08a97e5e1aa154bafbc520bd0faffa4a}
-      \strng{bibnamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
-      \strng{authorbibnamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
-      \strng{authornamehash}{08a97e5e1aa154bafbc520bd0faffa4a}
-      \strng{authorfullhash}{08a97e5e1aa154bafbc520bd0faffa4a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780028646824}
-      \field{title}{Computer Music: Synthesis, Composition, and Performance}
-      \field{year}{1997}
-    \endentry
-    \entry{00}{book}{}
-      \name{author}{1}{}{%
-        {{hash=d018e2e6d18748e99ada14e91c222f87}{%
-           family={N.},
-           familyi={N\bibinitperiod},
-           given={Collins},
-           giveni={C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley}%
-      }
-      \strng{namehash}{d018e2e6d18748e99ada14e91c222f87}
-      \strng{fullhash}{d018e2e6d18748e99ada14e91c222f87}
-      \strng{bibnamehash}{d018e2e6d18748e99ada14e91c222f87}
-      \strng{authorbibnamehash}{d018e2e6d18748e99ada14e91c222f87}
-      \strng{authornamehash}{d018e2e6d18748e99ada14e91c222f87}
-      \strng{authorfullhash}{d018e2e6d18748e99ada14e91c222f87}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780470714553}
-      \field{title}{Introduction to Computer Music}
-      \field{year}{2010}
-    \endentry
-    \entry{10}{book}{}
-      \name{author}{1}{}{%
-        {{hash=fef88a78672eaaf19b43b1f6b3030970}{%
-           family={Greher\bibnamedelima G.R.},
-           familyi={G\bibinitperiod\bibinitdelim G\bibinitperiod},
-           given={Burton\bibnamedelima S.L.},
-           giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Oxford University Press}%
-      }
-      \strng{namehash}{fef88a78672eaaf19b43b1f6b3030970}
-      \strng{fullhash}{fef88a78672eaaf19b43b1f6b3030970}
-      \strng{bibnamehash}{fef88a78672eaaf19b43b1f6b3030970}
-      \strng{authorbibnamehash}{fef88a78672eaaf19b43b1f6b3030970}
-      \strng{authornamehash}{fef88a78672eaaf19b43b1f6b3030970}
-      \strng{authorfullhash}{fef88a78672eaaf19b43b1f6b3030970}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780190078133}
-      \field{title}{Creative Music Making at Your Fingertips: A Mobile Technology Guide for Music Educators}
-      \field{year}{2021}
-    \endentry
-    \entry{interaction}{book}{}
-      \name{author}{1}{}{%
-        {{hash=be184ca9ed70b8f86f9ef55f62fb93fc}{%
-           family={Holland\bibnamedelima S.},
-           familyi={H\bibinitperiod\bibinitdelim S\bibinitperiod},
-           given={Seago\bibnamedelima A.},
-           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
-           suffix={Wilkie\bibnamedelima K.},
-           suffixi={W\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer London}%
-      }
-      \strng{namehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
-      \strng{fullhash}{be184ca9ed70b8f86f9ef55f62fb93fc}
-      \strng{bibnamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
-      \strng{authorbibnamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
-      \strng{authornamehash}{be184ca9ed70b8f86f9ef55f62fb93fc}
-      \strng{authorfullhash}{be184ca9ed70b8f86f9ef55f62fb93fc}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9781447161271}
-      \field{title}{Music and Human-Computer Interaction}
-      \field{year}{2015}
-    \endentry
-    \entry{evernote}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Evernote}
-      \verb{urlraw}
-      \verb https://evernote.com/
-      \endverb
-      \verb{url}
-      \verb https://evernote.com/
-      \endverb
-    \endentry
-    \entry{onenote}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{OneNote}
-      \verb{urlraw}
-      \verb https://www.onenote.com/
-      \endverb
-      \verb{url}
-      \verb https://www.onenote.com/
-      \endverb
-    \endentry
-    \entry{notion}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Notion}
-      \verb{urlraw}
-      \verb https://www.notion.so/
-      \endverb
-      \verb{url}
-      \verb https://www.notion.so/
-      \endverb
-    \endentry
-    \entry{obsidian}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Obsidian}
-      \verb{urlraw}
-      \verb https://obsidian.md/
-      \endverb
-      \verb{url}
-      \verb https://obsidian.md/
-      \endverb
-    \endentry
-    \entry{logseq}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Logseq}
-      \verb{urlraw}
-      \verb https://docs.logseq.com/
-      \endverb
-      \verb{url}
-      \verb https://docs.logseq.com/
-      \endverb
-    \endentry
-    \entry{node}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Node.js}
-      \verb{urlraw}
-      \verb https://nodejs.org/docs/latest/api
-      \endverb
-      \verb{url}
-      \verb https://nodejs.org/docs/latest/api
-      \endverb
-    \endentry
-    \entry{npm}{misc}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{npm}
-      \verb{urlraw}
-      \verb https://docs.npmjs.com/
-      \endverb
-      \verb{url}
-      \verb https://docs.npmjs.com/
-      \endverb
-    \endentry
-    \entry{ts}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{TypeScript}
-      \verb{urlraw}
-      \verb https://www.typescriptlang.org/docs/
-      \endverb
-      \verb{url}
-      \verb https://www.typescriptlang.org/docs/
-      \endverb
-    \endentry
-    \entry{ionic}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Ionic Framework}
-      \verb{urlraw}
-      \verb https://ionicframework.com/docs
-      \endverb
-      \verb{url}
-      \verb https://ionicframework.com/docs
-      \endverb
-    \endentry
-    \entry{capacitor}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{capacitor}
-      \verb{urlraw}
-      \verb https://capacitorjs.com/docs
-      \endverb
-      \verb{url}
-      \verb https://capacitorjs.com/docs
-      \endverb
-    \endentry
     \entry{vue}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
       \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{addendum}{dostęp: 01.01.2024}
       \field{title}{Vue.js}
       \verb{urlraw}
       \verb https://vuejs.org/
@@ -470,50 +668,11 @@
       \verb https://vuejs.org/
       \endverb
     \endentry
-    \entry{pinia}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Pinia}
-      \verb{urlraw}
-      \verb https://pinia.vuejs.org/
-      \endverb
-      \verb{url}
-      \verb https://pinia.vuejs.org/
-      \endverb
-    \endentry
-    \entry{storage}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Ionic Storage}
-      \verb{urlraw}
-      \verb https://github.com/ionic-team/ionic-storage
-      \endverb
-      \verb{url}
-      \verb https://github.com/ionic-team/ionic-storage
-      \endverb
-    \endentry
-    \entry{sortablejs}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Sortable}
-      \verb{urlraw}
-      \verb https://github.com/SortableJS/Sortable
-      \endverb
-      \verb{url}
-      \verb https://github.com/SortableJS/Sortable
-      \endverb
-    \endentry
     \entry{wavesurfer}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{w}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{addendum}{dostęp: 01.01.2024}
       \field{title}{wavesurfer.js}
       \verb{urlraw}
       \verb https://wavesurfer.xyz/docs/
@@ -522,24 +681,11 @@
       \verb https://wavesurfer.xyz/docs/
       \endverb
     \endentry
-    \entry{abcjs}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{abcjs}
-      \verb{urlraw}
-      \verb https://github.com/paulrosen/abcjs
-      \endverb
-      \verb{url}
-      \verb https://github.com/paulrosen/abcjs
-      \endverb
-    \endentry
     \entry{webstorm}{misc}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{addendum}{dostęp: 01.01.2024}
       \field{title}{WebStorm}
       \verb{urlraw}
       \verb https://www.jetbrains.com/webstorm
@@ -548,171 +694,17 @@
       \verb https://www.jetbrains.com/webstorm
       \endverb
     \endentry
-    \entry{github}{misc}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{GitHub}
-      \verb{urlraw}
-      \verb https://github.com/
-      \endverb
-      \verb{url}
-      \verb https://github.com/
-      \endverb
-    \endentry
-    \entry{git}{misc}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{git}
-      \verb{urlraw}
-      \verb https://git-scm.com/doc
-      \endverb
-      \verb{url}
-      \verb https://git-scm.com/doc
-      \endverb
-    \endentry
-    \entry{buddy}{misc}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Buddy}
-      \verb{urlraw}
-      \verb https://buddy.works/docs
-      \endverb
-      \verb{url}
-      \verb https://buddy.works/docs
-      \endverb
-    \endentry
-    \entry{64}{misc}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Base64}
-      \verb{urlraw}
-      \verb https://developer.mozilla.org/en-US/docs/Glossary/Base64
-      \endverb
-      \verb{url}
-      \verb https://developer.mozilla.org/en-US/docs/Glossary/Base64
-      \endverb
-    \endentry
-    \entry{json}{misc}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{JSON}
-      \verb{urlraw}
-      \verb https://json.org/
-      \endverb
-      \verb{url}
-      \verb https://json.org/
-      \endverb
-    \endentry
-    \entry{vr}{misc}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Capacitor Voice Recorder}
-      \verb{urlraw}
-      \verb https://github.com/tchvu3/capacitor-voice-recorder
-      \endverb
-      \verb{url}
-      \verb https://github.com/tchvu3/capacitor-voice-recorder
-      \endverb
-    \endentry
-    \entry{plugins}{misc}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Capacitor Plugins}
-      \verb{urlraw}
-      \verb https://github.com/capawesome-team/capacitor-plugins
-      \endverb
-      \verb{url}
-      \verb https://github.com/capawesome-team/capacitor-plugins
-      \endverb
-    \endentry
-    \entry{gradle}{misc}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Gradle}
-      \verb{urlraw}
-      \verb https://gradle.org/
-      \endverb
-      \verb{url}
-      \verb https://gradle.org/
-      \endverb
-    \endentry
-    \entry{jest}{misc}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Jest}
-      \verb{urlraw}
-      \verb https://jestjs.io/
-      \endverb
-      \verb{url}
-      \verb https://jestjs.io/
-      \endverb
-    \endentry
-    \entry{iac}{book}{}
-      \name{author}{1}{}{%
-        {{hash=09518d7c710d3d1d36aff0264459af1b}{%
-           family={K.},
-           familyi={K\bibinitperiod},
-           given={Morris},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {O'Reilly Media}%
-      }
-      \strng{namehash}{09518d7c710d3d1d36aff0264459af1b}
-      \strng{fullhash}{09518d7c710d3d1d36aff0264459af1b}
-      \strng{bibnamehash}{09518d7c710d3d1d36aff0264459af1b}
-      \strng{authorbibnamehash}{09518d7c710d3d1d36aff0264459af1b}
-      \strng{authornamehash}{09518d7c710d3d1d36aff0264459af1b}
-      \strng{authorfullhash}{09518d7c710d3d1d36aff0264459af1b}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Infrastructure as code}
-      \field{year}{2020}
-    \endentry
     \entry{yaml}{misc}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
       \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
+      \field{addendum}{dostęp: 01.01.2024}
       \field{title}{YAML}
       \verb{urlraw}
       \verb https://yaml.org/
       \endverb
       \verb{url}
       \verb https://yaml.org/
-      \endverb
-    \endentry
-    \entry{source}{misc}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
-      \field{labeltitlesource}{title}
-      \field{addendum}{(dostęp: 01.01.2024)}
-      \field{title}{Kod źródłowy}
-      \verb{urlraw}
-      \verb https://github.com/mjakobsche/ConceptSound/tree/praca-dyplomowa
-      \endverb
-      \verb{url}
-      \verb https://github.com/mjakobsche/ConceptSound/tree/praca-dyplomowa
       \endverb
     \endentry
   \enddatalist

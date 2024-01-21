@@ -50,17 +50,10 @@ można zobrazować planowane działanie aplikacji z punktu widzenia jej użytkow
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{media/UserFlowLibrary.png}
+		\includegraphics[scale=0.42]{media/UserFlowLibrary.png}
 	\end{center}
 	\caption{Diagram przepływu dla widoku biblioteki zeszytów użytkownika.}
 	\label{rys:flow-library}
-\end{figure}
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.36]{media/UserFlowWorkshop.png}
-	\end{center}
-	\caption{Diagram przepływu dla widoku warsztatu użytkownika.}
-	\label{rys:flow-workshop}
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
@@ -69,6 +62,13 @@ można zobrazować planowane działanie aplikacji z punktu widzenia jej użytkow
 	\caption{Diagram przepływu dla menu edycji zeszytu.}
 	\label{rys:flow-book-menu}
 \end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.39]{media/UserFlowWorkshop90.png}
+	\end{center}
+	\caption{Diagram przepływu dla widoku warsztatu użytkownika.}
+	\label{rys:flow-workshop}
+\end{figure}
 
 \subsection{Architektura aplikacji}
 Jako model architektury aplikacji przyjęto architekturę warstwową. Pozwala ona odseparować zadania wykonywane przez
@@ -76,18 +76,18 @@ poszczególne komponenty aplikacji, ułatwiając utrzymanie kodu. Jest to osiąg
 realizowanych przez poszczególne warstwy. Architektura warstwowa charakteryzuje się hierarchicznym układem komponentów,
 co przekłada się na zwiększenie przejrzystości kodu. W ramach projektu zastosowano trzy warstwy podziału:
 
-\begin{itemize}
+\begin{enumerate}
 	\item Warstwa prezentacji — realizowana przez komponenty Vue, stanowiące interfejs użytkownika. Wykonuje podstawowe operacje
 	      jak obsługa wtyczek do wizualizacji elementów lub funkcje formatowania tekstu.
 	\item Warstwa logiki biznesowej — obejmująca szczególnie serwisy zarządzania stanem aplikacji, stanowiące punkt wykonania
 	      akcji podejmowanych przez użytkownika. Odnosi się do danych pobieranych z bazy.
 	\item Warstwa dostępu do danych — odpowiadająca za komunikacje z bazą danych, w oparciu o model encji. Przekazuje
 	      dane modyfikowane w warstwie logiki biznesowej, zapewniając ich trwałość.
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.7]{media/Architecture.png}
+		\includegraphics[scale=0.6]{media/Architecture.png}
 	\end{center}
 	\caption{Diagram realizacji architektury warstwowej.}
 	\label{rys:architecture}
@@ -120,7 +120,7 @@ W aplikacji zastosowano bazę danych typu klucz-wartość Ionic Storage \cite{st
 zarządzanie obiektami zagnieżdżonymi — jako: \textit{zeszyt} zawierać może wiele \textit{stron} — przy zachowaniu
 niezależności operacji na obiektach, zastosowano trzy serwisy:
 
-\begin{itemize}
+\begin{enumerate}
 	\item StorageWrapper
 
 	      Z uwagi na charakter kluczy i wartości bazy — jako dwóch ciągów znaków — obiekty zapisywane w bazie są
@@ -141,11 +141,11 @@ niezależności operacji na obiektach, zastosowano trzy serwisy:
 	      Informacje o zmianach są sygnalizowane przez serwisy warstwy logiki biznesowej.
 	      Odpowiadając na nie, serwis Indexer zapewnia zgodność tablicy indeksów ze stanem rzeczywistym
 	      biblioteki użytkownika. W pewnym stopniu emuluje on możliwości relacyjnej bazy danych.
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.9]{media/PersistencyLayer.png}
+		\includegraphics[scale=0.7]{media/PersistencyLayer.png}
 	\end{center}
 	\caption{Serwisy warstwy dostępu do danych.}
 	\label{rys:persistency-layer}
@@ -158,12 +158,12 @@ Umożliwia to funkcjonowanie niezależne od komponentów Vue budujących interfe
 udostępniając dla nich globalny stan, do którego mogą się odwoływać.
 
 Aby rozdzielić zadania tej warstwy, serwisy zostały podzielone według domen:
-\begin{itemize}
+\begin{enumerate}
 	\item LibraryService — odpowiada za zarządzanie biblioteką zeszytów użytkownika.
 	\item TagService — udostępnia zbiór tagów utworzonych w ramach biblioteki użytkownika, umożliwiając efektywną kategoryzację zasobów.
 	\item BookService — odpowiada za wprowadzanie zmian w kontekście zeszytu: jego danych oraz zawartości.
 	\item PageService — odpowiada za edycję stron wybranego zeszytu.
-\end{itemize}
+\end{enumerate}
 
 \begin{figure}[H]
 	\begin{center}
@@ -207,7 +207,7 @@ Użytkownik może szukać zeszytów po ich tytułach oraz po słowach kluczowych
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{media/LibraryInterface.png}
+		\includegraphics[scale=0.55]{media/LibraryInterface.png}
 	\end{center}
 	\caption{Diagram interfejsu widoku biblioteki.}
 	\label{rys:library-interface}
@@ -215,10 +215,18 @@ Użytkownik może szukać zeszytów po ich tytułach oraz po słowach kluczowych
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.6]{media/LibraryComponents.png}
+		\includegraphics[scale=0.55]{media/LibraryComponents.png}
 	\end{center}
 	\caption{Drzewo komponentów Vue realizujących widok biblioteki.}
 	\label{rys:library-components}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.16]{media/LibraryView.jpg}
+	\end{center}
+	\caption{Widok biblioteki.}
+	\label{rys:library-view}
 \end{figure}
 
 Grupa komponentów wspólnych stanowi elementy, z których korzystają oba widoki — biblioteka i warsztat. Należą do nich:
@@ -242,7 +250,7 @@ do zeszytu. Można w tym miejscu również zmienić tytuł zeszytu.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{media/WorkshopInterface.png}
+		\includegraphics[scale=0.405]{media/WorkshopInterface.png}
 	\end{center}
 	\caption{Diagram interfejsu widoku warsztatu.}
 	\label{rys:workshop-interface}
@@ -256,6 +264,30 @@ do zeszytu. Można w tym miejscu również zmienić tytuł zeszytu.
 	\label{rys:workshop-components}
 \end{figure}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.12]{media/WorkshopView.jpg}
+	\end{center}
+	\caption{Widok warsztatu.}
+	\label{rys:workshop-view}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.13]{media/TextEditor.jpg}
+	\end{center}
+	\caption{Widok warsztatu z otworzonym edytorem tekstu.}
+	\label{rys:workshop-view-with-editor}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.15]{media/BookMenu.jpg}
+	\end{center}
+	\caption{Widok menu modyfikacji zeszytu.}
+	\label{rys:book-menu}
+\end{figure}
+
 \subsubsection{Implementacja funkcjonalności wspierających aranżację}
 Przedstawione wcześniej komponenty stanowią \enquote{środowisko}, które umożliwia implementację konkretnych funkcjonalności
 wspierających proces aranżacji muzycznej. Realizowane są one przez podział stron na cztery — zdefiniowane w wymaganiach aplikacji — typy.
@@ -266,7 +298,7 @@ Dynamiczne dopasowanie jest realizowane dzięki zastosowaniu component-is oferow
 Komponenty wizualizacji i edycji tekstu obsługują notatki tekstowe, umożliwiając dodawanie subtelnych (jako: nieodwracających uwagi)
 komentarzy. Podczas edycji użytkownik zapisuje notatkę w polu tekstowym \cite{ionic}. Linijka tekstu poprzedzona symbolem \enquote{@} traktowana jest
 jako komentarz. Aby ułatwić tworzenie komentarzy, układ klawiatury przy edycji treści takiej strony ustawiony jest na tryb \textit{e-mail} \cite{ionic}.
-Komentarze wyświetlane są przy prawej krawędzi strony, mniej wyrazistą czcionką.
+Komentarze wyświetlane są przy prawej krawędzi strony, mniej wyrazistą czcionką. Zostało to udokumentowane na rysunku nr \ref{rys:workshop-view-with-editor}.
 
 Wizualizacja zapisu nutowego realizowana jest przy użyciu biblioteki abcjs \cite{abcjs}. W ramach komponentu umożliwiającego edycję
 użytkownik znów zapisuje notatkę w polu tekstowym, lecz jest ona renderowana jako zapis nutowy w komponencie strony.
@@ -277,15 +309,38 @@ Każda strona o tym typie jest domyślnie inicjalizowana wartościami renderują
 Jednocześnie należy zwrócić uwagę, iż użytkownik potrzebujący szerszych możliwości edytora nutowego, powinien zaznajomić
 się z dodatkowymi funkcjami oferowanymi przez abcjs.
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.12]{media/ScoreEditor.jpg}
+	\end{center}
+	\caption{Edycja zapisu nutowego.}
+	\label{rys:score-editor}
+\end{figure}
+
 Komponent edycji notatek dźwiękowych wykorzystuje do działania wtyczkę capacitor-voice-recorder \cite{vr}. Pozwala ona nagrać
 dźwięk, korzystając z mikrofonu urządzenia. Po nagraniu użytkownik może ponownie edytować zawartość strony, zastępując
 wcześniejszy zapis dźwiękowy nowym nagraniem. Wizualizacja fali dźwiękowej, realizowana przez bibliotekę wavesurfer.js \cite{wavesurfer}.
 Umożliwia to orientację w jej przebiegu oraz odtwarzanie nagrania od wybranego momentu.
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.11]{media/AudioEditor.jpg}
+	\end{center}
+	\caption{Edycja strony zawierającej nagranie.}
+	\label{rys:audio-editor}
+\end{figure}
+
 Możliwość użycia zdjęcia jako notatki realizowana jest przez wtyczkę capacitor-file-picker \cite{plugins},
 pozwalającej wybrać plik (tu: zdjęcie) z pamięci urządzenia. Wybrane zdjęcie jest wyświetlane jako zawartość strony.
 Edycja strony polega na możliwości zmiany wybranego zdjęcia.
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.11]{media/PhotoEditor.jpg}
+	\end{center}
+	\caption{Edycja strony zawierającej zdjęcie.}
+	\label{rys:photo-editor}
+\end{figure}
 \subsection{Continous Integration i Continous Delivery}
 Przeprowadzenie procesu budowy aplikacji i generowania pliku instalacyjnego APK dla platformy Android jest realizowane przez aplikację
 Buddy CI/CD \cite{buddy}. Umożliwia to automatyzację tych zadań, przyspieszając proces powstawania aplikacji.
