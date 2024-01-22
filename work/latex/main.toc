@@ -1,36 +1,36 @@
 \babel@toc {polish}{}\relax 
-\contentsline {section}{Słownik pojęć}{3}{section*.1}%
-\contentsline {section}{Wstęp}{4}{Item.4}%
-\contentsline {section}{Cel i zakres pracy}{5}{section*.3}%
-\contentsline {section}{\numberline {1.}Studium w zakresie problematyki procesu aranżacji muzycznej}{6}{section.1}%
-\contentsline {subsection}{\numberline {1.1.}Definicja problematyki procesu aranżacji}{6}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2.}Rys historyczny muzyki klasycznej}{6}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1.}Rozwój technik procesu twórczego muzyki}{6}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2.}Notacja muzyczna}{8}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3.}Podsumowanie}{9}{subsubsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.3.}Badanie rynku oprogramowania wspierającego pracę muzyków}{10}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1.}Programy komputerowe}{10}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2.}Aplikacje mobilne}{11}{subsubsection.1.3.2}%
-\contentsline {subsubsection}{\numberline {1.3.3.}Podsumowanie}{11}{subsubsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.4.}Rozwiązania oferowane przez inne aplikacje niepowiązane z procesem aranżacji}{11}{subsection.1.4}%
-\contentsline {section}{\numberline {2.}Założenia projektowe}{14}{section.2}%
-\contentsline {subsection}{\numberline {2.1.}Identyfikacja aktorów}{14}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2.}Poglądowe scenariusze wspierania procesu aranżacji}{14}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3.}Wymagania}{14}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1.}Wymagania jakościowe}{14}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2.}Wymagania funkcjonalne}{16}{subsubsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.4.}Wykaz użytych technologii}{17}{subsection.2.4}%
-\contentsline {section}{Część praktyczna}{19}{Item.54}%
-\contentsline {section}{\numberline {3.}Projekt aplikacji wspomagającej aranżacje muzyczne}{19}{section.3}%
-\contentsline {subsection}{\numberline {3.1.}Modele danych}{19}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2.}Diagramy przepływu}{20}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3.}Architektura aplikacji}{22}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4.}Warstwa dostępu do danych}{25}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5.}Warstwa logiki biznesowej}{26}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6.}Warstwa prezentacji}{27}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1.}Projekt interfejsu}{27}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2.}Implementacja funkcjonalności wspierających aranżację}{32}{subsubsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.7.}Continous Integration i Continous Delivery}{35}{subsection.3.7}%
-\contentsline {section}{\numberline {4.}Analiza otrzymanych wyników i wnioski}{37}{section.4}%
-\contentsline {section}{Bibliografia}{39}{Item.76}%
-\contentsline {section}{Spis rysunków}{40}{section*.28}%
+\contentsline {section}{Słownik pojęć}{5}{section*.1}%
+\contentsline {section}{Wstęp}{6}{Item.4}%
+\contentsline {section}{Cel i zakres pracy}{7}{section*.3}%
+\contentsline {section}{\numberline {1.}Studium w zakresie problematyki procesu aranżacji muzycznej}{8}{section.1}%
+\contentsline {subsection}{\numberline {1.1.}Definicja problematyki procesu aranżacji}{8}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2.}Rys historyczny muzyki klasycznej}{8}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1.}Rozwój technik procesu twórczego muzyki}{8}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2.}Notacja muzyczna}{10}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3.}Podsumowanie}{11}{subsubsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.3.}Badanie rynku oprogramowania wspierającego pracę muzyków}{12}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1.}Programy komputerowe}{12}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2.}Aplikacje mobilne}{13}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3.}Podsumowanie}{13}{subsubsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.4.}Rozwiązania oferowane przez inne aplikacje niepowiązane z procesem aranżacji}{13}{subsection.1.4}%
+\contentsline {section}{\numberline {2.}Założenia projektowe}{16}{section.2}%
+\contentsline {subsection}{\numberline {2.1.}Identyfikacja aktorów}{16}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2.}Poglądowe scenariusze wspierania procesu aranżacji}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3.}Wymagania}{16}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1.}Wymagania jakościowe}{16}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2.}Wymagania funkcjonalne}{18}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4.}Wykaz użytych technologii}{19}{subsection.2.4}%
+\contentsline {section}{Część praktyczna}{21}{Item.54}%
+\contentsline {section}{\numberline {3.}Projekt aplikacji wspomagającej aranżacje muzyczne}{21}{section.3}%
+\contentsline {subsection}{\numberline {3.1.}Modele danych}{21}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2.}Diagramy przepływu}{22}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3.}Architektura aplikacji}{24}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4.}Warstwa dostępu do danych}{27}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5.}Warstwa logiki biznesowej}{28}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6.}Warstwa prezentacji}{29}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1.}Projekt interfejsu}{29}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2.}Implementacja funkcjonalności wspierających aranżację}{34}{subsubsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.7.}Continous Integration i Continous Delivery}{37}{subsection.3.7}%
+\contentsline {section}{\numberline {4.}Analiza otrzymanych wyników i wnioski}{39}{section.4}%
+\contentsline {section}{Bibliografia}{41}{Item.77}%
+\contentsline {section}{Spis rysunków}{42}{section*.28}%

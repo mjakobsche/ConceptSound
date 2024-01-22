@@ -1,5 +1,4 @@
 @startuml
-allowmixing
 
 object Entity {
 	+id: string

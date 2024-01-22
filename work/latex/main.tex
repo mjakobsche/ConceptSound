@@ -42,8 +42,10 @@
 \usepackage{capt-of}
 \DeclareTOCStyleEntry[entrynumberformat=\adddot]{tocline}{figure}
 \newcommand*{\adddot}[1]{#1\unskip.\hfil}
+\usepackage{pdfpages}
 \begin{document}
 
+\includepdf[pages=-]{base.pdf}
 \newpage
 \clearpage
 \tableofcontents
@@ -85,10 +87,10 @@ poszczególne produkty procesu kreatywnego, nadając koncepcji wyrazisty kształ
 \addcontentsline{toc}{section}{Cel i zakres pracy}
 \section*{Cel i zakres pracy}
 Celem pracy jest stworzenie aplikacji mobilnej, która umożliwi zapis i organizację koncepcji utworów muzycznych podczas procesu aranżacji.
-Aplikacja ma stanowić narzędzie o prostej obsłudze, oferujące użytkownikowi dowolność w wyborze sposobu notacji muzycznej utworu.
+Aplikacja ma stanowić narzędzie o~prostej obsłudze, oferujące dowolność w wyborze sposobu notacji muzycznej utworu.
 Jej zadaniem jest \enquote{cyfrowa emulacja zeszytu do nut} jako rodzaju \textit{muzycznego notesu} oraz rozszerzenie jego możliwości: nie
 ograniczając się jedynie do zapisu nutowego i tekstowego, lecz wykorzystując również multimedia — jako nośniki informacji o dźwięku.
-Unikatowość projektu opiera się o ukierunkowanie funkcjonalności aplikacji na wspomaganie części procesów pomijanych przez współczesnie
+Unikatowość projektu opiera się o~ukierunkowanie funkcjonalności aplikacji na wspomaganie części procesów pomijanych przez współczesnie
 dostępne oprogramowanie.
 
 \newpage
@@ -111,11 +113,11 @@ Zrealizowany projekt aplikacji odpowiada na problematykę procesu aranżacji, st
 jako organizer koncepcji muzycznych. Możliwości oferowane przez aplikacje wspierają części procesu twórczego pomijane przez
 dostępne współcześnie oprogramowanie. Będąc najbliżej warsztatu kreatywnego, jako pierwsze \enquote{płótno}
 umożliwiająca odnotowywanie koncepcji, aplikacja dąży do stania się istotnym narzędziem muzyka.
-W ramach projektu udało się zrealizować założone wymagania:
+W~ramach projektu udało się zrealizować założone wymagania:
 \begin{enumerate}
 	\item Aplikacja jest mobilna, działając na platformie Android.
 	\item Przechowuje dane w pełni lokalnie na urządzeniu, oferując pełny zakres funkcjonalności niezależnie od dostępu do internetu.
-	\item Projekt interfejsu jest zgodny z założeniami, realizowany zgodnie z ideą minimalizmu i użyteczności.
+	\item Projekt interfejsu jest zgodny z założeniami, realizowany zgodnie z ideą minimalizmu i~użyteczności.
 	\item Aplikacja umożliwia zapis oraz rewizję pomysłów i koncepcji w formie notatek — textit{stron}.
 	\item Tworzone przez użytkownika strony mogą być realizowane przy użyciu różnych rodzajów notacji oraz jako multimedia.
 	\item Strony mogą być organizowane wizualnie || przestrzennie — w określonej kolejności, umożliwiając ukrywanie zawartości.
@@ -127,9 +129,10 @@ Jednocześnie dostępne funkcjonalności wciąż mogą być rozbudowywane w wiel
 zwiększając możliwości aplikacji oraz swobodę użytkownika podczas procesu twórczego:
 \begin{enumerate}
 	\item Rozszerzenie funkcjonalności istniejących typów stron: umożliwiając odtworzenie zapisu nutowego, modyfikację nagrania dźwiękowego.
-	\item Możliwość dodawania innych typów stron — na przykład załączników PDF.
-	\item Umożliwienie eksportu i importu tworzonych zeszytów oraz mechanizmy kopii zapasowych.
-	\item Architektura umożliwiająca połączenie z internetem celem synchronizacji danych pomiędzy urządzeniami.
+	\item Możliwość dodawania innych typów stron — na przykład załączników PDF oraz plików MIDI.
+	\item Umożliwienie eksportu i importu tworzonych zeszytów oraz mechanizm tworzenia kopii zapasowych.
+	\item Architektura umożliwiająca połączenie z internetem celem synchronizacji danych pomiędzy urządzeniami użytkownika.
+	\item Rozbudowa aplikacji do serwisu internetowego, umożliwiającego współpracę muzyków.
 \end{enumerate}
 
 Pozostają jednak wciąż pewne kwestie wymagające weryfikacji. Chociaż nie zauważono istotnych błędów działania podczas użytkowania aplikacji,
@@ -141,7 +144,7 @@ Praca aplikacji może również przebiegać zawodnie na urządzeniach starszych,
 optymalizacji wykracza jednak poza zakres tej pracy.
 
 Kod źródłowy aplikacji umożliwiający jej budowę oraz zbudowany instalacyjnym APK zostały umieszczone na płycie dołączonej do pracy.
-Są one również dostępne na publicznym repozytorium GitHub na gałęzi enquote{praca-dyplomowa} \cite{source}.
+Są one również dostępne na publicznym repozytorium GitHub na gałęzi \enquote{praca-dyplomowa} \cite{source}.
 
 \newpage
 \addcontentsline{toc}{section}{Bibliografia}

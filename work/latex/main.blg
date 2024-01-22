@@ -1,14 +1,14 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'main.blg'
-[53] biber:340> INFO - === nie sty 21, 2024, 21:30:13
-[65] Biber.pm:419> INFO - Reading 'main.bcf'
-[112] Biber.pm:979> INFO - Found 41 citekeys in bib section 0
-[120] Biber.pm:4419> INFO - Processing section 0
-[128] Biber.pm:4610> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[129] bibtex.pm:1713> INFO - LaTeX decoding ...
-[141] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
-[216] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[216] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[217] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'pl-PL'
-[234] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[240] bbl.pm:763> INFO - Output to main.bbl
+[51] biber:340> INFO - === pon sty 22, 2024, 23:49:15
+[63] Biber.pm:419> INFO - Reading 'main.bcf'
+[110] Biber.pm:979> INFO - Found 41 citekeys in bib section 0
+[119] Biber.pm:4419> INFO - Processing section 0
+[127] Biber.pm:4610> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[128] bibtex.pm:1713> INFO - LaTeX decoding ...
+[140] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[218] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[218] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[218] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'pl-PL'
+[237] bbl.pm:660> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[242] bbl.pm:763> INFO - Output to main.bbl

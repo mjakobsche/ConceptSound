@@ -64,7 +64,7 @@ można zobrazować planowane działanie aplikacji z punktu widzenia jej użytkow
 \end{figure}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.39]{media/UserFlowWorkshop90.png}
+		\includegraphics[scale=0.39]{media/UserFlowWorkshop180.png}
 	\end{center}
 	\caption{Diagram przepływu dla widoku warsztatu użytkownika.}
 	\label{rys:flow-workshop}
@@ -81,7 +81,7 @@ co przekłada się na zwiększenie przejrzystości kodu. W ramach projektu zasto
 	      jak obsługa wtyczek do wizualizacji elementów lub funkcje formatowania tekstu.
 	\item Warstwa logiki biznesowej — obejmująca szczególnie serwisy zarządzania stanem aplikacji, stanowiące punkt wykonania
 	      akcji podejmowanych przez użytkownika. Odnosi się do danych pobieranych z bazy.
-	\item Warstwa dostępu do danych — odpowiadająca za komunikacje z bazą danych, w oparciu o model encji. Przekazuje
+	\item Warstwa dostępu do danych — odpowiadająca za komunikacje z bazą danych, w oparciu o~model encji. Przekazuje
 	      dane modyfikowane w warstwie logiki biznesowej, zapewniając ich trwałość.
 \end{enumerate}
 
@@ -130,7 +130,7 @@ niezależności operacji na obiektach, zastosowano trzy serwisy:
 	\item PersistencyService
 
 	      Z serwisu StorageWrapper korzysta PersistencyService,
-	      wykorzystujący jego funkcje w kontekście konkretnych obiektów.
+	      używając jego funkcji w kontekście konkretnych obiektów.
 	      Zawiera logikę wykorzystującą interfejs Entity, implementowany przez encje Book i Page. Odwołuje się do danych
 	      serwisu Indexer celem identyfikacji i lokalizacji obiektów zapisanych w bazie.
 	\item Indexer
@@ -140,7 +140,7 @@ niezależności operacji na obiektach, zastosowano trzy serwisy:
 	      Jego stan początkowy jest wczytywany z bazy przy uruchomieniu aplikacji.
 	      Informacje o zmianach są sygnalizowane przez serwisy warstwy logiki biznesowej.
 	      Odpowiadając na nie, serwis Indexer zapewnia zgodność tablicy indeksów ze stanem rzeczywistym
-	      biblioteki użytkownika. W pewnym stopniu emuluje on możliwości relacyjnej bazy danych.
+	      biblioteki użytkownika. W~pewnym stopniu emuluje on możliwości relacyjnej bazy danych.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -303,7 +303,7 @@ Komentarze wyświetlane są przy prawej krawędzi strony, mniej wyrazistą czcio
 Wizualizacja zapisu nutowego realizowana jest przy użyciu biblioteki abcjs \cite{abcjs}. W ramach komponentu umożliwiającego edycję
 użytkownik znów zapisuje notatkę w polu tekstowym, lecz jest ona renderowana jako zapis nutowy w komponencie strony.
 Pomocna jest tu forma modala,
-gdyż umożliwiaja on śledzenie zmian zapisu nutowego podczas jego edycji. Z uwagi na przystępną zasadę działania biblioteki
+gdyż umożliwiaja on śledzenie zmian zapisu nutowego podczas jego edycji. Z~uwagi na przystępną zasadę działania biblioteki
 abcjs — za sprawą stosowania nazw literowych do określania nut, implementacja edytorów nut nie jest wymagana.
 Każda strona o tym typie jest domyślnie inicjalizowana wartościami renderującymi kluczowe elementy notacji muzycznej.
 Jednocześnie należy zwrócić uwagę, iż użytkownik potrzebujący szerszych możliwości edytora nutowego, powinien zaznajomić
@@ -374,4 +374,4 @@ Przebieg algorytmu testów można przedstawić za pomocą diagramu:
 	\label{rys:continous-integration}
 \end{figure}
 
-Algorytmy Countinous Integration i Continous Development zostały zrealizowane w konwencji IAC \cite{iac}, w pliku YAML \cite{yaml}.
+Algorytmy Countinous Integration i Continous Development zostały zrealizowane w~konwencji IAC \cite{iac}, w pliku YAML \cite{yaml}.
