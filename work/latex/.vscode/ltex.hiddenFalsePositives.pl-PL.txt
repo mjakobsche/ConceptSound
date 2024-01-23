@@ -22,3 +22,4 @@
 {"rule":"ZDANIA_ZLOZONE","sentence":"^\\QIonic CLI ułatwia tworzenie, testowanie i wdrażanie aplikacji mobilnych na różne platformy, na podstawie jednego, wspólnego kodu źródłowego \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
 {"rule":"W_OPARCIU","sentence":"^\\QWarstwa dostępu do danych — odpowiadająca za komunikacje z bazą danych, w oparciu o model encji\\E$"}
 {"rule":"W_OPARCIU","sentence":"^\\QWarstwa dostępu do danych — odpowiadająca za komunikacje z bazą danych, w oparciu o model encji.\\E$"}
+{"rule":"W_OPARCIU","sentence":"^\\QWarstwa dostępu do danych — odpowiadająca za komunikacje z bazą danych, w oparciu o model encji.\\E$"}
