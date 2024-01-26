@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {IonButton, IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonIcon} from "@ionic/vue";
+import {IonButton, IonCard, IonCardContent, IonText, IonCardSubtitle, IonCardTitle, IonIcon} from "@ionic/vue";
 import CenteringGrid from "@/components/CenteringGrid.vue";
 import InlineElements from "@/components/InlineElements.vue";
 import {chevronForwardOutline, closeCircleOutline} from "ionicons/icons";
@@ -37,6 +37,14 @@ async function openBook() {
     emit("openBook");
   })
 }
+
+function getBookMetadata(book: Book){
+  let metadata = "[ " + renderDate(book.modificationDate) + " ]";
+  if(book.tags.length > 0) {
+    metadata += " #" + book.tags.join(" #")
+  }
+  return metadata;
+}
 </script>
 
 <template>
@@ -45,11 +53,17 @@ async function openBook() {
       <img :src="book.cover" alt="cover photo">
     </centering-grid>
     <ion-card-content>
-      <ion-card-subtitle>{{ renderDate(book.modificationDate) }}</ion-card-subtitle>
+      <ion-card-subtitle>
+         {{"[ " + renderDate(book.modificationDate) + " ]"}}
+      </ion-card-subtitle>
+      <ion-card-title>{{ book.title }}</ion-card-title>
       <inline-elements>
-        <ion-card-title>{{ book.title }}</ion-card-title>
+        <ion-text v-if="book.tags.length > 0">
+          {{" #" + book.tags.join(" #")}}
+        </ion-text>
         <div>
           <ion-button
+              mode="md"
               fill="clear"
               size="small"
               shape="round"
@@ -58,6 +72,7 @@ async function openBook() {
             <ion-icon slot="icon-only" :icon="closeCircleOutline"></ion-icon>
           </ion-button>
           <ion-button
+              mode="md"
               fill="clear"
               size="small"
               shape="round"
@@ -66,10 +81,6 @@ async function openBook() {
           </ion-button>
         </div>
       </inline-elements>
-      <ion-card-subtitle v-if="book.tags.length > 0">{{
-          "#" + book.tags.join(" #")
-        }}
-      </ion-card-subtitle>
     </ion-card-content>
   </ion-card>
 </template>
@@ -77,5 +88,18 @@ async function openBook() {
 <style scoped>
 img {
   object-fit: cover;
+}
+
+ion-card-title {
+  --color: #ebdbb2;
+}
+
+
+ion-card-subtitle {
+  --color: #a89984;
+}
+
+ion-text {
+  color: #a89984;
 }
 </style>

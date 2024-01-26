@@ -65,18 +65,18 @@ const toggleVisibilityIcon = () => props.page?.isVisible ? eyeOutline : eyeOffOu
       <ion-card-header @click="editPage()">
         <inline-elements>
           <ion-card-title>
-            <ion-button fill="outline" size="small" shape="round" color="medium" class="handle"
+            <ion-button mode="md" fill="outline" size="small" shape="round" color="medium" class="handle"
                         @click="semaphore.closeSemaphore()">
               {{ page.name }}
               <ion-icon :slot="movePageIcon()" :icon="reorderTwoOutline"></ion-icon>
             </ion-button>
           </ion-card-title>
           <div>
-            <ion-button fill="clear" size="small" shape="round" ref="hidden" :disabled="!isEditable"
+            <ion-button mode="md"  fill="clear" size="small" shape="round" ref="hidden" :disabled="!isEditable"
                         @click="semaphore.closeSemaphore()">
               <ion-icon slot="icon-only" :icon="toggleVisibilityIcon()"></ion-icon>
             </ion-button>
-            <ion-button fill="clear" size="small" shape="round" :disabled="!isEditable || !page.isVisible">
+            <ion-button mode="md"  fill="clear" size="small" shape="round" :disabled="!isEditable || !page.isVisible">
               <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
             </ion-button>
           </div>

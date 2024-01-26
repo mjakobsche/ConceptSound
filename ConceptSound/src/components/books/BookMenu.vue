@@ -45,7 +45,7 @@ const hasCover = () => store.book.cover.length > 0;
         </centering-grid>
       </div>
       <inline-elements class="ion-margin-top">
-        <ion-input label="Tytuł:" fill="outline" label-placement="stacked" maxlength="20" v-model="store.book.title"
+        <ion-input label="Tytuł:" mode="md" fill="outline" label-placement="stacked" maxlength="20" v-model="store.book.title"
                    @focusout="store.setBookTitle($event.target.value)"></ion-input>
         <ion-button class="ion-margin-start" shape="round" id="addTag" fill="clear">
           <ion-icon slot="icon-only" :icon="pricetagOutline"></ion-icon>

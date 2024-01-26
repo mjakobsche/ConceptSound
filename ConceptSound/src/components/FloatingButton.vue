@@ -11,3 +11,10 @@ import {addCircleOutline} from "ionicons/icons";
     <slot></slot>
   </ion-fab>
 </template>
+
+<style scoped>
+ion-fab-button {
+  --color: #ebdbb2;
+  --background: #d65d0e;
+}
+</style>

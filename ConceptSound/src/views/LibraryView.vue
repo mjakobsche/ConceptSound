@@ -69,7 +69,7 @@ async function openBook(book) {
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-          <IonInput label="Tytuł:" fill="outline" v-model="filters.titleFilter.value"></IonInput>
+          <IonInput mode="md" label="Tytuł:" fill="outline" v-model="filters.titleFilter.value"></IonInput>
           <hashtag-chips :selected-tags="filters.tagFilter.value"
                          @enable-tag="(tag) => filters.enableTag(tag)"
                          @disable-tag="(tag) => filters.disableTag(tag)"></hashtag-chips>
