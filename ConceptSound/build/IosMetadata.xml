@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-        <string>app</string>
+        <string>ConceptSound</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,8 +22,6 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
         <key>NSMicrophoneUsageDescription</key>
         <string>To record audio notes</string>
-        <key>NSAppleMusicUsageDescription</key>
-        <string>To play audio notes</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

@@ -1,8 +1,8 @@
 import {CapacitorConfig} from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-    appId: 'io.ionic.starter',
-    appName: 'Concept Sound',
+    appId: 'io.ionic.conceptsound',
+    appName: 'ConceptSound',
     webDir: 'dist',
     server: {
         androidScheme: 'https'

@@ -44,7 +44,9 @@ function setPlayer(audio: string) {
     barHeight: 0.5,
     media: new Audio(audio)
   })
-  wavesurfer.on('seeking', () => wavesurfer.play())
+  wavesurfer.on('interaction', () => {
+    wavesurfer.play()
+  })
 }
 </script>
 
