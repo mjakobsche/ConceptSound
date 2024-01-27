@@ -53,14 +53,13 @@ function getBookMetadata(book: Book){
       <img :src="book.cover" alt="cover photo">
     </centering-grid>
     <ion-card-content>
-      <ion-card-subtitle>
-         {{"[ " + renderDate(book.modificationDate) + " ]"}}
-      </ion-card-subtitle>
-      <ion-card-title>{{ book.title }}</ion-card-title>
       <inline-elements>
-        <ion-text v-if="book.tags.length > 0">
-          {{" #" + book.tags.join(" #")}}
-        </ion-text>
+          <ion-text>
+            {{"[ " + renderDate(book.modificationDate) + " ]"}}
+            <ion-text v-if="book.tags.length > 0">
+              {{" #" + book.tags.join(" #")}}
+            </ion-text>
+          </ion-text>
         <div>
           <ion-button
               mode="md"
@@ -80,6 +79,9 @@ function getBookMetadata(book: Book){
             <ion-icon slot="icon-only" :icon="chevronForwardOutline"></ion-icon>
           </ion-button>
         </div>
+      </inline-elements>
+      <ion-card-title>{{ book.title }}</ion-card-title>
+      <inline-elements>
       </inline-elements>
     </ion-card-content>
   </ion-card>

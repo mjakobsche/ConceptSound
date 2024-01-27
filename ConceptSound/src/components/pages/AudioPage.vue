@@ -44,13 +44,10 @@ function setPlayer(audio: string) {
     barHeight: 0.5,
     media: new Audio(`data:audio/webm;codecs=opus;base64,${audio}`)
   })
-  wavesurfer.on('seeking', () => {
-    wavesurfer.play()
-  })
 }
 </script>
 
 <template>
-  <div style="height: 100%; width: 100%" :id="containerElementId"></div>
+  <div style="height: 100%; width: 100%" @click="pageData.length > 0 ? wavesurfer.play() : () => {}" :id="containerElementId"></div>
 </template>
 

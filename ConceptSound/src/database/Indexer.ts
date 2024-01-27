@@ -27,12 +27,19 @@ async function updateBooks() {
     indexesToRemove.forEach((index) => ripFromArray(indexes.value, index));
     const indexesToAdd = currentBookIndexes.filter((bookId) => !indexes.value.map((index) => index.bookId).includes(bookId));
     indexesToAdd.forEach((bookId) => putToArray(indexes.value, new Index(bookId)));
+    sortIndex(currentBookIndexes);
     await saveIndex(indexes.value)
 }
 
 async function updatePages() {
     getCurrentBookIndex().pagesId = getCurrentPageIndexes();
     await saveIndex(indexes.value)
+}
+
+function sortIndex(currentIndexes: string[]){
+    const sortedIndex = [];
+    currentIndexes.forEach((currentIndex) => sortedIndex.push(indexes.value.find((index) => index.bookId == currentIndex)))
+    indexes.value = sortedIndex;
 }
 
 function getCurrentBookIndex() {
