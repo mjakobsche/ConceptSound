@@ -44,7 +44,7 @@ function setPlayer(audio: string) {
     barHeight: 0.5,
     media: new Audio(`data:audio/webm;codecs=opus;base64,${audio}`)
   })
-  wavesurfer.on('interaction', () => {
+  wavesurfer.on('seeking', () => {
     wavesurfer.play()
   })
 }
