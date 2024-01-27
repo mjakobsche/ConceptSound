@@ -4,7 +4,7 @@ import {impact} from "@/utils/Impact";
 export class LongPressGesture {
     private gesture: Gesture;
     private pressStartTime: number = 0;
-    private isPressed: boolean = false;
+    private runImpact;
     private readonly LONG_PRESS_THRESHOLD: number = 1000;
 
     public constructor(target: any, onShortPress, onLongPress) {
@@ -20,24 +20,19 @@ export class LongPressGesture {
 
     private getOnStartFunction() {
         return () => {
-            this.isPressed = true;
             this.pressStartTime = Date.now();
-            setTimeout(async () => {
-                if (this.isPressed) {
-                    impact();
-                }
-            }, this.LONG_PRESS_THRESHOLD);
+            this.runImpact = setTimeout(async () => impact(), this.LONG_PRESS_THRESHOLD);
         }
     }
 
     private getOnEndFunction(onShortPress: Function, onLongPress: Function) {
         return () => {
             if (Date.now() - this.pressStartTime < this.LONG_PRESS_THRESHOLD) {
+                clearTimeout(this.runImpact);
                 onShortPress();
             } else {
                 onLongPress();
             }
-            this.isPressed = false;
         }
     }
 }

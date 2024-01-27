@@ -48,6 +48,6 @@ function setPlayer(audio: string) {
 </script>
 
 <template>
-  <div style="height: 100%; width: 100%" @click="pageData.length > 0 ? wavesurfer.play() : () => {}" :id="containerElementId"></div>
+  <div style="height: 100%; width: 100%" :id="containerElementId"></div>
 </template>
 
