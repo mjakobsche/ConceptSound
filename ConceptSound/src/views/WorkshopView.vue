@@ -47,7 +47,7 @@ const addPage = (pageType: string) => bookService.addPage(pageType).then(() => o
         </ion-toolbar>
       </ion-menu-toggle>
     </ion-header>
-    <ion-content :fullscreen="true">
+    <ion-content>
       <sortable :list="bookService.pages" item-key="id"
                 :options="{
                   handle: '.handle',
@@ -64,11 +64,11 @@ const addPage = (pageType: string) => bookService.addPage(pageType).then(() => o
         <add-page-buttons @add-page="(pageType) => addPage(pageType)"></add-page-buttons>
       </floating-outer-button>
       <modal :is-open="isEditorOpen" :on-dismiss="closeEditor">
-        <editor>
-          <component :is="pageService.editedPage.type + '-editor'"
-                     @save-changes="(data) => pageService.setPageData(data)"
-                     v-bind:page-data="pageService.editedPage.content"></component>
-        </editor>
+          <editor>
+            <component :is="pageService.editedPage.type + '-editor'"
+                       @save-changes="(data) => pageService.setPageData(data)"
+                       v-bind:page-data="pageService.editedPage.content"></component>
+          </editor>
       </modal>
     </ion-content>
   </ion-page>

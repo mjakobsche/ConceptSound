@@ -11,11 +11,7 @@ export class Page implements Entity {
         this.id = new Date().getTime().toString();
         this.type = type;
         this.name = "";
-        this.content = this.getInitialData(type);
+        this.content = "";
         this.isVisible = true;
-    }
-
-    private getInitialData(type: string) {
-        return type === "score" ? "X:1\nK:C\n|]" : "";
     }
 }

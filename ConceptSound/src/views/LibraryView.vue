@@ -15,12 +15,12 @@ import {computed, Ref, ref} from "vue";
 import router from "@/views/Router";
 import BookCard from "@/components/books/BookCard.vue"
 import FloatingButton from "@/components/FloatingButton.vue";
-import AddAlert from "@/components/AddAlert.vue";
 import HashtagChips from "@/components/books/HashtagChips.vue";
 import Modal from "@/components/Modal.vue";
 import {Filters} from "@/helpers/Filters";
 import {useLibraryService} from "@/service/LibraryService";
 import {useBookService} from "@/service/BookService";
+import {addAlert} from "@/utils/AddAlert";
 
 const store = useLibraryService();
 store.initLibrary();
@@ -40,6 +40,8 @@ async function openBook(book) {
   router.push("/book").then().then(() => store.moveToTop(book));
 }
 
+const addBook = () => addAlert((bookTitle) => store.addBook(bookTitle));
+
 </script>
 
 <template>
@@ -54,10 +56,9 @@ async function openBook(book) {
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content :fullscreen="true">
-      <floating-button id="addBook">
+    <ion-content>
+      <floating-button @click="addBook()">
       </floating-button>
-      <add-alert :trigger="'addBook'" @add="(bookTitle) => store.addBook(bookTitle)"></add-alert>
       <div v-for="book in filteredLibrary" :key="book.id">
         <book-card :book="book" @open-book="openBook(book)">
         </book-card>
@@ -78,5 +79,3 @@ async function openBook(book) {
     </ion-content>
   </ion-page>
 </template>
-<style scoped>
-</style>

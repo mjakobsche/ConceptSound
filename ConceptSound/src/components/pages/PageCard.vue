@@ -8,6 +8,7 @@ import InlineElements from "@/components/InlineElements.vue";
 import {Page} from "@/model/Page";
 import {useBookService} from "@/service/BookService";
 import {usePageService} from "@/service/PageService";
+import {removeAlert} from "@/utils/RemoveAlert";
 
 const props = defineProps({
   page: {
@@ -31,7 +32,7 @@ onMounted(() => {
         toggleVisibility();
       },
       () => {
-        removePage();
+        removeAlert(removePage);
       })
 });
 
@@ -47,14 +48,11 @@ async function toggleVisibility() {
   await store.togglePageVisibility()
 }
 
-function removePage() {
-  useBookService().removePage(props.page as Page);
-}
-
 function beforeEdit() {
   store.editPage(props.page as Page)
 }
 
+const removePage = () => useBookService().removePage(props.page as Page);
 const movePageIcon = () => props.page?.name.length > 0 ? 'start' : 'icon-only';
 const toggleVisibilityIcon = () => props.page?.isVisible ? eyeOutline : eyeOffOutline;
 </script>
@@ -72,11 +70,11 @@ const toggleVisibilityIcon = () => props.page?.isVisible ? eyeOutline : eyeOffOu
             </ion-button>
           </ion-card-title>
           <div>
-            <ion-button mode="md"  fill="clear" size="small" shape="round" ref="hidden" :disabled="!isEditable"
+            <ion-button mode="md" fill="clear" size="small" shape="round" ref="hidden" :disabled="!isEditable"
                         @click="semaphore.closeSemaphore()">
               <ion-icon slot="icon-only" :icon="toggleVisibilityIcon()"></ion-icon>
             </ion-button>
-            <ion-button mode="md"  fill="clear" size="small" shape="round" :disabled="!isEditable || !page.isVisible">
+            <ion-button mode="md" fill="clear" size="small" shape="round" :disabled="!isEditable || !page.isVisible">
               <ion-icon slot="icon-only" :icon="addOutline"></ion-icon>
             </ion-button>
           </div>

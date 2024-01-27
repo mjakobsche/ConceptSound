@@ -8,6 +8,7 @@ import {Book} from "@/model/Book";
 import {Semaphore} from "@/helpers/Semaphore";
 import {impact} from "@/utils/Impact";
 import {useLibraryService} from "@/service/LibraryService";
+import {removeAlert} from "@/utils/RemoveAlert";
 
 const props = defineProps({
   book: {
@@ -29,7 +30,9 @@ function renderDate(date: Date): string {
 function removeBook() {
   semaphore.closeSemaphore();
   impact();
-  libraryService.removeBook(props.book as Book);
+  removeAlert(() => {
+    libraryService.removeBook(props.book as Book);
+  })
 }
 
 async function openBook() {
