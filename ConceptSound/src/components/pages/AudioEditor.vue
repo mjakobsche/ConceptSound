@@ -38,7 +38,8 @@ function stopRecording() {
   VoiceRecorder.stopRecording().then((result: RecordingData) => {
     if (result.value) {
       recordingState.value = RecordingState.beforeRetry;
-      emit('saveChanges', result.value.recordDataBase64)
+      const recording = 'data:' + result.value.mimeType + ";base64," + result.value.recordDataBase64;
+      emit('saveChanges', recording)
     }
   })
 }

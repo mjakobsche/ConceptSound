@@ -42,8 +42,9 @@ function setPlayer(audio: string) {
     barGap: 5,
     barRadius: 20,
     barHeight: 0.5,
-    media: new Audio(`data:audio/webm;codecs=opus;base64,${audio}`)
+    media: new Audio(audio)
   })
+  wavesurfer.on('seeking', () => wavesurfer.play())
 }
 </script>
 
