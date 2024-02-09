@@ -1,0 +1,34 @@
+@startuml
+
+[WIDOK_BIBLIOTEKI] as b
+[WIDOK_WARSZTATU] as w
+(operacje na zeszytach) as o
+(filtrowanie zeszytów) as f
+(otwieranie zeszytu) as oz
+(edytowanie danych zeszytu) as e
+(operacje na stronach) as os
+(dodawanie stron) as ds
+(organizacja stron) as org
+
+b -up-> f
+f -up-> (po nazwie)
+f -up-> (po tytule)
+b -down-> o
+o -down-> (tworzenie nowych zeszytów)
+o -down-> (usuwanie istniejących zeszytów)
+b -right-> oz
+
+oz -right-> w
+w -up-> e
+e -up-> (określanie tagów identyfikujących)
+e -up-> (zmiana tytułu zeszytu)
+e -up-> (ustawianie okładki zeszytu)
+w -down-> os
+os -down-> org
+org -down-> (ukrywanie zawartości stron)
+org -down-> (zmiana kolejności stron)
+os -down-> ds
+ds -down-> (wybór typu strony)
+os -right-> (edytowanie zawartości stron)
+os -left-> (usuwanie stron)
+@enduml
