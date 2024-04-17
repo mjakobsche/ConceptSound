@@ -1,8 +1,0 @@
-@startuml
-
-object Index{
-    +bookId: string
-    +pagesId: string[]
-}
-
-@enduml

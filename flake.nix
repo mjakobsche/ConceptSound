@@ -20,10 +20,7 @@
     {
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = with pkgs; [ imagemagick_light node2nix nodejs typescript pandoc (texlive.combine { inherit (texlive) scheme-full; }) vscode-extensions.valentjn.vscode-ltex];
-          shellHook = ''
-            exec zsh 
-          '';
+          packages = with pkgs; [ node2nix nodejs typescript ];
         };
       });
     };
