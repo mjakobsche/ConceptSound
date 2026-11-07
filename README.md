@@ -1,8 +1,7 @@
-# Concept Sound
+## Concept Sound
+**A musicians notebook, allowing to snapshot musical ideas and concepts**
 
-A musicians notebook, allowing to snapshot musical ideas and concepts. 
-
-## Status
+### Status
 
 This is my graduation project (2024).
 The application main functionality is completed.
